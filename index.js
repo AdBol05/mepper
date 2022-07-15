@@ -1,8 +1,6 @@
 var pcm = require('pcm');
 var fs = require('fs');
 
-var min = 1.0;
-var max = -1.0;
 var table = [];
 
 pcm.getPcmData('test.mp3', {stereo: true, smaplerate: 44100 },
