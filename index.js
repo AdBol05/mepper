@@ -3,6 +3,8 @@ var fs = require('fs');
 
 var table = [];
 
+console.log('Resolving PCM data...');
+
 pcm.getPcmData('test.mp3', {stereo: true, smaplerate: 44100 },
     function(sample, channel) {
     // Sample is from [-1.0...1.0], channel is 0 for left and 1 for right
@@ -21,5 +23,6 @@ pcm.getPcmData('test.mp3', {stereo: true, smaplerate: 44100 },
     table = table.toString("utf-8");
     table = table.replaceAll(",", "\n");
     fs.writeFile('pcm.csv', table, 'utf-8', function(err){console.error(err)});
+    console.log('Data written to pcm.csv');
   }
 );
