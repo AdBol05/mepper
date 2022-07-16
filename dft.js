@@ -1,14 +1,33 @@
-const Fourier = require('fourier');
+//const Fourier = require('fourier');
+const AsciiBar = require('ascii-bar').default;
 
 module.exports = function(data) {
   console.log("processing frequencies...");
     var N = data.length;
     var frequencies = [];
 
+    const bar = new AsciiBar({
+      undoneSymbol: "-",
+      doneSymbol: ">",
+      width: 20,
+      formatString: '#count #bar',
+      total: data.length,
+      //enableSpinner: false,
+      //lastUpdateForTiming: false,
+      autoStop : false,
+      //print: true,
+      //start: 0,
+      //startDate: new Date().getTime(),
+      stream: process.stdout,
+      //hideCursor: false,
+    });
+
     // for every frequency...
     for (var freq = 0; freq < N; freq++) {     
         var re = 0;
         var im = 0;
+
+        bar.update(freq);
 
         // for every point in time...
         for (var t = 0; t < N; t++) {

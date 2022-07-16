@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "ascii-bar": "^1.0.3",
     "audio-frequency-tempered": "^1.0.1",
     "fourier": "^0.3.0",
     "pcm": "^1.0.3",
