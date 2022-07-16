@@ -2,9 +2,11 @@ var pcm = require('pcm');
 var fs = require('fs');
 const Fourier = require('fourier');
 
+var dft = require('./dft.js');
+
 var table = [];
 
-
+/*
 //PCM to frequency
 Fourier.Transform = function(data) {
   var N = data.length;
@@ -48,7 +50,7 @@ Fourier.Transform = function(data) {
   return frequencies;
 }
 //PCM to frequency
-
+*/
 
 //MP3 to PCM
 console.log('Resolving PCM data...');
@@ -72,9 +74,7 @@ pcm.getPcmData('test.mp3', {stereo: true, smaplerate: 44100 },
     table_out = table_out.replaceAll(",", "\n");
     fs.writeFile('pcm.csv', table_out, 'utf-8', function(err){console.error(err)});*/
     console.log('Data written to pcm.csv');
-    console.log("Processing frequencies...");
-    console.log("freq");
-    console.log(Fourier.Transform(table));
+    console.log(dft(table));
   }
 );
 //MP3 to PCM

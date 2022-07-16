@@ -71,7 +71,8 @@ export default function dft(inputAmplitudes, zeroThreshold = CLOSE_TO_ZERO_THRES
 -*/
 const Fourier = require('fourier');
 
-Fourier.Transform = function(data) {
+module.exports = function(data) {
+  console.log("processing frequencies...");
     var N = data.length;
     var frequencies = [];
 
@@ -118,6 +119,6 @@ Fourier.Transform = function(data) {
 
     return frequencies;
 }
-
+/*
 console.log("freq");
-console.log(Fourier.Transform);
+console.log(Fourier.Transform);*/
