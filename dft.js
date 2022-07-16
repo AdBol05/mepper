@@ -45,7 +45,6 @@ module.exports = function(data) {
             phase: Math.atan2(im, re) * 180 / Math.PI     // in degrees
         };
     }
-
     return frequencies;
 }
 /*
