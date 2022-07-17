@@ -25,10 +25,10 @@ pcm.getPcmData('test.mp3', {stereo: true, smaplerate: 44100 },
       throw new Error(err);
     //console.log('min=' + min + ', max=' + max);
     console.log(table);
-    /*table_out = table.toString("utf-8");
-    table_out = table_out.replaceAll(",", "\n");
-    fs.writeFile('pcm.csv', table_out, 'utf-8', function(err){console.error(err)});
-    console.log('Data written to pcm.csv');*/
+    //table_out = table.toString("utf-8");
+    //table_out = table_out.replaceAll(",", "\n");
+    fs.writeFileSync("pcm.json",JSON.stringify(table), function(err){console.error(err)});
+    console.log('Data written to pcm.csv');
     console.log(dft(table));
   }
 );
