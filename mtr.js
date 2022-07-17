@@ -70,7 +70,7 @@ module.exports = function(min, max, data) {
             if(sample >= L9 && sample < L8){Lout = '9'; mtr_cnt.M9 = mtr_cnt.M9 + 1;}
             if(sample >= L10 && sample < L9){Lout = '10'; mtr_cnt.M10 = mtr_cnt.M10 + 1;}
             if(sample >= L11 && sample < L10){Lout = '11'; mtr_cnt.M11 = mtr_cnt.M11 + 1;}
-            if(sample >= L12 && sample < L1){Lout = '12'; mtr_cnt.M112 = mtr_cnt.M12 + 1;}
+            if(sample >= L12 && sample < L1){Lout = '12'; mtr_cnt.M12 = mtr_cnt.M12 + 1;}
         }
         if(sample === 0) {Lout = '0'}
 
