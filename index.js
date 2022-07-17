@@ -2,13 +2,17 @@ var pcm = require('pcm');
 var fs = require('fs');
 //const Fourier = require('fourier');
 
-var dft = require('./dft.js');
+//var dft = require('./dft.js');
 //var fft = require('fft-js').fft;
+var mtr = require('./mtr.js');
 
 var table = [];
 
 //MP3 to PCM
 console.log('Resolving PCM data...');
+
+var min = 0;
+var max = 0;
 
 pcm.getPcmData('test.mp3', {stereo: true, smaplerate: 44100 },
     function(sample, channel) {
@@ -17,19 +21,20 @@ pcm.getPcmData('test.mp3', {stereo: true, smaplerate: 44100 },
     sample = parseFloat(sample.toFixed(22));
     //console.log(sample);
     table.push(sample);
-    /*min = Math.min(min, sample);
-    max = Math.max(max, sample);*/
+    min = Math.min(min, sample);
+    max = Math.max(max, sample);
   },
   function(err, output) {
     if (err)
       throw new Error(err);
     //console.log('min=' + min + ', max=' + max);
     console.log(table);
+    console.log("Min: " + min + " Max: " + max);
     //table_out = table.toString("utf-8");
     //table_out = table_out.replaceAll(",", "\n");
     fs.writeFileSync("pcm.json",JSON.stringify(table), function(err){console.error(err)});
-    console.log('Data written to pcm.csv');
-    console.log(dft(table));
+    console.log('Data written to pcm.json');
+    console.log(mtr(min, max, table));
   }
 );
 //MP3 to PCM
