@@ -9,7 +9,7 @@ module.exports = function(data) {
     const bar = new AsciiBar({
       undoneSymbol: "-",
       doneSymbol: ">",
-      width: 20,
+      width: 60,
       formatString: '#count #bar',
       total: data.length,
       //enableSpinner: false,

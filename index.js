@@ -14,7 +14,7 @@ pcm.getPcmData('test.mp3', {stereo: true, smaplerate: 44100 },
     function(sample, channel) {
     // Sample is from [-1.0...1.0], channel is 0 for left and 1 for right
     //console.log(sample);
-    sample = parseFloat(sample.toFixed(5));
+    sample = parseFloat(sample.toFixed(22));
     //console.log(sample);
     table.push(sample);
     /*min = Math.min(min, sample);
