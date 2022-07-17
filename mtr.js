@@ -41,13 +41,13 @@ module.exports = function(min, max, data) {
         if(sample < 0){
 
         }
-        if(sample > 0)[
+        if(sample > 0){
 
-        ]
+        }
         if(sample === 0) {output.push('0')}
 
         i++;
         bar.update(i);
     });
-    return output;
+    return output
 }
