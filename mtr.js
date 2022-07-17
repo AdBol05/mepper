@@ -6,20 +6,21 @@ module.exports = function(min, max, data) {
         undoneSymbol: "-",
         doneSymbol: ">",
         width: 60,
-        formatString: '#count #bar',
+        formatString: '#count #bar #message',
         total: data.length,
         autoStop : false,
+        lastUpdateForTiming: false,
+        hideCursor: false,
         stream: process.stdout,
     });
 
-    /*var min = Math.min(data);
-    var max = Math.max(data);*/
 
     /*
             L1 -> L2 -> L3 -> L4 -> L5 -> L6 -> 0 <- L7 <- L8 <- L9 <- L10 <- L11 <- L12
                                          MAX -> 0 <- MIN
     */
 
+    var Lout = '';
     var L1 = max;
     var L2 = (max/6)*5;
     var L3 = (max/6)*4;
@@ -35,19 +36,31 @@ module.exports = function(min, max, data) {
 
     var output = [];
 
+    var i = 0;
     data.forEach( sample => {
-        let i = 0;
 
-        if(sample < 0){
-
-        }
         if(sample > 0){
-
+            if(sample <= L1 && sample > L2){Lout = '1'}
+            if(sample <= L2 && sample > L3){Lout = '2'}
+            if(sample <= L3 && sample > L4){Lout = '3'}
+            if(sample <= L4 && sample > L5){Lout = '4'}
+            if(sample <= L5 && sample > L6){Lout = '5'}
+            if(sample <= L6 && sample > 0){Lout = '6'}
         }
-        if(sample === 0) {output.push('0')}
+        if(sample < 0){
+            if(sample >= L7 && sample < 0){Lout = '7'}
+            if(sample >= L8 && sample < L7){Lout = '8'}
+            if(sample >= L9 && sample < L8){Lout = '9'}
+            if(sample >= L10 && sample < L9){Lout = '10'}
+            if(sample >= L11 && sample < L10){Lout = '11'}
+            if(sample >= L12 && sample < L1){Lout = '12'}
+        }
+        if(sample === 0) {Lout = '0'}
 
         i++;
-        bar.update(i);
+        output.push(Lout);
+        bar.update(i, Lout);
     });
+    console.log("\n");
     return output
 }
