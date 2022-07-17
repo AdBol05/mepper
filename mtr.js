@@ -78,7 +78,7 @@ module.exports = function(min, max, data) {
         output.push(Lout);
         bar.update(i, Lout);
     });
-    fs.writeFileSync("mtr_cnt.json",JSON.stringify(mtr_out), function(err){console.error(err)});
+    fs.writeFileSync("mtr_cnt.json",JSON.stringify(mtr_cnt), function(err){console.error(err)});
     console.log("\n");
     return output
 }
