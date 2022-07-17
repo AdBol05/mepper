@@ -15,6 +15,11 @@ module.exports = function(min, max, data) {
     /*var min = Math.min(data);
     var max = Math.max(data);*/
 
+    /*
+            L1 -> L2 -> L3 -> L4 -> L5 -> L6 -> 0 <- L7 <- L8 <- L9 <- L10 <- L11 <- L12
+                                         MAX -> 0 <- MIN
+    */
+
     var L1 = max;
     var L2 = (max/6)*5;
     var L3 = (max/6)*4;
