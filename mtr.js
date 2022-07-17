@@ -33,12 +33,21 @@ module.exports = function(min, max, data) {
     var L11 = (min/6)*5;
     var L12 = min;
 
+    var output = [];
+
     data.forEach( sample => {
         let i = 0;
 
+        if(sample < 0){
 
+        }
+        if(sample > 0)[
+
+        ]
+        if(sample === 0) {output.push('0')}
 
         i++;
         bar.update(i);
     });
+    return output;
 }

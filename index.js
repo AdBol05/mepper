@@ -33,8 +33,11 @@ pcm.getPcmData('test.mp3', {stereo: true, smaplerate: 44100 },
     //table_out = table.toString("utf-8");
     //table_out = table_out.replaceAll(",", "\n");
     fs.writeFileSync("pcm.json",JSON.stringify(table), function(err){console.error(err)});
-    console.log('Data written to pcm.json');
-    console.log(mtr(min, max, table));
+    console.log('PCM data written to pcm.json');
+    var mtr_out = mtr(min, max, table);
+    console.log(mtr_out);
+    fs.writeFileSync("mtr.json",JSON.stringify(mtr_out), function(err){console.error(err)});
+    console.log('Output written to mtr.json');
   }
 );
 //MP3 to PCM
