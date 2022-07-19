@@ -4,7 +4,7 @@ var fs = require('fs');
 var mtr_cnt = JSON.parse(fs.readFileSync("./mtr_cnt.json", "utf-8"));
 
 module.exports = function(min, max, data) {
-    console.log("processing frequencies...");
+    console.log("Processing sequence...");
     const bar = new AsciiBar({
         undoneSymbol: "-",
         doneSymbol: ">",
@@ -16,7 +16,6 @@ module.exports = function(min, max, data) {
         hideCursor: false,
         stream: process.stdout,
     });
-
 
     /*
             L1 -> L2 -> L3 -> L4 -> L5 -> L6 -> 0 <- L7 <- L8 <- L9 <- L10 <- L11 <- L12
@@ -50,7 +49,6 @@ module.exports = function(min, max, data) {
     mtr_cnt.M11 = 0;
     mtr_cnt.M12 = 0;
 
-
     var output = [];
 
     var i = 0;
@@ -80,5 +78,7 @@ module.exports = function(min, max, data) {
     });
     fs.writeFileSync("mtr_cnt.json",JSON.stringify(mtr_cnt), function(err){console.error(err)});
     console.log("\n");
+    console.log(output);
+    console.log("cheksum:" + JSON.stringify(mtr_cnt));
     return output
 }
