@@ -1,9 +1,6 @@
 var pcm = require('pcm');
 var fs = require('fs');
-//const Fourier = require('fourier');
 
-//var dft = require('./dft.js');
-//var fft = require('fft-js').fft;
 var mtr = require('./mtr.js');
 
 var table = [];
@@ -17,7 +14,7 @@ var max = 0;
 pcm.getPcmData('test.mp3', {stereo: true, smaplerate: 44100 },
     function(sample, channel) {
     // Sample is from [-1.0...1.0], channel is 0 for left and 1 for right
-    //console.log(sample);
+
     sample = parseFloat(sample.toFixed(22));
     //console.log(sample);
     table.push(sample);
