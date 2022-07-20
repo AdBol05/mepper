@@ -3,4 +3,4 @@ mp3 to 12 stepper motors translation script
 
 # Usage
 Paste desired mp3 to  script's directory and rename it to input.mp3
-The script should output mtr.json(motor sequence), pcm.json(raw pcm data), and mtr_cnt.json(count of each motor's step). mtr.json can be then used to drive these stepper motors.
+The script should output mtr.json(motor sequence), pcm.json(raw pcm data), and mtr_cnt.json(count of each motor's steps). mtr.json can be then used to drive these stepper motors.
