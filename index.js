@@ -9,7 +9,18 @@ var outFile = args[1]
 
 var table = [];
 
-console.log('Resolving PCM data...');
+
+
+                                        
+console.log('\x1b[32m%s\x1b[0m',"   ____ ___  ___  ____  ____  ___  _____  ");
+console.log('\x1b[32m%s\x1b[0m',"  / __ `__ \\/ _ \\/ __ \\/ __ \\/ _ \\/ ___/ ");
+console.log('\x1b[32m%s\x1b[0m'," / / / / / /  __/ /_/ / /_/ /  __/ /    ");
+console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/    ");
+console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                  ");
+
+
+
+console.log('\nResolving PCM data...');
 
 var min = 0;
 var max = 0;
