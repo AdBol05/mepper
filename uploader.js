@@ -1,5 +1,6 @@
 var fs = require('fs');
-var SerialPort = require("serialport");
+var SerialPort = require("serialport").SerialPort;
+
 var data = [];
 
 const args = process.argv.slice(2);
@@ -11,7 +12,7 @@ if (args[2] !== undefined) {speed = args[2];}
 
 var input = JSON.parse(fs.readFileSync(file, "utf-8"));
 
-var serialPort = new SerialPort(port, {//serial communication setup
+var sp = new SerialPort(port, {//serial communication setup
     baudRate: speed
   });
 
@@ -21,7 +22,7 @@ let length = data.length;
 
 for (var i in data) {//send one step at a time
     //console.log(data[i]);
-    serialPort.write(data[i], function(err) {
+    sp.write(data[i], function(err) {
         if (err) {return console.log("Error on write: ", err.message);}
         console.log("Sent step " + i + " of " + length);
     });
