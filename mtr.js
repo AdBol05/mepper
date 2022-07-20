@@ -1,7 +1,20 @@
 const AsciiBar = require('ascii-bar').default;
 var fs = require('fs');
 
-var mtr_cnt = JSON.parse(fs.readFileSync("./mtr_cnt.json", "utf-8"));
+var mtr_cnt = {
+    "M1": 0,
+    "M2": 0,
+    "M3": 0,
+    "M4": 0,
+    "M5": 0,
+    "M6": 0,
+    "M7": 0,
+    "M8": 0,
+    "M9": 0,
+    "M10": 0,
+    "M11": 0,
+    "M12": 0
+}
 
 module.exports = function(min, max, data) {
     console.log("Processing sequence...");
@@ -35,19 +48,6 @@ module.exports = function(min, max, data) {
     var L10 = (min/6)*4;
     var L11 = (min/6)*5;
     var L12 = min;
-
-    mtr_cnt.M1 = 0;
-    mtr_cnt.M2 = 0;
-    mtr_cnt.M3 = 0;
-    mtr_cnt.M4 = 0;
-    mtr_cnt.M5 = 0;
-    mtr_cnt.M6 = 0;
-    mtr_cnt.M7 = 0;
-    mtr_cnt.M8 = 0;
-    mtr_cnt.M9 = 0;
-    mtr_cnt.M10 = 0;
-    mtr_cnt.M11 = 0;
-    mtr_cnt.M12 = 0;
 
     var output = [];
 

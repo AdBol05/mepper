@@ -10,7 +10,7 @@ console.log('Resolving PCM data...');
 var min = 0;
 var max = 0;
 
-pcm.getPcmData('input.mp3', {stereo: true, smaplerate: 44100 },
+pcm.getPcmData('input.mp3', {stereo: true, sampleRate: 44100 },
     function(sample, channel) {// Sample is from [-1.0...1.0], channel is 0 for left and 1 for right
     sample = parseFloat(sample.toFixed(22));
     table.push(sample);
