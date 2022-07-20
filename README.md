@@ -2,7 +2,11 @@
 mp3 to 12 stepper motors translation script
 
 # Usage
-Paste desired mp3 to script's directory, rename it to input.mp3 and run index.js
+Paste desired mp3 to script's directory and run index.js with it's name as the first argument and output file name as the second argument.
+Example:
+
+    node index.js input.mp3 output.json
+
 The script should output mtr.json(motor sequence), pcm.json(raw pcm data), and mtr_cnt.json(count of each motor's steps). mtr.json can be then used to drive these stepper motors.
 
 # index.js
