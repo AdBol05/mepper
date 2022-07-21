@@ -20,6 +20,8 @@ console.log('\x1b[32m%s\x1b[0m'," / / / / / /  __/ /_/ / /_/ /  __/ /  /_____/ /
 console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/         \\__,_/ .___/_/\\____/\\__,_/\\__,_/\\___/_/      ");
 console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                         /_/                                             ");
 
+if(file === undefined || port === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: input filename or port not provided"); process.exit(9);}
+
 var sp = new SerialPort(port, {//serial communication setup
     baudRate: speed
   });

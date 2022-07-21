@@ -15,6 +15,8 @@ console.log('\x1b[32m%s\x1b[0m'," / / / / / /  __/ /_/ / /_/ /  __/ /          "
 console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/         ");
 console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                       ");
 
+if(inFile === undefined || outFile === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: input or output filename not provided"); process.exit(9);}
+
 console.log('\nResolving PCM data...');
 
 var min = 0;
