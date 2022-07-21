@@ -20,7 +20,7 @@ module.exports = function(min, max, data) {
     console.log("Processing sequence...");
     const bar = new AsciiBar({
         undoneSymbol: "-",
-        doneSymbol: ">",
+        doneSymbol: "#",
         width: 60,
         formatString: '#count #bar #message',
         total: data.length,
