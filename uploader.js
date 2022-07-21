@@ -1,5 +1,6 @@
 var fs = require('fs');
 var SerialPort = require("serialport").SerialPort;
+const AsciiBar = require('ascii-bar').default;
 
 var data = [];
 
@@ -27,10 +28,23 @@ for(var i in input)//json file >> array
     data.push(input[i]);
 let length = data.length;
 
+const bar = new AsciiBar({
+    undoneSymbol: "-",
+    doneSymbol: ">",
+    width: 60,
+    formatString: '#count #bar #message',
+    total: length,
+    autoStop : false,
+    lastUpdateForTiming: false,
+    hideCursor: false,
+    stream: process.stdout,
+});
+
 for (var i in data) {//send one step at a time
     //console.log(data[i]);
     sp.write(data[i], function(err) {
         if (err) {return console.log("Error on write #" + i + ":" + err.message);}
-        console.log("Sent step " + i + " of " + length);
+        //console.log("Sent step " + i + " of " + length);
+        bar.update(i, data[i]);
     });
 }
