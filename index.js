@@ -34,8 +34,8 @@ pcm.getPcmData(inFile, {stereo: true, sampleRate: 44100 },
       throw new Error(err);
     console.log(table);
     console.log("Min: " + min + " Max: " + max);
-    fs.writeFileSync("pcm.json",JSON.stringify(table), function(err){console.error(err)});
-    console.log('PCM data written to pcm.json');
+    //fs.writeFileSync("pcm.json",JSON.stringify(table), function(err){console.error(err)});
+    //console.log('PCM data written to pcm.json');
     var mtr_out = mtr(min, max, table);
     fs.writeFileSync(outFile,JSON.stringify(mtr_out), function(err){console.error(err)});
     console.log('Output written to ' + outFile);
