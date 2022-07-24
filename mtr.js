@@ -38,7 +38,7 @@ module.exports = function(min, max, outFile, data) {
     logic.L11 = (min/6)*5;
     logic.L12 = min;
 
-    //split input array into 12 chunks for processing
+    //split input array into 12 chunks for processing (developed on 12 core CPU)
     const listIndex = Math.ceil(data.length / 12);
     const arr_11 = data.splice(-listIndex);
     const arr_10 = data.splice(-listIndex);
