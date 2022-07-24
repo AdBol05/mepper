@@ -17,7 +17,7 @@ console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                       "
 
 if(inFile === undefined || outFile === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: input or output filename not provided"); process.exit(9);}
 
-console.log('\nResolving PCM data...');
+console.log('\nResolving PCM data from ' + inFile + '...');
 
 var min = 0;
 var max = 0;

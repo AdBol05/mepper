@@ -73,6 +73,8 @@ module.exports = function(min, max, outFile, data) {
         let output = [].concat(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11]); //connect result from all threads
         console.log(output); 
         fs.writeFileSync(outFile,JSON.stringify(output), function(err){console.error(err)});//write output to json file
-        console.log('Output written to ' + outFile);
+        console.log('\n================================================================');
+        console.log('\x1b[32m%s\x1b[0m','Done. Output written to ' + outFile);
+        console.log('================================================================');
     })();
 }
