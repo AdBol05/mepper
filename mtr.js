@@ -1,84 +1,83 @@
-const AsciiBar = require('ascii-bar').default;
 var fs = require('fs');
 
-var mtr_cnt = {
-    "M1": 0,
-    "M2": 0,
-    "M3": 0,
-    "M4": 0,
-    "M5": 0,
-    "M6": 0,
-    "M7": 0,
-    "M8": 0,
-    "M9": 0,
-    "M10": 0,
-    "M11": 0,
-    "M12": 0
+const path = require('path');
+const Piscina = require('piscina');
+
+const pool = new Piscina({
+  filename: path.resolve(__dirname, 'worker.js')
+});
+
+module.exports = function(min, max, outFile, data) {
+
+/*console.log("Reading json file...");
+let data = JSON.parse(fs.readFileSync('pcm.json'));*/
+
+var logic = {
+    "L1": 0.0,
+    "L2": 0.0,
+    "L3": 0.0,
+    "L4": 0.0,
+    "L5": 0.0,
+    "L6": 0.0,
+    "L7": 0.0,
+    "L8": 0.0,
+    "L9": 0.0,
+    "L10": 0.0,
+    "L11": 0.0,
+    "L12": 0.0
 }
 
-module.exports = function(min, max, data) {
-    console.log("Processing sequence...");
-    const bar = new AsciiBar({
-        undoneSymbol: "-",
-        doneSymbol: "#",
-        width: 60,
-        formatString: '#count #bar #message',
-        total: data.length,
-        autoStop : false,
-        lastUpdateForTiming: false,
-        hideCursor: false,
-        stream: process.stdout,
-    });
+logic.L1 = max;
+logic.L2 = (max/6)*5;
+logic.L3 = (max/6)*4;
+logic.L4 = (max/6)*3;
+logic.L5 = (max/6)*2;
+logic.L6 = max/6;
+logic.L7 = min/6;
+logic.L8 = (min/6)*2;
+logic.L9 = (min/6)*3;
+logic.L10 = (min/6)*4;
+logic.L11 = (min/6)*5;
+logic.L12 = min;
 
-    /*
-            L1 -> L2 -> L3 -> L4 -> L5 -> L6 -> 0 <- L7 <- L8 <- L9 <- L10 <- L11 <- L12
-                                         MAX -> 0 <- MIN
-    */
+//split input array into 12 chunks for processing
+const listIndex = Math.ceil(data.length / 12);
+const arr_11 = data.splice(-listIndex);
+const arr_10 = data.splice(-listIndex);
+const arr_9 = data.splice(-listIndex);
+const arr_8 = data.splice(-listIndex);
+const arr_7 = data.splice(-listIndex);
+const arr_6 = data.splice(-listIndex);
+const arr_5 = data.splice(-listIndex);
+const arr_4 = data.splice(-listIndex);
+const arr_3 = data.splice(-listIndex);
+const arr_2 = data.splice(-listIndex);
+const arr_1 = data.splice(-listIndex);
+const arr_0 = data;
 
-    var Lout = '';
-    var L1 = max;
-    var L2 = (max/6)*5;
-    var L3 = (max/6)*4;
-    var L4 = (max/6)*3;
-    var L5 = (max/6)*2;
-    var L6 = max/6;
-    var L7 = min/6;
-    var L8 = (min/6)*2;
-    var L9 = (min/6)*3;
-    var L10 = (min/6)*4;
-    var L11 = (min/6)*5;
-    var L12 = min;
+console.log("Processing sequence...");
 
-    var output = [];
-
-    var i = 0;
-    data.forEach( sample => {
-
-        if(sample > 0){
-            if(sample <= L1 && sample > L2){Lout = '1'; mtr_cnt.M1 = mtr_cnt.M1 + 1;}
-            if(sample <= L2 && sample > L3){Lout = '2'; mtr_cnt.M2 = mtr_cnt.M2 + 1;}
-            if(sample <= L3 && sample > L4){Lout = '3'; mtr_cnt.M3 = mtr_cnt.M3 + 1;}
-            if(sample <= L4 && sample > L5){Lout = '4'; mtr_cnt.M4 = mtr_cnt.M4 + 1;}
-            if(sample <= L5 && sample > L6){Lout = '5'; mtr_cnt.M5 = mtr_cnt.M5 + 1;}
-            if(sample <= L6 && sample > 0){Lout = '6'; mtr_cnt.M6 = mtr_cnt.M6 + 1;}
-        }
-        if(sample < 0){
-            if(sample >= L7 && sample < 0){Lout = '7'; mtr_cnt.M7 = mtr_cnt.M7 + 1;}
-            if(sample >= L8 && sample < L7){Lout = '8'; mtr_cnt.M8 = mtr_cnt.M8 + 1;}
-            if(sample >= L9 && sample < L8){Lout = '9'; mtr_cnt.M9 = mtr_cnt.M9 + 1;}
-            if(sample >= L10 && sample < L9){Lout = '10'; mtr_cnt.M10 = mtr_cnt.M10 + 1;}
-            if(sample >= L11 && sample < L10){Lout = '11'; mtr_cnt.M11 = mtr_cnt.M11 + 1;}
-            if(sample >= L12 && sample < L1){Lout = '12'; mtr_cnt.M12 = mtr_cnt.M12 + 1;}
-        }
-        if(sample === 0) {Lout = '0'}
-
-        i++;
-        output.push(Lout);
-        bar.update(i, Lout);
-    });
-    fs.writeFileSync("mtr_cnt.json",JSON.stringify(mtr_cnt), function(err){console.error(err)});
-    console.log("\n");
-    console.log(output);
-    console.log("cheksum:" + JSON.stringify(mtr_cnt));
-    return output
+(async function() {
+    let result = await Promise.all([
+        pool.run({data: arr_0, logic: logic}),
+        pool.run({data: arr_1, logic: logic}),
+        pool.run({data: arr_2, logic: logic}),
+        pool.run({data: arr_3, logic: logic}),
+        pool.run({data: arr_4, logic: logic}),
+        pool.run({data: arr_5, logic: logic}),
+        pool.run({data: arr_6, logic: logic}),
+        pool.run({data: arr_7, logic: logic}),
+        pool.run({data: arr_8, logic: logic}),
+        pool.run({data: arr_9, logic: logic}),
+        pool.run({data: arr_10, logic: logic}),
+        pool.run({data: arr_11, logic: logic}),
+    ]);
+    //console.log(result);
+    let output = [].concat(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11]);
+    console.log(output); 
+    //fs.writeFileSync('output.json',JSON.stringify(output), function(err){console.error(err)});
+    //console.log('Output written to output.json');
+    fs.writeFileSync(outFile,JSON.stringify(output), function(err){console.error(err)});
+    console.log('Output written to ' + outFile);
+  })();
 }
