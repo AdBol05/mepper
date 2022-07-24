@@ -9,9 +9,6 @@ const pool = new Piscina({
 
 module.exports = function(min, max, outFile, data) {
 
-/*console.log("Reading json file...");
-let data = JSON.parse(fs.readFileSync('pcm.json'));*/
-
 var logic = {
     "L1": 0.0,
     "L2": 0.0,
@@ -27,6 +24,7 @@ var logic = {
     "L12": 0.0
 }
 
+//resolve waveform sections
 logic.L1 = max;
 logic.L2 = (max/6)*5;
 logic.L3 = (max/6)*4;
@@ -57,7 +55,7 @@ const arr_0 = data;
 
 console.log("Processing sequence...");
 
-(async function() {
+(async function() { //launch 12 threads
     let result = await Promise.all([
         pool.run({data: arr_0, logic: logic}),
         pool.run({data: arr_1, logic: logic}),
@@ -72,12 +70,9 @@ console.log("Processing sequence...");
         pool.run({data: arr_10, logic: logic}),
         pool.run({data: arr_11, logic: logic}),
     ]);
-    //console.log(result);
-    let output = [].concat(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11]);
+    let output = [].concat(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11]); //connect result from all threads
     console.log(output); 
-    //fs.writeFileSync('output.json',JSON.stringify(output), function(err){console.error(err)});
-    //console.log('Output written to output.json');
-    fs.writeFileSync(outFile,JSON.stringify(output), function(err){console.error(err)});
+    fs.writeFileSync(outFile,JSON.stringify(output), function(err){console.error(err)});//write output to json file
     console.log('Output written to ' + outFile);
   })();
 }

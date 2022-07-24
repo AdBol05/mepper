@@ -26,7 +26,7 @@ pcm.getPcmData(inFile, {stereo: true, sampleRate: 44100 },
     function(sample, channel) {// Sample is from [-1.0...1.0], channel is 0 for left and 1 for right
     sample = parseFloat(sample.toFixed(22));
     table.push(sample);
-    min = Math.min(min, sample);
+    min = Math.min(min, sample);//get min and max values
     max = Math.max(max, sample);
   },
   function(err, output) {
@@ -34,6 +34,6 @@ pcm.getPcmData(inFile, {stereo: true, sampleRate: 44100 },
       throw new Error(err);
     console.log(table);
     console.log("Min: " + min + " Max: " + max);
-    mtr(min, max, outFile, table);
+    mtr(min, max, outFile, table); //launch mtr.js and pass min, max output filename and pcm data table to it
   }
 );

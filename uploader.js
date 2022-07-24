@@ -43,7 +43,6 @@ const bar = new AsciiBar({
 });
 
 for (var i in data) {//send one step at a time
-    //console.log(data[i]);
     sp.write(data[i], function(err) {
         if (err) {return console.log("Error on write #" + i + ":" + err.message);}
         //console.log("Sent step " + i + " of " + length);
