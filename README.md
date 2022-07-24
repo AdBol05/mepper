@@ -7,7 +7,9 @@ Example:
 
     node index.js input.mp3 output.json
 
-The created file can be then used to drive these stepper motors.
+The created file can then be used to drive the stepper motors.
+
+        node uploader.js output.json COM1
 
 # index.js
 Decodes the mp3 file to pcm data and splits the decoded waveform into "horizontal" sections. Then determines the motor sequence based on these sections.
