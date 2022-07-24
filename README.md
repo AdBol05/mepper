@@ -18,3 +18,5 @@ Decodes the mp3 file to pcm data and splits the decoded waveform into "horizonta
 uploader.js is used to send the motor data to an arduino or any other microcontroller, which controlls the stepper motors.
 
 # NOTE: This script has not been tested in any way yet!!!
+
+Arduino firmware coming soon...
