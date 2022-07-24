@@ -9,7 +9,7 @@ Example:
 
 The created file can then be used to drive the stepper motors. Run uploader.js with json file and port number as arguments. Optionally you can set custom baud rate as a third argument(9600 is default).
 
-        node uploader.js output.json COM1
+    node uploader.js output.json COM1
 
 # index.js
 Decodes the mp3 file to pcm data and splits the decoded waveform into "horizontal" sections. Then determines the motor sequence based on these sections.
