@@ -7,7 +7,7 @@ Example:
 
     node index.js input.mp3 output.json
 
-The created file can then be used to drive the stepper motors. Run uploader.js with json file and port number as arguments. Optionally you can set custom baud as a third argument(9600 is default).
+The created file can then be used to drive the stepper motors. Run uploader.js with json file and port number as arguments. Optionally you can set custom baud rate as a third argument(9600 is default).
 
         node uploader.js output.json COM1
 
