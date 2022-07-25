@@ -1,7 +1,7 @@
 module.exports = ({ data, logic }) => {
-    let output = [];
-    let Lout = '';
-    data.forEach( sample => {
+    let output = [];//output data table
+    let Lout = '';  //temporary section storage
+    data.forEach( sample => {//determine section for each sample 
         if(sample > 0){
             if(sample <= logic.L1 && sample > logic.L2){Lout = '1';}
             if(sample <= logic.L2 && sample > logic.L3){Lout = '2';}
@@ -19,7 +19,12 @@ module.exports = ({ data, logic }) => {
             if(sample >= logic.L12 && sample < logic.L1){Lout = '12';}
         }
         if(sample === 0) {Lout = '0'}    
-        output.push(Lout);
+        output.push(Lout);//add resolved section to output table
     });
     return output;
   };
+
+   /*
+            L1 -> L2 -> L3 -> L4 -> L5 -> L6 -> 0 <- L7 <- L8 <- L9 <- L10 <- L11 <- L12
+                                         MAX -> 0 <- MIN
+    */

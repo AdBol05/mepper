@@ -1,20 +1,20 @@
 var pcm = require('pcm');
-var fs = require('fs');
-
 var mtr = require('./mtr.js');
 
-const args = process.argv.slice(2);
-var inFile = args[0]
-var outFile = args[1]
+const args = process.argv.slice(2);//process arguments
+var inFile = args[0] //input filename
+var outFile = args[1]//output filename
 
-var table = [];
-                                        
+var table = []; //pcm data table
+
+//welcome screen
 console.log('\x1b[32m%s\x1b[0m',"   ____ ___  ___  ____  ____  ___  _____      ");
 console.log('\x1b[32m%s\x1b[0m',"  / __ `__ \\/ _ \\/ __ \\/ __ \\/ _ \\/ ___/ ");
 console.log('\x1b[32m%s\x1b[0m'," / / / / / /  __/ /_/ / /_/ /  __/ /          ");
 console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/         ");
 console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                       ");
 
+//input check
 if(inFile === undefined || outFile === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: input or output filename not provided"); process.exit(9);}
 
 console.log('\nResolving PCM data from ' + inFile + '...');
@@ -24,8 +24,9 @@ var max = 0;
 
 pcm.getPcmData(inFile, {stereo: true, sampleRate: 44100 },
     function(sample) {// Sample is from [-1.0...1.0], channel is 0 for left and 1 for right
-    sample = parseFloat(sample.toFixed(22));
-    table.push(sample);
+    //sample = parseFloat(sample.toFixed(22));
+    sample = parseFloat(sample.toFixed(22));//format sample to float with 22 decimal places
+    table.push(sample);//add sample to table
     min = Math.min(min, sample);//get min and max values
     max = Math.max(max, sample);
   },
