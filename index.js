@@ -23,13 +23,13 @@ var min = 0;
 var max = 0;
 
 pcm.getPcmData(inFile, {stereo: true, sampleRate: 44100 },
-    function(sample, channel) {// Sample is from [-1.0...1.0], channel is 0 for left and 1 for right
+    function(sample) {// Sample is from [-1.0...1.0], channel is 0 for left and 1 for right
     sample = parseFloat(sample.toFixed(22));
     table.push(sample);
     min = Math.min(min, sample);//get min and max values
     max = Math.max(max, sample);
   },
-  function(err, output) {
+  function(err) {
     if (err)
       throw new Error(err);
     console.log(table);
