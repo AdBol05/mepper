@@ -74,7 +74,7 @@ module.exports = function(min, max, outFile, data) {
         console.log(output); 
         fs.writeFileSync(outFile,JSON.stringify(output), function(err){console.error(err)});//write output to json file
         console.log('\n================================================================');
-        console.log('\x1b[32m%s\x1b[0m','Done. Output written to ' + outFile);
+        console.log('\x1b[32m%s\x1b[0m','Done in ' + process.uptime().toFixed() + 's. Output written to ' + outFile);
         console.log('================================================================');
     })();
 }
