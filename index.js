@@ -29,8 +29,7 @@ pcm.getPcmData(inFile, {stereo: true, sampleRate: 44100 },
     max = Math.max(max, sample);
   },
   function(err) {
-    if (err)
-      throw new Error(err);
+    if (err){throw new Error(err);}
     console.log(table);
     console.log("Min: " + min + " Max: " + max);
     mtr(min, max, outFile, table); //launch mtr.js and pass min, max output filename and pcm data table to it
