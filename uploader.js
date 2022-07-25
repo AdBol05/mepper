@@ -28,8 +28,7 @@ var sp = new SerialPort(port, {//serial communication setup
     baudRate: speed
   });
 
-for(var i in input)//json file >> array
-    data.push(input[i]);
+for(var i in input){data.push(input[i]);}//json file >> array
 let length = data.length;
 
 const bar = new AsciiBar({//ascii loading bar setup
