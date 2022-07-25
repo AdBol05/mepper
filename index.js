@@ -24,8 +24,6 @@ var max = 0;
 
 pcm.getPcmData(inFile, {stereo: true, sampleRate: 44100 },
     function(sample) {// Sample is from [-1.0...1.0], channel is 0 for left and 1 for right
-    //sample = parseFloat(sample.toFixed(22));
-    sample = parseFloat(sample.toFixed(22));//format sample to float with 22 decimal places
     table.push(sample);//add sample to table
     min = Math.min(min, sample);//get min and max values
     max = Math.max(max, sample);
