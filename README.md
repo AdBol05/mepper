@@ -16,6 +16,4 @@ Decodes the mp3 file to pcm data and splits the decoded waveform into "horizonta
 # uploader.js
 uploader.js is used to send the motor data to an arduino or any other microcontroller, which controlls the stepper motors.
 
-# NOTE: This script has not been tested on real hardware yet!!!
-
-# Arduino firmware coming soon...
+# NOTE: This project has not been appropriately tested and is still in development!!! Any feedback or suggestion is welcome.
