@@ -54,7 +54,7 @@ async function run(data) {
             if (err) {return console.log("Error on write #" + i + ":" + err.message);}
         });
         bar.update(i);
-        await delay(10);
+        await delay(25);
     }
 }
 
