@@ -33,7 +33,7 @@ void mtr(String ID){
 void setup() {
   Serial.begin(250000);
   pinMode(13, OUTPUT);
-  for(int i = 22; i <= 32; i++){pinMode(i, OUTPUT);}
+  for(int i = 22; i <= 33; i++){pinMode(i, OUTPUT);}
 }
 
 void loop() {

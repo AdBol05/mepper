@@ -40,7 +40,7 @@ const bar = new AsciiBar({//ascii loading bar setup
     undoneSymbol: "-",
     doneSymbol: ">",
     width: 60,
-    formatString: '#count #bar',
+    formatString: '#count #bar #message',
     total: length,
     autoStop : false,
     lastUpdateForTiming: false,
@@ -53,7 +53,7 @@ async function run(data) {
         serialport.write(data[i], function(err) {
             if (err) {return console.log("Error on write #" + i + ":" + err.message);}
         });
-        bar.update(i);
+        bar.update(i, data[i]);
         await delay(25);//TODO: find the right timing
     }
 }
