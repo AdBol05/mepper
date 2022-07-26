@@ -4,7 +4,7 @@ String input = "";
 
 void mtr(String ID){
   int step = 0;
-  int Delay = 10;
+  int Delay = 10;//TODO: find the right timing
   if(ID == "M"){step = 13;}//integrated LED -> silence
   if(ID == "A"){step = 22;}
   if(ID == "B"){step = 23;}

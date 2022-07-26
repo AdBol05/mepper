@@ -13,7 +13,7 @@ if (args[2] !== undefined) {speed = Number(args[2]);}//set custom baud rate if p
 
 var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 
-function delay(time) {
+function delay(time) {//"sleep" function
     return new Promise(resolve => setTimeout(resolve, time));
 }
 
@@ -54,7 +54,7 @@ async function run(data) {
             if (err) {return console.log("Error on write #" + i + ":" + err.message);}
         });
         bar.update(i);
-        await delay(25);
+        await delay(25);//TODO: find the right timing
     }
 }
 
