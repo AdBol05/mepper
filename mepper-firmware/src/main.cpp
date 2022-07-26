@@ -1,7 +1,6 @@
 #include <Arduino.h>
 
 String input = "";
-//int out = 0;
 
 void mtr(String ID){
   int step = 0;
@@ -20,8 +19,6 @@ void mtr(String ID){
   if(ID == "K"){step = 13;}
   if(ID == "L"){step = 14;}
 
-  //Serial.print("Step: ");
-  //Serial.print(step);
   digitalWrite(step, HIGH);
   delay(Delay);
   digitalWrite(step, LOW);
@@ -31,16 +28,10 @@ void mtr(String ID){
 
 void setup() {
   Serial.begin(250000);
-  //Serial.println("welcome");
   for(int i = 2; i <= 14; i++){pinMode(i, OUTPUT);}
-  //Serial.println("ready");
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  //if (Serial.available() > 0) {
-    // read the incoming byte:
-    input = Serial.readString();
-    mtr(input);
-  //}
+  input = Serial.readString();
+  mtr(input);
 }
