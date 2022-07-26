@@ -3,6 +3,7 @@ var SerialPort = require("serialport").SerialPort;
 const AsciiBar = require('ascii-bar').default;
 
 var data = [];
+let out = 0;
 
 const args = process.argv.slice(2);
 
@@ -44,7 +45,8 @@ const bar = new AsciiBar({//ascii loading bar setup
 });
 
 for (var i in data) {//send one step at a time
-    sp.write(data[i], function(err) {
+    out = parseInt(data[i]);
+    sp.write(out, function(err) {
         if (err) {return console.log("Error on write #" + i + ":" + err.message);}
         //console.log("Sent step " + i + " of " + length);
         bar.update(i, data[i]);
