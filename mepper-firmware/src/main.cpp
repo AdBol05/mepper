@@ -5,19 +5,19 @@ String input = "";
 void mtr(String ID){
   int step = 0;
   int Delay = 10;
-  if(ID == "M"){step = 2;}
-  if(ID == "A"){step = 3;}
-  if(ID == "B"){step = 4;}
-  if(ID == "C"){step = 5;}
-  if(ID == "D"){step = 6;}
-  if(ID == "E"){step = 7;}
-  if(ID == "F"){step = 8;}
-  if(ID == "G"){step = 9;}
-  if(ID == "H"){step = 10;}
-  if(ID == "I"){step = 11;}
-  if(ID == "J"){step = 12;}
-  if(ID == "K"){step = 13;}
-  if(ID == "L"){step = 14;}
+  if(ID == "M"){step = 13;}//integrated LED -> silence
+  if(ID == "A"){step = 22;}
+  if(ID == "B"){step = 23;}
+  if(ID == "C"){step = 24;}
+  if(ID == "D"){step = 25;}
+  if(ID == "E"){step = 26;}
+  if(ID == "F"){step = 27;}
+  if(ID == "G"){step = 28;}
+  if(ID == "H"){step = 28;}
+  if(ID == "I"){step = 29;}
+  if(ID == "J"){step = 30;}
+  if(ID == "K"){step = 31;}
+  if(ID == "L"){step = 32;}
 
   digitalWrite(step, HIGH);
   delay(Delay);
@@ -28,7 +28,8 @@ void mtr(String ID){
 
 void setup() {
   Serial.begin(250000);
-  for(int i = 2; i <= 14; i++){pinMode(i, OUTPUT);}
+  pinMode(13, OUTPUT);
+  for(int i = 22; i <= 32; i++){pinMode(i, OUTPUT);}
 }
 
 void loop() {
