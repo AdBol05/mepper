@@ -5,7 +5,7 @@ String input = "";
 
 void mtr(String ID){
   int step = 0;
-  int Delay = 100;
+  int Delay = 0;
   if(ID == "M"){step = 2;}
   if(ID == "A"){step = 3;}
   if(ID == "B"){step = 4;}
@@ -26,19 +26,21 @@ void mtr(String ID){
   delay(Delay);
   digitalWrite(step, LOW);
   delay(Delay);
+  //Serial.println("ready");
 }
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   //Serial.println("welcome");
   for(int i = 2; i <= 14; i++){pinMode(i, OUTPUT);}
+  //Serial.println("ready");
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if (Serial.available() > 0) {
+  //if (Serial.available() > 0) {
     // read the incoming byte:
     input = Serial.readString();
     mtr(input);
-  }
+  //}
 }

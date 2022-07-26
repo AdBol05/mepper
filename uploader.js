@@ -1,16 +1,16 @@
 var fs = require('fs');
 var SerialPort = require("serialport").SerialPort;
 const AsciiBar = require('ascii-bar').default;
+//const { ReadlineParser } = require('@serialport/parser-readline');
 
 var data = [];
-let out = 0;
 
 const args = process.argv.slice(2);
 
 let file = args[0];//input filename
 let port = args[1];//port number
 let speed = 9600;//baud rate
-if (args[2] !== undefined) {speed = args[2];}//set custom baud rate if provided
+if (args[2] !== undefined) {speed = Number(args[2]);}//set custom baud rate if provided
 
 var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 
@@ -24,11 +24,19 @@ console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                        
 
 //input check
 if(file === undefined || port === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: input filename or port not provided"); process.exit(9);}
-
-var sp = new SerialPort(/*port, */{//serial communication setup
+/*
+const parsers = SerialPort.parsers;
+console.log(SerialPort.parsers);
+const parser = new parsers.Readline({ 
+    delimiter: '\r\n'
+  });
+*/
+var serialport = new SerialPort(/*port, */{//serial communication setup
     path: port,
     baudRate: speed
   });
+/*const parser = new ReadlineParser()
+serialport.pipe(parser)*/
 
 for(var i in input){data.push(input[i]);}//json file >> array
 let length = data.length;
@@ -47,13 +55,23 @@ const bar = new AsciiBar({//ascii loading bar setup
 
 //sp.open();
 
-sp.on('open',function() {
+let response = "wait";
+
+serialport.on('open',function() {
     //console.log('Serial Port ' + arduinoCOMPort + ' is opened.');
     for (var i in data) {
-        sp.write(data[i], function(err) {
+        serialport.write(data[i], function(err) {
             if (err) {return console.log("Error on write #" + i + ":" + err.message);}
         });
-        bar.update(i, data[i]);
+        bar.update(i);
+        response = "wait";
+        /*while (response === "wait"){
+            //console.log("waiting for reply")
+            parser.on('data', function(Sin){
+                console.log(Sin);
+                response = Sin; 
+            });
+        }*/
     }
   });
 
