@@ -6,18 +6,22 @@ void mtr(String ID){
   int step = 0;
   int Delay = 10;//TODO: find the right timing
   if(ID == "M"){step = 13;}//integrated LED -> silence
+
   if(ID == "A"){step = 22;}
   if(ID == "B"){step = 23;}
   if(ID == "C"){step = 24;}
+
   if(ID == "D"){step = 25;}
   if(ID == "E"){step = 26;}
   if(ID == "F"){step = 27;}
+
   if(ID == "G"){step = 28;}
-  if(ID == "H"){step = 28;}
-  if(ID == "I"){step = 29;}
-  if(ID == "J"){step = 30;}
-  if(ID == "K"){step = 31;}
-  if(ID == "L"){step = 32;}
+  if(ID == "H"){step = 29;}
+  if(ID == "I"){step = 30;}
+
+  if(ID == "J"){step = 31;}
+  if(ID == "K"){step = 32;}
+  if(ID == "L"){step = 33;}
 
   digitalWrite(step, HIGH);
   delay(Delay);
