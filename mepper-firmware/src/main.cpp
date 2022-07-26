@@ -19,4 +19,5 @@ void loop() {
     // read the incoming byte:
     input = Serial.read();
     mtr(input, 1);
+  }
 }
