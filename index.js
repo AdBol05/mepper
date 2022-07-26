@@ -22,9 +22,9 @@ console.log('\nResolving PCM data from ' + inFile + '...');
 var min = 0;
 var max = 0;
 
-pcm.getPcmData(inFile, {stereo: true, sampleRate: 150 },
+pcm.getPcmData(inFile, {stereo: true, sampleRate: 150 },//TODO: 
     function(sample) {// Sample is from [-1.0...1.0], channel is 0 for left and 1 for right
-    table.push(sample);//add sample to table
+    table.push(sample);//add sample to tablefind the right samplerate
     min = Math.min(min, sample);//get min and max values
     max = Math.max(max, sample);
   },
