@@ -25,7 +25,8 @@ console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                        
 //input check
 if(file === undefined || port === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: input filename or port not provided"); process.exit(9);}
 
-var sp = new SerialPort(port, {//serial communication setup
+var sp = new SerialPort(/*port, */{//serial communication setup
+    path: port,
     baudRate: speed
   });
 
@@ -44,11 +45,26 @@ const bar = new AsciiBar({//ascii loading bar setup
     stream: process.stdout,
 });
 
-for (var i in data) {//send one step at a time
-    out = parseInt(data[i]);
-    sp.write(out, function(err) {
-        if (err) {return console.log("Error on write #" + i + ":" + err.message);}
-        //console.log("Sent step " + i + " of " + length);
+//sp.open();
+
+sp.on('open',function() {
+    //console.log('Serial Port ' + arduinoCOMPort + ' is opened.');
+    for (var i in data) {
+        sp.write(data[i], function(err) {
+            if (err) {return console.log("Error on write #" + i + ":" + err.message);}
+        });
         bar.update(i, data[i]);
+    }
+  });
+
+/*
+//for (var i in data) {//send one step at a time
+    //out = parseInt(data[i]);
+    sp.write("13", function(err) {
+        if (err) {return console.log("Error on write #" + i + ":" + err.message);}
     });
-}
+    //console.log("Sent step " + i + " of " + length);
+    bar.update(i, data[i]);
+
+//}
+*/
