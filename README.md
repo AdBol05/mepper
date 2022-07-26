@@ -6,7 +6,7 @@ Paste desired mp3 to script's directory and run index.js with it's name as the f
 
     node index.js input.mp3 output.json
 
-The created file can then be used to drive the stepper motors. Run uploader.js with json file and port number as arguments. Optionally you can set custom baud rate as a third argument(9600 is default).
+The created file can then be used to drive the stepper motors. Run uploader.js with json file and port number as arguments. Optionally you can set custom baud rate as a third argument(9600 is default, firmware is set to 250000).
 
     node uploader.js output.json COM1
 
