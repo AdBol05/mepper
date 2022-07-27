@@ -1,4 +1,19 @@
 var Gpio = require('onoff').Gpio;
+var fs = require('fs');
+
+const args = process.argv.slice(2);
+if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
+else{let file = args[0];};
+
+console.log('\x1b[32m%s\x1b[0m',"                                                _____                                               ");
+console.log('\x1b[32m%s\x1b[0m',"    ____ ___  ___  ____  ____  ___  _____      / __(_)________ ___ _      ______ _________          ");
+console.log('\x1b[32m%s\x1b[0m',"   / __ `__ \\/ _ \\/ __ \\/ __ \\/ _ \\/ ___/_____/ /_/ / ___/ __ `__ \\ | /| / / __ `/ ___/ _ \\  ");
+console.log('\x1b[32m%s\x1b[0m',"  / / / / / /  __/ /_/ / /_/ /  __/ /  /_____/ __/ / /  / / / / / / |/ |/ / /_/ / /  /  __/         ");
+console.log('\x1b[32m%s\x1b[0m'," /_/ /_/ /_/\___/ .___/ .___/\___/_/        /_/ /_/_/  /_/ /_/ /_/|__/|__/\__,_/_/   \___/          ");
+console.log('\x1b[32m%s\x1b[0m',"               /_/   /_/                                                                            ");
+
+var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
+
 var M1 = new Gpio(14, 'out');
 var M2 = new Gpio(15, 'out');
 var M3 = new Gpio(18, 'out');
@@ -12,6 +27,20 @@ var M10 = new Gpio(12, 'out');
 var M11 = new Gpio(16, 'out');
 var M12 = new Gpio(20, 'out');
 var M1 = new Gpio(21, 'out');
+
+for(var i in input){data.push(input[i]);}//json file >> array
+
+const bar = new AsciiBar({//ascii loading bar setup
+    undoneSymbol: "-",
+    doneSymbol: ">",
+    width: 60,
+    formatString: '#count #bar #message',
+    total: length,
+    autoStop : false,
+    lastUpdateForTiming: false,
+    hideCursor: false,
+    stream: process.stdout,
+});
 
 var pause = 100;
 
