@@ -1,6 +1,9 @@
 # mepper
 mp3 to 12 stepper motors translation script
 
+# Before use
+You need to install all dependencies as well as ffmpeg.
+
 # Usage
 Paste desired mp3 to script's directory and run index.js with it's name as the first argument and output file name as the second argument.
 
