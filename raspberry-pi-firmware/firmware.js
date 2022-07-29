@@ -3,7 +3,7 @@ var fs = require('fs');
 
 const args = process.argv.slice(2);
 if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
-else{let file = args[0];};
+else{var file = args[0];};
 
 console.log('\x1b[32m%s\x1b[0m',"                                                _____                                               ");
 console.log('\x1b[32m%s\x1b[0m',"    ____ ___  ___  ____  ____  ___  _____      / __(_)________ ___ _      ______ _________          ");
