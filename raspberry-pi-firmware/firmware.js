@@ -5,6 +5,8 @@ const args = process.argv.slice(2);
 if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
 else{var file = args[0];};
 
+var pause = 100;
+
 console.log('\x1b[32m%s\x1b[0m',"                                                _____                                               ");
 console.log('\x1b[32m%s\x1b[0m',"    ____ ___  ___  ____  ____  ___  _____      / __(_)________ ___ _      ______ _________          ");
 console.log('\x1b[32m%s\x1b[0m',"   / __ `__ \\/ _ \\/ __ \\/ __ \\/ _ \\/ ___/_____/ /_/ / ___/ __ `__ \\ | /| / / __ `/ ___/ _ \\  ");
@@ -13,6 +15,7 @@ console.log('\x1b[32m%s\x1b[0m'," /_/ /_/ /_/\___/ .___/ .___/\___/_/        /_/
 console.log('\x1b[32m%s\x1b[0m',"               /_/   /_/                                                                            ");
 
 var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
+var data = [];
 
 var M1 = new Gpio(14, 'out');
 var M2 = new Gpio(15, 'out');
@@ -40,8 +43,6 @@ const bar = new AsciiBar({//ascii loading bar setup
     hideCursor: false,
     stream: process.stdout,
 });
-
-var pause = 100;
 
 function delay(time) {//"sleep" function
     return new Promise(resolve => setTimeout(resolve, time));
