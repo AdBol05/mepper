@@ -1,5 +1,6 @@
 var Gpio = require('onoff').Gpio;
 var fs = require('fs');
+var AsciiBar = require('ascii-bar');
 
 const args = process.argv.slice(2);
 if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
@@ -12,7 +13,7 @@ console.log('\x1b[32m%s\x1b[0m',"    ____ ___  ___  ____  ____  ___  _____      
 console.log('\x1b[32m%s\x1b[0m',"   / __ `__ \\/ _ \\/ __ \\/ __ \\/ _ \\/ ___/_____/ /_/ / ___/ __ `__ \\ | /| / / __ `/ ___/ _ \\  ");
 console.log('\x1b[32m%s\x1b[0m',"  / / / / / /  __/ /_/ / /_/ /  __/ /  /_____/ __/ / /  / / / / / / |/ |/ / /_/ / /  /  __/         ");
 console.log('\x1b[32m%s\x1b[0m'," /_/ /_/ /_/\___/ .___/ .___/\___/_/        /_/ /_/_/  /_/ /_/ /_/|__/|__/\__,_/_/   \___/          ");
-console.log('\x1b[32m%s\x1b[0m',"               /_/   /_/                                                                            ");
+console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                                                                            ");
 
 var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 var data = [];
