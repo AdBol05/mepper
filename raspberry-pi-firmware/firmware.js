@@ -38,7 +38,7 @@ const bar = new AsciiBar({//ascii loading bar setup
     doneSymbol: ">",
     width: 60,
     formatString: '#count #bar #message',
-    total: length,
+    total: data.length,
     autoStop : false,
     lastUpdateForTiming: false,
     hideCursor: false,
