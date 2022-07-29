@@ -50,7 +50,19 @@ function delay(time) {//"sleep" function
 async function run(data, pause) {
     for (var i in data) {
         bar.update(i, data[i]);
-        await delay(pause);//TODO: find the right timing
+        if(data[i] == "A"){M12.writeSync(1); await delay(pause); M12.writeSync(0); await delay(pause);}
+        if(data[i] == "B"){M12.writeSync(1); await delay(pause); M12.writeSync(0); await delay(pause);}
+        if(data[i] == "C"){M12.writeSync(1); await delay(pause); M12.writeSync(0); await delay(pause);}
+        if(data[i] == "D"){M12.writeSync(1); await delay(pause); M12.writeSync(0); await delay(pause);}
+        if(data[i] == "E"){M12.writeSync(1); await delay(pause); M12.writeSync(0); await delay(pause);}
+        if(data[i] == "F"){M12.writeSync(1); await delay(pause); M12.writeSync(0); await delay(pause);}
+        if(data[i] == "G"){M12.writeSync(1); await delay(pause); M12.writeSync(0); await delay(pause);}
+        if(data[i] == "H"){M12.writeSync(1); await delay(pause); M12.writeSync(0); await delay(pause);}
+        if(data[i] == "I"){M12.writeSync(1); await delay(pause); M12.writeSync(0); await delay(pause);}
+        if(data[i] == "J"){M12.writeSync(1); await delay(pause); M12.writeSync(0); await delay(pause);}
+        if(data[i] == "K"){M12.writeSync(1); await delay(pause); M12.writeSync(0); await delay(pause);}
+        if(data[i] == "L"){M12.writeSync(1); await delay(pause); M12.writeSync(0); await delay(pause);}
+        if(data[i] == "M"){await delay(2*pause)}
     }
     M1.unexport();
     M2.unexport();
