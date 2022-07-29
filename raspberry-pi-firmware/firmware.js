@@ -26,7 +26,6 @@ var M9 = new Gpio(1, 'out');
 var M10 = new Gpio(12, 'out');
 var M11 = new Gpio(16, 'out');
 var M12 = new Gpio(20, 'out');
-var M1 = new Gpio(21, 'out');
 
 for(var i in input){data.push(input[i]);}//json file >> array
 
@@ -48,11 +47,23 @@ function delay(time) {//"sleep" function
     return new Promise(resolve => setTimeout(resolve, time));
 }
 
-async function run(data) {
+async function run(data, pause) {
     for (var i in data) {
         bar.update(i, data[i]);
-        await delay(400);//TODO: find the right timing
+        await delay(pause);//TODO: find the right timing
     }
+    M1.unexport();
+    M2.unexport();
+    M3.unexport();
+    M4.unexport();
+    M5.unexport();
+    M6.unexport();
+    M7.unexport();
+    M8.unexport();
+    M9.unexport();
+    M10.unexport();
+    M11.unexport();
+    M12.unexport();
 }
 
 run(data, pause);
