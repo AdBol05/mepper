@@ -79,4 +79,4 @@ async function run(data, pause) {
     M12.unexport();
 }
 
-run(data, 100);
+run(data, 5);
