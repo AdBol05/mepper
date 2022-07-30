@@ -23,7 +23,7 @@ var min = 0;
 var max = 0;
 var samplerate = 100;
 
-pcm.getPcmData(inFile, {stereo: true, sampleRate: samplerate },//TODO: find the right samplerate
+pcm.getPcmData(inFile, {stereo: true, sampleRate: samplerate },
     function(sample) {// Sample is from [-1.0...1.0], channel is 0 for left and 1 for right
     table.push(sample);//add sample to tablefind the right samplerate
     min = Math.min(min, sample);//get min and max values
