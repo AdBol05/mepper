@@ -13,11 +13,11 @@ console.log('\x1b[32m%s\x1b[0m'," / / / / / /  __/ /_/ / /_/ /  __/ /  /_____/ _
 console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/        /_/ /_/_/  /_/ /_/ /_/|__/|__/\\__,_/_/   \\___/    ");
 console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                                                                        \n");
 
-console.log("Playing: " + input.name);
-console.log("\n");
-
 var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 var data = [];
+
+console.log("Playing: " + input.name);
+console.log("\n");
 
 var M1 = new Gpio(14, 'out');
 var M2 = new Gpio(15, 'out');
