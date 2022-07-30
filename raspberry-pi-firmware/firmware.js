@@ -13,6 +13,8 @@ console.log('\x1b[32m%s\x1b[0m'," / / / / / /  __/ /_/ / /_/ /  __/ /  /_____/ _
 console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/        /_/ /_/_/  /_/ /_/ /_/|__/|__/\\__,_/_/   \\___/    ");
 console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                                                                        \n");
 
+console.log("Playing: " + input.name);
+console.log("\n");
 
 var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 var data = [];
@@ -30,7 +32,7 @@ var M10 = new Gpio(16, 'out');
 var M11 = new Gpio(20, 'out');
 var M12 = new Gpio(21, 'out');
 
-for(var i in input){data.push(input[i]);}//json file >> array
+for(var i in input){data.push(input.data[i]);}//json file >> array
 
 const bar = new AsciiBar({//ascii loading bar setup
     undoneSymbol: "-",
@@ -79,4 +81,4 @@ async function run(data, pause) {
     M12.unexport();
 }
 
-run(data, 5);
+run(data, input.delay);
