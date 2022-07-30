@@ -32,7 +32,7 @@ var M10 = new Gpio(16, 'out');
 var M11 = new Gpio(20, 'out');
 var M12 = new Gpio(21, 'out');
 
-for(var i in input){data.push(input.data[i]);}//json file >> array
+for(var i in input.data){data.push(input.data[i]);}//json file >> array
 
 const bar = new AsciiBar({//ascii loading bar setup
     undoneSymbol: "-",
