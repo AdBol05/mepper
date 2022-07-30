@@ -37,7 +37,7 @@ for(var i in input.data){data.push(input.data[i]);}//json file >> array
 const bar = new AsciiBar({//ascii loading bar setup
     undoneSymbol: "-",
     doneSymbol: ">",
-    width: 60,
+    width: 75,
     formatString: '#count #bar #message',
     total: data.length,
     autoStop : false,
@@ -67,6 +67,7 @@ async function run(data, pause) {
         if(data[i] == "L"){M12.writeSync(1); await delay(pause); M12.writeSync(0); await delay(pause);}
         if(data[i] == "M"){await delay(2*pause)}
     }
+    console.log("\n Done \n");
     M1.unexport();
     M2.unexport();
     M3.unexport();
