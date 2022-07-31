@@ -66,7 +66,7 @@ const bar = new AsciiBar({//ascii loading bar setup
         if(data[i] == "J"){M12.writeSync(1); sleep.msleep(pause); M12.writeSync(0); sleep.msleep(pause);}
         if(data[i] == "K"){M12.writeSync(1); sleep.msleep(pause); M12.writeSync(0); sleep.msleep(pause);}
         if(data[i] == "L"){M12.writeSync(1); sleep.msleep(pause); M12.writeSync(0); sleep.msleep(pause);}
-        if(data[i] == "M"){await delay(2*pause)}
+        if(data[i] == "M"){sleep.msleep(2*pause)}
     }
     console.log("\n Done \n");
     M1.unexport();
