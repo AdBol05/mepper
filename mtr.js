@@ -78,7 +78,7 @@ module.exports = function(min, max, outFile, data, delay, name) {
         }
         output.data = [].concat(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11]); //connect result from all threads
         output.name = name;
-        output.delay = delay;
+        output.delay = delay.toFixed();
         console.log(output); 
         fs.writeFileSync(outFile,JSON.stringify(output), function(err){console.error(err)});//write output to json file
         let runtime = process.uptime()*1000;

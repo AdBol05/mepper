@@ -36,7 +36,7 @@ pcm.getPcmData(inFile, {stereo: true, sampleRate: samplerate },
     if (err){throw new Error(err);}
     console.log(table);
     console.log("Min: " + min + " Max: " + max);
-    let delay = 1000/samplerate/4;
+    let delay = (1000/samplerate/4)*1000;
     mtr(min, max, outFile, table, delay, name); //launch mtr.js and pass min, max output filename and pcm data table to it
   }
 );
