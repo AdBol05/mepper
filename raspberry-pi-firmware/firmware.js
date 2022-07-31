@@ -48,10 +48,10 @@ const bar = new AsciiBar({//ascii loading bar setup
 });
 
 var pause = input.delay;
-console.log(pause);
 
 for (var i in data) {
     bar.update(i, data[i]);
+    console.log(pause);
     if(data[i] == "A"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
     if(data[i] == "B"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
     if(data[i] == "C"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
