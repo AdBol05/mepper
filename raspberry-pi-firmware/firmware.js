@@ -2,7 +2,6 @@ var Gpio = require('onoff').Gpio;
 var fs = require('fs');
 var AsciiBar = require('ascii-bar').default;
 var sleep = require('sleep');
-global.delay = input.delay;
 
 const args = process.argv.slice(2);
 if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
@@ -17,6 +16,7 @@ console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                        
 
 var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 var data = [];
+global.delay = input.delay;
 
 console.log("Playing: " + input.name);
 console.log("\n");
