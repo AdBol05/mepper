@@ -3,7 +3,10 @@ var mtr = require('./mtr.js');
 
 const args = process.argv.slice(2);//process arguments
 var inFile = args[0] //input filename
-var outFile = args[1]//output filename
+var outFile = infile.replace("mp3", ".json");//output filename
+var name = "";
+if (args[1] === undefined){name = infile.replace("mp3", "")}
+else{name = args[1];}
 
 var table = []; //pcm data table
 
@@ -34,6 +37,6 @@ pcm.getPcmData(inFile, {stereo: true, sampleRate: samplerate },
     console.log(table);
     console.log("Min: " + min + " Max: " + max);
     let delay = 1000/samplerate/2;
-    mtr(min, max, outFile, table, delay); //launch mtr.js and pass min, max output filename and pcm data table to it
+    mtr(min, max, outFile, table, delay, name); //launch mtr.js and pass min, max output filename and pcm data table to it
   }
 );

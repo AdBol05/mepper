@@ -7,7 +7,7 @@ const pool = new Piscina({
   filename: path.resolve(__dirname, 'worker.js')
 });
 
-module.exports = function(min, max, outFile, data, delay) {
+module.exports = function(min, max, outFile, data, delay, name) {
 
     var logic = {//"waveform sections" object
         "L1": 0.0,
@@ -77,7 +77,7 @@ module.exports = function(min, max, outFile, data, delay) {
             "data": []
         }
         output.data = [].concat(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11]); //connect result from all threads
-        output.name = outFile.replace(".json", "");
+        output.name = name;
         output.delay = delay;
         console.log(output); 
         fs.writeFileSync(outFile,JSON.stringify(output), function(err){console.error(err)});//write output to json file
