@@ -5,7 +5,7 @@ const args = process.argv.slice(2);//process arguments
 var inFile = args[0] //input filename
 var outFile = inFile.replace("mp3", ".json");//output filename
 var name = "";
-if (args[1] === undefined){name = inFile.replace("mp3", "")}
+if (args[1] === undefined){name = inFile.replace(".mp3", "")}
 else{name = args[1];}
 
 var table = []; //pcm data table
