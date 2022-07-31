@@ -47,40 +47,35 @@ const bar = new AsciiBar({//ascii loading bar setup
     stream: process.stdout,
 });
 
-/*function delay(time) {//"sleep" function
-    return new Promise(resolve => setTimeout(resolve, time));
-}
+var pause = input.delay;
+console.log(pause);
 
-/*async*/ function run(data, pause) {
-    for (var i in data) {
-        bar.update(i, data[i]);
-        if(data[i] == "A"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
-        if(data[i] == "B"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
-        if(data[i] == "C"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
-        if(data[i] == "D"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
-        if(data[i] == "E"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
-        if(data[i] == "F"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
-        if(data[i] == "G"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
-        if(data[i] == "H"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
-        if(data[i] == "I"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
-        if(data[i] == "J"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
-        if(data[i] == "K"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
-        if(data[i] == "L"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
-        if(data[i] == "M"){sleep.usleep(2*pause)}
-    }
-    console.log("\n Done in "+ process.uptime() + "\n");
-    M1.unexport();
-    M2.unexport();
-    M3.unexport();
-    M4.unexport();
-    M5.unexport();
-    M6.unexport();
-    M7.unexport();
-    M8.unexport();
-    M9.unexport();
-    M10.unexport();
-    M11.unexport();
-    M12.unexport();
+for (var i in data) {
+    bar.update(i, data[i]);
+    if(data[i] == "A"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
+    if(data[i] == "B"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
+    if(data[i] == "C"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
+    if(data[i] == "D"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
+    if(data[i] == "E"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
+    if(data[i] == "F"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
+    if(data[i] == "G"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
+    if(data[i] == "H"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
+    if(data[i] == "I"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
+    if(data[i] == "J"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
+    if(data[i] == "K"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
+    if(data[i] == "L"){M12.writeSync(1); sleep.usleep(pause); M12.writeSync(0); sleep.usleep(pause);}
+    if(data[i] == "M"){sleep.usleep(2*pause)}
 }
-
-run(data, input.delay);
+console.log("\n Done in "+ process.uptime() + "\n");
+M1.unexport();
+M2.unexport();
+M3.unexport();
+M4.unexport();
+M5.unexport();
+M6.unexport();
+M7.unexport();
+M8.unexport();
+M9.unexport();
+M10.unexport();
+M11.unexport();
+M12.unexport();
