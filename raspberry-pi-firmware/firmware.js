@@ -52,19 +52,19 @@ console.log(delay);
 
 for (var i in data) {
     bar.update(i, data[i]);
-    if(data[i] == "A"){M12.writeSync(1); sleep.usleep(delay); M12.writeSync(0); sleep.usleep(delay);}
-    if(data[i] == "B"){M12.writeSync(1); sleep.usleep(delay); M12.writeSync(0); sleep.usleep(delay);}
-    if(data[i] == "C"){M12.writeSync(1); sleep.usleep(delay); M12.writeSync(0); sleep.usleep(delay);}
-    if(data[i] == "D"){M12.writeSync(1); sleep.usleep(delay); M12.writeSync(0); sleep.usleep(delay);}
-    if(data[i] == "E"){M12.writeSync(1); sleep.usleep(delay); M12.writeSync(0); sleep.usleep(delay);}
-    if(data[i] == "F"){M12.writeSync(1); sleep.usleep(delay); M12.writeSync(0); sleep.usleep(delay);}
-    if(data[i] == "G"){M12.writeSync(1); sleep.usleep(delay); M12.writeSync(0); sleep.usleep(delay);}
-    if(data[i] == "H"){M12.writeSync(1); sleep.usleep(delay); M12.writeSync(0); sleep.usleep(delay);}
-    if(data[i] == "I"){M12.writeSync(1); sleep.usleep(delay); M12.writeSync(0); sleep.usleep(delay);}
-    if(data[i] == "J"){M12.writeSync(1); sleep.usleep(delay); M12.writeSync(0); sleep.usleep(delay);}
-    if(data[i] == "K"){M12.writeSync(1); sleep.usleep(delay); M12.writeSync(0); sleep.usleep(delay);}
-    if(data[i] == "L"){M12.writeSync(1); sleep.usleep(delay); M12.writeSync(0); sleep.usleep(delay);}
-    if(data[i] == "M"){sleep.usleep(2*delay)}
+    if(data[i] == "A"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "B"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "C"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "D"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "E"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "F"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "G"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "H"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "I"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "J"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "K"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "L"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "M"){sleep.msleep(2*delay)}
 }
 console.log("\n Done in "+ process.uptime() + "\n");
 M1.unexport();
