@@ -17,7 +17,7 @@ var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 var data = [];
 global.delay = input.delay;
 
-delay = delay - 1;//more time for output
+//delay = delay - 1;//more time for output
 
 console.log("Playing: " + input.name);
 console.log("Delay: " + delay);
