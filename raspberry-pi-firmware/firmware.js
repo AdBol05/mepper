@@ -17,7 +17,10 @@ var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 var data = [];
 global.delay = input.delay;
 
+delay = delay - 1;//more time for output
+
 console.log("Playing: " + input.name);
+console.log("Delay: " + delay);
 console.log("\n");
 
 var M1 = new Gpio(14, 'out');
@@ -34,9 +37,6 @@ var M11 = new Gpio(20, 'out');
 var M12 = new Gpio(21, 'out');
 
 for(var i in input.data){data.push(input.data[i]);}//json file >> array
-
-console.log(delay);
-delay = delay - 1;
 
 for (var i in data) {
     if(data[i] == "A"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
