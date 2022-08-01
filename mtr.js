@@ -3,7 +3,7 @@ var fs = require('fs');
 const path = require('path');
 const Piscina = require('piscina');
 
-const pool = new Piscina({
+const pool = new Piscina({//worker pool
   filename: path.resolve(__dirname, 'worker.js')
 });
 
@@ -71,17 +71,17 @@ module.exports = function(min, max, outFile, data, delay, name) {
             pool.run({data: arr_10, logic: logic}),
             pool.run({data: arr_11, logic: logic}),
         ]);
-        let output = {
+        let output = {//output object to be written to JSON file
             "name": "",
             "delay": 0,
             "data": []
         }
-        output.data = [].concat(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11]); //connect result from all threads
-        output.name = name;
-        output.delay = delay.toFixed();
+        output.data = [].concat(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11]); //connect results from all threads
+        output.name = name;//output name
+        output.delay = delay.toFixed();//round delay
         console.log(output); 
         fs.writeFileSync(outFile,JSON.stringify(output), function(err){console.error(err)});//write output to json file
-        let runtime = process.uptime()*1000;
+        let runtime = process.uptime()*1000;//get runtime in ms
         console.log('\n================================================================');
         console.log('\x1b[32m%s\x1b[0m','Done in ' + runtime.toFixed() + 'ms. Output written to ' + outFile);//ned message
         console.log('================================================================');

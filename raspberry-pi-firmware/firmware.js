@@ -2,10 +2,11 @@ var Gpio = require('onoff').Gpio;
 var fs = require('fs');
 var sleep = require('sleep');
 
-const args = process.argv.slice(2);
+const args = process.argv.slice(2);//get process arguments
 if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
-else{var file = args[0];};
+else{var file = args[0];};//set file input to first argument
 
+//welcome screen
 console.log('\x1b[32m%s\x1b[0m',"                                               _____                                             ");
 console.log('\x1b[32m%s\x1b[0m',"   ____ ___  ___  ____  ____  ___  _____      / __(_)________ ___ _      ______ _________        ");
 console.log('\x1b[32m%s\x1b[0m',"  / __ `__ \\/ _ \\/ __ \\/ __ \\/ _ \\/ ___/_____/ /_/ / ___/ __ `__ \\ | /| / / __ `/ ___/ _ \\");
@@ -15,14 +16,17 @@ console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                        
 
 var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 var data = [];
-global.delay = input.delay;
+global.delay = input.delay;//set delay from JOSN file to global variable
 
 //delay = delay - 1;//more time for output
 
+console.log("==================");
 console.log("Playing: " + input.name);
 console.log("Delay: " + delay);
+console.log("==================");
 console.log("\n");
 
+//set output pins
 var M1 = new Gpio(14, 'out');
 var M2 = new Gpio(15, 'out');
 var M3 = new Gpio(18, 'out');
@@ -38,7 +42,7 @@ var M12 = new Gpio(21, 'out');
 
 for(var i in input.data){data.push(input.data[i]);}//json file >> array
 
-for (var i in data) {
+for (var i in data) {//pin output logic
     if(data[i] == "A"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
     if(data[i] == "B"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
     if(data[i] == "C"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
@@ -54,6 +58,8 @@ for (var i in data) {
     if(data[i] == "M"){sleep.msleep(2*delay)}
 }
 console.log("\n Done in "+ process.uptime() + "\n");
+
+//unexport GPIOs
 M1.unexport();
 M2.unexport();
 M3.unexport();
