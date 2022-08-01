@@ -1,6 +1,5 @@
 var Gpio = require('onoff').Gpio;
 var fs = require('fs');
-//var AsciiBar = require('ascii-bar').default;
 var sleep = require('sleep');
 
 const args = process.argv.slice(2);
@@ -35,24 +34,11 @@ var M11 = new Gpio(20, 'out');
 var M12 = new Gpio(21, 'out');
 
 for(var i in input.data){data.push(input.data[i]);}//json file >> array
-/*
-const bar = new AsciiBar({//ascii loading bar setup
-    undoneSymbol: "-",
-    doneSymbol: ">",
-    width: 75,
-    formatString: '#count #bar #message',
-    total: data.length,
-    autoStop : false,
-    lastUpdateForTiming: false,
-    hideCursor: false,
-    stream: process.stdout,
-});*/
 
 console.log(delay);
 delay = delay - 1;
 
 for (var i in data) {
-    //bar.update(i, data[i]);
     if(data[i] == "A"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
     if(data[i] == "B"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
     if(data[i] == "C"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
