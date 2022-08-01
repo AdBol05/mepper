@@ -49,6 +49,7 @@ const bar = new AsciiBar({//ascii loading bar setup
 });*/
 
 console.log(delay);
+delay = delay - 1;
 
 for (var i in data) {
     //bar.update(i, data[i]);
