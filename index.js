@@ -24,7 +24,7 @@ console.log('\nResolving PCM data from ' + inFile + '...');
 
 var min = 0;
 var max = 0;
-var samplerate = 50;//PCM samplerate
+var samplerate = 50;//PCM sample rate
 
 pcm.getPcmData(inFile, {stereo: true, sampleRate: samplerate },
     function(sample) {// Sample is from [-1.0...1.0], channel is 0 for left and 1 for right
