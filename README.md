@@ -26,6 +26,6 @@ Firmware is meant for a raspberry pi. It takes a json file and extracts all data
 
 -12 stepper motor drivers (I used A4988)
 
--Adequate power supply (12V for motors + 5V for raspberry pi)
+-Adequate power supply (12V for motors + 5V for raspberry pi). In case you use the mepper driver PCB you can hook it up to an ATX power supply, which will power the motors, drivers and the raspberry pi thru an ATX 24 pin connector.
 
 # NOTE: This project has not been appropriately tested and is still in development!!! Any feedback or suggestion is welcome.
