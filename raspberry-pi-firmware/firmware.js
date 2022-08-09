@@ -43,17 +43,17 @@ var M12 = new Gpio(21, 'out');
 for(var i in input.data){data.push(input.data[i]);}//json file >> array
 
 for (var i in data) {//pin output logic
-    if(data[i] == "A"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "B"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "C"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "D"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "E"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "F"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "G"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "H"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "I"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "J"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "K"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "A"){M1.writeSync(1); sleep.msleep(delay); M1.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "B"){M2.writeSync(1); sleep.msleep(delay); M2.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "C"){M3.writeSync(1); sleep.msleep(delay); M3.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "D"){M4.writeSync(1); sleep.msleep(delay); M4.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "E"){M5.writeSync(1); sleep.msleep(delay); M5.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "F"){M6.writeSync(1); sleep.msleep(delay); M6.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "G"){M7.writeSync(1); sleep.msleep(delay); M7.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "H"){M8.writeSync(1); sleep.msleep(delay); M8.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "I"){M9.writeSync(1); sleep.msleep(delay); M9.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "J"){M10.writeSync(1); sleep.msleep(delay); M10.writeSync(0); sleep.msleep(delay);}
+    if(data[i] == "K"){M11.writeSync(1); sleep.msleep(delay); M11.writeSync(0); sleep.msleep(delay);}
     if(data[i] == "L"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
     if(data[i] == "M"){sleep.msleep(2*delay)}
 }
