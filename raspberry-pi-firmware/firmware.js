@@ -19,6 +19,7 @@ var data = [];
 global.delay = input.delay;//set delay from JOSN file to global variable
 global.direction = input.direction;
 
+//print basic info (mostly for debugging)
 console.log("==================");
 console.log("Playing: " + input.name);
 console.log("Delay: " + delay);
@@ -40,8 +41,8 @@ var M10 = new Gpio(16, 'out');
 var M11 = new Gpio(20, 'out');
 var M12 = new Gpio(21, 'out');
 
-var dir = new Gpio(26, 'out');
-dir.writeSync(direction);
+var dir = new Gpio(26, 'out');//set direction output pin
+dir.writeSync(direction);//set direction based on input file
 
 for(var i in input.data){data.push(input.data[i]);}//json file >> array
 
@@ -62,7 +63,7 @@ for (var i in data) {//pin output logic
 }
 console.log("\n Done in "+ process.uptime() + "\n");
 
-//unexport GPIOs
+//disconnect GPIOs from script
 M1.unexport();
 M2.unexport();
 M3.unexport();
