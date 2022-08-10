@@ -12,14 +12,14 @@ Paste desired mp3 to script's directory and run index.js with it's name as the f
 The created file can then be used to drive the stepper motors.
 
 Ouptut.json
-´´´json
+```json
 {
     "name": "test",            <-- name which will be printed to stdout
     "delay": 5,                <-- half the delay between motor steps (on, delay, off, delay) 
     "direction": 0,            <-- motor rotation direction (0=left 1=right)
     "data": ["L","F","F","L"]  <- -actual motor sequence
 }
-´´´
+```
 
 # index.js
 Decodes the mp3 file to pcm data and splits the decoded waveform into "horizontal sections". Then determines the motor sequence based on these sections.
