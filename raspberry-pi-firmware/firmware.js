@@ -75,3 +75,4 @@ M9.unexport();
 M10.unexport();
 M11.unexport();
 M12.unexport();
+dir.unexport();
