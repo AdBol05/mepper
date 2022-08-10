@@ -18,8 +18,6 @@ var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 var data = [];
 global.delay = input.delay;//set delay from JOSN file to global variable
 
-//delay = delay - 1;//more time for output
-
 console.log("==================");
 console.log("Playing: " + input.name);
 console.log("Delay: " + delay);
@@ -39,6 +37,9 @@ var M9 = new Gpio(12, 'out');
 var M10 = new Gpio(16, 'out');
 var M11 = new Gpio(20, 'out');
 var M12 = new Gpio(21, 'out');
+
+var dir = new Gpio(26, 'out');
+dir.writeSync(input.direction);
 
 for(var i in input.data){data.push(input.data[i]);}//json file >> array
 

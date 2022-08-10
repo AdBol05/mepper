@@ -74,6 +74,7 @@ module.exports = function(min, max, outFile, data, delay, name) {
         let output = {//output object to be written to JSON file
             "name": "",
             "delay": 0,
+            "direction": 0,
             "data": []
         }
         output.data = [].concat(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11]); //connect results from all threads
