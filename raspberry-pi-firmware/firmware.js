@@ -17,10 +17,12 @@ console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                        
 var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 var data = [];
 global.delay = input.delay;//set delay from JOSN file to global variable
+global.direction = input.direction;
 
 console.log("==================");
 console.log("Playing: " + input.name);
 console.log("Delay: " + delay);
+console.log("Direction: " + direction);
 console.log("==================");
 console.log("\n");
 
@@ -39,7 +41,7 @@ var M11 = new Gpio(20, 'out');
 var M12 = new Gpio(21, 'out');
 
 var dir = new Gpio(26, 'out');
-dir.writeSync(input.direction);
+dir.writeSync(direction);
 
 for(var i in input.data){data.push(input.data[i]);}//json file >> array
 
