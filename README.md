@@ -19,7 +19,7 @@ Ouptut.json
     "name": "test",            <-- name which will be printed to stdout
     "delay": 5,                <-- half the delay between motor steps (on, delay, off, delay) 
     "direction": 0,            <-- motor rotation direction (0=left 1=right)
-    "data": ["L","F","F","L"]  <- -actual motor sequence
+    "data": ["L","F","F","L"]  <-- actual motor sequence
 }
 ```
 
