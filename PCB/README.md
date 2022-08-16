@@ -11,4 +11,4 @@ The PCB was designed to be flexible when it comes to power:
 ![PCB_PCB_mepper_2022-08-16](https://user-images.githubusercontent.com/98588523/184908404-34962aa2-a8bf-43c0-a8f3-a21a7a83ccdc.png)
 
 
-### I don't take any responsibilies on any damage caused by my PCB.
+### I don't take any responsibilies on any damage caused by my design.
