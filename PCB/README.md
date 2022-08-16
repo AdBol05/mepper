@@ -8,4 +8,7 @@ The PCB was designed to be flexible when it comes to power:
 
 3) The third option is to power the motors by 12V supply and use the onboard AMS1117 regulator (on the bottom of the board) to power drivers from this power supply and have a separate 5V power for the pi. In this case DO NOT connect 3.3V to the pi either!
 
+![PCB_PCB_mepper_2022-08-16](https://user-images.githubusercontent.com/98588523/184908404-34962aa2-a8bf-43c0-a8f3-a21a7a83ccdc.png)
+
+
 ### I don't take any responsibilies on any damage caused by my PCB.
