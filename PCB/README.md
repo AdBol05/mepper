@@ -1,6 +1,6 @@
 # Read before powering anything up!
 
-The PCB was designet to be flexible when it comes to power:
+The PCB was designed to be flexible when it comes to power:
 
 1) It can be powered by 12V for motors and separate USB power supply for the pi, which would then provide 3.3V for drivers. (I do not recommend this because of the power limitation on the pi's 3.3V rail)
 
