@@ -1,8 +1,11 @@
 var sleep = require('sleep');
 var Gpio = require('onoff').Gpio;
 
+let delay = 5;
+
 const args = process.argv.slice(2);
 let count = args[0];
+if (!isNaN(args[1])){delay = args[1];}
 
 console.log('\x1b[32m%s\x1b[0m',"                                               __            __           ");
 console.log('\x1b[32m%s\x1b[0m',"   ____ ___  ___  ____  ____  ___  _____      / /____  _____/ /____  _____");
