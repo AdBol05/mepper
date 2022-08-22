@@ -28,6 +28,7 @@ console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                        
 var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 var sequence = [];
 var timing = [];
+var pause = [];
 global.delay = input.delay;//set delay from JOSN file to global variable
 global.direction = input.direction;
 
@@ -75,6 +76,7 @@ dir.writeSync(direction);//set direction based on input file
 //json file >> arrays
 for(var i in input.sequence){sequence.push(input.sequence[i]);}
 for(var i in input.timing){timing.push(input.timing[i]);};
+for(var i in input.pause){pause.push(input.pause[i]);}
 
 for (var i in sequence) {//pin output logic
     if(sequence[i] === "c")     {ntm = 1912;}
