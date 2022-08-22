@@ -1,6 +1,7 @@
 var Gpio = require('onoff').Gpio;
 var fs = require('fs');
 var sleep = require('sleep');
+var { usleep } = require('usleep');
 
 //notes definition
 let oct = 5;
@@ -30,13 +31,20 @@ var timing = [];
 global.delay = input.delay;//set delay from JOSN file to global variable
 global.direction = input.direction;
 
-function pa(durp){
+async function pa(durp){
     let ker = Math.ploor(durp/100)*tempo
     sleep.msleep(ker);
 }
 
-function note(num, dur){
+async function note(num, dur){
     del = (num*oct)/10;
+    coun = Math.floor((dur*5*tempo)/del);
+    for(let i = 0; i < coun; i++){
+        M1.writeSync(1)
+        await usleep(del);
+        M1.writeSync(0)
+        await usleep(del);
+    }
 }
 
 //print basic info (mostly for debugging)
