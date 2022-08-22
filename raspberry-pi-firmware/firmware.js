@@ -34,6 +34,7 @@ global.direction = input.direction;
 
 function pa(durp){
     let ker = Math.floor(durp/100)*tempo
+    ker = ker.toFixed();
     sleep.msleep(ker);
 }
 
