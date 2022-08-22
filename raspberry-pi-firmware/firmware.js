@@ -32,12 +32,12 @@ var pause = [];
 global.delay = input.delay;//set delay from JOSN file to global variable
 global.direction = input.direction;
 
-async function pa(durp){
+function pa(durp){
     let ker = Math.floor(durp/100)*tempo
     sleep.msleep(ker);
 }
 
-async function note(num, dur){
+function note(num, dur){
     del = (num*oct)/10;
     coun = Math.floor((dur*5*tempo)/del);
     for(let i = 0; i < coun; i++){
