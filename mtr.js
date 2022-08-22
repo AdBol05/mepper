@@ -24,7 +24,6 @@ module.exports = function(min, max, outFile, data, delay, name) {
         "L12": 0.0
     }
 
-
     //resolve waveform sections
     logic.L1 = max;
     logic.L2 = (max/6)*5;
@@ -38,7 +37,7 @@ module.exports = function(min, max, outFile, data, delay, name) {
     logic.L10 = (min/6)*4;
     logic.L11 = (min/6)*5;
     logic.L12 = min;
-
+/*
     //split input array into 12 chunks for processing (developed on 12 core CPU)
     const listIndex = Math.ceil(data.length / 12);
     const arr_11 = data.splice(-listIndex);
@@ -70,13 +69,15 @@ module.exports = function(min, max, outFile, data, delay, name) {
             pool.run({data: arr_9, logic: logic}),
             pool.run({data: arr_10, logic: logic}),
             pool.run({data: arr_11, logic: logic}),
-        ]);
+        ]);*/
         let output = {//output object to be written to JSON file
             "name": "",
             "delay": 0,
             "direction": 0,
-            "data": []
-        }
+            "sequence": [],
+            "timing": [],
+            "pause": []
+        }/*
         output.data = [].concat(result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11]); //connect results from all threads
         output.name = name;//output name
         output.delay = delay.toFixed();//round delay
@@ -86,5 +87,43 @@ module.exports = function(min, max, outFile, data, delay, name) {
         console.log('\n================================================================');
         console.log('\x1b[32m%s\x1b[0m','Done in ' + runtime.toFixed() + 'ms. Output written to ' + outFile);//ned message
         console.log('================================================================');
-    })();
+    })();*/
+
+    let sequence = [];
+    let timing = [];
+
+    data.forEach( sample => {
+        if(sample > 0){
+            if(sample <= logic.L1 && sample > logic.L2){Lout = 'A';}
+            if(sample <= logic.L2 && sample > logic.L3){Lout = 'B';}
+            if(sample <= logic.L3 && sample > logic.L4){Lout = 'C';}
+            if(sample <= logic.L4 && sample > logic.L5){Lout = 'D';}
+            if(sample <= logic.L5 && sample > logic.L6){Lout = 'E';}
+            if(sample <= logic.L6 && sample > 0){Lout = 'F';}
+        }
+        if(sample < 0){
+            if(sample >= logic.L7 && sample < 0){Lout = 'G';}
+            if(sample >= logic.L8 && sample < logic.L7){Lout = 'H';}
+            if(sample >= logic.L9 && sample < logic.L8){Lout = 'I';}
+            if(sample >= logic.L10 && sample < logic.L9){Lout = 'J';}
+            if(sample >= logic.L11 && sample < logic.L10){Lout = 'K';}
+            if(sample >= logic.L12 && sample < logic.L1){Lout = 'L';}
+        }
+        if(sample === 0) {Lout = 'M'}
+        sequence.push(Lout);
+        timing.push(500);
+    });
+
+    output.name = name;//output name
+    output.delay = delay.toFixed();//round delay
+    output.sequence = sequence;
+    output.timing = timing;
+
+    console.log(output);
+
+    fs.writeFileSync(outFile,JSON.stringify(output), function(err){console.error(err)});//write output to json file
+    let runtime = process.uptime()*1000;//get runtime in ms
+    console.log('\n================================================================');
+    console.log('\x1b[32m%s\x1b[0m','Done in ' + runtime.toFixed() + 'ms. Output written to ' + outFile);//ned message
+    console.log('================================================================');
 }
