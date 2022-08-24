@@ -11,8 +11,6 @@ let tempo = 120;
 let use = 180;
 let ntm = 0;
 
-//notes definition
-
 const args = process.argv.slice(2);//get process arguments
 if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
 else{var file = args[0];};//set file input to first argument
@@ -79,7 +77,7 @@ for(var i in input.sequence){sequence.push(input.sequence[i]);}
 for(var i in input.timing){timing.push(input.timing[i]);};
 for(var i in input.pause){pause.push(input.pause[i]);}
 
-for (var i in sequence) {//pin output logic
+for(var i in sequence) {//pin output logic
     if(sequence[i] === "c")     {ntm = 1912;}
     if(sequence[i] === "cf")    {ntm = 1805;}
     if(sequence[i] === "d")     {ntm = 1703;}
