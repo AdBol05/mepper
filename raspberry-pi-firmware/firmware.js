@@ -8,7 +8,7 @@ let oct = 5;
 let coun;
 let del;
 let tempo = 120;
-let use = 180;
+//let use = 180;
 let ntm = 0;
 
 const args = process.argv.slice(2);//get process arguments
