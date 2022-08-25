@@ -2,6 +2,7 @@
 //var mtr = require('./mtr.js');
 var path = require('path');
 const Mp32Wav = require('mp3-to-wav');
+const ap = require('audio-processing');
 
 const args = process.argv.slice(2);//process arguments
 var inFile = args[0] //input filename
@@ -19,12 +20,22 @@ console.log('\x1b[32m%s\x1b[0m'," / / / / / /  __/ /_/ / /_/ /  __/ /          "
 console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/         ");
 console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                       \n");
 
-//input check
-if(inFile === undefined || outFile === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: input or output filename not provided"); process.exit(9);}
-if(!inFile.endsWith(".mp3") && !inFile.endsWith(".wav")){console.error('\x1b[31m%s\x1b[0m',"ERROR: input file format not supported (expected .wav or .mp3 file)"); process.exit(1);}
+async function prepare(inFile){
+  if(inFile === undefined || outFile === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: input or output filename not provided"); process.exit(9);}
+  if(!inFile.endsWith(".mp3") && !inFile.endsWith(".wav")){console.error('\x1b[31m%s\x1b[0m',"ERROR: input file format not supported (expected .wav or .mp3 file)"); process.exit(1);}
+  if(inFile.endsWith(".mp3")){console.log("Converting to .wav file..."); await new Mp32Wav(path.resolve(inFile)).exec();}
+}
 
-//convert input file to wav if necessary
-if(inFile.endsWith(".mp3")){console.log("Converting to .wav file..."); new Mp32Wav(path.resolve(inFile)).exec();}
+async function audio(wavfile){
+  let audio = await ap.readAudio(wavfile);
+  console.log(audio.samplerate);
+}
+
+let wavfile = path.resolve(inFile).replace(".mp3", ".wav");
+console.log(wavfile);
+
+prepare(inFile).then(() => {audio(wavfile);}); 
+
 
 /*
 console.log('\nResolving PCM data from ' + inFile + '...');
