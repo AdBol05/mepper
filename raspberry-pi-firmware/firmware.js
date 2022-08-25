@@ -39,6 +39,7 @@ function pa(durp){
 function note(num, dur){
     del = (num*oct)/10;
     coun = Math.floor((dur*5*tempo)/del);
+    console.log("delay: " + del + " count: " + coun);
     for(let i = 0; i < coun; i++){
         M1.writeSync(1)
         usleep(del);
