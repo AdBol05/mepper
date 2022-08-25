@@ -109,7 +109,7 @@ for(var i in sequence) {//pin output logic
     if(sequence[i] === "a0")    {ntm = 2272;}
     if(sequence[i] === "f0")    {ntm = 2862;}
 
-    console.log(ntm);
+    console.log("ntm: " + ntm + " timing: " + timing[i]);
     note(ntm, timing[i]);
     if(pause[i] !== 0 || pause[i] !== undefined){pa(pause[i]);
     }
