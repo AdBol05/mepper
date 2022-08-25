@@ -74,11 +74,11 @@ var dir = new Gpio(26, 'out');//set direction output pin
 dir.writeSync(direction);//set direction based on input file
 
 //json file >> arrays
-for(var i in input.sequence){sequence.push(input.sequence[i]);}
-for(var i in input.timing){timing.push(input.timing[i]);};
-for(var i in input.pause){pause.push(input.pause[i]);}
+for(let i in input.sequence){sequence.push(input.sequence[i]);}
+for(let i in input.timing){timing.push(input.timing[i]);};
+for(let i in input.pause){pause.push(input.pause[i]);}
 
-for(var i in sequence) {//pin output logic
+for(let i in sequence) {//pin output logic
     if(sequence[i] === "c")     {ntm = 1912;}
     if(sequence[i] === "cf")    {ntm = 1805;}
     if(sequence[i] === "d")     {ntm = 1703;}
