@@ -112,8 +112,7 @@ for(var i in sequence) {//pin output logic
 
     console.log("ntm: " + ntm + " timing: " + timing[i]);
     note(ntm, timing[i]);
-    if(pause[i] !== 0 || pause[i] !== undefined){pa(pause[i]);
-    }
+    if(pause[i] !== 0 || pause[i] !== undefined){pa(pause[i]); console.log("pause: " + pause[i]);}
     /*
     if(data[i] == "A"){M1.writeSync(1); sleep.msleep(delay); M1.writeSync(0); sleep.msleep(delay);}
     if(data[i] == "B"){M2.writeSync(1); sleep.msleep(delay); M2.writeSync(0); sleep.msleep(delay);}
