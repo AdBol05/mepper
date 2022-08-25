@@ -33,7 +33,7 @@ global.direction = input.direction;
 async function pa(durp){
     let ker = Math.floor(durp/100)*tempo
     ker = ker.toFixed();
-    sleep.msleep(ker);
+    await sleep.msleep(ker);
 }
 
 async function note(num, dur){
