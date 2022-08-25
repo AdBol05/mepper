@@ -40,4 +40,4 @@ Firmware is meant for a raspberry pi. It takes a json file and extracts all data
 
 -Adequate power supply (12V for motors + 5V for raspberry pi +3.3V for drivers). In case you use the mepper driver PCB you can hook it up to an ATX power supply, which will power the motors, drivers and the raspberry pi via an ATX 24 pin connector.
 
-# NOTE: This project has not been appropriately tested and is still in development(does not work at all yet)! Any feedback or suggestion is welcome.
+# NOTE: This project has not been appropriately tested and is still in development(does not work at all yet) and some information in this README may not be up to date! Any feedback or suggestion is welcome.
