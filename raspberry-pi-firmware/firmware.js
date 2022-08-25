@@ -27,7 +27,7 @@ var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 var sequence = [];
 var timing = [];
 var pause = [];
-global.delay = input.delay;//set delay from JOSN file to global variable
+//global.delay = input.delay;//set delay from JOSN file to global variable
 global.direction = input.direction;
 
 async function pa(durp){
@@ -51,7 +51,7 @@ async function note(num, dur){
 //print basic info (mostly for debugging)
 console.log("==================");
 console.log("Playing: " + input.name);
-console.log("Delay: " + delay);
+//console.log("Delay: " + delay);
 console.log("Direction: " + direction);
 console.log("==================");
 console.log("\n");
