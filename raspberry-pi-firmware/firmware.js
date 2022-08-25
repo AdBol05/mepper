@@ -42,9 +42,9 @@ async function note(num, dur){
     console.log("delay: " + del + " count: " + coun);
     for(let i = 0; i < coun; i++){
         M1.writeSync(1)
-        await usleep(del);
+        usleep(del);
         M1.writeSync(0)
-        await usleep(del);
+        usleep(del);
     }
 }
 
