@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "audio-processing": "^1.0.15",
+    "mp3-to-wav": "^0.1.11",
     "onoff": "^6.0.3",
     "pcm": "^1.0.3",
     "piscina": "^3.2.0",
