@@ -27,7 +27,6 @@ var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 var sequence = [];
 var timing = [];
 var pause = [];
-//global.delay = input.delay;//set delay from JOSN file to global variable
 global.direction = input.direction;
 
 async function pa(durp){
@@ -51,7 +50,6 @@ async function note(num, dur){
 //print basic info (mostly for debugging)
 console.log("==================");
 console.log("Playing: " + input.name);
-//console.log("Delay: " + delay);
 console.log("Direction: " + direction);
 console.log("==================");
 console.log("\n");
@@ -113,21 +111,6 @@ for(let i in sequence) {//pin output logic
     //console.log("ntm: " + ntm + " timing: " + timing[i]);
     note(ntm, timing[i]);
     if(pause[i] !== 0){if(pause[i] !== undefined){pa(pause[i]); /*console.log("pause: " + pause[i]);*/}}
-    /*
-    if(data[i] == "A"){M1.writeSync(1); sleep.msleep(delay); M1.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "B"){M2.writeSync(1); sleep.msleep(delay); M2.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "C"){M3.writeSync(1); sleep.msleep(delay); M3.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "D"){M4.writeSync(1); sleep.msleep(delay); M4.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "E"){M5.writeSync(1); sleep.msleep(delay); M5.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "F"){M6.writeSync(1); sleep.msleep(delay); M6.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "G"){M7.writeSync(1); sleep.msleep(delay); M7.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "H"){M8.writeSync(1); sleep.msleep(delay); M8.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "I"){M9.writeSync(1); sleep.msleep(delay); M9.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "J"){M10.writeSync(1); sleep.msleep(delay); M10.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "K"){M11.writeSync(1); sleep.msleep(delay); M11.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "L"){M12.writeSync(1); sleep.msleep(delay); M12.writeSync(0); sleep.msleep(delay);}
-    if(data[i] == "M"){sleep.msleep(2*delay)}
-*/
 }
 console.log("\n Done in "+ process.uptime() + "\n");
 
