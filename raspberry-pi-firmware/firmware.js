@@ -40,9 +40,9 @@ async function note(num, dur){
     coun = Math.floor((dur*5*tempo)/del);
     //console.log("delay: " + del + " count: " + coun);
     for(let i = 0; i < coun; i++){
-        M1.writeSync(1)
+        M1.writeSync(1);
         usleep(del);
-        M1.writeSync(0)
+        M1.writeSync(0);
         usleep(del);
     }
 }
