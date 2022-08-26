@@ -16,10 +16,11 @@ The created file can then be used to drive the stepper motors.
 Ouptut.json
 ```json
 {
-    "name": "test",            <-- name which will be printed to stdout
-    "delay": 5,                <-- half the delay between motor steps (on, delay, off, delay) 
-    "direction": 0,            <-- motor rotation direction (0=left 1=right)
-    "data": ["L","F","F","L"]  <-- actual motor sequence
+    "name": "test",                     <-- name which will be printed to stdout 
+    "direction": 0,                     <-- motor rotation direction (0=left 1=right)
+    "sequence": ["c","cf","d","df"],    <-- sequence of notes
+    "timing": [250, 500, 250, 250],     <-- duration of note
+    "pause": [0, 0 100, 0]              <-- pause between notes
 }
 ```
 
