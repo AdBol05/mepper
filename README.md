@@ -7,7 +7,7 @@ mp3 to 12 stepper motors translation script
 You need to install all dependencies as well as ffmpeg.
 
 # Usage
-Paste desired mp3 to script's directory and run index.js with it's name as the first argument and name (not filename but name to be stored inside the file) as the second argument.
+Paste desired wav or mp3 to script's directory and run index.js with it's name as the first argument and name (not filename but name to be stored inside the file) as the second argument.
 
     node index.js input.mp3 test
 
@@ -25,7 +25,7 @@ Ouptut.json
 ```
 
 # index.js
-Decodes the mp3 file to pcm data and splits the decoded waveform into "horizontal sections". Then determines the motor sequence based on these sections.
+Determines notes from a given file. Natively supporrts WAV files and converts MP3 files into WAV if needed.
 
 # firmware.js
 Firmware is meant for a raspberry pi. It takes a json file and extracts all data from it. Motors are then controlled based on the sequence stored in the json file.
