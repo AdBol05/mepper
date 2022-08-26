@@ -112,7 +112,7 @@ for(let i in sequence) {//pin output logic
     note(ntm, timing[i]);
     if(pause[i] !== 0){if(pause[i] !== undefined){pa(pause[i]); /*console.log("pause: " + pause[i]);*/}}
 }
-console.log("\n Done in "+ process.uptime() + "\n");
+console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");
 
 //disconnect GPIOs from script
 M1.unexport();
