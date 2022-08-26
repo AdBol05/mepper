@@ -29,10 +29,10 @@ async function prepare(inFile){
 async function audio(wavfile){
   let audio = await ap.readAudio(wavfile);
   let data = new Float32Array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]);
-  let freq_data = await ap.fft(data)
-  //console.log(freq_data);
-  console.log(ap.ifft(freq_data.real, freq_data.imag));
-  
+  let freq_data = await ap.fft(audio)
+  console.log(freq_data);
+  //console.log( await ap.ifft(freq_data.real, freq_data.imag));
+  return freq_data;
 }
 
 let wavfile = path.resolve(inFile).replace(".mp3", ".wav");
