@@ -73,7 +73,7 @@ dir.writeSync(direction);//set direction based on input file
 
 //json file >> arrays
 for(let i in input.sequence){sequence.push(input.sequence[i]);}
-for(let i in input.timing){timing.push(input.timing[i]);};
+for(let i in input.timing){timing.push(input.timing[i]);}
 for(let i in input.pause){pause.push(input.pause[i]);}
 
 for(let i in sequence) {//pin output logic
