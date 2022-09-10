@@ -3,6 +3,8 @@ var fs = require('fs');
 var sleep = require('sleep');
 var { usleep } = require('usleep');
 
+let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
+
 //notes definition
 let oct = 5;
 let coun;
@@ -35,14 +37,14 @@ async function pa(durp){
     sleep.msleep(ker);
 }
 
-async function note(num, dur){
+async function note(num, dur, m){
     del = (num*oct)/10;
     coun = Math.floor((dur*5*tempo)/del);
     //console.log("delay: " + del + " count: " + coun);
     for(let i = 0; i < coun; i++){
-        M1.writeSync(1);
+        M[m].writeSync(1);
         usleep(del);
-        M1.writeSync(0);
+        M[m].writeSync(0);
         usleep(del);
     }
 }
@@ -55,6 +57,11 @@ console.log("==================");
 console.log("\n");
 
 //set output pins
+let M = [];
+for(let i = 1; i <= 12; i++){
+    M[i] = new Gpio(pinout[i - 1], 'out');
+}
+/*
 var M1 = new Gpio(14, 'out');
 var M2 = new Gpio(15, 'out');
 var M3 = new Gpio(18, 'out');
@@ -66,7 +73,7 @@ var M8 = new Gpio(7, 'out');
 var M9 = new Gpio(12, 'out');
 var M10 = new Gpio(16, 'out');
 var M11 = new Gpio(20, 'out');
-var M12 = new Gpio(21, 'out');
+var M12 = new Gpio(21, 'out');*/
 
 var dir = new Gpio(26, 'out');//set direction output pin
 dir.writeSync(direction);//set direction based on input file
@@ -109,12 +116,16 @@ for(let i in sequence) {//pin output logic
     if(sequence[i] === "f0")    {ntm = 2862;  m = 1;  }
 
     //console.log("ntm: " + ntm + " timing: " + timing[i]);
-    note(ntm, timing[i]);
+    note(ntm, timing[i], m);
     if(pause[i] !== 0){if(pause[i] !== undefined){pa(pause[i]); /*console.log("pause: " + pause[i]);*/}}
 }
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");
 
-//disconnect GPIOs from script
+//disconnect all GPIOs from script
+for(let i = 1; i <= 12; i++){
+    M[m].unexport();
+}
+/*
 M1.unexport();
 M2.unexport();
 M3.unexport();
@@ -127,4 +138,4 @@ M9.unexport();
 M10.unexport();
 M11.unexport();
 M12.unexport();
-dir.unexport();
+dir.unexport();*/
