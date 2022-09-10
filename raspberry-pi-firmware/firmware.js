@@ -5,6 +5,7 @@ var { usleep } = require('usleep');
 
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];//output pinout
 let m = 1; //motor number
+let M = {};//motor object
 
 //notes definition
 let oct = 5;
@@ -58,7 +59,6 @@ console.log("==================");
 console.log("\n");
 
 //set output pins
-let M = {};
 for(let i = 1; i <= 12; i++){
     M[i] = new Gpio(pinout[i - 1], 'out');
 }
