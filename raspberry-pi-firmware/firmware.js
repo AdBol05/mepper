@@ -94,16 +94,16 @@ for(let i in sequence) {//pin output logic
     if(sequence[i] === "ff")    {ntm = 1351;  m = 7;}
     if(sequence[i] === "g")     {ntm = 1275;  m = 8;}
     if(sequence[i] === "gf")    {ntm = 1203;  m = 9;}
-    if(sequence[i] === "a")     {ntm = 1136;  m = 1;}
-    if(sequence[i] === "af")    {ntm = 1072;  m = 2;}
-    if(sequence[i] === "b")     {ntm = 1012;  m = 3;}
-    if(sequence[i] === "c1")    {ntm = 956;   m = 4;}
-    if(sequence[i] === "cf1")   {ntm = 902;   m = 5;}
-    if(sequence[i] === "d1")    {ntm = 851;   m = 6;}
+    if(sequence[i] === "a")     {ntm = 1136;  m = 10;}
+    if(sequence[i] === "af")    {ntm = 1072;  m = 11;}
+    if(sequence[i] === "b")     {ntm = 1012;  m = 12;}
+    if(sequence[i] === "c1")    {ntm = 956;   m = 1;}
+    if(sequence[i] === "cf1")   {ntm = 902;   m = 2;}
+    if(sequence[i] === "d1")    {ntm = 851;   m = 3;}
     if(sequence[i] === "df1")   {ntm = 803;   m = 4;}
-    if(sequence[i] === "e1")    {ntm = 758;   m = 3;}
-    if(sequence[i] === "f1")    {ntm = 715;   m = 2;}
-    if(sequence[i] === "ff1")   {ntm = 675;   m = 1;}
+    if(sequence[i] === "e1")    {ntm = 758;   m = 5;}
+    if(sequence[i] === "f1")    {ntm = 715;   m = 6;}
+    if(sequence[i] === "ff1")   {ntm = 675;   m = 12;}
     if(sequence[i] === "g1")    {ntm = 637;   m = 11;}
     if(sequence[i] === "gf1")   {ntm = 601;   m = 10;}
     if(sequence[i] === "a1")    {ntm = 568;   m = 9;}
