@@ -58,7 +58,7 @@ console.log("==================");
 console.log("\n");
 
 //set output pins
-let M = [];
+let M = {};
 for(let i = 1; i <= 12; i++){
     M[i] = new Gpio(pinout[i - 1], 'out');
 }
