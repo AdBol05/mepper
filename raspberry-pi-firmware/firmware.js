@@ -34,13 +34,27 @@ var pause = [];
 global.direction = input.direction;
 
 //set output pins
+/*
 for(let i = 1; i <= 12; i++){
     M[i] = new Gpio(pinout[i - 1], 'out');
     M[i].writeSync(1);
     M[i].writeSync(0);
     console.log(M[i]);
-}
-console.log(M[1] + "\n");
+}*/
+
+M[1] = new Gpio(14, 'out');
+M[2] = new Gpio(15, 'out');
+M[3] = new Gpio(18, 'out');
+M[4] = new Gpio(23, 'out');
+M[5] = new Gpio(24, 'out');
+M[6] = new Gpio(25, 'out');
+M[7] = new Gpio(8, 'out');
+M[8] = new Gpio(7, 'out');
+M[9] = new Gpio(12, 'out');
+M[10] = new Gpio(16, 'out');
+M[11] = new Gpio(20, 'out');
+M[12] = new Gpio(21, 'out');
+console.log(M + "\n");
 
 async function pa(durp){
     let ker = Math.floor(durp/100)*tempo
