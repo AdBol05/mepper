@@ -118,7 +118,7 @@ for(let i in sequence) {//pin output logic
     if(sequence[i] === "a0")    {ntm = 2272;  m = 2;}
     if(sequence[i] === "f0")    {ntm = 2862;  m = 1;}
 
-    //console.log("ntm: " + ntm + " timing: " + timing[i]);
+    console.log("ntm: " + ntm + " timing: " + timing[i]);
     note(ntm, timing[i], m);
     if(pause[i] !== 0){if(pause[i] !== undefined){pa(pause[i]); /*console.log("pause: " + pause[i]);*/}}
 }
