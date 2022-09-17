@@ -40,7 +40,7 @@ for(let i = 1; i <= 12; i++){
     M[i].writeSync(0);
     console.log(M[i]);
 }
-console.log(M + "\n");
+console.log(M[1] + "\n");
 
 async function pa(durp){
     let ker = Math.floor(durp/100)*tempo
