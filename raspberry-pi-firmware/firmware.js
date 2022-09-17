@@ -64,6 +64,7 @@ for(let i = 1; i <= 12; i++){
     M[i].writeSync(1);
     M[i].writeSync(0);
 }
+console.log("\n" + M + "\n");
 /*
 var M1 = new Gpio(14, 'out');
 var M2 = new Gpio(15, 'out');
