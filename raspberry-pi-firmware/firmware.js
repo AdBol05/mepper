@@ -54,7 +54,7 @@ M[9] = new Gpio(12, 'out');
 M[10] = new Gpio(16, 'out');
 M[11] = new Gpio(20, 'out');
 M[12] = new Gpio(21, 'out');
-console.log(M + "\n");
+console.log(M[1] + "\n");
 
 async function pa(durp){
     let ker = Math.floor(durp/100)*tempo
