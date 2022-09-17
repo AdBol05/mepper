@@ -38,7 +38,7 @@ for(let i = 1; i <= 12; i++){
     M[i] = new Gpio(pinout[i - 1], 'out');
     M[i].writeSync(1);
     M[i].writeSync(0);
-    console.log(M[i] + "\n");
+    console.log(M[i]);
 }
 console.log(M + "\n");
 
