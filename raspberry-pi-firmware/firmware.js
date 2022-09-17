@@ -5,7 +5,7 @@ var { usleep } = require('usleep');
 
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];//output pinout
 let m = 1; //motor number
-let M = {};//motor object
+let M = [];//motor object
 
 //notes definition
 let oct = 5;
