@@ -36,6 +36,7 @@ global.direction = input.direction;
 //set output pins
 
 for(let i = 1; i <= 12; i++){
+    console.log("Initializing motor #" + i + " on pin " + piout[i -1]);
     M[i] = new Gpio(pinout[i - 1], 'out');
     M[i].writeSync(1);
     sleep.msleep(100);
