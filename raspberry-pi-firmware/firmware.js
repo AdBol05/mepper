@@ -5,16 +5,17 @@ var { usleep } = require('usleep');
 
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];//output pinout
 let m = 1; //motor number
-global.M = {};//motor object
+global.M = {};//global motor object
 
 //notes definition
 let oct = 5;
 let coun;
 let del;
 let tempo = 120;
-//let use = 180;
+//let use = 180; --> idk if this is really important (doesn´t seem like it)
 let ntm = 0;
 
+//note mapping to note function input and number of motor
 const notemap = new Map();
 notemap.set("c",  {ntm: 1912, m: 1});
 notemap.set("cf", {ntm: 1805, m: 2});
@@ -59,13 +60,14 @@ console.log('\x1b[32m%s\x1b[0m'," / / / / / /  __/ /_/ / /_/ /  __/ /  /_____/ _
 console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/        /_/ /_/_/  /_/ /_/ /_/|__/|__/\\__,_/_/   \\___/    ");
 console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                                                                        \n");
 
+//read json file and create arrays for mandatory data
 var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
 var sequence = [];
 var timing = [];
 var pause = [];
 global.direction = input.direction;
 
-//set output pins
+//set and test output pins
 for(let i = 1; i <= 12; i++){
     console.log("\nInitializing motor #" + i + " on pin " + pinout[i -1] + ":");
     M[i] = new Gpio(pinout[i - 1], 'out');
@@ -108,18 +110,18 @@ console.log("==================");
 var dir = new Gpio(26, 'out');//set direction output pin
 dir.writeSync(direction);//set direction based on input file
 
-//json file >> arrays
+//parse data from json file to arrays
 for(let i in input.sequence){sequence.push(input.sequence[i]);}
 for(let i in input.timing){timing.push(input.timing[i]);}
 for(let i in input.pause){pause.push(input.pause[i]);}
 
 for(let i in sequence) {//pin output logic
-    
-    console.log("note: " + sequence[i] + " ntm: " + ntm + " timing: " + timing[i]);
-    note(ntm, timing[i], m);
+
+    console.log("note: " + sequence[i] + " ntm: " + ntm + " timing: " + timing[i]);//debug
+    note(ntm, timing[i], m);//call note function with resolved values
     if(pause[i] !== 0){if(pause[i] !== undefined){pa(pause[i]); /*console.log("pause: " + pause[i]);*/}}
 }
-console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");
+console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
 
 //disconnect all GPIOs from script
 for(let i = 1; i <= 12; i++){
