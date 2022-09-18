@@ -131,10 +131,10 @@ for(let i in sequence) {//pin output logic
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");
 
 //disconnect all GPIOs from script
-/*for(let i = 1; i <= 12; i++){
-    M[m].unexport();
-}*/
-
+for(let i = 1; i <= 12; i++){
+    M[i].unexport();
+}
+/*
 M[1].unexport();
 M[2].unexport();
 M[3].unexport();
@@ -146,5 +146,5 @@ M[8].unexport();
 M[9].unexport();
 M[10].unexport();
 M[11].unexport();
-M[12].unexport();
+M[12].unexport();*/
 dir.unexport();
