@@ -36,15 +36,15 @@ global.direction = input.direction;
 //set output pins
 
 for(let i = 1; i <= 12; i++){
-    console.log("Initializing motor #" + i + " on pin " + pinout[i -1] + ":");
+    console.log("\nInitializing motor #" + i + " on pin " + pinout[i -1] + ":");
     M[i] = new Gpio(pinout[i - 1], 'out');
     M[i].writeSync(1);
     sleep.msleep(100);
     M[i].writeSync(0);
     sleep.msleep(100);
-    console.log(M[i] + "\n");
+    console.log(M[i]);
 }
-console.log(M[1] + "\n");
+console.log(M[1]);
 
 async function pa(durp){
     let ker = Math.floor(durp/100)*tempo
