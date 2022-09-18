@@ -44,7 +44,6 @@ for(let i = 1; i <= 12; i++){
     sleep.msleep(100);
     console.log(M[i]);
 }
-console.log(M);
 
 async function pa(durp){
     let ker = Math.floor(durp/100)*tempo
@@ -132,20 +131,20 @@ for(let i in sequence) {//pin output logic
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");
 
 //disconnect all GPIOs from script
-for(let i = 1; i <= 12; i++){
+/*for(let i = 1; i <= 12; i++){
     M[m].unexport();
-}
-/*
-M1.unexport();
-M2.unexport();
-M3.unexport();
-M4.unexport();
-M5.unexport();
-M6.unexport();
-M7.unexport();
-M8.unexport();
-M9.unexport();
-M10.unexport();
-M11.unexport();
-M12.unexport();
-dir.unexport();*/
+}*/
+
+M[1].unexport();
+M[2].unexport();
+M[3].unexport();
+M[4].unexport();
+M[5].unexport();
+M[6].unexport();
+M[7].unexport();
+M[8].unexport();
+M[9].unexport();
+M[10].unexport();
+M[11].unexport();
+M[12].unexport();
+dir.unexport();
