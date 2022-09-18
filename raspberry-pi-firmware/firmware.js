@@ -15,6 +15,38 @@ let tempo = 120;
 //let use = 180;
 let ntm = 0;
 
+const notemap = new Map();
+notemap.set("c",  {ntm: 1912, m: 1});
+notemap.set("cf", {ntm: 1805, m: 2});
+notemap.set("d",  {ntm: 1703, m: 3});
+notemap.set("df", {ntm: 1607, m: 4});
+notemap.set("e",  {ntm: 1517, m: 5});
+notemap.set("f",  {ntm: 1431, m: 6});
+notemap.set("ff", {ntm: 1351, m: 7});
+notemap.set("g",  {ntm: 1275, m: 8});
+notemap.set("gf", {ntm: 1203, m: 9});
+notemap.set("a",  {ntm: 1136, m: 10});
+notemap.set("af", {ntm: 1072, m: 11});
+notemap.set("b",  {ntm: 1012, m: 12});
+notemap.set("c1", {ntm: 956, m: 1});
+notemap.set("cf", {ntm: 902, m: 2});
+notemap.set("d1", {ntm: 851, m: 3});
+notemap.set("df", {ntm: 803, m: 4});
+notemap.set("e1", {ntm: 758, m: 5});
+notemap.set("f1", {ntm: 715, m: 6});
+notemap.set("ff", {ntm: 675, m: 12});
+notemap.set("g1", {ntm: 637, m: 11});
+notemap.set("gf", {ntm: 601, m: 10});
+notemap.set("a1", {ntm: 568, m: 9});
+notemap.set("af", {ntm: 536, m: 8});
+notemap.set("b1", {ntm: 506, m: 7});
+notemap.set("e0", {ntm: 3034, m: 6});
+notemap.set("g0", {ntm: 2550, m: 5});
+notemap.set("b0", {ntm: 2024, m: 4});
+notemap.set("af", {ntm: 2144, m: 3});
+notemap.set("a0", {ntm: 2272, m: 2});
+notemap.set("f0", {ntm: 2862, m: 1});
+
 const args = process.argv.slice(2);//get process arguments
 if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
 else{var file = args[0];};//set file input to first argument
@@ -70,6 +102,8 @@ console.log("==================");
 console.log("Playing: " + input.name);
 console.log("Direction: " + direction);
 console.log("==================");
+console.log(notemap);
+console.log("==================");
 
 var dir = new Gpio(26, 'out');//set direction output pin
 dir.writeSync(direction);//set direction based on input file
@@ -80,6 +114,7 @@ for(let i in input.timing){timing.push(input.timing[i]);}
 for(let i in input.pause){pause.push(input.pause[i]);}
 
 for(let i in sequence) {//pin output logic
+    /*
     if(sequence[i] === "c")     {ntm = 1912;  m = 1;}
     if(sequence[i] === "cf")    {ntm = 1805;  m = 2;}
     if(sequence[i] === "d")     {ntm = 1703;  m = 3;}
@@ -109,7 +144,7 @@ for(let i in sequence) {//pin output logic
     if(sequence[i] === "b0")    {ntm = 2024;  m = 4;}
     if(sequence[i] === "af0")   {ntm = 2144;  m = 3;}
     if(sequence[i] === "a0")    {ntm = 2272;  m = 2;}
-    if(sequence[i] === "f0")    {ntm = 2862;  m = 1;}
+    if(sequence[i] === "f0")    {ntm = 2862;  m = 1;}*/
 
     console.log("note: " + sequence[i] + " ntm: " + ntm + " timing: " + timing[i]);
     note(ntm, timing[i], m);
