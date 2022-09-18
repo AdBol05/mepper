@@ -114,38 +114,7 @@ for(let i in input.timing){timing.push(input.timing[i]);}
 for(let i in input.pause){pause.push(input.pause[i]);}
 
 for(let i in sequence) {//pin output logic
-    /*
-    if(sequence[i] === "c")     {ntm = 1912;  m = 1;}
-    if(sequence[i] === "cf")    {ntm = 1805;  m = 2;}
-    if(sequence[i] === "d")     {ntm = 1703;  m = 3;}
-    if(sequence[i] === "df")    {ntm = 1607;  m = 4;}
-    if(sequence[i] === "e")     {ntm = 1517;  m = 5;}
-    if(sequence[i] === "f")     {ntm = 1431;  m = 6;}
-    if(sequence[i] === "ff")    {ntm = 1351;  m = 7;}
-    if(sequence[i] === "g")     {ntm = 1275;  m = 8;}
-    if(sequence[i] === "gf")    {ntm = 1203;  m = 9;}
-    if(sequence[i] === "a")     {ntm = 1136;  m = 10;}
-    if(sequence[i] === "af")    {ntm = 1072;  m = 11;}
-    if(sequence[i] === "b")     {ntm = 1012;  m = 12;}
-    if(sequence[i] === "c1")    {ntm = 956;   m = 1;}
-    if(sequence[i] === "cf1")   {ntm = 902;   m = 2;}
-    if(sequence[i] === "d1")    {ntm = 851;   m = 3;}
-    if(sequence[i] === "df1")   {ntm = 803;   m = 4;}
-    if(sequence[i] === "e1")    {ntm = 758;   m = 5;}
-    if(sequence[i] === "f1")    {ntm = 715;   m = 6;}
-    if(sequence[i] === "ff1")   {ntm = 675;   m = 12;}
-    if(sequence[i] === "g1")    {ntm = 637;   m = 11;}
-    if(sequence[i] === "gf1")   {ntm = 601;   m = 10;}
-    if(sequence[i] === "a1")    {ntm = 568;   m = 9;}
-    if(sequence[i] === "af1")   {ntm = 536;   m = 8;}
-    if(sequence[i] === "b1")    {ntm = 506;   m = 7;}
-    if(sequence[i] === "e0")    {ntm = 3034;  m = 6;}
-    if(sequence[i] === "g0")    {ntm = 2550;  m = 5;}
-    if(sequence[i] === "b0")    {ntm = 2024;  m = 4;}
-    if(sequence[i] === "af0")   {ntm = 2144;  m = 3;}
-    if(sequence[i] === "a0")    {ntm = 2272;  m = 2;}
-    if(sequence[i] === "f0")    {ntm = 2862;  m = 1;}*/
-
+    
     console.log("note: " + sequence[i] + " ntm: " + ntm + " timing: " + timing[i]);
     note(ntm, timing[i], m);
     if(pause[i] !== 0){if(pause[i] !== undefined){pa(pause[i]); /*console.log("pause: " + pause[i]);*/}}
