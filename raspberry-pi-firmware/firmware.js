@@ -34,7 +34,6 @@ var pause = [];
 global.direction = input.direction;
 
 //set output pins
-
 for(let i = 1; i <= 12; i++){
     console.log("\nInitializing motor #" + i + " on pin " + pinout[i -1] + ":");
     M[i] = new Gpio(pinout[i - 1], 'out');
@@ -45,12 +44,14 @@ for(let i = 1; i <= 12; i++){
     console.log(M[i]);
 }
 
+//pause function
 async function pa(durp){
     let ker = Math.floor(durp/100)*tempo
     ker = ker.toFixed();
     sleep.msleep(ker);
 }
 
+//note generation function
 async function note(num, dur, m){
     del = (num*oct)/10;
     coun = Math.floor((dur*5*tempo)/del);
@@ -69,20 +70,6 @@ console.log("Playing: " + input.name);
 console.log("Direction: " + direction);
 console.log("==================");
 console.log("\n");
-
-/*
-var M1 = new Gpio(14, 'out');
-var M2 = new Gpio(15, 'out');
-var M3 = new Gpio(18, 'out');
-var M4 = new Gpio(23, 'out');
-var M5 = new Gpio(24, 'out');
-var M6 = new Gpio(25, 'out');
-var M7 = new Gpio(8, 'out');
-var M8 = new Gpio(7, 'out');
-var M9 = new Gpio(12, 'out');
-var M10 = new Gpio(16, 'out');
-var M11 = new Gpio(20, 'out');
-var M12 = new Gpio(21, 'out');*/
 
 var dir = new Gpio(26, 'out');//set direction output pin
 dir.writeSync(direction);//set direction based on input file
@@ -134,17 +121,4 @@ console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");
 for(let i = 1; i <= 12; i++){
     M[i].unexport();
 }
-/*
-M[1].unexport();
-M[2].unexport();
-M[3].unexport();
-M[4].unexport();
-M[5].unexport();
-M[6].unexport();
-M[7].unexport();
-M[8].unexport();
-M[9].unexport();
-M[10].unexport();
-M[11].unexport();
-M[12].unexport();*/
 dir.unexport();
