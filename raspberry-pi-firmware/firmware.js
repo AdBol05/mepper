@@ -44,7 +44,7 @@ for(let i = 1; i <= 12; i++){
     sleep.msleep(100);
     console.log(M[i]);
 }
-console.log(M[1]);
+console.log(M);
 
 async function pa(durp){
     let ker = Math.floor(durp/100)*tempo
