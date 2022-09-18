@@ -65,11 +65,11 @@ async function note(num, dur, m){
 }
 
 //print basic info (mostly for debugging)
+console.log("\n");
 console.log("==================");
 console.log("Playing: " + input.name);
 console.log("Direction: " + direction);
 console.log("==================");
-console.log("\n");
 
 var dir = new Gpio(26, 'out');//set direction output pin
 dir.writeSync(direction);//set direction based on input file
