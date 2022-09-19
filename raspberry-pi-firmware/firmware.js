@@ -6,7 +6,6 @@ var { usleep } = require('usleep');
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];//output pinout
 let m = 1; //motor number
 global.M = {};//global motor object
-let tempnote;
 
 //notes definition
 let oct = 5;
@@ -117,7 +116,6 @@ for(let i in input.timing){timing.push(input.timing[i]);}
 for(let i in input.pause){pause.push(input.pause[i]);}
 
 for(let i in sequence) {//pin output logic
-    //tempnote = notemap.get(sequence[i]);
     console.log(sequence[i]);
     console.log(notemap.get(sequence[i]));
     console.log("note: " + sequence[i] + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i] + "\n");//debug
