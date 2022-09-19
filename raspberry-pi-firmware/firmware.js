@@ -117,11 +117,11 @@ for(let i in input.timing){timing.push(input.timing[i]);}
 for(let i in input.pause){pause.push(input.pause[i]);}
 
 for(let i in sequence) {//pin output logic
-    tempnote = notemap.get(sequence[i]);
+    //tempnote = notemap.get(sequence[i]);
     console.log(sequence[i]);
-    console.log(tempnote);
-    console.log("note: " + sequence[i] + " ntm: " + tempnote.ntm + " motor: " + tempnote.m + " timing: " + timing[i] + "\n");//debug
-    note(tempnote.ntm, timing[i], tempnote.m);//call note function with resolved values
+    console.log(notemap.get(sequence[i]));
+    console.log("note: " + sequence[i] + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i] + "\n");//debug
+    note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m);//call note function with resolved values
     if(pause[i] !== 0){if(pause[i] !== undefined){pa(pause[i]); /*console.log("pause: " + pause[i]);*/}}
 }
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
