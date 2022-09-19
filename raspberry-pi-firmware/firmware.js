@@ -122,7 +122,7 @@ for(let i in sequence) {//pin output logic
     console.log(sequence[i]);
     console.log(tempnote);
     console.log("note: " + sequence[i] + " ntm: " + ntm + " timing: " + timing[i] + "\n");//debug
-    note(ntm, timing[i], m);//call note function with resolved values
+    //note(ntm, timing[i], m);//call note function with resolved values
     if(pause[i] !== 0){if(pause[i] !== undefined){pa(pause[i]); /*console.log("pause: " + pause[i]);*/}}
 }
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
