@@ -116,7 +116,7 @@ for(let i in input.timing){timing.push(input.timing[i]);}
 for(let i in input.pause){pause.push(input.pause[i]);}
 
 for(let i in sequence) {//pin output logic
-    //TODO: map input/output test  uhjfgkiuz
+    //TODO: map input/output
 
     console.log("note: " + sequence[i] + " ntm: " + ntm + " timing: " + timing[i]);//debug
     note(ntm, timing[i], m);//call note function with resolved values
