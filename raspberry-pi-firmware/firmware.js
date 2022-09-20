@@ -80,7 +80,7 @@ for(let i = 1; i <= 12; i++){
 
 //pause function
 async function pa(durp){
-    let ker = Math.floor(durp/100)*tempo
+    let ker = Math.floor(durp/100)*tempo;
     ker = ker.toFixed();
     sleep.msleep(ker);
 }
@@ -89,7 +89,6 @@ async function pa(durp){
 async function note(num, dur, m){
     del = (num*oct)/10;
     coun = Math.floor((dur*5*tempo)/del);
-    //console.log("delay: " + del + " count: " + coun);
     for(let i = 0; i < coun; i++){
         M[m].writeSync(1);
         usleep(del);
