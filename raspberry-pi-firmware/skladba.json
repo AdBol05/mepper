@@ -1,0 +1,7 @@
+{
+"name": "skladba", //název skladby
+"direction": 0, //nešahat
+"sequence": [], //řada not -příklad: "c", "d"
+"timing": [], //doba trvání noty v milisekundách -příklad: 250, 500
+"pause": [] //pauza po notě
+}
