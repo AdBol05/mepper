@@ -122,7 +122,7 @@ for(let i in sequence) {//pin output logic
     console.log(sequence[i]);
     console.log(notemap.get(sequence[i]));
     console.log("note: " + sequence[i] + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]);//debug
-    await note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m);//call note function with resolved values
+    note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m);//call note function with resolved values
     if(pause[i] !== 0){if(pause[i] !== undefined){pa(pause[i]); /*console.log("pause: " + pause[i]);*/}}
 }
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
