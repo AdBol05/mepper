@@ -1,8 +1,8 @@
 var Gpio = require('onoff').Gpio;
-const { Console } = require('console');
+//const { Console } = require('console');
 var fs = require('fs');
 var sleep = require('sleep');
-var { usleep } = require('usleep');
+//var { usleep } = require('usleep');
 
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];//output pinout
 let m = 1; //motor number
