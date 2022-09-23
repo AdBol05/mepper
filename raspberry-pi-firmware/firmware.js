@@ -90,7 +90,7 @@ async function pa(durp){
 async function note(num, dur, m){
     del = (num*oct)/10;
     coun = Math.floor((dur*5*tempo)/del);
-    console.log("Coun: " + coun);
+    console.log("Coun: " + coun + "\n");
     for(let i = 0; i < coun; i++){
         M[m].writeSync(1);
         usleep(del);
@@ -119,7 +119,7 @@ for(let i in input.pause){pause.push(input.pause[i]);}
 for(let i in sequence) {//pin output logic
     console.log(sequence[i]);
     console.log(notemap.get(sequence[i]));
-    console.log("note: " + sequence[i] + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i] + "\n");//debug
+    console.log("note: " + sequence[i] + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]);//debug
     note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m);//call note function with resolved values
     if(pause[i] !== 0){if(pause[i] !== undefined){pa(pause[i]); /*console.log("pause: " + pause[i]);*/}}
 }
