@@ -88,7 +88,7 @@ async function pa(durp){
 
 //note generation function
 async function note(num, dur, m){
-    del = (num*oct*10000); // /10
+    del = (num*oct); // /10
     coun = Math.floor((dur*5*tempo)/del);
     console.log("Coun: " + coun + " del: " + del + "\n");
     for(let i = 0; i < coun; i++){
