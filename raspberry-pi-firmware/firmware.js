@@ -95,7 +95,6 @@ async function note(num, dur, m){
         sleep.usleep(del);
         M[m].writeSync(0);
         sleep.usleep(del);
-        console.log();
     }
 }
 
