@@ -93,9 +93,9 @@ async function note(num, dur, m){
     console.log("Coun: " + coun + "del: " + del + "\n");
     for(let i = 0; i < coun; i++){
         M[m].writeSync(1);
-        usleep(del*10);
+        usleep(del*100);
         M[m].writeSync(0);
-        usleep(del*10);
+        usleep(del*100);
     }
 }
 
