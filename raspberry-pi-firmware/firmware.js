@@ -3,7 +3,7 @@ var fs = require('fs');
 var sleep = require('sleep');
 
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];//output pinout
-let m = 1; //motor number
+//let m = 1; //motor number
 global.M = {};//global motor object
 
 //notes definition
@@ -11,8 +11,7 @@ let oct = 5;
 let coun;
 let del;
 let tempo = 120;
-//let use = 180; --> idk if this is really important (doesn´t seem like it)
-let ntm = 0;
+//let ntm = 0;
 
 //note mapping to note function input and number of motor
 const notemap = new Map();
@@ -90,7 +89,6 @@ async function note(num, dur, m){
     coun = Math.floor((dur*5*tempo)/del);
     console.log("Coun: " + coun + " del: " + del + "\n");
     for(let i = 0; i < coun; i++){
-        //console.log(del);
         M[m].writeSync(1);
         sleep.usleep(del);
         M[m].writeSync(0);
