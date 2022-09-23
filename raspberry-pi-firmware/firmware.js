@@ -90,7 +90,7 @@ async function pa(durp){
 async function note(num, dur, m){
     del = (num*oct)/10;
     coun = Math.floor((dur*5*tempo)/del);
-    Console.log("Coun: " + coun);
+    console.log("Coun: " + coun);
     for(let i = 0; i < coun; i++){
         M[m].writeSync(1);
         usleep(del);
