@@ -3,7 +3,6 @@ var fs = require('fs');
 var sleep = require('sleep');
 
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];//output pinout
-//let m = 1; //motor number
 global.M = {};//global motor object
 
 //notes definition
@@ -11,7 +10,6 @@ let oct = 5;
 let coun;
 let del;
 let tempo = 120;
-//let ntm = 0;
 
 //note mapping to note function input and number of motor
 const notemap = new Map();
