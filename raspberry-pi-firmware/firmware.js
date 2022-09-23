@@ -1,4 +1,5 @@
 var Gpio = require('onoff').Gpio;
+const { Console } = require('console');
 var fs = require('fs');
 var sleep = require('sleep');
 var { usleep } = require('usleep');
@@ -89,6 +90,7 @@ async function pa(durp){
 async function note(num, dur, m){
     del = (num*oct)/10;
     coun = Math.floor((dur*5*tempo)/del);
+    Console.log("Coun: " + coun);
     for(let i = 0; i < coun; i++){
         M[m].writeSync(1);
         usleep(del);
