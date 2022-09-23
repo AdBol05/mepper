@@ -92,7 +92,7 @@ async function note(num, dur, m){
     coun = Math.floor((dur*5*tempo)/del);
     console.log("Coun: " + coun + " del: " + del + "\n");
     for(let i = 0; i < coun; i++){
-        console.log(del);
+        //console.log(del);
         M[m].writeSync(1);
         usleep(del);
         M[m].writeSync(0);
