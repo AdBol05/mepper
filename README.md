@@ -7,7 +7,7 @@ music stepper motor driver and interpreter
 You need to install all dependencies as well as ffmpeg.
 
 # Usage
-Paste desired wav or mp3 to script's directory and run index.js with it's name as the first argument and name (not filename but name to be stored inside the file) as the second argument.
+Paste desired midi file into the script's directory and run index.js with it's name as the first argument and name (name to be stored inside the file and which will be then printed by firmware) as the second argument.
 
     node index.js input.mp3 test
 
@@ -25,7 +25,7 @@ Ouptut.json
 ```
 
 # index.js
-Determines notes from a given file. Natively supporrts WAV files and converts MP3 files into WAV if needed.
+Determines notes from a given file. Should resolve notes from a midi file.
 
 # firmware.js
 Firmware is meant for a raspberry pi. It takes a json file and extracts all data from it. Motors are then controlled based on the sequence stored in the json file.
