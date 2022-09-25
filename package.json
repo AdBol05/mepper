@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "midi-file": "^1.2.3",
+    "midiconvert": "^0.4.7",
     "onoff": "^6.0.3",
     "pcm": "^1.0.3",
     "piscina": "^3.2.0",
