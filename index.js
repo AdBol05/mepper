@@ -29,5 +29,11 @@ var parsed = parseMidi(input);
 //console.log(parsed.tracks);
 console.log(util.inspect(parsed, {showHidden: false, depth: 3, colors: true}));
 
-let dataout = JSON.stringify(parsed);
+//TBD
+let notes = [];
+for(i in parsed.tracks.value){
+  notes.push(parsed.tracks.value[i]);
+}
+
+let dataout = JSON.stringify(notes);
 fs.writeFileSync(outFile, dataout);
