@@ -1,7 +1,9 @@
 //Work in progress -> might be a piece of junk
 const fs = require('fs');
+const util = require('util')
+
 var parseMidi = require('midi-file').parseMidi
-var writeMidi = require('midi-file').writeMidi
+//var writeMidi = require('midi-file').writeMidi
 
 const args = process.argv.slice(2);//process arguments
 var inFile = args[0] //input filename
@@ -23,4 +25,5 @@ if(args[0] === undefined){console.log('\x1b[31m%s\x1b[0m',"ERROR: Input file pat
 const input = fs.readFileSync(args[0]);
 var parsed = parseMidi(input)
 
-console.log(parsed.tracks);
+//console.log(parsed.tracks);
+console.log(util.inspect(parsed, {showHidden: false, depth: 3, colors: true}))
