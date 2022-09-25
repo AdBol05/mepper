@@ -28,3 +28,6 @@ var parsed = parseMidi(input);
 
 //console.log(parsed.tracks);
 console.log(util.inspect(parsed, {showHidden: false, depth: 3, colors: true}));
+
+let dataout = JSON.stringify(parsed);
+fs.writeFileSync(outFile, dataout);
