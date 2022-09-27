@@ -26,14 +26,14 @@ if(args[0] === undefined){console.log('\x1b[31m%s\x1b[0m',"ERROR: Input file pat
 const input = fs.readFileSync(args[0]);
 var parsed = parseMidi(input);
 
-//console.log(parsed.tracks);
-console.log(util.inspect(parsed, {showHidden: false, depth: 3, colors: true}));
+console.log(parsed.tracks);
+//console.log(util.inspect(parsed, {showHidden: false, depth: 3, colors: true}));
 
 //TBD
 let notes = [];
-for(i in parsed.tracks.value){
-  notes.push(parsed.tracks.value[i]);
-}
+parsed.tracks.forEach( sample =>{
+  notes.push(sample.value);
+});
 
 let dataout = JSON.stringify(notes);
 fs.writeFileSync(outFile, dataout);
