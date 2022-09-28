@@ -49,7 +49,14 @@ notemap.set("e1", {ntm: 758, m: 5});
 notemap.set("f1", {ntm: 715, m: 6});
 notemap.set("g1", {ntm: 637, m: 7});
 notemap.set("a1", {ntm: 568, m: 8});
-notemap.set("b1", {ntm: 506, m: 9});
+
+notemap.set("c2", {ntm: 478, m: 10});
+notemap.set("d2", {ntm: 426, m: 3});
+notemap.set("e2", {ntm: 379, m: 3});
+notemap.set("f2", {ntm: 358, m: 3});
+notemap.set("g2", {ntm: 319, m: 3});
+notemap.set("a2", {ntm: 284, m: 3});
+
 
 /*
 notemap.set("af0", {ntm: 2144, m: 3});
