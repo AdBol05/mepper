@@ -125,6 +125,7 @@ for(let i in input.timing){timing.push(input.timing[i]);}
 for(let i in input.pause){pause.push(input.pause[i]);}
 
 for(let i in sequence) {//pin output logic
+    sequence[i] = sequence[i].replace("h", "b");
     console.log(sequence[i]);
     console.log(notemap.get(sequence[i]));
     console.log("note: " + sequence[i] + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]);//debug
