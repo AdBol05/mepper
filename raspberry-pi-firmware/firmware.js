@@ -12,6 +12,7 @@ let del;
 let tempo = 120;
 
 //note mapping to note function input and number of motor
+//h -> b
 const notemap = new Map();
 notemap.set("c",  {ntm: 1912, m: 1});
 notemap.set("cf", {ntm: 1805, m: 2});
