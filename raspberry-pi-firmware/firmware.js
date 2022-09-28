@@ -15,36 +15,48 @@ let tempo = 120;
 //h -> b
 //ntm = 1000000/freq/2
 const notemap = new Map();
-notemap.set("c",  {ntm: 1912, m: 1});
-notemap.set("cf", {ntm: 1805, m: 2});
-notemap.set("d",  {ntm: 1703, m: 3});
-notemap.set("df", {ntm: 1607, m: 4});
-notemap.set("e",  {ntm: 1517, m: 5});
-notemap.set("f",  {ntm: 1431, m: 6});
-notemap.set("ff", {ntm: 1351, m: 7});
-notemap.set("g",  {ntm: 1275, m: 8});
-notemap.set("gf", {ntm: 1203, m: 9});
-notemap.set("a",  {ntm: 1136, m: 10});
-notemap.set("af", {ntm: 1072, m: 11});
-notemap.set("b",  {ntm: 1012, m: 12});
-notemap.set("c1", {ntm: 956, m: 1});
-notemap.set("cf1", {ntm: 902, m: 2});
-notemap.set("d1", {ntm: 851, m: 3});
-notemap.set("df1", {ntm: 803, m: 4});
+notemap.set("cf", {ntm: 1805, m: 1});
+notemap.set("df", {ntm: 1607, m: 2});
+notemap.set("ff", {ntm: 1351, m: 3});
+notemap.set("gf", {ntm: 1203, m: 4});
+notemap.set("af", {ntm: 1072, m: 5});
+
+notemap.set("cf1", {ntm: 902, m: 6});
+notemap.set("df1", {ntm: 803, m: 7});
+notemap.set("ff1", {ntm: 675, m: 8});
+notemap.set("gf1", {ntm: 601, m: 9});
+notemap.set("af1", {ntm: 536, m: 10});
+
+notemap.set("c0", {ntm: 3823, m: 1});
+notemap.set("d0", {ntm: 3214, m: 2});
+notemap.set("e0", {ntm: 3034, m: 3});
+notemap.set("f0", {ntm: 2834, m: 4});
+notemap.set("g0", {ntm: 2550, m: 5});
+notemap.set("a0", {ntm: 2273, m: 6});
+notemap.set("b0", {ntm: 2024, m: 7});
+
+notemap.set("c",  {ntm: 1912, m: 8});
+notemap.set("d",  {ntm: 1703, m: 9});
+notemap.set("e",  {ntm: 1517, m: 10});
+notemap.set("f",  {ntm: 1431, m: 11});
+notemap.set("g", {ntm:1276, m: 12});
+notemap.set("a",  {ntm: 1136, m: 1});
+notemap.set("b",  {ntm: 1012, m: 2});
+
+notemap.set("c1", {ntm: 956, m: 3});
+notemap.set("d1", {ntm: 851, m: 4});
 notemap.set("e1", {ntm: 758, m: 5});
 notemap.set("f1", {ntm: 715, m: 6});
-notemap.set("ff1", {ntm: 675, m: 12});
-notemap.set("g1", {ntm: 637, m: 11});
-notemap.set("gf1", {ntm: 601, m: 10});
-notemap.set("a1", {ntm: 568, m: 9});
-notemap.set("af1", {ntm: 536, m: 8});
-notemap.set("b1", {ntm: 506, m: 7});
-notemap.set("e0", {ntm: 3034, m: 6});
-notemap.set("g0", {ntm: 2550, m: 5});
-notemap.set("b0", {ntm: 2024, m: 4});
+notemap.set("g1", {ntm: 637, m: 7});
+notemap.set("a1", {ntm: 568, m: 8});
+notemap.set("b1", {ntm: 506, m: 9});
+
+
+/*
 notemap.set("af0", {ntm: 2144, m: 3});
 notemap.set("a0", {ntm: 2272, m: 2});
 notemap.set("f0", {ntm: 2862, m: 1});
+*/
 
 const args = process.argv.slice(2);//get process arguments
 if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
