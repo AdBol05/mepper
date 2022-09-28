@@ -35,13 +35,13 @@ notemap.set("g0", {ntm: 2550, m: 5});
 notemap.set("a0", {ntm: 2273, m: 6});
 notemap.set("b0", {ntm: 2024, m: 7});
 
-notemap.set("c",  {ntm: 1912, m: 8});
-notemap.set("d",  {ntm: 1703, m: 9});
-notemap.set("e",  {ntm: 1517, m: 10});
-notemap.set("f",  {ntm: 1431, m: 11});
+notemap.set("c", {ntm: 1912, m: 8});
+notemap.set("d", {ntm: 1703, m: 9});
+notemap.set("e", {ntm: 1517, m: 10});
+notemap.set("f", {ntm: 1431, m: 11});
 notemap.set("g", {ntm:1276, m: 12});
-notemap.set("a",  {ntm: 1136, m: 1});
-notemap.set("b",  {ntm: 1012, m: 2});
+notemap.set("a", {ntm: 1136, m: 1});
+notemap.set("b", {ntm: 1012, m: 2});
 
 notemap.set("c1", {ntm: 956, m: 3});
 notemap.set("d1", {ntm: 851, m: 4});
@@ -49,7 +49,7 @@ notemap.set("e1", {ntm: 758, m: 5});
 notemap.set("f1", {ntm: 715, m: 6});
 notemap.set("g1", {ntm: 637, m: 7});
 notemap.set("a1", {ntm: 568, m: 8});
-notemap.set("b1",  {ntm: 506, m: 9});
+notemap.set("b1", {ntm: 506, m: 9});
 
 notemap.set("c2", {ntm: 478, m: 10});
 notemap.set("d2", {ntm: 426, m: 11});
@@ -57,7 +57,7 @@ notemap.set("e2", {ntm: 379, m: 12});
 notemap.set("f2", {ntm: 358, m: 1});
 notemap.set("g2", {ntm: 319, m: 2});
 notemap.set("a2", {ntm: 284, m: 3});
-notemap.set("b2",  {ntm: 253, m: 4});
+notemap.set("b2", {ntm: 253, m: 4});
 
 /*
 notemap.set("af0", {ntm: 2144, m: 3});
