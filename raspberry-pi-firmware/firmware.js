@@ -59,8 +59,8 @@ notemap.set("g2", {ntm: 319, m: 2});
 notemap.set("a2", {ntm: 284, m: 3});
 notemap.set("b2", {ntm: 253, m: 4});
 
+notemap.set("af0", {ntm: 2144, m: 5});
 /*
-notemap.set("af0", {ntm: 2144, m: 3});
 notemap.set("a0", {ntm: 2272, m: 2});
 notemap.set("f0", {ntm: 2862, m: 1});
 */
