@@ -26,7 +26,7 @@ if(args[0] === undefined){console.log('\x1b[31m%s\x1b[0m',"ERROR: Input file pat
 const midiData = fs.readFileSync(args[0]);
 const midi = new Midi(midiData);
 
-console.log(util.inspect(midi, {showHidden: false, depth: 5, colors: true}));
+console.log(util.inspect(midi.tracks[2].notes, {showHidden: false, depth: 5, colors: true}));
 //console.log(midi)
 
 /*const input = fs.readFileSync(args[0]);
