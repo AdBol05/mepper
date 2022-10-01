@@ -22,12 +22,12 @@ Ouptut.json
     "direction": 0,                     <-- motor rotation direction
     "sequence": ["c","cf","d","df"],    <-- sequence of notes
     "timing": [250, 500, 250, 250],     <-- duration of note
-    "pause": [0, 0, 100, 0]             <-- pause between notes
+    "pause": [0, 0, 100, 0]             <-- pause after a note
 }
 ```
 
 # index.js
-Determines notes from a given file. Should resolve notes from a midi file.
+(work in progress) Should convert a midi file to a json, which will be used by firmware.
 
 # firmware.js
 Firmware is meant for a raspberry pi. It takes a json file and extracts all data from it. Motors are then controlled based on the sequence stored in the json file.
