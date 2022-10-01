@@ -9,7 +9,7 @@ You need to install all dependencies
     npm i 
 
 # Usage
-Paste desired midi file into the script's directory and run index.js with it's name as the first argument and name (name to be stored inside the file and which will be then printed by firmware) as the second argument.
+Paste desired midi file into the script's directory and run index.js with it's path as the first argument. Optionaly you can set a different display name (stored inside the file and then printed by firmware) as the second argument.
 
     node index.js input.mp3 test
 
@@ -30,7 +30,7 @@ Ouptut.json
 (work in progress) Should convert a midi file to a json, which will be used by firmware.
 
 # firmware.js
-Firmware is meant for a raspberry pi. It takes a json file and extracts all data from it. Motors are then controlled based on the sequence stored in the json file.
+Firmware is meant for a raspberry pi. Rotates motor according to data from json file.
 
     node firmware.js input.json
 
