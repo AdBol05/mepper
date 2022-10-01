@@ -39,7 +39,7 @@ notemap.set("c", {ntm: 1912, m: 8});
 notemap.set("d", {ntm: 1703, m: 9});
 notemap.set("e", {ntm: 1517, m: 10});
 notemap.set("f", {ntm: 1431, m: 11});
-notemap.set("g", {ntm:1276, m: 12});
+notemap.set("g", {ntm: 1276, m: 12});
 notemap.set("a", {ntm: 1136, m: 1});
 notemap.set("b", {ntm: 1012, m: 2});
 
