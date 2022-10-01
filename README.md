@@ -4,10 +4,9 @@
 music stepper motor driver and interpreter 
 
 # Before use
-You need to install all dependencies as well as ffmpeg.
+You need to install all dependencies
 
     npm i 
-    sudo apt-get install ffmpeg
 
 # Usage
 Paste desired midi file into the script's directory and run index.js with it's name as the first argument and name (name to be stored inside the file and which will be then printed by firmware) as the second argument.
