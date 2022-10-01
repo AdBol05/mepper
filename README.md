@@ -43,4 +43,4 @@ Firmware is meant for a raspberry pi. It takes a json file and extracts all data
 
 -Adequate power supply (12V for motors + 5V for raspberry pi +3.3V for drivers). In case you use the mepper driver PCB you can hook it up to an ATX power supply, which will power the motors, drivers and the raspberry pi via an ATX 24 pin connector.
 
-# NOTE: This project has not been appropriately tested and is still in development! (Firmware working only in two octaves without being able to play more notes simultaneously and mp3 interpreter is not working at all yet) Any feedback or suggestion is welcome.
+# NOTE: This project has not been appropriately tested and is still in development! (Firmware is not able to play more notes simultaneously and midi interpreter is in development) Any feedback or suggestion is welcome.
