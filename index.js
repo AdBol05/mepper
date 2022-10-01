@@ -1,11 +1,7 @@
 //Work in progress -> might be a piece of junk
 const fs = require('fs');
 const util = require('util');
-
 const { Midi } = require('@tonejs/midi');
-//var parseMidi = require('midi-file').parseMidi;
-//var writeMidi = require('midi-file').writeMidi
-//var MidiConvert = require('midiconvert');
 
 const args = process.argv.slice(2);//process arguments
 var inFile = args[0] //input filename
@@ -26,25 +22,8 @@ if(args[0] === undefined){console.log('\x1b[31m%s\x1b[0m',"ERROR: Input file pat
 const midiData = fs.readFileSync(args[0]);
 const midi = new Midi(midiData);
 
-console.log(util.inspect(midi.tracks[2].notes, {showHidden: false, depth: 5, colors: true}));
-fs.writeFileSync(outFile, JSON.stringify(midi.tracks[2].notes));
-//console.log(midi)
+notearray = midi.tracks[2].notes;
+console.log(notearray);
+fs.writeFileSync(outFile, JSON.stringify(notearray));
 
-/*const input = fs.readFileSync(args[0]);
-var parsed = parseMidi(input);
-
-console.log(parsed.tracks.length);*/
-//console.log(util.inspect(parsed, {showHidden: false, depth: 3, colors: true}));
-
-
-
-//TBD
-/*
-let notes = [];
-parsed.tracks.forEach( sample =>{
-  console.log(sample);
-  //notes.push(sample.value);
-});
-
-let dataout = JSON.stringify(notes);
-fs.writeFileSync(outFile, dataout);*/
+//console.log(util.inspect(midi.tracks[2].notes, {showHidden: false, depth: 5, colors: true}));
