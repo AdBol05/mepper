@@ -1,3 +1,5 @@
+//source: https://github.com/kevin-roark/midi-timing/blob/master/midi.js
+
 var midiConverter = require('midi-converter');
 
 module.exports = function(midiSong) {
