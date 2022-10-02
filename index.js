@@ -30,7 +30,7 @@ let timingArray = [];
 let pauseArray = [];
 
 data.forEach( sample => {
-output.timing = sample.duration.toFixed();
+timingArray.push(sample.duration.toFixed());
 });
 
 output = {
