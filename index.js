@@ -2,12 +2,13 @@
 const fs = require('fs');
 const util = require('util');
 var midiTiming = require('./midi');
+const { Note } = require("@tonaljs/tonal");
 
 const args = process.argv.slice(2);//process arguments
 var inFile = args[0] //input filename
 var outFile = inFile.replace(".mid", ".json");//output filename
 var outname = ""; //name to be writteno into output file
-if (args[1] === undefined){outname = inFile.replace(".mp3", "")}//if not defined, name should be the same as filename of input file
+if (args[1] === undefined){outname = inFile.replace(".mid", "")}//if not defined, name should be the same as filename of input file
 else{outname = args[1];}
 
 //welcome screen
@@ -28,9 +29,19 @@ console.log(util.inspect(timing.tracks[0], {showHidden: false, depth: 5, colors:
 let sequenceArray = [];
 let timingArray = [];
 let pauseArray = [];
+let prevtime = 0;
+
+let transpositions = [];
 
 data.forEach( sample => {
-timingArray.push(sample.duration.toFixed());
+  if(prevtime === sample.time){
+    transpositions.push(Note.fromMidi(sample.noteNumber));
+  }
+  else{
+    sequenceArray.push(Note.fromMidi(sample.noteNumber).toLowerCase());
+  }
+  prevtime = sample.time;
+  timingArray.push(sample.duration.toFixed());
 });
 
 output = {
@@ -42,3 +53,4 @@ output = {
 };
 
 console.log(output);
+fs.writeFileSync(outFile, JSON.stringify(output));
