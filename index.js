@@ -1,7 +1,6 @@
 //Work in progress -> might be a piece of junk
 const fs = require('fs');
 const util = require('util');
-//const { Midi } = require('@tonejs/midi');
 var midiTiming = require('./midi');
 
 const args = process.argv.slice(2);//process arguments
@@ -24,17 +23,3 @@ var midiData = fs.readFileSync(args[0], 'binary');
 var timing = midiTiming(midiData);
 
 console.log(util.inspect(timing.tracks[0], {showHidden: false, depth: 5, colors: true}));
-
-//var tempoMap = getTempoMap(jsonSong);
-//var musicTracks = getMusicTracks(jsonSong.tracks);
-
-/*
-const midiData = fs.readFileSync(args[0]);
-const midi = new Midi(midiData);
-
-notearray = midi.tracks[2].notes;
-console.log(notearray);
-fs.writeFileSync(outFile, JSON.stringify(notearray));
-*/
-
-//console.log(util.inspect(midi.tracks[2].notes, {showHidden: false, depth: 5, colors: true}));
