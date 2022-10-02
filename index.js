@@ -6,9 +6,9 @@ var midiTiming = require('./midi');
 const args = process.argv.slice(2);//process arguments
 var inFile = args[0] //input filename
 var outFile = inFile.replace(".mid", ".json");//output filename
-var outnamename = ""; //name to be writteno into output file
-if (args[1] === undefined){outnamename = inFile.replace(".mp3", "")}//if not defined, name should be the same as filename of input file
-else{outnamename = args[1];}
+var outname = ""; //name to be writteno into output file
+if (args[1] === undefined){outname = inFile.replace(".mp3", "")}//if not defined, name should be the same as filename of input file
+else{outname = args[1];}
 
 //welcome screen
 console.log('\x1b[32m%s\x1b[0m',"   ____ ___  ___  ____  ____  ___  _____      ");
@@ -22,4 +22,23 @@ if(args[0] === undefined){console.log('\x1b[31m%s\x1b[0m',"ERROR: Input file pat
 var midiData = fs.readFileSync(args[0], 'binary');
 var timing = midiTiming(midiData);
 
+data = timing.tracks[0];
 console.log(util.inspect(timing.tracks[0], {showHidden: false, depth: 5, colors: true}));
+
+let sequenceArray = [];
+let timingArray = [];
+let pauseArray = [];
+
+data.forEach( sample => {
+output.timing = sample.duration.toFixed();
+});
+
+output = {
+  "name" : outname,
+  "direction": 0,
+  "sequence:" : sequenceArray,
+  "timing" : timingArray,
+  "pause" : pauseArray
+};
+
+console.log(output);
