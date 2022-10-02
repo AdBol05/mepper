@@ -28,7 +28,7 @@ Ouptut.json
 
 # index.js
 (work in progress) Should convert a midi file to a json, which will be used by firmware.
-based on midi-timing by kevin-roak: https://github.com/kevin-roark/midi-timing
+Based on midi-timing by kevin-roak: https://github.com/kevin-roark/midi-timing
 
 # firmware.js
 Firmware is meant for a raspberry pi. Rotates motor according to data from json file.
