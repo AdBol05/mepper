@@ -1,5 +1,5 @@
 var Gpio = require('onoff').Gpio;
-const { info } = require('console');
+//const { info } = require('console');
 var fs = require('fs');
 var sleep = require('sleep');
 
