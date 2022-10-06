@@ -1,6 +1,6 @@
+![logo_green](https://user-images.githubusercontent.com/98588523/194335228-4940c632-fed4-4666-a9ba-6ba85d1c5870.png)
 # mepper
 music stepper motor driver and interpreter 
-![logo_green](https://user-images.githubusercontent.com/98588523/194335228-4940c632-fed4-4666-a9ba-6ba85d1c5870.png)
 
 # Before use
 You need to install all dependencies
