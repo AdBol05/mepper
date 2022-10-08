@@ -103,19 +103,21 @@ async function pa(durp){
 }
 
 //note generation function
-async function note(num, dur, m){
-    let n = 1;
-    n = m + 1;
-    if(n > 12){n = n - 12;}
+async function note(num, dur, m, multi){
+    if(multi){
+        let n = 1;
+        n = m + 1;
+        if(n > 12){n = n - 12;}
+    }
     del = (num*oct); // /10
     coun = Math.floor((dur*5*tempo)/del);
     console.log("Coun: " + coun + " del: " + del + "\n");
     for(let i = 0; i < coun; i++){
         M[m].writeSync(1);
-        M[n].writeSync(1);
+        if(mulit){M[n].writeSync(1);}
         sleep.usleep(del);
         M[m].writeSync(0);
-        M[n].writeSync(0);
+        if(multi){M[n].writeSync(0);}
         sleep.usleep(del);
     }
 }
@@ -140,12 +142,18 @@ for(let i in input.pause){pause.push(input.pause[i]);}
 for(let i in sequence) {//pin output logic
     sequence[i] = sequence[i].replace("h", "b");
     sequence[i] = sequence[i].replace("is", "f");
-    console.log(sequence[i]);
-    console.log(notemap.get(sequence[i]));
-    if(notemap.has(sequence[i])){
-        console.log("note: " + sequence[i] + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]);//debug
-        note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m);//call note function with resolved values
-        if(pause[i] !== 0){if(pause[i] !== undefined){pa(pause[i]); /*console.log("pause: " + pause[i]);*/}}
+    if(sequence[i].includes('+')){
+        let part = sequence[i].split('+');
+        console.log("MulitNote: " + part);
+    }
+    else{
+        console.log(sequence[i]);
+        console.log(notemap.get(sequence[i]));
+        if(notemap.has(sequence[i])){
+            console.log("note: " + sequence[i] + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]);//debug
+            note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m, true);//call note function with resolved values
+            if(pause[i] !== 0){if(pause[i] !== undefined){pa(pause[i]); /*console.log("pause: " + pause[i]);*/}}
+        }
     }
 }
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
