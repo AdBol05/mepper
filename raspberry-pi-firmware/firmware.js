@@ -3,6 +3,7 @@ var fs = require('fs');
 var sleep = require('sleep');
 
 var multinote = require('./multinote.js');
+var note = require('./note.js');
 
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];//output pinout
 global.M = {};//global motor object
@@ -103,7 +104,7 @@ async function pa(durp){
     ker = ker.toFixed();
     sleep.msleep(ker);
 }
-
+/*
 //note generation function
 async function note(num, dur, m, dual){
     if(dual){
@@ -123,7 +124,7 @@ async function note(num, dur, m, dual){
         sleep.usleep(del);
     }
 }
-
+*/
 //print basic info (mostly for debugging)
 console.log("\n");
 console.log("==================");
@@ -155,7 +156,7 @@ for(let i in sequence) {//pin output logic
         console.log(notemap.get(sequence[i]));
         if(notemap.has(sequence[i])){
             console.log("note: " + sequence[i] + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]);//debug
-            note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m, true);//call note function with resolved values
+            note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m, M, true);//call note function with resolved values
             if(pause[i] !== 0 && ifpause[i] !== undefined){pa(pause[i]);}
         }
     }
