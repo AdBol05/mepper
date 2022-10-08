@@ -2,6 +2,8 @@ var Gpio = require('onoff').Gpio;
 var fs = require('fs');
 var sleep = require('sleep');
 
+var multinote = require('./multinote.js');
+
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];//output pinout
 global.M = {};//global motor object
 
@@ -146,10 +148,7 @@ for(let i in sequence) {//pin output logic
         let part = sequence[i].split('+');
         console.log("MultiNote: " + part);
         if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
-
-        //TBD
-        //Play more notes at once
-        //Child processes mby? idk
+        multinote(part);
     }
     else{
         console.log(sequence[i]);
