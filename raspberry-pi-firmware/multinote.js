@@ -1,4 +1,4 @@
-module.exports = function(parts, M){
+module.exports = function(parts, notemap, M){
     parts.forEach( parts => {
         //launch a motor instance for each note simultaneously
 
