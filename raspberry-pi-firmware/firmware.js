@@ -103,8 +103,8 @@ async function pa(durp){
 }
 
 //note generation function
-async function note(num, dur, m, multi){
-    if(multi){
+async function note(num, dur, m, dual){
+    if(dual){
         let n = 1;
         n = m + 1;
         if(n > 12){n = n - 12;}
@@ -114,10 +114,10 @@ async function note(num, dur, m, multi){
     console.log("Coun: " + coun + " del: " + del + "\n");
     for(let i = 0; i < coun; i++){
         M[m].writeSync(1);
-        if(mulit){M[n].writeSync(1);}
+        if(dual){M[n].writeSync(1);}
         sleep.usleep(del);
         M[m].writeSync(0);
-        if(multi){M[n].writeSync(0);}
+        if(dual){M[n].writeSync(0);}
         sleep.usleep(del);
     }
 }
