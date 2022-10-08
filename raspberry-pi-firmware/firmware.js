@@ -144,7 +144,7 @@ for(let i in sequence) {//pin output logic
     sequence[i] = sequence[i].replace("is", "f");
     if(sequence[i].includes('+')){
         let part = sequence[i].split('+');
-        console.log("MulitNote: " + part);
+        console.log("MultiNote: " + part);
         //TBD
         //Play more notes at once
         //Child processes mby? idk
