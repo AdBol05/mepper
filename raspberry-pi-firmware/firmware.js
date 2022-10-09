@@ -149,7 +149,7 @@ for(let i in sequence) {//pin output logic
         let part = sequence[i].split('+');
         console.log("MultiNote: " + part);
         if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
-        multinote(part, notemap, M);
+        multinote(part, notemap, M, timing[i]);
     }
     else{
         console.log(sequence[i]);
