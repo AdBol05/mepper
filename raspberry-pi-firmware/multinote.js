@@ -1,7 +1,7 @@
 const path = require('path');
 const Piscina = require('piscina');
 
-const pool = new Piscina({//worker pool
+const pool = new Piscina({
     filename: path.resolve(__dirname, 'note.js')
 });
 
