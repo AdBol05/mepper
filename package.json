@@ -3,6 +3,7 @@
     "@tonaljs/tonal": "^4.6.5",
     "midi-converter": "^0.1.5",
     "onoff": "^6.0.3",
+    "piscina": "^3.2.0",
     "sleep": "^6.3.0"
   }
 }
