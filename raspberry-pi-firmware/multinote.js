@@ -12,7 +12,7 @@ module.exports = function(parts, notemap, M, timing){
         let result = await Promise.all([
             parts.forEach( part => {
                 i++;
-                pool.run(notemap.get(part[i].ntm, timing, notemap.get(part[i].m, M, false)))
+                pool.run(notemap.get(part[i]).ntm, timing, notemap.get(part[i]).m, M, false)
             })
         ]);
     });
