@@ -5,7 +5,7 @@ const pool = new Piscina({
     filename: path.resolve(__dirname, 'note.js')
 });
 
-module.exports = function(parts, notemap, M, timing){    
+module.exports = function(parts, notemap, M, timing){
 
     (async function() {
         //let result = await Promise.all([
