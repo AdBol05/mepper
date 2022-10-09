@@ -8,11 +8,11 @@ const pool = new Piscina({
 module.exports = function(parts, notemap, M, timing){    
 
     (async function() {
-        let i = 0;
         //let result = await Promise.all([
             parts.forEach( part => {
-                i++;
-                pool.run(notemap.get(part[i]).ntm, timing, notemap.get(part[i]).m, M, false)
+                if(notemap.has(part)){
+                    pool.run(notemap.get(part).ntm, timing, notemap.get(part).m, M, false)
+                }
             })
         //]);
     });
