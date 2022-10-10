@@ -12,9 +12,9 @@ module.exports = function(parts, notemap, M, timing){
         console.log("\nInitializing motor #" + i + " on pin " + pinout[i -1] + ":");
         M[i] = new Gpio(pinout[i - 1], 'out');
         //M[i].writeSync(1);
-        sleep.msleep(100);
+        //sleep.msleep(100);
         //M[i].writeSync(0);
-        sleep.msleep(100);
+        //sleep.msleep(100);
         console.log(M[i]);
     }*/
 
