@@ -28,4 +28,12 @@ module.exports = async function(num, dur, m, M, dual){
         if(dual){M[n].writeSync(0);}
         sleep.usleep(del);
     }
+
+    /*
+    //disconnect all GPIOs from script
+    for(let i = 1; i <= 12; i++){
+        M[i].unexport();
+    }
+    */
+   
 }
