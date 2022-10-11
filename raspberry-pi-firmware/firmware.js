@@ -100,7 +100,9 @@ async function pa(durp){
 
 async function multinote(parts, notemap, time){
     parts.forEach( part => {
+        console.log("MultiNote: " + part);
         if(notemap.has(part)){
+            console.log("Running note: " + part);
             pool.run(notemap.get(part).ntm, time, notemap.get(part).m, false)
         }
     });
@@ -128,7 +130,6 @@ for(let i in sequence) {//pin output logic
     sequence[i] = sequence[i].replace("is", "f");
     if(sequence[i].includes('+')){
         let part = sequence[i].split('+');
-        console.log("MultiNote: " + part);
         if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         multinote(part, notemap, timing[i]);
     }
