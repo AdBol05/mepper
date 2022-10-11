@@ -1,21 +1,21 @@
-const path = require('path');
-const Piscina = require('piscina');
-//var sleep = require('sleep');
-
-const pool = new Piscina({
-    filename: path.resolve(__dirname, 'note.js')
-});
-
 module.exports = function(parts, notemap, timing){
 
+    const path = require('path');
+    const Piscina = require('piscina');
+
+    const pool = new Piscina({
+        filename: path.resolve(__dirname, 'note.js')
+    });
+
     (async function() {
-        //let result = await Promise.all([
+        let result = await Promise.all([
             parts.forEach( part => {
                 if(notemap.has(part)){
                     pool.run(notemap.get(part).ntm, timing, notemap.get(part).m, false)
                 }
             })
-        //]);
+        ]);
+        console.log(result);
     });
 
     //TBD
