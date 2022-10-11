@@ -2,7 +2,14 @@ var Gpio = require('onoff').Gpio;
 var fs = require('fs');
 var sleep = require('sleep');
 
-var multinote = require('./multinote.js');
+const path = require('path');
+const Piscina = require('piscina');
+
+const pool = new Piscina({
+    filename: path.resolve(__dirname, 'note.js')
+});
+
+//var multinote = require('./multinote.js');
 var note = require('./note.js');
 
 //notes definition
@@ -89,6 +96,14 @@ async function pa(durp){
     let ker = Math.floor(durp/100)*tempo;
     ker = ker.toFixed();
     sleep.msleep(ker);
+}
+
+async function multinote(parts, notemap, time){
+    parts.forEach( part => {
+        if(notemap.has(part)){
+            pool.run(notemap.get(part).ntm, time, notemap.get(part).m, false)
+        }
+    });
 }
 
 //print basic info (mostly for debugging)
