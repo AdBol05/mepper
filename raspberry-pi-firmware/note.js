@@ -1,7 +1,12 @@
-global.M = {};
-let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
-
 module.exports = async function(num, dur, m, /*M,*/ dual){
+    global.M = {};
+    let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
+    
+    let oct = 5;
+    let coun;
+    let del;
+    let tempo = 120;
+
     var Gpio = require('onoff').Gpio;
     var sleep = require('sleep');
 
