@@ -6,13 +6,13 @@ const pool = new Piscina({
     filename: path.resolve(__dirname, 'note.js')
 });
 
-module.exports = function(parts, notemap, M, timing){
+module.exports = function(parts, notemap, timing){
 
     (async function() {
         //let result = await Promise.all([
             parts.forEach( part => {
                 if(notemap.has(part)){
-                    pool.run(notemap.get(part).ntm, timing, notemap.get(part).m, M, false)
+                    pool.run(notemap.get(part).ntm, timing, notemap.get(part).m, false)
                 }
             })
         //]);
