@@ -102,7 +102,7 @@ async function multinote(parts, notemap, time){
     //let result = await Promise.all([
         //parts.forEach( part => {
             console.log("MultiNote: " + parts);
-            if(notemap.has(part)){
+            if(notemap.has(parts[0]) && notemap.has(parts[1])){
                 //console.log("Running note: " + part);
                 pool.run({num: notemap.get(parts[0]).ntm, dur: time, m: notemap.get(parts[0]).m, dual: false}),
                 pool.run({num: notemap.get(parts[1]).ntm, dur: time, m: notemap.get(parts[1]).m, dual: false})
