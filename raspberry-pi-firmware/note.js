@@ -18,21 +18,23 @@ module.exports = ({ num, dur, m, dual }) => {
     if(dual){M[n] = new Gpio(pinout[m], 'out');}
 
     console.log("ntm: " + num + " motor: " + M + " timing: " + dur);//debug
-
-    del = (num*oct); // /10
-    coun = Math.floor((dur*5*tempo)/del);
-    console.log("Coun: " + coun + " del: " + del + "\n");
-    for(let i = 0; i < coun; i++){
-        M[m].writeSync(1);
-        if(dual){M[n].writeSync(1);}
-        sleep.usleep(del);
-        M[m].writeSync(0);
-        if(dual){M[n].writeSync(0);}
-        sleep.usleep(del);
+    async function run(num, dur, m, dual){
+        del = (num*oct); // /10
+        coun = Math.floor((dur*5*tempo)/del);
+        console.log("Coun: " + coun + " del: " + del + "\n");
+        for(let i = 0; i < coun; i++){
+            M[m].writeSync(1);
+            if(dual){M[n].writeSync(1);}
+            sleep.usleep(del);
+            M[m].writeSync(0);
+            if(dual){M[n].writeSync(0);}
+            sleep.usleep(del);
+        }
+        return Promise.resolve();
     }
 
     if(dual){M[n].unexport();}
     M[m].unexport();
-    return Promise.resolve();
+    
    
 };

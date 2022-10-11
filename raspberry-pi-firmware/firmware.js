@@ -134,12 +134,12 @@ for(let i in sequence) {//pin output logic
     if(sequence[i].includes('+')){
         let part = sequence[i].split('+');
         if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
-        multinote(part, notemap, timing[i]);
+        multinote.run(part, notemap, timing[i]);
     }
     else{
         if(notemap.has(sequence[i])){
             console.log("note: " + sequence[i]/* + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]*/);//debug
-            note({num: notemap.get(sequence[i]).ntm, dur: timing[i], m: notemap.get(sequence[i]).m, dual: true});//call note function with resolved values
+            note.run({num: notemap.get(sequence[i]).ntm, dur: timing[i], m: notemap.get(sequence[i]).m, dual: true});//call note function with resolved values
             if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         }
     }
