@@ -136,7 +136,7 @@ for(let i in sequence) {//pin output logic
     else{
         if(notemap.has(sequence[i])){
             console.log("note: " + sequence[i]/* + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]*/);//debug
-            note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m, /*M,*/ true);//call note function with resolved values
+            note({num: notemap.get(part).ntm, dur: time, m: notemap.get(part).m, dual: true});//call note function with resolved values
             if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         }
     }
