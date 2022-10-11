@@ -5,9 +5,6 @@ var sleep = require('sleep');
 var multinote = require('./multinote.js');
 var note = require('./note.js');
 
-//let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];//output pinout
-//global.M = {};//global motor object
-
 //notes definition
 let oct = 5;
 let coun;
@@ -86,17 +83,6 @@ var sequence = [];
 var timing = [];
 var pause = [];
 global.direction = input.direction;
-/*
-//set and test output pins
-for(let i = 1; i <= 12; i++){
-    console.log("\nInitializing motor #" + i + " on pin " + pinout[i -1] + ":");
-    M[i] = new Gpio(pinout[i - 1], 'out');
-    M[i].writeSync(1);
-    sleep.msleep(100);
-    M[i].writeSync(0);
-    sleep.msleep(100);
-    console.log(M[i]);
-}*/
 
 //pause function
 async function pa(durp){
@@ -104,27 +90,7 @@ async function pa(durp){
     ker = ker.toFixed();
     sleep.msleep(ker);
 }
-/*
-//note generation function
-async function note(num, dur, m, dual){
-    if(dual){
-        let n = 1;
-        n = m + 1;
-        if(n > 12){n = n - 12;}
-    }
-    del = (num*oct); // /10
-    coun = Math.floor((dur*5*tempo)/del);
-    console.log("Coun: " + coun + " del: " + del + "\n");
-    for(let i = 0; i < coun; i++){
-        M[m].writeSync(1);
-        if(dual){M[n].writeSync(1);}
-        sleep.usleep(del);
-        M[m].writeSync(0);
-        if(dual){M[n].writeSync(0);}
-        sleep.usleep(del);
-    }
-}
-*/
+
 //print basic info (mostly for debugging)
 console.log("\n");
 console.log("==================");
@@ -152,8 +118,6 @@ for(let i in sequence) {//pin output logic
         multinote(part, notemap, M, timing[i]);
     }
     else{
-        //console.log(sequence[i]);
-        //console.log(notemap.get(sequence[i]));
         if(notemap.has(sequence[i])){
             console.log("note: " + sequence[i]/* + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]*/);//debug
             note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m, /*M,*/ true);//call note function with resolved values
@@ -163,9 +127,4 @@ for(let i in sequence) {//pin output logic
 }
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
 
-//disconnect all GPIOs from script
-/*
-for(let i = 1; i <= 12; i++){
-    M[i].unexport();
-}*/
 dir.unexport();
