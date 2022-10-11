@@ -5,8 +5,8 @@ var sleep = require('sleep');
 var multinote = require('./multinote.js');
 var note = require('./note.js');
 
-let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];//output pinout
-global.M = {};//global motor object
+//let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];//output pinout
+//global.M = {};//global motor object
 
 //notes definition
 let oct = 5;
@@ -86,7 +86,7 @@ var sequence = [];
 var timing = [];
 var pause = [];
 global.direction = input.direction;
-
+/*
 //set and test output pins
 for(let i = 1; i <= 12; i++){
     console.log("\nInitializing motor #" + i + " on pin " + pinout[i -1] + ":");
@@ -96,7 +96,7 @@ for(let i = 1; i <= 12; i++){
     M[i].writeSync(0);
     sleep.msleep(100);
     console.log(M[i]);
-}
+}*/
 
 //pause function
 async function pa(durp){
@@ -155,8 +155,8 @@ for(let i in sequence) {//pin output logic
         console.log(sequence[i]);
         console.log(notemap.get(sequence[i]));
         if(notemap.has(sequence[i])){
-            console.log("note: " + sequence[i] + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]);//debug
-            note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m, M, true);//call note function with resolved values
+            //console.log("note: " + sequence[i] + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]);//debug
+            note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m, /*M,*/ true);//call note function with resolved values
             if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         }
     }
@@ -164,7 +164,8 @@ for(let i in sequence) {//pin output logic
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
 
 //disconnect all GPIOs from script
+/*
 for(let i = 1; i <= 12; i++){
     M[i].unexport();
-}
+}*/
 dir.unexport();

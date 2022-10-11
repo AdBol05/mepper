@@ -1,4 +1,4 @@
-let M = {};
+global.M = {};
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
 
 module.exports = async function(num, dur, m, /*M,*/ dual){
@@ -11,7 +11,10 @@ module.exports = async function(num, dur, m, /*M,*/ dual){
     }
 
     M[m] = new Gpio(pinout[m - 1], 'out');
-    if(dual){}
+    if(dual){M[n] = new Gpio(pinout[m], 'out');}
+
+    console.log("ntm: " + num + " motor: " + M + " timing: " + dur);//debug
+
 
     /*for(let i = 1; i <= 12; i++){
         console.log("\nInitializing motor #" + i + " on pin " + pinout[i -1] + ":");
