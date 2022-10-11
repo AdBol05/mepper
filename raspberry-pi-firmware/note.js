@@ -30,7 +30,7 @@ module.exports = async function(num, dur, m, /*M,*/ dual){
         sleep.usleep(del);
     }
 
-    if(dua){M[n].unexport();}
+    if(dual){M[n].unexport();}
     M[m].unexport();
    
 }
