@@ -33,6 +33,6 @@ module.exports = ({ num, dur, m, dual }) => {
 
     if(dual){M[n].unexport();}
     M[m].unexport();
-    return 0;
+    Promise.resolve();
    
 };
