@@ -103,7 +103,7 @@ async function multinote(parts, notemap, time){
         console.log("MultiNote: " + part);
         if(notemap.has(part)){
             console.log("Running note: " + part);
-            pool.run(notemap.get(part).ntm, time, notemap.get(part).m, false)
+            pool.run({num: notemap.get(part).ntm, dur: time, m: notemap.get(part).m, dual: false})
         }
     });
 }
