@@ -18,17 +18,6 @@ module.exports = async function(num, dur, m, /*M,*/ dual){
 
     console.log("ntm: " + num + " motor: " + M + " timing: " + dur);//debug
 
-
-    /*for(let i = 1; i <= 12; i++){
-        console.log("\nInitializing motor #" + i + " on pin " + pinout[i -1] + ":");
-        M[i] = new Gpio(pinout[i - 1], 'out');
-        //M[i].writeSync(1);
-        //sleep.msleep(100);
-        //M[i].writeSync(0);
-        //sleep.msleep(100);
-        console.log(M[i]);
-    }*/
-
     del = (num*oct); // /10
     coun = Math.floor((dur*5*tempo)/del);
     console.log("Coun: " + coun + " del: " + del + "\n");
@@ -41,12 +30,7 @@ module.exports = async function(num, dur, m, /*M,*/ dual){
         sleep.usleep(del);
     }
 
-    /*
-    //disconnect all GPIOs from script
-    for(let i = 1; i <= 12; i++){
-        M[i].unexport();
-    }
-    */
-   M[m].unexport();
+    if(dua){M[n].unexport();}
+    M[m].unexport();
    
 }
