@@ -11,7 +11,7 @@ module.exports = function(parts, notemap, timing){
         let result = await Promise.all([
             parts.forEach( part => {
                 if(notemap.has(part)){
-                    pool.run(notemap.get(part).ntm, timing, notemap.get(part).m, false)
+                    await pool.run(notemap.get(part).ntm, timing, notemap.get(part).m, false)
                 }
             })
         ]);
