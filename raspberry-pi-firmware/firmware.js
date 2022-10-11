@@ -99,17 +99,17 @@ async function pa(durp){
 }
 
 async function multinote(parts, notemap, time){
-    //let result = await Promise.all([
+    let result = await Promise.all([
         //parts.forEach( part => {
-            console.log("MultiNote: " + parts);
-            if(notemap.has(parts[0]) && notemap.has(parts[1])){
+            //console.log("MultiNote: " + parts);
+            //if(notemap.has(parts[0]) && notemap.has(parts[1])){
                 //console.log("Running note: " + part);
                 pool.run({num: notemap.get(parts[0]).ntm, dur: time, m: notemap.get(parts[0]).m, dual: false}),
                 pool.run({num: notemap.get(parts[1]).ntm, dur: time, m: notemap.get(parts[1]).m, dual: false})
-            }
+            //}
         //})
-    //]);
-    //return result;
+    ]);
+    return result;
 };
 
 //print basic info (mostly for debugging)
@@ -135,7 +135,7 @@ for(let i in sequence) {//pin output logic
     if(sequence[i].includes('+')){
         let part = sequence[i].split('+');
         if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
-        multinote(part, notemap, timing[i]);
+        if(notemap.has(part[0]) && notemap.has(part[1])){multinote(part, notemap, timing[i]);}
     }
     else{
         if(notemap.has(sequence[i])){
