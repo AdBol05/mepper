@@ -108,7 +108,7 @@ async function multinote(parts, notemap, time){
             }
         })
     ]);
-    console.log(result);
+    return result;
 };
 
 //print basic info (mostly for debugging)
