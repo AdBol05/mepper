@@ -32,5 +32,6 @@ module.exports = async function(num, dur, m, /*M,*/ dual){
 
     if(dual){M[n].unexport();}
     M[m].unexport();
+    return 0;
    
 }
