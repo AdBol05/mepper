@@ -1,4 +1,4 @@
-module.exports = ( num, dur, m, dual ) => {
+module.exports = async ( num, dur, m, dual ) => {
 //module.exports = async function({num, dur, m, dual}){
     global.M = {};
     let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
