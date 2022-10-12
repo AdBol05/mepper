@@ -6,7 +6,7 @@ const path = require('path');
 const Piscina = require('piscina');
 
 const pool = new Piscina({
-    filename: path.resolve(__dirname, 'note.js')
+    filename: path.resolve(__dirname, 'multinote.js')
 });
 
 //var multinote = require('./multinote.js');
