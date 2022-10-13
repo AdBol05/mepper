@@ -131,7 +131,7 @@ for(let i in sequence) {//pin output logic
                   pool.run({num: num1, dur: time, m: m1, dual: false}),
                   pool.run({num: num2, dur: time, m: m2, dual: false})
                 //]);
-                console.log(res);
+                //console.log(res);
               })();
         }
     }
