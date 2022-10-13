@@ -97,7 +97,7 @@ async function pa(durp){
     ker = ker.toFixed();
     sleep.msleep(ker);
 }
-
+/*
 async function multinote(parts, notemap, time){
     //let result = await Promise.all([
         //parts.forEach( part => {
@@ -111,7 +111,7 @@ async function multinote(parts, notemap, time){
     //]);
     return result;
 };
-
+*/
 //print basic info (mostly for debugging)
 console.log("\n");
 console.log("==================");
@@ -135,7 +135,15 @@ for(let i in sequence) {//pin output logic
     if(sequence[i].includes('+')){
         let part = sequence[i].split('+');
         if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
-        if(notemap.has(part[0]) && notemap.has(part[1])){multinote(part, notemap, timing[i]);}
+        if(notemap.has(part[0]) && notemap.has(part[1])){//multinote(part, notemap, timing[i]);
+            (async function() {
+                const res = await Promise.all([
+                  pool.run({ a: 4, b: 6 }, { name: 'add' }),
+                  pool.run({ a: 4, b: 6 }, { name: 'multiply' })
+                ]);
+                console.log(res);
+              })();
+        }
     }
     else{
         if(notemap.has(sequence[i])){
