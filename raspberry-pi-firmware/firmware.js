@@ -6,7 +6,7 @@ const path = require('path');
 const Piscina = require('piscina');
 
 const pool = new Piscina({
-    filename: path.resolve(__dirname, 'worker.js')
+    filename: path.resolve(__dirname, 'multinote.js')
 });
 
 //var multinote = require('./multinote.js');
@@ -97,21 +97,7 @@ async function pa(durp){
     ker = ker.toFixed();
     sleep.msleep(ker);
 }
-/*
-async function multinote(parts, notemap, time){
-    //let result = await Promise.all([
-        //parts.forEach( part => {
-            //console.log("MultiNote: " + parts);
-            //if(notemap.has(parts[0]) && notemap.has(parts[1])){
-                //console.log("Running note: " + part);
-                await pool.run({num: notemap.get(parts[0]).ntm, dur: time, m: notemap.get(parts[0]).m, dual: false}),
-                await pool.run({num: notemap.get(parts[1]).ntm, dur: time, m: notemap.get(parts[1]).m, dual: false})
-            //}
-        //})
-    //]);
-    return result;
-};
-*/
+
 //print basic info (mostly for debugging)
 console.log("\n");
 console.log("==================");
