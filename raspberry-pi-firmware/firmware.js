@@ -121,11 +121,15 @@ for(let i in sequence) {//pin output logic
     if(sequence[i].includes('+')){
         let part = sequence[i].split('+');
         if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
-        if(notemap.has(part[0]) && notemap.has(part[1])){//multinote(part, notemap, timing[i]);
-            (async function(parts, notemap, time) {
+        if(notemap.has(part[0]) && notemap.has(part[1]) && part.length === 2){//multinote(part, notemap, timing[i]);
+            let num1 = notemap.get(part[0]).ntm;
+            let num2 = notemap.get(part[1]).ntm;
+            let m1 = notemap.get(part[0]).m;
+            let m2 = notemap.get(part[1]).m;
+            (async function(num1, num2,  m1, m2, time) {
                 const res = await Promise.all([
-                  pool.run({num: notemap.get(parts[0]).ntm, dur: time, m: notemap.get(parts[0]).m, dual: false}),
-                  pool.run({num: notemap.get(parts[1]).ntm, dur: time, m: notemap.get(parts[0]).m, dual: false})
+                  pool.run({num: num1, dur: time, m: m1, dual: false}),
+                  pool.run({num: num2, dur: time, m: m2, dual: false})
                 ]);
                 console.log(res);
               })();
