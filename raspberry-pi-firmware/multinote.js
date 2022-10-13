@@ -33,5 +33,5 @@ module.exports = async ({ num, dur, m, dual }) => {
         M[m].unexport();
         
         //return Promise.resolve();
-        return 0;
+        return "Played note" + num;
     };
