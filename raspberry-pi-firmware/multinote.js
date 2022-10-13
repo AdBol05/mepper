@@ -1,29 +1,4 @@
-/*module.exports = function(parts, notemap, timing){
-
-    const path = require('path');
-    const Piscina = require('piscina');
-
-    const pool = new Piscina({
-        filename: path.resolve(__dirname, 'note.js')
-    });
-
-    (async function() {
-        let result = await Promise.all([
-            parts.forEach( part => {
-                if(notemap.has(part)){
-                    pool.run(notemap.get(part).ntm, timing, notemap.get(part).m, false)
-                }
-            });
-        ]);
-        console.log(result);
-    });
-
-    //TBD
-    //maybe launch some child processes
-    //I have to rotate two motors independently but they can rotate for the same amount of time, the speed/delay/frequency is what matters
-}*/
-module.exports = ({ num, dur, m, dual }) => {
-    //module.exports = async function({num, dur, m, dual}){
+module.exports = async ({ num, dur, m, dual }) => {
         global.M = {};
         let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
         
