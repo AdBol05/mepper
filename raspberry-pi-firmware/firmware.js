@@ -128,10 +128,10 @@ for(let i in sequence) {//pin output logic
             let pool_m2 = notemap.get(part[1]).m;
             let pool_timing = timing[i];
             (async function() {
-                const res = await Promise.all([
-                  pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
-                  pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
-                ]);
+                //const res = await Promise.all([
+                  await pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
+                  await pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
+                //]);
                 console.log(res);
               })();
         }
