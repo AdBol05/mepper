@@ -1,5 +1,5 @@
 module.exports = async ({ num, dur, m, dual }) => {
-        /*global.M = {};
+        let M = {};
         let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
         
         let oct = 5;
@@ -30,14 +30,14 @@ module.exports = async ({ num, dur, m, dual }) => {
         }
     
         if(dual){M[n].unexport();}
-        M[m].unexport();*/
+        M[m].unexport();
         
         let output = [];
         output.push(num);
         output.push(dur);
         output.push(m);
         output.push(dual);
-        console.log(output);
+        //console.log(output);
                
         //Promise.resolve(output);
         return output;
