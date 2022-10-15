@@ -37,6 +37,7 @@ module.exports = async ({ num, dur, m, dual }) => {
         output.push(dur);
         output.push(m);
         output.push(dual);
+        console.log(output);
                
         Promise.resolve(output);
         //return "Played notes";
