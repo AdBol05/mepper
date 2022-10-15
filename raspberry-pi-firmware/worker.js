@@ -1,7 +1,7 @@
-module.exports = ({ num, dur, m, dual }) => {
+module.exports = async ({ num, dur, m, dual }) => {
         var note = require('./note.js');
-        let output = note(num, dur, m, dual);
+        let output = new Promise(note(num, dur, m, dual));
         //console.log("ntm: " + num + " motor: " + m + " timing: " + dur);
 
-        return "note output: " + output;
+        return "note output: " + await output;
     };
