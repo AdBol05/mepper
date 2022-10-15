@@ -136,7 +136,7 @@ for(let i in sequence) {//pin output logic
                   pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
                 ]);
                 console.log("\n");
-                console.log(util.inspect(res, {showHidden: false, depth: 5, colors: true}));
+                console.log(util.inspect(res, {showHidden: true, depth: 5, colors: true}));
               })();
         }
     }
