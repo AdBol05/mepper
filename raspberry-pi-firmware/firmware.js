@@ -99,6 +99,15 @@ async function pa(durp){
     sleep.msleep(ker);
 }
 
+async function multinote(pool_num1, pool_num2, pool_timing, pool_m1, pool_m2){
+    const res = await Promise.all([
+        pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
+        pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
+    ]);
+    console.log("\n");
+    console.log(util.inspect(res, {showHidden: true, depth: 10, colors: true}));
+}
+
 //print basic info (mostly for debugging)
 console.log("\n");
 console.log("==================");
@@ -130,14 +139,15 @@ for(let i in sequence) {//pin output logic
             let pool_timing = timing[i];
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
             console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
-            await (async function() {
+            multinote(pool_num1, pool_num2, pool_timing, pool_m1, pool_m2);
+            /*(async function() {
                 const res = await Promise.all([
                   pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
                   pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
                 ]);
                 console.log("\n");
                 console.log(util.inspect(res, {showHidden: true, depth: 10, colors: true}));
-              })();
+              })();*/
         }
     }
     else{
