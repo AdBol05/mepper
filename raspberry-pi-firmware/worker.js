@@ -9,7 +9,8 @@ module.exports = async ({ num, dur, m, dual }) => {
     
         let n = m + 1;
         if(n > 12){n = n - 12;}
-    
+
+        var note = require('./note.js');
         //const Gpio = require('onoff').Gpio;
         //const sleep = require('sleep');
 
