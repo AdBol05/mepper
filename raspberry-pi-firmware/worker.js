@@ -10,8 +10,8 @@ module.exports = async ({ num, dur, m, dual }) => {
         let n = m + 1;
         if(n > 12){n = n - 12;}
     
-        var Gpio = require('onoff').Gpio;
-        var sleep = require('sleep');
+        const Gpio = require('onoff').Gpio;
+        const sleep = require('sleep');
 
         /*M[m] = new Gpio(pinout[m - 1], 'out');
         if(dual){M[n] = new Gpio(pinout[m], 'out');}
