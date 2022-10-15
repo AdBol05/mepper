@@ -1,6 +1,6 @@
 module.exports = async ({ num, dur, m, dual }) => {
         var note = require('./note.js');
-        note(num, dur, m, dual);
+        let output = await note(num, dur, m, dual);
 
-        return "played note: " + num;
+        return "played note: " + output;
     };
