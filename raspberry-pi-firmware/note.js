@@ -1,5 +1,4 @@
 module.exports = async ( num, dur, m, dual ) => {
-//module.exports = async function({num, dur, m, dual}){
     global.M = {};
     let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
     
@@ -17,8 +16,8 @@ module.exports = async ( num, dur, m, dual ) => {
     M[m] = new Gpio(pinout[m - 1], 'out');
     if(dual){M[n] = new Gpio(pinout[m], 'out');}
 
-    console.log("ntm: " + num + " motor: " + m + " timing: " + dur);//debug
-    del = (num*oct); // /10
+    console.log("ntm: " + num + " motor: " + m + " timing: " + dur);
+    del = (num*oct);
     coun = Math.floor((dur*5*tempo)/del);
     console.log("Coun: " + coun + " del: " + del + "\n");
     for(let i = 0; i < coun; i++){
@@ -32,6 +31,4 @@ module.exports = async ( num, dur, m, dual ) => {
 
     if(dual){M[n].unexport();}
     M[m].unexport();
-    
-    //return Promise.resolve();
 };
