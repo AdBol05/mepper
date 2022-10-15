@@ -11,28 +11,8 @@ module.exports = async ({ num, dur, m, dual }) => {
         if(n > 12){n = n - 12;}
 
         var note = require('./note.js');
-        //const Gpio = require('onoff').Gpio;
-        //const sleep = require('sleep');
+        note(num, timing, m, false);
 
-        /*M[m] = new Gpio(pinout[m - 1], 'out');
-        if(dual){M[n] = new Gpio(pinout[m], 'out');}
-
-        console.log("ntm: " + num + " motor: " + m + " timing: " + dur);//debug
-        del = (num*oct);
-        coun = Math.floor((dur*5*tempo)/del);
-        console.log("Coun: " + coun + " del: " + del + "\n");
-        for(let i = 0; i < coun; i++){
-            M[m].writeSync(1);
-            if(dual){M[n].writeSync(1);}
-            sleep.usleep(del);
-            M[m].writeSync(0);
-            if(dual){M[n].writeSync(0);}
-            sleep.usleep(del);
-        }
-    
-        if(dual){M[n].unexport();}
-        M[m].unexport();*/
-        
         let output = [];
         output.push(num);
         output.push(dur);
