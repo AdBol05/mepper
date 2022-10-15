@@ -1,5 +1,5 @@
 module.exports = async ({ num, dur, m, dual }) => {
-        global.M = {};
+        /*global.M = {};
         let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
         
         let oct = 5;
@@ -30,7 +30,7 @@ module.exports = async ({ num, dur, m, dual }) => {
         }
     
         if(dual){M[n].unexport();}
-        M[m].unexport();
+        M[m].unexport();*/
         
         Promise.resolve('done');
         //return "Played notes";
