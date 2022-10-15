@@ -11,7 +11,7 @@ module.exports = async ({ num, dur, m, dual }) => {
         if(n > 12){n = n - 12;}
 
         var note = require('./note.js');
-        note(num, timing, m, false);
+        note(num, dur, m, false);
 
         let output = [];
         output.push(num);
