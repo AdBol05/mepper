@@ -39,7 +39,7 @@ module.exports = async ({ num, dur, m, dual }) => {
         output.push(dual);
         console.log(output);
                
-        Promise.resolve(output);
-        //return "Played notes";
+        //Promise.resolve(output);
+        return output;
         //why doesn't it self-register?
     };
