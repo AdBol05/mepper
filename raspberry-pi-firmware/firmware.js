@@ -132,7 +132,7 @@ for(let i in sequence) {//pin output logic
                   pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
                   pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
                 ]);
-                console.log(res);
+                //console.log(res);
               })();
         }
     }
