@@ -17,7 +17,7 @@ module.exports = async ({ num, dur, m, dual }) => {
         if(dual){M[n] = new Gpio(pinout[m], 'out');}
     
         console.log("ntm: " + num + " motor: " + M + " timing: " + dur);//debug
-        del = (num*oct); // /10
+        del = (num*oct);
         coun = Math.floor((dur*5*tempo)/del);
         console.log("Coun: " + coun + " del: " + del + "\n");
         for(let i = 0; i < coun; i++){
@@ -34,4 +34,5 @@ module.exports = async ({ num, dur, m, dual }) => {
         
         Promise.resolve('done');
         //return "Played notes";
+        //why doesn't it self-register?
     };
