@@ -31,5 +31,6 @@ module.exports = async ( num, dur, m, dual ) => {
 
     if(dual){M[n].unexport();}
     M[m].unexport();
-    Promise.resolve(num);
+    return "ntm: " + num + " motor: " + m + " timing: " + dur;
+    //Promise.resolve(num);
 };
