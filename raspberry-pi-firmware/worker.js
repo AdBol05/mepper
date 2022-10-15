@@ -32,7 +32,13 @@ module.exports = async ({ num, dur, m, dual }) => {
         if(dual){M[n].unexport();}
         M[m].unexport();*/
         
-        Promise.resolve(num, dur, m, dual);
+        let output = [];
+        output.push(num);
+        output.push(dur);
+        output.push(m);
+        output.push(dual);
+               
+        Promise.resolve(output);
         //return "Played notes";
         //why doesn't it self-register?
     };
