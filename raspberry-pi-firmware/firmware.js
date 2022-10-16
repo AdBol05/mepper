@@ -99,7 +99,7 @@ async function pa(durp){
     sleep.msleep(ker);
 }
 
-function multinote(pool_num1, pool_num2, pool_timing, pool_m1, pool_m2){
+async function multinote(pool_num1, pool_num2, pool_timing, pool_m1, pool_m2){
     Promise.all([
         //pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
         //pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
