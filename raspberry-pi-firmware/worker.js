@@ -1,4 +1,4 @@
-module.exports = async ({ num, dur, m, dual }) => {
+module.exports = ({ num, dur, m, dual }) => {
     var note = require('./note.js');
     //await note(num, dur, m, dual);
     (async function() {
