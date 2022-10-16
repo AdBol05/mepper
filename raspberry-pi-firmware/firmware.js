@@ -104,8 +104,8 @@ async function multinote(pool_num1, pool_num2, pool_timing, pool_m1, pool_m2){
         await pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
         await pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
     //]);
-    console.log("\n");
-    console.log(util.inspect(res, {showHidden: true, depth: 10, colors: true}));
+    //console.log("\n");
+    //console.log(util.inspect(res, {showHidden: true, depth: 10, colors: true}));
 }
 
 //print basic info (mostly for debugging)
