@@ -1,8 +1,8 @@
 module.exports = async ({ num, dur, m, dual }) => {
     var note = require('./note.js');
-    const nt = Promise.all([
+    //const nt = Promise.all([
         note(num, dur, m, dual)
-    ]);
+    //]);
     /*(async function() {
         await note(num, dur, m, dual);
     })();*/
