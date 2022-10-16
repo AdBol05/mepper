@@ -147,7 +147,8 @@ for(let i in sequence) {//pin output logic
                 ]);
                 return res;
             })();
-            console.log(mltnt + "\n");
+            console.log(mltnt);
+            console.log("\n");
         }
     }
     else{
