@@ -141,11 +141,11 @@ for(let i in sequence) {//pin output logic
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
             console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
             let mltnt = (async function() {
-                const res = await Promise.all([
+                /*const res = */await Promise.all([
                   pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
                   pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
                 ]).then(function(result) {return result;});
-                return res;
+                //return res;
             })();
             console.log(mltnt);
             console.log("\n");
