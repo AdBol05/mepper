@@ -100,12 +100,11 @@ async function pa(durp){
 }
 
 async function multinote(pool_num1, pool_num2, pool_timing, pool_m1, pool_m2){
-    //const res = await Promise.all([
-        await pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false})
-        await pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false})
-    //]);
-    //console.log("\n");
-    //console.log(util.inspect(res, {showHidden: true, depth: 10, colors: true}));
+    Promise.all([
+        pool.run({num: pool_num1, dur: pool_ting, m: pool_m1, dual: false}),
+        pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
+    ]).then(out => {return out;});
+    //console.log("\n");  .then() //console.log(util.inspect(res, {showHidden: true, depth: 10, colors: true}));
 }
 
 //print basic info (mostly for debugging)
@@ -139,7 +138,8 @@ for(let i in sequence) {//pin output logic
             let pool_timing = timing[i];
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
             console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
-            multinote(pool_num1, pool_num2, pool_timing, pool_m1, pool_m2);
+            let mltnt = await multinote(pool_num1, pool_num2, pool_timing, pool_m1, pool_m2);
+            console.log(mltnt);
             /*(async function() {
                 const res = await Promise.all([
                   pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
