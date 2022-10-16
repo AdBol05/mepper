@@ -132,7 +132,7 @@ for(let i in sequence) {//pin output logic
     if(sequence[i].includes('+')){
         let part = sequence[i].split('+');
         if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
-        if(notemap.has(part[0]) && notemap.has(part[1]) && part.length === 2){//multinote(part, notemap, timing[i]);
+        if(notemap.has(part[0]) && notemap.has(part[1]) && part.length === 2){//TODO: add suppport for more than two notes
             let pool_num1 = notemap.get(part[0]).ntm;
             let pool_num2 = notemap.get(part[1]).ntm;
             let pool_m1 = notemap.get(part[0]).m;
@@ -140,12 +140,11 @@ for(let i in sequence) {//pin output logic
             let pool_timing = timing[i];
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
             console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
-            let mltnt = (async function() {
+            let mltnt = (async function() {//TODO: fix promise pending
                 const res = await Promise.all([
                   pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
                   pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
-                ])/*.then(function(result) {return result;})*/;
-                //return res;
+                ]);
             })();
             console.log(mltnt);
             console.log("\n");
