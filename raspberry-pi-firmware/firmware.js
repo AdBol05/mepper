@@ -101,8 +101,10 @@ async function pa(durp){
 
 function multinote(pool_num1, pool_num2, pool_timing, pool_m1, pool_m2){
     Promise.all([
-        pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
-        pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
+        //pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
+        //pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
+        note(pool_num1, pool_timing, pool_m1),
+        note(pool_num2, pool_timing, pool_m2)
     ]).then(out => {return out;});
     //console.log("\n");  .then() //console.log(util.inspect(res, {showHidden: true, depth: 10, colors: true}));
 }
