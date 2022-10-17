@@ -1,6 +1,6 @@
-var Gpio = require('onoff').Gpio;
-var fs = require('fs');
-var sleep = require('sleep');
+let Gpio = require('onoff').Gpio;
+let fs = require('fs');
+let sleep = require('sleep');
 const util = require('util');
 
 const path = require('path');
@@ -11,7 +11,7 @@ const pool = new Piscina({
 });
 
 //var multinote = require('./multinote.js');
-var note = require('./note.js');
+let note = require('./note.js');
 
 //notes definition
 let oct = 5;
@@ -75,7 +75,7 @@ notemap.set("f0", {ntm: 2862, m: 1});
 
 const args = process.argv.slice(2);//get process arguments
 if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
-else{var file = args[0];};//set file input to first argument
+else{let file = args[0];};//set file input to first argument
 
 //welcome screen
 console.log('\x1b[32m%s\x1b[0m',"                                               _____                                             ");
@@ -86,10 +86,10 @@ console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/        /_
 console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                                                                        \n");
 
 //read json file and create arrays for mandatory data
-var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
-var sequence = [];
-var timing = [];
-var pause = [];
+let input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
+let sequence = [];
+let timing = [];
+let pause = [];
 global.direction = input.direction;
 
 //pause function
@@ -118,7 +118,7 @@ console.log("==================");
 console.log(notemap);
 console.log("==================");
 
-var dir = new Gpio(26, 'out');//set direction output pin
+let dir = new Gpio(26, 'out');//set direction output pin
 dir.writeSync(direction);//set direction based on input file
 
 //parse data from json file to arrays

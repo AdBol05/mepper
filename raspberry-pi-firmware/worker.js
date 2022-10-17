@@ -1,5 +1,8 @@
 module.exports = ({ num, dur, m, dual }) => {
-    var note = require('./note.js');
-    note(num, dur, m, dual);
-    Promise.resolve(num);
+    const note = require('./note.js');
+
+    note(num, dur, m, dual).then(d => {
+        return d;
+    });
+    
 };
