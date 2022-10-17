@@ -8,8 +8,7 @@ parentPort.on("message", (value) => {
 
 })
 
-console.log("debug");
 
-const note = require('./note.js');
+/* const note = require('./note.js');
 note(num, dur, m, dual);
-Promise.resolve(num);
+Promise.resolve(num); */
