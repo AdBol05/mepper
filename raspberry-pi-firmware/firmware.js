@@ -126,10 +126,15 @@ for (let i in input.pause) { pause.push(input.pause[i]); }
 for (let i in sequence) {//pin output logic
     sequence[i] = sequence[i].replace("h", "b");
     sequence[i] = sequence[i].replace("is", "f");
+
     if (sequence[i].includes('+')) {
+
         let part = sequence[i].split('+');
+
         if (pause[i] !== 0 && pause[i] !== undefined) { pa(pause[i]); }
+
         if (notemap.has(part[0]) && notemap.has(part[1]) && part.length === 2) {//TODO: add suppport for more than two notes
+
             let pool_num1 = notemap.get(part[0]).ntm;
             let pool_num2 = notemap.get(part[1]).ntm;
             let pool_m1 = notemap.get(part[0]).m;
@@ -145,7 +150,7 @@ for (let i in sequence) {//pin output logic
 
             const worker = new Worker(__dirname + "/worker.js")
 
-            worker.on("message", (value) => {
+            worker.once("message", (value) => {
                 console.log(value);
             })
 
