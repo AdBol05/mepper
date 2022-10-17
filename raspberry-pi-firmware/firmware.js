@@ -166,7 +166,7 @@ for(let i in sequence) {//pin output logic
 
             })(); */
 
-            mltnt.then( data => {
+            mltnt().then( data => {
                 console.log(data);
             }) 
             console.log("\n");
