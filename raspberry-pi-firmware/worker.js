@@ -6,7 +6,7 @@ parentPort.once("message", (value) => {
 
     parentPort.postMessage("AAAAAAAAA")
 
-    const note = require('./note.js');
+    const note = require(__dirname + '/note.js');
     note(value.num, value.dur, value.m, value.dual);
 
 })
