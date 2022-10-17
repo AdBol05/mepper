@@ -4,5 +4,5 @@ module.exports = ({ num, dur, m, dual }) => {
     note(num, dur, m, dual).then(d => {
         return d;
     });
-    
+
 };

@@ -145,8 +145,8 @@ for(let i in sequence) {//pin output logic
             let mltnt = (async function() {//TODO: fix promise pending
 
                 return await Promise.all([
-                  pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
-                  pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
+                  new Promise(resolve => { resolve(pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false})) }),
+                  new Promise(resolve => { resolve(pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false})) }),
                 ]);
 
             })();
