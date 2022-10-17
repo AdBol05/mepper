@@ -3,7 +3,7 @@ module.exports = async (num, dur, m, dual) => {
     let Gpio = require('onoff').Gpio;
     let sleep = require('sleep');
 
-    //return await new Promise(resolve => {
+    //return await new Promise(resolve => { //TODO: make multinote work (modules fucking things up)
         global.M = {};
         let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
 
@@ -21,7 +21,6 @@ module.exports = async (num, dur, m, dual) => {
         console.log("ntm: " + num + " motor: " + m + " timing: " + dur);
         del = (num * oct);
         coun = Math.floor((dur * 5 * tempo) / del);
-        //console.log("Coun: " + coun + " del: " + del + "\n");
         for (let i = 0; i < coun; i++) {
             M[m].writeSync(1);
             if (dual) { M[n].writeSync(1); }
@@ -36,7 +35,4 @@ module.exports = async (num, dur, m, dual) => {
 
         //resolve(num);
     //})
-
-    //return "ntm: " + num + " motor: " + m + " timing: " + dur;
-
 };

@@ -10,13 +10,9 @@ const pool = new Piscina({
     filename: path.resolve(__dirname, 'worker.js')
 });
 
-//var multinote = require('./multinote.js');
+//let multinote = require('./multinote.js');
 let note = require('./note.js');
 
-//notes definition
-let oct = 5;
-let coun;
-let del;
 let tempo = 120;
 
 //note mapping to note function input and number of motor
@@ -101,16 +97,6 @@ async function pa(durp){
     ker = ker.toFixed();
     sleep.msleep(ker);
 }
-
-/*async function multinote(pool_num1, pool_num2, pool_timing, pool_m1, pool_m2){
-    Promise.all([
-        pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
-        pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
-        //note(pool_num1, pool_timing, pool_m1),
-        //note(pool_num2, pool_timing, pool_m2)
-    ]).then(out => {return out;});
-    //console.log("\n");  .then() //console.log(util.inspect(res, {showHidden: true, depth: 10, colors: true}));
-}*/
 
 //print basic info (mostly for debugging)
 console.log("\n");
