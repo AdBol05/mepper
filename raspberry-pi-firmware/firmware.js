@@ -74,10 +74,11 @@ notemap.set("f0", {ntm: 2862, m: 1});
 */
 
 const args = process.argv.slice(2);//get process arguments
-let file;
+let file = false;
 
 if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
 else{file = args[0];};//set file input to first argument
+
 
 //welcome screen
 console.log('\x1b[32m%s\x1b[0m',"                                               _____                                             ");
