@@ -1,3 +1,5 @@
+'use strict';
+
 const { Worker, isMainThread, MessageChannel, MessagePort, parentPort } = require("worker_threads");
 const Gpio = require('onoff').Gpio;
 const sleep = require('sleep');
