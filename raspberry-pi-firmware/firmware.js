@@ -144,7 +144,7 @@ for(let i in sequence) {//pin output logic
                 const res = Promise.all([
                   pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
                   pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
-                ]).then(function(result) {return result;});
+                ]).then(function(result) {console.log(result); return result;});
                 //return res;
             })();
             console.log(mltnt);
