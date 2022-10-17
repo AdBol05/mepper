@@ -154,8 +154,10 @@ for (let i in sequence) {//pin output logic
                 console.log(value);
             })
 
-            let dataval = new Gpio(pinout[value.m - 1], 'out');
-            let datavaldual = new Gpio(pinout[value.m], 'out');
+            let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
+
+            let dataval = new Gpio(pinout[pool_m1 - 1], 'out');
+            let datavaldual = new Gpio(pinout[pool_m1], 'out');
 
             worker.postMessage({
                 replyPort: subChannel.port1,
