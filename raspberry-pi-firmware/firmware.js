@@ -4,7 +4,7 @@ var sleep = require('sleep');
 const util = require('util');
 
 const path = require('path');
-const { Worker, isMainThread } = require("worker_threads");
+const { Worker, isMainThread, MessageChannel, MessagePort, parentPort } = require("worker_threads");
 
 
 //var multinote = require('./multinote.js');
@@ -141,10 +141,20 @@ for(let i in sequence) {//pin output logic
 
             let mltnt = (async function() {//TODO: fix promise pending
 
+                const subChannel = new MessageChannel();
+
+                const worker = new Worker(__dirname + "/worker.js")
+
+                worker.postMessage({ replyPort: subChannel.port1}, [subChannel.port1])
+
+                subChannel.port2.on("message", (value) => {
+                    console.log(value);
+                })
+
                 return await Promise.all([
 
                     //process exxec
-                    new Worker(__dirname + "/worker.js", { num: pool_num1, dur: pool_timing, m: pool_m1, dual: false })
+                    // { num: pool_num1, dur: pool_timing, m: pool_m1, dual: false }
 
                 ]);
 
