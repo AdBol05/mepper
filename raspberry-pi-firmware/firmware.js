@@ -144,7 +144,8 @@ for (let i in sequence) {//pin output logic
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
             console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
 
-
+            const Gpio = require('onoff').Gpio;
+            const sleep = require('sleep');
 
             const subChannel = new MessageChannel();
 
@@ -159,7 +160,9 @@ for (let i in sequence) {//pin output logic
                 num: pool_num1, 
                 dur: pool_timing,
                  m: pool_m1, 
-                 dual: false
+                 dual: false,
+                 Gpio: Gpio,
+                 sleep: sleep
             }, [subChannel.port1])
 
 

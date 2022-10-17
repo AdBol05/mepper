@@ -1,12 +1,11 @@
-'use strict';
-
 const { Worker, isMainThread, MessageChannel, MessagePort, parentPort } = require("worker_threads");
-const Gpio = require('onoff').Gpio;
-const sleep = require('sleep');
 
 parentPort.once("message", (value) => {
 
 
+    let Gpio = value.Gpio;
+    let sleep = value.sleep;
+    
     parentPort.postMessage("AAAAAAAAA")
 
     global.M = {};
