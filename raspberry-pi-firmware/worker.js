@@ -3,10 +3,10 @@ const { Worker, isMainThread, MessageChannel, MessagePort, parentPort } = requir
 module.exports = ({ num, dur, m, dual }) => {
 
     parentPort.on("message", (value) => {
-        assert (value.replyPort instanceof MessagePort);
-        
-        value.replyPort.postMessage("AAAA");
-        value.replyPort.close();
+
+        console.log(value);
+        parentPort.postMessage("AAAAAAAAA")
+
     })
 
     const note = require('./note.js');

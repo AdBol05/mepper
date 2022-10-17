@@ -145,12 +145,11 @@ for(let i in sequence) {//pin output logic
 
                 const worker = new Worker(__dirname + "/worker.js")
 
-                worker.postMessage({ replyPort: subChannel.port1}, [subChannel.port1])
-
-                subChannel.port2.on("message", (value) => {
+                worker.on("message", (value) => {
                     console.log(value);
                 })
-                
+
+                worker.postMessage({ replyPort: subChannel.port1}, [subChannel.port1])
 
             })();
 
