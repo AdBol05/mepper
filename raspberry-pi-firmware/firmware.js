@@ -139,7 +139,7 @@ for(let i in sequence) {//pin output logic
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
             console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
 
-            let mltnt = (async function() {//TODO: fix promise pending
+            (function() {//TODO: fix promise pending
 
                 const subChannel = new MessageChannel();
 
@@ -150,19 +150,10 @@ for(let i in sequence) {//pin output logic
                 subChannel.port2.on("message", (value) => {
                     console.log(value);
                 })
-
-                return await Promise.all([
-
-                    //process exxec
-                    // { num: pool_num1, dur: pool_timing, m: pool_m1, dual: false }
-
-                ]);
+                
 
             })();
 
-            mltnt.then( data => {
-                console.log(data);
-            }) 
             console.log("\n");
         }
     }
