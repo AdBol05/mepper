@@ -3,7 +3,6 @@ const { Worker, isMainThread, MessageChannel, MessagePort, parentPort } = requir
 parentPort.once("message", (value) => {
 
 
-    let Gpio = value.Gpio;
     let sleep = value.sleep;
     
     parentPort.postMessage("AAAAAAAAA")
@@ -19,8 +18,8 @@ parentPort.once("message", (value) => {
     let n = m + 1;
     if(n > 12){n = n - 12;}
 
-    M[value.m] = new Gpio(pinout[value.m - 1], 'out');
-    if(value.dual){M[n] = new Gpio(pinout[value.m], 'out');}
+    M[value.m] = value.dataval
+    if(value.dual){M[n] = value.datavaldual}
 
     console.log("ntm: " + value.num + " motor: " + value.m + " timing: " + value.dur);
     del = (value.num*oct);
