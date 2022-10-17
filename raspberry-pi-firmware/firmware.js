@@ -4,11 +4,8 @@ var sleep = require('sleep');
 const util = require('util');
 
 const path = require('path');
-const Piscina = require('piscina');
+const { Worker, isMainThread } = require("worker_threads");
 
-const pool = new Piscina({
-    filename: path.resolve(__dirname, 'worker.js')
-});
 
 //var multinote = require('./multinote.js');
 var note = require('./note.js');
@@ -145,8 +142,10 @@ for(let i in sequence) {//pin output logic
             let mltnt = (async function() {//TODO: fix promise pending
 
                 return await Promise.all([
-                  pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
-                  pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
+
+                    //process exxec
+                    new Worker(__dirname + "/worker.js", { num: pool_num1, dur: pool_timing, m: pool_m1, dual: false })
+
                 ]);
 
             })();
