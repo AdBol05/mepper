@@ -3,7 +3,7 @@ module.exports = async (num, dur, m, dual) => {
     let Gpio = require('onoff').Gpio;
     let sleep = require('sleep');
 
-    return await new Promise(resolve => {
+    //return await new Promise(resolve => {
         global.M = {};
         let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
 
@@ -34,8 +34,8 @@ module.exports = async (num, dur, m, dual) => {
         if (dual) { M[n].unexport(); }
         M[m].unexport();
 
-        resolve(num);
-    })
+        //resolve(num);
+    //})
 
     //return "ntm: " + num + " motor: " + m + " timing: " + dur;
 
