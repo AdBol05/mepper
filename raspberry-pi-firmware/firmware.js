@@ -138,15 +138,19 @@ for(let i in sequence) {//pin output logic
             let pool_m1 = notemap.get(part[0]).m;
             let pool_m2 = notemap.get(part[1]).m;
             let pool_timing = timing[i];
+
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
             console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
-            let mltnt = (function() {//TODO: fix promise pending
-                const res = Promise.all([
+
+            let mltnt = (async function() {//TODO: fix promise pending
+
+                return await Promise.all([
                   pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
                   pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
                 ]);
-                return res;
+
             })();
+
             console.log(mltnt);
             console.log("\n");
         }
