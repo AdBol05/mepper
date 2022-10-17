@@ -149,7 +149,13 @@ for (let i in sequence) {//pin output logic
                 console.log(value);
             })
 
-            worker.postMessage({ replyPort: subChannel.port1 }, [subChannel.port1])
+            worker.postMessage({
+                replyPort: subChannel.port1,
+                num: pool_num1, 
+                dur: pool_timing,
+                 m: pool_m1, 
+                 dual: false
+            }, [subChannel.port1])
 
 
 

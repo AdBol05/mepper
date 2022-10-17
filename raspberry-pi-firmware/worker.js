@@ -3,7 +3,7 @@ const { Worker, isMainThread, MessageChannel, MessagePort, parentPort } = requir
 
 parentPort.on("message", (value) => {
 
-    console.log(value);
+
     parentPort.postMessage("AAAAAAAAA")
 
 })
