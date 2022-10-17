@@ -1,9 +1,11 @@
-module.exports = async ({ num, dur, m, dual }) => {
-    return new Promise(async resolve => {
-        const note = await require('./note.js');
+module.exports = ({ num, dur, m, dual }) => {
+    const note = require('./note.js');
 
-        resolve(await note(num, dur, m, dual));
-    })
+    console.log("exec");
 
+    note(num, dur, m, dual).then(d => {
+        console.log("Petrolej", d);
+        return d;
+    });
 
 };
