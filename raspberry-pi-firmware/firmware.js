@@ -4,8 +4,11 @@ var sleep = require('sleep');
 const util = require('util');
 
 const path = require('path');
-const { Worker, isMainThread, MessageChannel, MessagePort, parentPort } = require("worker_threads");
+const Piscina = require('piscina');
 
+const pool = new Piscina({
+    filename: path.resolve(__dirname, 'worker.js')
+});
 
 //var multinote = require('./multinote.js');
 var note = require('./note.js');
@@ -20,67 +23,67 @@ let tempo = 120;
 //h -> b
 //ntm = 1000000/freq/2
 const notemap = new Map();
-notemap.set("cf", { ntm: 1805, m: 1 });
-notemap.set("df", { ntm: 1607, m: 2 });
-notemap.set("ff", { ntm: 1351, m: 3 });
-notemap.set("gf", { ntm: 1203, m: 4 });
-notemap.set("af", { ntm: 1072, m: 5 });
+notemap.set("cf", {ntm: 1805, m: 1});
+notemap.set("df", {ntm: 1607, m: 2});
+notemap.set("ff", {ntm: 1351, m: 3});
+notemap.set("gf", {ntm: 1203, m: 4});
+notemap.set("af", {ntm: 1072, m: 5});
 
-notemap.set("cf1", { ntm: 902, m: 6 });
-notemap.set("df1", { ntm: 803, m: 7 });
-notemap.set("ff1", { ntm: 675, m: 8 });
-notemap.set("gf1", { ntm: 601, m: 9 });
-notemap.set("af1", { ntm: 536, m: 10 });
+notemap.set("cf1", {ntm: 902, m: 6});
+notemap.set("df1", {ntm: 803, m: 7});
+notemap.set("ff1", {ntm: 675, m: 8});
+notemap.set("gf1", {ntm: 601, m: 9});
+notemap.set("af1", {ntm: 536, m: 10});
 
-notemap.set("c0", { ntm: 3823, m: 1 });
-notemap.set("d0", { ntm: 3214, m: 2 });
-notemap.set("e0", { ntm: 3034, m: 3 });
-notemap.set("f0", { ntm: 2834, m: 4 });
-notemap.set("g0", { ntm: 2550, m: 5 });
-notemap.set("a0", { ntm: 2273, m: 6 });
-notemap.set("b0", { ntm: 2024, m: 7 });
+notemap.set("c0", {ntm: 3823, m: 1});
+notemap.set("d0", {ntm: 3214, m: 2});
+notemap.set("e0", {ntm: 3034, m: 3});
+notemap.set("f0", {ntm: 2834, m: 4});
+notemap.set("g0", {ntm: 2550, m: 5});
+notemap.set("a0", {ntm: 2273, m: 6});
+notemap.set("b0", {ntm: 2024, m: 7});
 
-notemap.set("c", { ntm: 1912, m: 8 });
-notemap.set("d", { ntm: 1703, m: 9 });
-notemap.set("e", { ntm: 1517, m: 10 });
-notemap.set("f", { ntm: 1431, m: 11 });
-notemap.set("g", { ntm: 1276, m: 12 });
-notemap.set("a", { ntm: 1136, m: 1 });
-notemap.set("b", { ntm: 1012, m: 2 });
+notemap.set("c", {ntm: 1912, m: 8});
+notemap.set("d", {ntm: 1703, m: 9});
+notemap.set("e", {ntm: 1517, m: 10});
+notemap.set("f", {ntm: 1431, m: 11});
+notemap.set("g", {ntm: 1276, m: 12});
+notemap.set("a", {ntm: 1136, m: 1});
+notemap.set("b", {ntm: 1012, m: 2});
 
-notemap.set("c1", { ntm: 956, m: 3 });
-notemap.set("d1", { ntm: 851, m: 4 });
-notemap.set("e1", { ntm: 758, m: 5 });
-notemap.set("f1", { ntm: 715, m: 6 });
-notemap.set("g1", { ntm: 637, m: 7 });
-notemap.set("a1", { ntm: 568, m: 8 });
-notemap.set("b1", { ntm: 506, m: 9 });
+notemap.set("c1", {ntm: 956, m: 3});
+notemap.set("d1", {ntm: 851, m: 4});
+notemap.set("e1", {ntm: 758, m: 5});
+notemap.set("f1", {ntm: 715, m: 6});
+notemap.set("g1", {ntm: 637, m: 7});
+notemap.set("a1", {ntm: 568, m: 8});
+notemap.set("b1", {ntm: 506, m: 9});
 
-notemap.set("c2", { ntm: 478, m: 10 });
-notemap.set("d2", { ntm: 426, m: 11 });
-notemap.set("e2", { ntm: 379, m: 12 });
-notemap.set("f2", { ntm: 358, m: 1 });
-notemap.set("g2", { ntm: 319, m: 2 });
-notemap.set("a2", { ntm: 284, m: 3 });
-notemap.set("b2", { ntm: 253, m: 4 });
+notemap.set("c2", {ntm: 478, m: 10});
+notemap.set("d2", {ntm: 426, m: 11});
+notemap.set("e2", {ntm: 379, m: 12});
+notemap.set("f2", {ntm: 358, m: 1});
+notemap.set("g2", {ntm: 319, m: 2});
+notemap.set("a2", {ntm: 284, m: 3});
+notemap.set("b2", {ntm: 253, m: 4});
 
-notemap.set("af0", { ntm: 2144, m: 5 });
+notemap.set("af0", {ntm: 2144, m: 5});
 /*
 notemap.set("a0", {ntm: 2272, m: 2});
 notemap.set("f0", {ntm: 2862, m: 1});
 */
 
 const args = process.argv.slice(2);//get process arguments
-if (args[0] === undefined) { console.error('\x1b[31m%s\x1b[0m', "ERROR: Input file path not provided"); process.exit(9); }
-else { var file = args[0]; };//set file input to first argument
+if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
+else{var file = args[0];};//set file input to first argument
 
 //welcome screen
-console.log('\x1b[32m%s\x1b[0m', "                                               _____                                             ");
-console.log('\x1b[32m%s\x1b[0m', "   ____ ___  ___  ____  ____  ___  _____      / __(_)________ ___ _      ______ _________        ");
-console.log('\x1b[32m%s\x1b[0m', "  / __ `__ \\/ _ \\/ __ \\/ __ \\/ _ \\/ ___/_____/ /_/ / ___/ __ `__ \\ | /| / / __ `/ ___/ _ \\");
-console.log('\x1b[32m%s\x1b[0m', " / / / / / /  __/ /_/ / /_/ /  __/ /  /_____/ __/ / /  / / / / / / |/ |/ / /_/ / /  /  __/       ");
-console.log('\x1b[32m%s\x1b[0m', "/_/ /_/ /_/\\___/ .___/ .___/\\___/_/        /_/ /_/_/  /_/ /_/ /_/|__/|__/\\__,_/_/   \\___/    ");
-console.log('\x1b[32m%s\x1b[0m', "              /_/   /_/                                                                        \n");
+console.log('\x1b[32m%s\x1b[0m',"                                               _____                                             ");
+console.log('\x1b[32m%s\x1b[0m',"   ____ ___  ___  ____  ____  ___  _____      / __(_)________ ___ _      ______ _________        ");
+console.log('\x1b[32m%s\x1b[0m',"  / __ `__ \\/ _ \\/ __ \\/ __ \\/ _ \\/ ___/_____/ /_/ / ___/ __ `__ \\ | /| / / __ `/ ___/ _ \\");
+console.log('\x1b[32m%s\x1b[0m'," / / / / / /  __/ /_/ / /_/ /  __/ /  /_____/ __/ / /  / / / / / / |/ |/ / /_/ / /  /  __/       ");
+console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/        /_/ /_/_/  /_/ /_/ /_/|__/|__/\\__,_/_/   \\___/    ");
+console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                                                                        \n");
 
 //read json file and create arrays for mandatory data
 var input = JSON.parse(fs.readFileSync(file, "utf-8"));//read json file
@@ -90,8 +93,8 @@ var pause = [];
 global.direction = input.direction;
 
 //pause function
-async function pa(durp) {
-    let ker = Math.floor(durp / 100) * tempo;
+async function pa(durp){
+    let ker = Math.floor(durp/100)*tempo;
     ker = ker.toFixed();
     sleep.msleep(ker);
 }
@@ -119,22 +122,17 @@ var dir = new Gpio(26, 'out');//set direction output pin
 dir.writeSync(direction);//set direction based on input file
 
 //parse data from json file to arrays
-for (let i in input.sequence) { sequence.push(input.sequence[i]); }
-for (let i in input.timing) { timing.push(input.timing[i]); }
-for (let i in input.pause) { pause.push(input.pause[i]); }
+for(let i in input.sequence){sequence.push(input.sequence[i]);}
+for(let i in input.timing){timing.push(input.timing[i]);}
+for(let i in input.pause){pause.push(input.pause[i]);}
 
-for (let i in sequence) {//pin output logic
+for(let i in sequence) {//pin output logic
     sequence[i] = sequence[i].replace("h", "b");
     sequence[i] = sequence[i].replace("is", "f");
-
-    if (sequence[i].includes('+')) {
-
+    if(sequence[i].includes('+')){
         let part = sequence[i].split('+');
-
-        if (pause[i] !== 0 && pause[i] !== undefined) { pa(pause[i]); }
-
-        if (notemap.has(part[0]) && notemap.has(part[1]) && part.length === 2) {//TODO: add suppport for more than two notes
-
+        if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
+        if(notemap.has(part[0]) && notemap.has(part[1]) && part.length === 2){//TODO: add suppport for more than two notes
             let pool_num1 = notemap.get(part[0]).ntm;
             let pool_num2 = notemap.get(part[1]).ntm;
             let pool_m1 = notemap.get(part[0]).m;
@@ -144,45 +142,29 @@ for (let i in sequence) {//pin output logic
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
             console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
 
-            const sleep = require('sleep');
+            let mltnt = (async function() {//TODO: fix promise pending
 
-            const subChannel = new MessageChannel();
+                return await Promise.all([
+                  pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false}),
+                  pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false}),
+                ]);
 
-            const worker = new Worker(__dirname + "/worker.js")
+            })();
 
-            worker.once("message", (value) => {
-                console.log(value);
-            })
-
-            let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
-
-            let dataval = new Gpio(pinout[pool_m1 - 1], 'out');
-            let datavaldual = new Gpio(pinout[pool_m1], 'out');
-
-            worker.postMessage({
-                replyPort: subChannel.port1,
-                num: pool_num1, 
-                dur: pool_timing,
-                 m: pool_m1, 
-                 dual: false,
-                 sleep: sleep,
-                 motor1: dataval,
-                 motor2: datavaldual
-            }, [subChannel.port1])
-
-
-
+            mltnt.then( data => {
+                console.log(data);
+            }) 
             console.log("\n");
         }
     }
-    else {
-        if (notemap.has(sequence[i])) {
+    else{
+        if(notemap.has(sequence[i])){
             console.log("note: " + sequence[i]/* + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]*/);//debug
             note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m, true);//call note function with resolved values
-            if (pause[i] !== 0 && pause[i] !== undefined) { pa(pause[i]); }
+            if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         }
     }
 }
-console.log("\n Done in " + process.uptime().toFixed(2) + "s \n");//debug
+console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
 
 dir.unexport();
