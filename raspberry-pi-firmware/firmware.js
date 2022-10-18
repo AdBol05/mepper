@@ -127,18 +127,19 @@ for(let i in sequence) {//pin output logic
         let part = sequence[i].split('+');
         if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         if(notemap.has(part[0]) && notemap.has(part[1]) && part.length === 2){//TODO: add suppport for more than two notes
-            /*let pool_num1 = notemap.get(part[0]).ntm;
+            let pool_num1 = notemap.get(part[0]).ntm;
             let pool_num2 = notemap.get(part[1]).ntm;
             let pool_m1 = notemap.get(part[0]).m;
             let pool_m2 = notemap.get(part[1]).m;
             let pool_timing = timing[i];
 
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
-            console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);*/
+            console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
 
             const nt = new MyEmitter();
             //async function mltnt() {//TODO: fix promise pending
-                nt.emit('note', num, dur, m, false);
+                nt.emit('note', pool_num1, pool_timing, pool_m1, false);
+                nt.emit('note', pool_num2, pool_timing, pool_m2, false);
                 /*return await new Promise(async resolve1 => {
                     let p1 = await pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false});
                     resolve1(await new Promise(async resolve2 => {
