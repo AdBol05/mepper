@@ -3,6 +3,9 @@ let fs = require('fs');
 let sleep = require('sleep');
 const util = require('util');
 
+import { EventEmitter } from 'node:events';
+class MyEmitter extends EventEmitter {}
+
 const path = require('path');
 const Piscina = require('piscina');
 
@@ -122,17 +125,18 @@ for(let i in sequence) {//pin output logic
         let part = sequence[i].split('+');
         if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         if(notemap.has(part[0]) && notemap.has(part[1]) && part.length === 2){//TODO: add suppport for more than two notes
-            let pool_num1 = notemap.get(part[0]).ntm;
+            /*let pool_num1 = notemap.get(part[0]).ntm;
             let pool_num2 = notemap.get(part[1]).ntm;
             let pool_m1 = notemap.get(part[0]).m;
             let pool_m2 = notemap.get(part[1]).m;
             let pool_timing = timing[i];
 
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
-            console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
+            console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);*/
 
-            async function mltnt() {//TODO: fix promise pending
-
+            const nt = new MyEmitter();
+            //async function mltnt() {//TODO: fix promise pending
+                nt.emit('note', num, dur, m, false);
                 /*return await new Promise(async resolve1 => {
                     let p1 = await pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false});
                     resolve1(await new Promise(async resolve2 => {
@@ -141,7 +145,7 @@ for(let i in sequence) {//pin output logic
                     }))
                 })*/
 
-            };
+            //};
 
             /*mltnt().then( data => {
                 console.log(data);
@@ -158,5 +162,12 @@ for(let i in sequence) {//pin output logic
     }
 }
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
+
+nt.on('note', (num, dur, m, dual) => {
+    (async function() {
+        note(num, dur, m, dual);
+        sleep.uspleep(dur);
+    })();
+});
 
 dir.unexport();
