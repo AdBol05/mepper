@@ -123,7 +123,7 @@ for(let i in input.pause){pause.push(input.pause[i]);}
 const nt = new MyEmitter();
 nt.on('note', (num, dur, m, dual) => {
     (async function() {
-        console.log("event trigerred");
+        console.log("event trigerred, num: " + num);
         note(num, dur, m, dual);
         //sleep.uspleep(dur);
     })();
