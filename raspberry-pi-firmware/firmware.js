@@ -120,6 +120,9 @@ for(let i in input.sequence){sequence.push(input.sequence[i]);}
 for(let i in input.timing){timing.push(input.timing[i]);}
 for(let i in input.pause){pause.push(input.pause[i]);}
 
+const nt = new MyEmitter();
+
+
 for(let i in sequence) {//pin output logic
     sequence[i] = sequence[i].replace("h", "b");
     sequence[i] = sequence[i].replace("is", "f");
@@ -136,7 +139,6 @@ for(let i in sequence) {//pin output logic
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
             console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
 
-            const nt = new MyEmitter();
             //async function mltnt() {//TODO: fix promise pending
                 nt.emit('note', pool_num1, pool_timing, pool_m1, false);
                 nt.emit('note', pool_num2, pool_timing, pool_m2, false);
