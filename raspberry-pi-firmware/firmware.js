@@ -170,6 +170,7 @@ console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
 
 nt.on('note', (num, dur, m, dual) => {
     (async function() {
+        console.log("event trigerred");
         note(num, dur, m, dual);
         sleep.uspleep(dur);
     })();
