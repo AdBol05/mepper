@@ -4,6 +4,7 @@ module.exports = async (num, dur, m, dual) => {
     let sleep = require('sleep');
 
     //return await new Promise(resolve => { //TODO: make multinote work (modules fucking things up)
+    //modules fucking things up
         global.M = {};
         let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
 
