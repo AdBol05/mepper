@@ -3,7 +3,9 @@ let fs = require('fs');
 let sleep = require('sleep');
 const util = require('util');
 
-import { EventEmitter } from 'node:events';
+const EventEmitter = require('node:events');
+
+//import { EventEmitter } from 'node:events';
 class MyEmitter extends EventEmitter {}
 
 const path = require('path');
