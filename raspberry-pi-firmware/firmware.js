@@ -121,7 +121,13 @@ for(let i in input.timing){timing.push(input.timing[i]);}
 for(let i in input.pause){pause.push(input.pause[i]);}
 
 const nt = new MyEmitter();
-
+nt.on('note', (num, dur, m, dual) => {
+    (async function() {
+        console.log("event trigerred");
+        note(num, dur, m, dual);
+        sleep.uspleep(dur);
+    })();
+});
 
 for(let i in sequence) {//pin output logic
     sequence[i] = sequence[i].replace("h", "b");
@@ -167,13 +173,5 @@ for(let i in sequence) {//pin output logic
     }
 }
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
-
-nt.on('note', (num, dur, m, dual) => {
-    (async function() {
-        console.log("event trigerred");
-        note(num, dur, m, dual);
-        sleep.uspleep(dur);
-    })();
-});
 
 dir.unexport();
