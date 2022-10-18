@@ -133,29 +133,20 @@ for(let i in sequence) {//pin output logic
 
             async function mltnt() {//TODO: fix promise pending
 
-                return await new Promise(async resolve1 => {
+                /*return await new Promise(async resolve1 => {
                     let p1 = await pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false});
                     resolve1(await new Promise(async resolve2 => {
                         let p2 = await pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false})
                         resolve2(p1, p2)
                     }))
-                })
+                })*/
 
             };
 
-            /* let mltnt = (async function() {//TODO: fix promise pending
-
-                return await Promise.all([
-                  new Promise(resolve => { resolve(pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false})) }),
-                  new Promise(resolve => { resolve(pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false})) }),
-                ]);
-
-            })(); */
-
-            mltnt().then( data => {
+            /*mltnt().then( data => {
                 console.log(data);
             }) 
-            console.log("\n");
+            console.log("\n");*/
         }
     }
     else{
