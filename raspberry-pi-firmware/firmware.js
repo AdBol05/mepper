@@ -120,8 +120,17 @@ for(let i in input.sequence){sequence.push(input.sequence[i]);}
 for(let i in input.timing){timing.push(input.timing[i]);}
 for(let i in input.pause){pause.push(input.pause[i]);}
 
-const nt = new MyEmitter();
-nt.on('note', (num, dur, m, dual) => {
+const nt1 = new MyEmitter();
+nt1.on('note', (num, dur, m, dual) => {
+    (async function() {
+        console.log("event trigerred, num: " + num);
+        note(num, dur, m, dual);
+        //sleep.uspleep(dur);
+    })();
+});
+
+const nt2 = new MyEmitter();
+nt2.on('note', (num, dur, m, dual) => {
     (async function() {
         console.log("event trigerred, num: " + num);
         note(num, dur, m, dual);
@@ -145,8 +154,8 @@ for(let i in sequence) {//pin output logic
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
             console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
             (async function(){
-                nt.emit('note', pool_num1, pool_timing, pool_m1, false);
-                nt.emit('note', pool_num2, pool_timing, pool_m2, false);
+                nt1.emit('note', pool_num1, pool_timing, pool_m1, false);
+                nt2.emit('note', pool_num2, pool_timing, pool_m2, false);
             })();
             //async function mltnt() {//TODO: fix promise pending
                 /*return await new Promise(async resolve1 => {
