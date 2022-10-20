@@ -127,6 +127,7 @@ nt1.on('note', (num, dur, m, dual) => {
         //note(num, dur, m, dual);
         //sleep.uspleep(dur);
         pool.run({num: num, dur: dur, m: m, dual: false});
+        sleep.usleep(dur);
     })();
 });
 
@@ -137,6 +138,7 @@ nt2.on('note', (num, dur, m, dual) => {
         //note(num, dur, m, dual);
         //sleep.uspleep(dur);
         pool.run({num: num, dur: dur, m: m, dual: false});
+        sleep.usleep(dur);
     })();
 });
 
