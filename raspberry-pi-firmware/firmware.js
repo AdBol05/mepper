@@ -2,7 +2,7 @@ let Gpio = require('onoff').Gpio;
 let fs = require('fs');
 let sleep = require('sleep');
 const util = require('util');
-const exec = require('child_process');
+const { exec } = require('child_process');
 
 const EventEmitter = require('node:events');
 
