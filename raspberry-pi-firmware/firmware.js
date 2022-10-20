@@ -157,11 +157,11 @@ for(let i in sequence) {//pin output logic
 
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
             console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
-            //(async function(){
+            (async function(){
                 nt1.emit('note', pool_num1, pool_timing, pool_m1, false);
                 nt2.emit('note', pool_num2, pool_timing, pool_m2, false);
-                sleep.usleep(pool_timing);
-            //})();
+                await sleep.usleep(pool_timing);
+            })();
             //sleep.usleep(pool_timing);
             //async function mltnt() {//TODO: fix promise pending
                 /*return await new Promise(async resolve1 => {
