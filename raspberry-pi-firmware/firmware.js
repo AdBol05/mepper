@@ -128,7 +128,7 @@ nt1.on('note', (num, dur, m, dual) => {
         console.log("event trigerred, num: " + num);
         //note(num, dur, m, dual);
         //pool.run({num: num, dur: dur, m: m, dual: false});
-        /*exec("node ./manual.js" + num + " " + dur + " " + m + " false", (error, stdout, stderr) => {
+        exec("node manual.js" + num + " " + dur + " " + m + " false", (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 return;
@@ -138,7 +138,7 @@ nt1.on('note', (num, dur, m, dual) => {
                 return;
             }
             console.log(`stdout: ${stdout}`);
-        });*/
+        });
     })();
 });
 
@@ -148,7 +148,7 @@ nt2.on('note', (num, dur, m, dual) => {
         console.log("event trigerred, num: " + num);
         //note(num, dur, m, dual);
         //pool.run({num: num, dur: dur, m: m, dual: false});
-        /*exec("node ./manual.js" + num + " " + dur + " " + m + " false", (error, stdout, stderr) => {
+        exec("node manual.js" + num + " " + dur + " " + m + " false", (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 return;
@@ -158,7 +158,7 @@ nt2.on('note', (num, dur, m, dual) => {
                 return;
             }
             console.log(`stdout: ${stdout}`);
-        });*/
+        });
     })();
 });
 
@@ -177,12 +177,12 @@ for(let i in sequence) {//pin output logic
 
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
             console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
-            //(async function(){
-                //nt1.emit('note', pool_num1, pool_timing, pool_m1, false);
-                //nt2.emit('note', pool_num2, pool_timing, pool_m2, false);
-            //})();
+            (async function(){
+                nt1.emit('note', pool_num1, pool_timing, pool_m1, false);
+                nt2.emit('note', pool_num2, pool_timing, pool_m2, false);
+            })();
 
-            async function mltnt() {//TODO: fix promise pending
+            /*async function mltnt() {//TODO: fix promise pending
                 return await new Promise(async resolve1 => {
                     let p1 = await pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false});
                     resolve1(await new Promise(async resolve2 => {
@@ -196,7 +196,7 @@ for(let i in sequence) {//pin output logic
             mltnt().then( data => {
                 console.log(data);
             }) 
-            console.log("\n");
+            console.log("\n");*/
             pa(pool_timing);
         }
     }
