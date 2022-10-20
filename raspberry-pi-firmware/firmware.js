@@ -1,12 +1,10 @@
 let Gpio = require('onoff').Gpio;
 let fs = require('fs');
 let sleep = require('sleep');
-const util = require('util');
-const { exec } = require('child_process');
+//const util = require('util');
+//const { exec } = require('child_process');
 
 const EventEmitter = require('node:events');
-
-//import { EventEmitter } from 'node:events';
 class MyEmitter extends EventEmitter {}
 
 const path = require('path');
@@ -16,9 +14,7 @@ const pool = new Piscina({
     filename: path.resolve(__dirname, 'worker.js')
 });
 
-//let multinote = require('./multinote.js');
 let note = require('./note.js');
-const { execArgv } = require('process');
 
 let tempo = 120;
 
@@ -177,7 +173,7 @@ for(let i in sequence) {//pin output logic
 
             console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
             console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
-            (async function(){
+            (async function(){//Waiting for note to finifsh -> run more notes at once without waiting
                 nt1.emit('note', pool_num1, pool_timing, pool_m1, false);
                 nt2.emit('note', pool_num2, pool_timing, pool_m2, false);
             })();
@@ -197,7 +193,7 @@ for(let i in sequence) {//pin output logic
                 console.log(data);
             }) 
             console.log("\n");*/
-            //pa(pool_timing);
+            pa(pool_timing);
         }
     }
     else{
