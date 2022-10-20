@@ -19,7 +19,7 @@ module.exports = async (num, dur, m, dual) => {
         M[m] = new Gpio(pinout[m - 1], 'out');
         if (dual) { M[n] = new Gpio(pinout[m], 'out'); }
 
-        //console.log("ntm: " + num + " motor: " + m + " timing: " + dur);
+        console.log("ntm: " + num + " motor: " + m + " timing: " + dur);
         del = (num * oct);
         coun = Math.floor((dur * 5 * tempo) / del);
         for (let i = 0; i < coun; i++) {
