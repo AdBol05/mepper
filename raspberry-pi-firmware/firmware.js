@@ -197,7 +197,7 @@ for(let i in sequence) {//pin output logic
                 console.log(data);
             }) 
             console.log("\n");*/
-            pa(pool_timing);
+            //pa(pool_timing);
         }
     }
     else{
