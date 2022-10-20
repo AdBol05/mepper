@@ -124,8 +124,9 @@ const nt1 = new MyEmitter();
 nt1.on('note', (num, dur, m, dual) => {
     (async function() {
         console.log("event trigerred, num: " + num);
-        note(num, dur, m, dual);
+        //note(num, dur, m, dual);
         //sleep.uspleep(dur);
+        pool.run({num: num, dur: dur, m: m, dual: false});
     })();
 });
 
@@ -133,8 +134,9 @@ const nt2 = new MyEmitter();
 nt2.on('note', (num, dur, m, dual) => {
     (async function() {
         console.log("event trigerred, num: " + num);
-        note(num, dur, m, dual);
+        //note(num, dur, m, dual);
         //sleep.uspleep(dur);
+        pool.run({num: num, dur: dur, m: m, dual: false});
     })();
 });
 
