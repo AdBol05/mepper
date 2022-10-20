@@ -7,7 +7,7 @@ module.exports = async ({ num, dur, m, dual }) => {
 
     //return await new Promise(async resolve => {
         const note = require('./note.js');
-
+        note(num, dur, m, dual);
         console.log("exec");
 
         //resolve(await note(num, dur, m, dual))
