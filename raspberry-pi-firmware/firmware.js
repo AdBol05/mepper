@@ -128,7 +128,7 @@ nt1.on('note', (num, dur, m, dual) => {
         console.log("event trigerred, num: " + num);
         //note(num, dur, m, dual);
         //pool.run({num: num, dur: dur, m: m, dual: false});
-        exec("node ./maual.js" + num + " " + dur + " " + m + " false", (error, stdout, stderr) => {
+        exec("node ./manual.js" + num + " " + dur + " " + m + " false", (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 return;
@@ -148,7 +148,7 @@ nt2.on('note', (num, dur, m, dual) => {
         console.log("event trigerred, num: " + num);
         //note(num, dur, m, dual);
         //pool.run({num: num, dur: dur, m: m, dual: false});
-        exec("node ./maual.js" + num + " " + dur + " " + m + " false", (error, stdout, stderr) => {
+        exec("node ./manual.js" + num + " " + dur + " " + m + " false", (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 return;
