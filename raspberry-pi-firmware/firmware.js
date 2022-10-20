@@ -17,6 +17,7 @@ const pool = new Piscina({
 
 //let multinote = require('./multinote.js');
 let note = require('./note.js');
+const { execArgv } = require('process');
 
 let tempo = 120;
 
@@ -124,8 +125,9 @@ const nt1 = new MyEmitter();
 nt1.on('note', (num, dur, m, dual) => {
     (async function() {
         console.log("event trigerred, num: " + num);
-        note(num, dur, m, dual);
+        //note(num, dur, m, dual);
         //pool.run({num: num, dur: dur, m: m, dual: false});
+        exec("node ./maual.js" + num + " " + dur + " " + m + " false");
     })();
 });
 
@@ -133,8 +135,9 @@ const nt2 = new MyEmitter();
 nt2.on('note', (num, dur, m, dual) => {
     (async function() {
         console.log("event trigerred, num: " + num);
-        note(num, dur, m, dual);
+        //note(num, dur, m, dual);
         //pool.run({num: num, dur: dur, m: m, dual: false});
+        exec("node ./maual.js" + num + " " + dur + " " + m + " false");
     })();
 });
 
