@@ -156,8 +156,9 @@ for(let i in sequence) {//pin output logic
             (async function(){
                 nt1.emit('note', pool_num1, pool_timing, pool_m1, false);
                 nt2.emit('note', pool_num2, pool_timing, pool_m2, false);
-                sleep.usleep(pool_timing);
+                //sleep.usleep(pool_timing);
             })();
+            sleep.usleep(pool_timing);
             //async function mltnt() {//TODO: fix promise pending
                 /*return await new Promise(async resolve1 => {
                     let p1 = await pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false});
