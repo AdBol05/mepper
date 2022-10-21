@@ -9,7 +9,7 @@ const pool = new Piscina({
 });*/
 
 for(let i = 1; i <= 12; i++){
-    global.M[i] = require('./m' + i + '.js');
+    global.M[i - 1] = require('./m' + i + '.js');
 }
 
 let tempo = 120;
