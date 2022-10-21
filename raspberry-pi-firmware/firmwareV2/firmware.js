@@ -2,16 +2,15 @@ let Gpio = require('onoff').Gpio;
 let fs = require('fs');
 let sleep = require('sleep');
 
-const EventEmitter = require('node:events');
-class MyEmitter extends EventEmitter {}
-
 /*const path = require('path');
 const Piscina = require('piscina');
 const pool = new Piscina({
     filename: path.resolve(__dirname, 'worker.js')
 });*/
 
-let note = require('./note.js');
+for(let i = 1; i <= 12; i++){
+    global.M[i] = require('./m' + i + '.js');
+}
 
 let tempo = 120;
 
@@ -118,7 +117,7 @@ for(let i in input.pause){pause.push(input.pause[i]);}
 for(let i in sequence) {//pin output logic
     sequence[i] = sequence[i].replace("h", "b");
     sequence[i] = sequence[i].replace("is", "f");
-    if(sequence[i].includes('+')){
+    /*if(sequence[i].includes('+')){
         let part = sequence[i].split('+');
         if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         if(notemap.has(part[0]) && notemap.has(part[1]) && part.length === 2){//TODO: add suppport for more than two notes
@@ -130,16 +129,16 @@ for(let i in sequence) {//pin output logic
 
         }
     }
-    else{
+    else{*/
         if(notemap.has(sequence[i])){
             console.log("note: " + sequence[i]/* + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]*/);//debug
-            note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m, true);//call note function with resolved values
+            
             if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         }
     }
     console.log("==============================");
 
-}
+//}
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
 
 dir.unexport();
