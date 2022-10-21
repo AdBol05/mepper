@@ -8,8 +8,10 @@ const pool = new Piscina({
     filename: path.resolve(__dirname, 'worker.js')
 });*/
 
+let M = [];
+
 for(let i = 1; i <= 12; i++){
-    global.M[i - 1] = require('./m' + i + '.js');
+    M[i - 1] = require('./m' + i + '.js');
 }
 
 let tempo = 120;
