@@ -100,7 +100,7 @@ async function pa(durp){
 }
 
 async function wait(duration){
-    sleep.usleep(duration);
+    sleep.msleep(duration);
 }
 
 //print basic info (mostly for debugging)
