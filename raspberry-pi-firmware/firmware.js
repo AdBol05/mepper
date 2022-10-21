@@ -2,15 +2,6 @@ let Gpio = require('onoff').Gpio;
 let fs = require('fs');
 let sleep = require('sleep');
 
-const EventEmitter = require('node:events');
-class MyEmitter extends EventEmitter {}
-
-/*const path = require('path');
-const Piscina = require('piscina');
-const pool = new Piscina({
-    filename: path.resolve(__dirname, 'worker.js')
-});*/
-
 let note = require('./note.js');
 
 let tempo = 120;
@@ -115,72 +106,17 @@ for(let i in input.sequence){sequence.push(input.sequence[i]);}
 for(let i in input.timing){timing.push(input.timing[i]);}
 for(let i in input.pause){pause.push(input.pause[i]);}
 
-const nt1 = new MyEmitter();
-nt1.on('note', (num, dur, m, dual) => {
-    (async function() {
-        console.log("event trigerred, num: " + num);
-        note(num, dur, m, dual);
-        //pool.run({num: num, dur: dur, m: m, dual: false});
-    })();
-});
-
-const nt2 = new MyEmitter();
-nt2.on('note', (num, dur, m, dual) => {
-    (async function() {
-        console.log("event trigerred, num: " + num);
-        note(num, dur, m, dual);
-        //pool.run({num: num, dur: dur, m: m, dual: false});
-    })();
-});
-
 for(let i in sequence) {//pin output logic
     sequence[i] = sequence[i].replace("h", "b");
     sequence[i] = sequence[i].replace("is", "f");
-    if(sequence[i].includes('+')){
-        let part = sequence[i].split('+');
-        if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
-        if(notemap.has(part[0]) && notemap.has(part[1]) && part.length === 2){//TODO: add suppport for more than two notes
-            let pool_num1 = notemap.get(part[0]).ntm;
-            let pool_num2 = notemap.get(part[1]).ntm;
-            let pool_m1 = notemap.get(part[0]).m;
-            let pool_m2 = notemap.get(part[1]).m;
-            let pool_timing = timing[i];
 
-            console.log("num1: " + pool_num1 + ", m1: " + pool_m1 + ", timing: " + pool_timing);
-            console.log("num2: " + pool_num2 + ", m2: " + pool_m2 + ", timing: " + pool_timing);
-            (async function(){//Waiting for note to finifsh -> run more notes at once without waiting
-                nt1.emit('note', pool_num1, pool_timing, pool_m1, false);
-                nt2.emit('note', pool_num2, pool_timing, pool_m2, false);
-            })();
-
-            /*async function mltnt() {//TODO: fix promise pending
-                return await new Promise(async resolve1 => {
-                    let p1 = await pool.run({num: pool_num1, dur: pool_timing, m: pool_m1, dual: false});
-                    resolve1(await new Promise(async resolve2 => {
-                        let p2 = await pool.run({num: pool_num2, dur: pool_timing, m: pool_m2, dual: false})
-                        resolve2(p1, p2)
-                    }))
-                })
-
-            };
-
-            mltnt().then( data => {
-                console.log(data);
-            }) 
-            console.log("\n");*/
-            pa(pool_timing);
-        }
-    }
-    else{
         if(notemap.has(sequence[i])){
             console.log("note: " + sequence[i]/* + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]*/);//debug
             note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m, true);//call note function with resolved values
             if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         }
+        console.log("==============================");
     }
-    console.log("==============================");
-
-}
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
 
 dir.unexport();
