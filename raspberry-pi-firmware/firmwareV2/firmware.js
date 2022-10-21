@@ -138,8 +138,8 @@ for(let i in sequence) {//pin output logic
             pa(timing[i]);
             if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         }
-    }
     console.log("==============================");
+    }
 
 //}
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
