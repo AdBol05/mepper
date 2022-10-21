@@ -201,9 +201,10 @@ for(let i in sequence) {//pin output logic
             console.log("note: " + sequence[i]/* + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]*/);//debug
             note(notemap.get(sequence[i]).ntm, timing[i], notemap.get(sequence[i]).m, true);//call note function with resolved values
             if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
-            console.log("==============================");
         }
     }
+    console.log("==============================");
+
 }
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
 
