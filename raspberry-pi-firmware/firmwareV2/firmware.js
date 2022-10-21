@@ -99,10 +99,6 @@ async function pa(durp){
     sleep.msleep(ker);
 }
 
-async function wait(duration){
-    sleep.msleep(duration);
-}
-
 //print basic info (mostly for debugging)
 console.log("\n");
 console.log("==================");
@@ -139,7 +135,7 @@ for(let i in sequence) {//pin output logic
         if(notemap.has(sequence[i])){
             console.log("note: " + sequence[i]/* + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]*/);//debug
             M[notemap.get(sequence[i]).m](notemap.get(sequence[i]).ntm, timing[i]);
-            wait(timing[i]);
+            pa(timing[i]);
             if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         }
     }
