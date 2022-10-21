@@ -1,8 +1,6 @@
 let Gpio = require('onoff').Gpio;
 let fs = require('fs');
 let sleep = require('sleep');
-//const util = require('util');
-//const { exec } = require('child_process');
 
 const EventEmitter = require('node:events');
 class MyEmitter extends EventEmitter {}
@@ -123,17 +121,6 @@ nt1.on('note', (num, dur, m, dual) => {
         console.log("event trigerred, num: " + num);
         note(num, dur, m, dual);
         //pool.run({num: num, dur: dur, m: m, dual: false});
-        /*exec("node manual.js " + num + " " + dur + " " + m + " false", (error, stdout, stderr) => {
-            if (error) {
-                console.log(`error: ${error.message}`);
-                return;
-            }
-            if (stderr) {
-                console.log(`stderr: ${stderr}`);
-                return;
-            }
-            console.log(`stdout: ${stdout}`);
-        });*/
     })();
 });
 
@@ -143,17 +130,6 @@ nt2.on('note', (num, dur, m, dual) => {
         console.log("event trigerred, num: " + num);
         note(num, dur, m, dual);
         //pool.run({num: num, dur: dur, m: m, dual: false});
-        /*exec("node manual.js " + num + " " + dur + " " + m + " false", (error, stdout, stderr) => {
-            if (error) {
-                console.log(`error: ${error.message}`);
-                return;
-            }
-            if (stderr) {
-                console.log(`stderr: ${stderr}`);
-                return;
-            }
-            console.log(`stdout: ${stdout}`);
-        });*/
     })();
 });
 
