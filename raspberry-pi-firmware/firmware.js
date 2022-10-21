@@ -7,12 +7,11 @@ let sleep = require('sleep');
 const EventEmitter = require('node:events');
 class MyEmitter extends EventEmitter {}
 
-const path = require('path');
+/*const path = require('path');
 const Piscina = require('piscina');
-
 const pool = new Piscina({
     filename: path.resolve(__dirname, 'worker.js')
-});
+});*/
 
 let note = require('./note.js');
 
