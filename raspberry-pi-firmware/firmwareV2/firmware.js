@@ -107,6 +107,7 @@ console.log("Direction: " + direction);
 console.log("==================");
 console.log(notemap);
 console.log("==================");
+console.log("output -> \n");
 
 let dir = new Gpio(26, 'out');//set direction output pin
 dir.writeSync(direction);//set direction based on input file
