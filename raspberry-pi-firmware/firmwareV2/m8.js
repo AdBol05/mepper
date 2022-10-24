@@ -20,5 +20,6 @@ module.exports = ({num, dur}) => {
             sleep.usleep(del);
         }
     M.unexport();
-    return "ntm: " + num + " motor: " + m + " timing: " + dur;
+    return "ntm: " + num + " motor: 8 timing: " + dur;
+
 }
