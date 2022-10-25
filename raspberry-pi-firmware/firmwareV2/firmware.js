@@ -120,7 +120,7 @@ for(let i in input.pause){pause.push(input.pause[i]);}
 for(let i in sequence) {//pin output logic
     sequence[i] = sequence[i].replace("h", "b");
     sequence[i] = sequence[i].replace("is", "f");
-    /*if(sequence[i].includes('+')){
+    if(sequence[i].includes('+')){
         let part = sequence[i].split('+');
         if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         if(notemap.has(part[0]) && notemap.has(part[1]) && part.length === 2){//TODO: add suppport for more than two notes
@@ -128,11 +128,16 @@ for(let i in sequence) {//pin output logic
             let pool_num2 = notemap.get(part[1]).ntm;
             let pool_m1 = notemap.get(part[0]).m;
             let pool_m2 = notemap.get(part[1]).m;
-            let pool_timing = timing[i];
+            //let pool_timing = timing[i];
 
+            let promise = new Promise(function(resolve, reject){
+                M[pool_m1]({num: pool_num1, dur: timing[i]});
+                M[pool_m2]({num: pool_num2, dur: timing[i]});
+            });
+            pause(timing[i]);
         }
     }
-    else{*/
+    else{
         if(notemap.has(sequence[i])){
             console.log("note: " + sequence[i]/* + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]*/);//debug
             console.log(M[notemap.get(sequence[i]).m]({num: notemap.get(sequence[i]).ntm, dur: timing[i]}));
@@ -142,7 +147,7 @@ for(let i in sequence) {//pin output logic
     console.log("==============================");
     }
 
-//}
+}
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
 
 dir.unexport();
