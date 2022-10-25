@@ -134,7 +134,7 @@ for(let i in sequence) {//pin output logic
                 M[pool_m1]({num: pool_num1, dur: timing[i]});
                 M[pool_m2]({num: pool_num2, dur: timing[i]});
             });
-            pause(timing[i]);
+            pa(timing[i]);
         }
     }
     else{
