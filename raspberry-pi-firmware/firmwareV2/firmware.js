@@ -136,7 +136,7 @@ for(let i in sequence) {//pin output logic
                 resolve();
             });
             console.log(promise);
-            pa(timing[i]);
+            //pa(timing[i]);
         }
     }
     else{
