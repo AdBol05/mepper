@@ -133,6 +133,8 @@ for(let i in sequence) {//pin output logic
             let promise = new Promise(function(resolve, reject){
                 M[pool_m1]({num: pool_num1, dur: timing[i]});
                 M[pool_m2]({num: pool_num2, dur: timing[i]});
+                if(err){reject(err)}
+                else{resolve()}
             });
             console.log(promise);
             pa(timing[i]);
