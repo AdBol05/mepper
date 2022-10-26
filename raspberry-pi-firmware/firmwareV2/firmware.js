@@ -130,10 +130,10 @@ for(let i in sequence) {//pin output logic
             let pool_m2 = notemap.get(part[1]).m;
             //let pool_timing = timing[i];
 
-            let promise = new Promise(function(resolve, reject){
+            let promise = new Promise(async function(resolve, reject){
                 M[pool_m1]({num: pool_num1, dur: timing[i]});
                 M[pool_m2]({num: pool_num2, dur: timing[i]});
-                resolve();
+                resolve("multinote");
             });
             console.log(promise);
             //pa(timing[i]);
