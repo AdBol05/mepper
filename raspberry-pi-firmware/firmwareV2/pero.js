@@ -10,6 +10,7 @@ if (cluster.isPrimary) {
         cluster.fork();
     }
 
+    sleep.msleep(10000);
 
     cluster.on('exit', (worker, code, signal) => {
         console.log(`worker ${worker.process.pid} died`);
@@ -55,7 +56,7 @@ else {
 
         res.writeHead(200);
         console.log(req.url);
-        sleep.msleep(1000000);
+        sleep.msleep(10000);
         res.end('hello world\n');
 
     }).listen(8000);
