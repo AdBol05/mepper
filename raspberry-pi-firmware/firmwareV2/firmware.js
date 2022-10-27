@@ -164,3 +164,5 @@ for(let i in sequence) {//pin output logic
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debug
 
 dir.unexport();
+
+process.exit(0);
