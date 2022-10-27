@@ -6,9 +6,11 @@ const {Worker, isMainThread, MessageChannel, MessagePort, parentPort,  Broadcast
 const subChannel = new MessageChannel();
 //const bc = new BroadcastChannel('note');
 
+if(isMainThread){
+
 let worker = [];
 for(let i = 1; i <= 12; i++) {
-    worker[i] = new Worker(__dirname +  "/m" + i + ".js");
+    worker[i] = new Worker(__filename);
 }
 
 let M = [];
@@ -168,5 +170,30 @@ for(let i in sequence) {//pin output logic
 console.log("\n Done in "+ process.uptime().toFixed(2) + "s \n");//debugsubChannel.port2
 
 dir.unexport();
+}
+else{
+    
+    let M = new Gpio(15, 'out');
 
+    let oct = 5;
+    let coun;
+    let del;
+    let tempo = 120;
+
+    parentPort.once("message", (value) => {
+        value.replyPort.postMessage("AAAA");
+    });
+
+    del = (num * oct);
+        coun = Math.floor((dur * 5 * tempo) / del);
+        for (let i = 0; i < coun; i++) {
+            M.writeSync(1);
+            sleep.usleep(del);
+            M.writeSync(0);
+            sleep.usleep(del);
+    M.unexport();
+    //return "ntm: " + num + " motor: 2 timing: " + dur;
+}
+
+}
 process.exit(0);
