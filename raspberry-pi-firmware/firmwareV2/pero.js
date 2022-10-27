@@ -25,6 +25,8 @@ if (cluster.isPrimary) {
             data = Buffer.concat(data).toString();
             console.log(data);
         })
+    }).on(error, err => {
+        console.log(err);
     })
 
     http.get("http://localhost:8000/random?motor=2", res => {
@@ -38,6 +40,8 @@ if (cluster.isPrimary) {
             data = Buffer.concat(data).toString();
             console.log(data);
         })
+    }).on(error, err => {
+        console.log(err);
     })
 
 
