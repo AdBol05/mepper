@@ -21,7 +21,7 @@ let data = JSON.parse(fs.readFileSync(file));
 //console.log(data);
 
 let pins = [];
-let action = [];
+let actions = [];
 
-for(i in data){pins.push(data.sequence[i])}
-for(i in data){action.push(data.status[i])}
+for(i in data){pins.push(data.pin[i])}
+for(i in data){actions.push(data.action[i])}
