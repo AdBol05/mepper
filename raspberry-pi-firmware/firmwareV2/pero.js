@@ -17,7 +17,7 @@ if (cluster.isPrimary) {
     });
 
     const options = {
-        host: 'localhost:8000',
+        host: 'localhost',
         port: 8000,
         path: '/random?motor=1',
         method: 'GET',
@@ -25,7 +25,7 @@ if (cluster.isPrimary) {
       };
 
       const options2 = {
-        host: 'localhost:8000',
+        host: 'localhost',
         port: 8000,
         path: '/random?motor=2',
         method: 'GET',
