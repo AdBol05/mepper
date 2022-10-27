@@ -120,11 +120,6 @@ if (cluster.isPrimary) {
     for (let i in input.timing) { timing.push(input.timing[i]); }
     for (let i in input.pause) { pause.push(input.pause[i]); }
 
-
-
-
-
-
     /*
     *   Url: http://localhost:<portMotoru>/?ntm=<ntmCislo>&dur=<durNoty>
     *
@@ -139,24 +134,14 @@ if (cluster.isPrimary) {
 
     let motors = new Map();
 
-                for (let i = 1; i <= 12; i++) {
-                    cluster.fork();
-                    motors.set(pinout[i - 1], 2500 + i - 1);
-                }
-
-                console.log(motors);
-
-                cluster.on('exit', (worker, code, signal) => {
-                    console.log(`worker ${worker.process.pid} died`);
-                });
-
-
-
-
-
-
-
-
+    for (let i = 1; i <= 12; i++) {
+        cluster.fork();
+        motors.set(pinout[i - 1], 2500 + i - 1);
+    }
+    console.log(motors);
+    cluster.on('exit', (worker, code, signal) => {
+        console.log(`worker ${worker.process.pid} died`);
+    });
 
 
     for (let i in sequence) {//pin output logic
@@ -198,7 +183,8 @@ if (cluster.isPrimary) {
                 //console.log(M[notemap.get(sequence[i]).m]({num: notemap.get(sequence[i]).ntm, dur: timing[i]}));
                 //pa(timing[i]);
                 let arg = '/?ntm=' + notemap.get(sequence[i]).ntm + '&dur=' + timing[i];
-                http.request({host: '127.0.0.1', port: motors.get(notemap.get(sequence[i]).m), path: arg, method: 'GET', timeout: 20000}, res => console.log(res));
+                let pin = pinout[notemap.get(sequence[i]).m - 1];
+                http.request({host: '127.0.0.1', port: motors.get(pin), path: arg, method: 'GET', timeout: 20000}, res => console.log(res));
                 if (pause[i] !== 0 && pause[i] !== undefined) { pa(pause[i]); }
             }
             console.log("==============================");
