@@ -6,7 +6,7 @@ let sleep = require('sleep');
 
 if (cluster.isPrimary) {
 
-    for (let i = 1; i <= 1; i++) {
+    for (let i = 1; i <= 12; i++) {
         cluster.fork();
     }
 
@@ -16,7 +16,7 @@ if (cluster.isPrimary) {
         console.log(`worker ${worker.process.pid} died`);
     });
 
-    const options = {
+    /* const options = {
         host: '127.0.0.1',
         port: 6666,
         path: '/random?motor=1',
@@ -60,13 +60,13 @@ if (cluster.isPrimary) {
         })
     }).on("error", err => {
         console.log(err);
-    })
+    }) */
 
 
 }
 else {
 
-    console.log(`Worker ${process.pid} started`);
+    console.log(`Worker ${process.pid} (${cluster.worker.id}) started on port ${2500 + cluster.worker.id}`);
 
     let server = http.createServer((req, res) => {
 
@@ -75,7 +75,7 @@ else {
         sleep.msleep(10000);
         res.end('hello world\n');
 
-    }).listen(6666);
+    }).listen(2500 + cluster.worker.id);
 
     server.timeout = 20000;
 
