@@ -1,3 +1,5 @@
+const { Worker, isMainThread, MessageChannel, MessagePort, parentPort } = require("worker_threads");
+
 module.exports = ({num, dur}) => {
     let Gpio = require('onoff').Gpio;
     let sleep = require('sleep');
@@ -9,6 +11,10 @@ module.exports = ({num, dur}) => {
     let del;
     let tempo = 120;
 
+    parentPort.on("message", (value) => {
+        value.replyPort.postMessage("AAAA");
+    });
+
     del = (num * oct);
         coun = Math.floor((dur * 5 * tempo) / del);
         for (let i = 0; i < coun; i++) {
@@ -19,4 +25,5 @@ module.exports = ({num, dur}) => {
         }
     M.unexport();
     return "ntm: " + num + " motor: 1 timing: " + dur;
+
 }
