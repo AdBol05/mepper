@@ -1,4 +1,4 @@
-const { Worker, isMainThread, MessageChannel, MessagePort, parentPort } = require("worker_threads");
+const { Worker, isMainThread, MessageChannel, MessagePort, parentPort, BroadcastChannel } = require("worker_threads");
 
 module.exports = ({num, dur}) => {
     let Gpio = require('onoff').Gpio;
@@ -11,9 +11,12 @@ module.exports = ({num, dur}) => {
     let del;
     let tempo = 120;
 
-    parentPort.on("message", (value) => {
-        value.replyPort.postMessage("AAAA");
-    });
+    //parentPort.on("message", (value) => {
+    //    value.replyPort.postMessage("AAAA");
+    //});
+
+    bc.postMessage('reply from worker');
+    bc.close();
 
     del = (num * oct);
         coun = Math.floor((dur * 5 * tempo) / del);
