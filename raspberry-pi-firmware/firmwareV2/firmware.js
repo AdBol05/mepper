@@ -129,15 +129,22 @@ for(let i in sequence) {//pin output logic
             let pool_num2 = notemap.get(part[1]).ntm;
             let pool_m1 = notemap.get(part[0]).m;
             let pool_m2 = notemap.get(part[1]).m;
-            //let pool_timing = timing[i];
+            let pool_timing = timing[i];
 
-            let promise = new Promise(async function(resolve, reject){
+            /*let promise = new Promise(async function(resolve, reject){
                 M[pool_m1]({num: pool_num1, dur: timing[i]});
                 M[pool_m2]({num: pool_num2, dur: timing[i]});
                 resolve("multinote");
             });
             console.log(promise);
             //pa(timing[i]);
+            */
+            worker[pool_m1].postMessage({replyport: subChannel.port1}, [subChannel.port1]);
+            worker[pool_m2].postMessage({replyport: subChannel.port1}, [subChannel.port1]);
+
+            subChannel.port2.on("message", (value) => {
+                console.log(value);
+            })
         }
     }
     else{
