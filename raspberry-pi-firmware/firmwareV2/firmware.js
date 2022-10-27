@@ -147,9 +147,9 @@ for(let i in sequence) {//pin output logic
                 console.log(value);
             })
 
-            subChannel.port3.on("message", (value) => {
+            /*subChannel.port3.on("message", (value) => {
                 console.log(value);
-            })
+            })*/
             //bc.postMessage('test');
             //bc.onmessage = event => console.log(event.data);
         }
