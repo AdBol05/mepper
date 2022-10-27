@@ -2,14 +2,15 @@ let Gpio = require('onoff').Gpio;
 let fs = require('fs');
 let sleep = require('sleep');
 
-/*const path = require('path');
-const Piscina = require('piscina');
-const pool = new Piscina({
-    filename: path.resolve(__dirname, 'worker.js')
-});*/
+const {Worker, isMainThread, MessageChannel, MessagePort, parentPort} = require("worker_threads");
+const subChannel = new MessageChannel();
+
+let worker = [];
+for(let i = 1; i <= 12; i++) {
+    worker[i] = new Worker(__dirname +  "/m" + i + ".js");
+}
 
 let M = [];
-
 for(let i = 1; i <= 12; i++){
     M[i - 1] = require('./m' + i + '.js');
 }
