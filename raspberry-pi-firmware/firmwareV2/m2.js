@@ -11,9 +11,9 @@ module.exports = ({num, dur}) => {
     let del;
     let tempo = 120;
 
-    //parentPort.on("message", (value) => {
-    //    value.replyPort.postMessage("AAAA");
-    //});
+    parentPort.on("message", (value) => {
+        value.replyPort.postMessage("AAAA");
+    });
 
     //bc.postMessage('reply from worker');
     //bc.close();
