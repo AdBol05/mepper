@@ -180,7 +180,7 @@ else{
     let del;
     let tempo = 120;
 
-    parentPort.once("message", (value) => {
+    parentPort.on("message", (value) => {
         value.replyPort.postMessage("AAAA");
     });
 
