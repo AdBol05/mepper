@@ -2,16 +2,13 @@ let Gpio = require('onoff').Gpio;
 let fs = require('fs');
 let sleep = require('sleep');
 
-const {Worker, isMainThread, MessageChannel, MessagePort, parentPort,  BroadcastChannel} = require("worker_threads");
-const subChannel = new MessageChannel();
+const cluster = require('cluster');
+const http = require('http');
+const numCPUs = require('os').cpus().length;
+const process = require('process');
 //const bc = new BroadcastChannel('note');
 
-if(isMainThread){
-
-let worker = [];
-for(let i = 1; i <= 12; i++) {
-    worker[i] = new Worker(__filename);
-}
+if(cluster.isPrimary){
 
 /*//let M = [];
 for(let i = 1; i <= 12; i++){
@@ -142,12 +139,17 @@ for(let i in sequence) {//pin output logic
             console.log(promise);
             //pa(timing[i]);
             */
-            subChannel.port2.on("message", (value) => {
-                console.log(value);
-            })
-            
-            worker[2].postMessage({replyport: subChannel.port2}, [subChannel.port2]);
+
             //worker[2].postMessage({replyport: subChannel.port3}, [subChannel.port3]);
+            
+            for(let i = 1; i <= 12; i++) {
+                cluster.fork();
+            }
+
+
+            cluster.on('exit', (worker, code, signal) => {
+                console.log(`worker ${worker.process.pid} died`);
+              });
 
 
 
@@ -182,9 +184,12 @@ else{
     let del;
     let tempo = 120;
 
-    parentPort.on("message", (value) => {
-        value.replyPort.postMessage("AAAA");
-    });
+    console.log(`Worker ${process.pid} started`);
+
+    http.createServer((req, res) => {
+        res.writeHead(200);
+        res.end('hello world\n');
+      }).listen(8000);
 
     del = (num * oct);
         coun = Math.floor((dur * 5 * tempo) / del);
