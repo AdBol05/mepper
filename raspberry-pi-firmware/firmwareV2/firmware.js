@@ -140,8 +140,8 @@ for(let i in sequence) {//pin output logic
             console.log(promise);
             //pa(timing[i]);
             */
-            worker[1].postMessage({replyport: subChannel.port2}, [subChannel.port2]);
-            worker[2].postMessage({replyport: subChannel.port3}, [subChannel.port3]);
+            worker[1].postMessage({replyport: subChannel.port2}, ["test"]);
+            worker[2].postMessage({replyport: subChannel.port3}, ["test"]);
 
             subChannel.port2.on("message", (value) => {
                 console.log(value);
