@@ -13,10 +13,10 @@ for(let i = 1; i <= 12; i++) {
     worker[i] = new Worker(__filename);
 }
 
-let M = [];
+/*//let M = [];
 for(let i = 1; i <= 12; i++){
     M[i - 1] = require('./m' + i + '.js');
-}
+}*/
 
 let tempo = 120;
 
@@ -159,7 +159,7 @@ for(let i in sequence) {//pin output logic
     else{
         if(notemap.has(sequence[i])){
             console.log("note: " + sequence[i]/* + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]*/);//debug
-            console.log(M[notemap.get(sequence[i]).m]({num: notemap.get(sequence[i]).ntm, dur: timing[i]}));
+            //console.log(M[notemap.get(sequence[i]).m]({num: notemap.get(sequence[i]).ntm, dur: timing[i]}));
             //pa(timing[i]);
             if(pause[i] !== 0 && pause[i] !== undefined){pa(pause[i]);}
         }
@@ -196,4 +196,4 @@ else{
 }
 
 }
-process.exit(0);
+//process.exit(0);
