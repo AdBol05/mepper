@@ -4,7 +4,7 @@ let sleep = require('sleep');
 
 const {Worker, isMainThread, MessageChannel, MessagePort, parentPort,  BroadcastChannel} = require("worker_threads");
 const subChannel = new MessageChannel();
-const bc = new BroadcastChannel('note');
+//const bc = new BroadcastChannel('note');
 
 let worker = [];
 for(let i = 1; i <= 12; i++) {
@@ -140,14 +140,18 @@ for(let i in sequence) {//pin output logic
             console.log(promise);
             //pa(timing[i]);
             */
-            /*worker[1].postMessage({replyport: subChannel.port1}, [subChannel.port1]);
-            worker[2].postMessage({replyport: subChannel.port1}, [subChannel.port1]);
+            worker[1].postMessage({replyport: subChannel.port2}, [subChannel.port2]);
+            worker[2].postMessage({replyport: subChannel.port3}, [subChannel.port3]);
 
             subChannel.port2.on("message", (value) => {
                 console.log(value);
-            })*/
-            bc.postMessage('test');
-            bc.onmessage = event => console.log(event.data);
+            })
+
+            subChannel.port3.on("message", (value) => {
+                console.log(value);
+            })
+            //bc.postMessage('test');
+            //bc.onmessage = event => console.log(event.data);
         }
     }
     else{
