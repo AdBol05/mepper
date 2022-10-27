@@ -18,4 +18,10 @@ console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                        
 
 let data = JSON.parse(fs.readFileSync(file));
 
-console.log(data);
+//console.log(data);
+
+let pins = [];
+let action = [];
+
+for(i in data){pins.push(data.sequence[i])}
+for(i in data){action.push(data.status[i])}
