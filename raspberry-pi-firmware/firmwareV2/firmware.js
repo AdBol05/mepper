@@ -185,13 +185,12 @@ if (cluster.isPrimary) {
                 let arg = '/?ntm=' + notemap.get(sequence[i]).ntm + '&dur=' + timing[i];
                 let pin = pinout[notemap.get(sequence[i]).m - 1];
                 let port = motors.get(pin);
-                console.log(arg);
-                console.log(port);
                 http.request({host: '127.0.0.1', port: port, path: arg, method: 'GET', timeout: 20000}, res => {
                     let data = [];
                     res.on("data", dataChunk => {data.push(dataChunk);});
                     res.on("end", () => {data = Buffer.concat(data).toString(); console.log(data);});
                 }).on("error", err => {console.log(err)});
+                pa(timing[i]);
 
                 if (pause[i] !== 0 && pause[i] !== undefined) { pa(pause[i]); }
             }
