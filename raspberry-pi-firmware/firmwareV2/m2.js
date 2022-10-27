@@ -1,6 +1,5 @@
 const { Worker, isMainThread, MessageChannel, MessagePort, parentPort, BroadcastChannel } = require("worker_threads");
 
-module.exports = ({num, dur}) => {
     let Gpio = require('onoff').Gpio;
     let sleep = require('sleep');
 
@@ -25,7 +24,6 @@ module.exports = ({num, dur}) => {
             sleep.usleep(del);
             M.writeSync(0);
             sleep.usleep(del);
-        }
     M.unexport();
     return "ntm: " + num + " motor: 2 timing: " + dur;
 }
