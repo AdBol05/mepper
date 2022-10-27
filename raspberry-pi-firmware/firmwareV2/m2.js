@@ -10,7 +10,7 @@ const { Worker, isMainThread, MessageChannel, MessagePort, parentPort, Broadcast
     let del;
     let tempo = 120;
 
-    parentPort.on("message", (value) => {
+    parentPort.once("message", (value) => {
         value.replyPort.postMessage("AAAA");
     });
 
