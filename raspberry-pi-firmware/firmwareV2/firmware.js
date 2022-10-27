@@ -6,6 +6,8 @@ const cluster = require('cluster');
 const http = require('http');
 const numCPUs = require('os').cpus().length;
 const process = require('process');
+
+let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
 //const bc = new BroadcastChannel('note');
 
 if (cluster.isPrimary) {
@@ -142,10 +144,14 @@ if (cluster.isPrimary) {
 
                 //worker[2].postMessage({replyport: subChannel.port3}, [subChannel.port3]);
 
+                let motors = new Map();
+
                 for (let i = 1; i <= 12; i++) {
                     cluster.fork();
+                    motors.set(pinout[i - 1], 2500 + i - 1);
                 }
 
+                console.log(motors);
 
                 cluster.on('exit', (worker, code, signal) => {
                     console.log(`worker ${worker.process.pid} died`);
@@ -177,14 +183,15 @@ if (cluster.isPrimary) {
 }
 else {
 
-    let M = new Gpio(15, 'out');
+    let pin = pinout[cluster.worker.id -1];
+    let M = new Gpio(pin, 'out');
 
     let oct = 5;
     let coun;
     let del;
     let tempo = 120;
 
-    console.log(`Worker ${process.pid} started`);
+    console.log(`Worker ${process.pid} (${cluster.worker.id}) for motor #${pin} started on port ${2500 + cluster.worker.id}`);
 
     http.createServer((req, res) => {
         res.writeHead(200);
@@ -205,7 +212,7 @@ else {
 
         }
 
-        }).listen(8000);
+        }).listen(2500 + cluster.worker.id - 1);
 
     //return "ntm: " + num + " motor: 2 timing: " + dur;
 }
