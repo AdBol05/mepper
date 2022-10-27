@@ -16,7 +16,23 @@ if (cluster.isPrimary) {
         console.log(`worker ${worker.process.pid} died`);
     });
 
-    http.get("http://localhost:8000/random?motor=1", res => {
+    const options = {
+        host: 'localhost:8000',
+        port: 8000,
+        path: '/random?motor=1',
+        method: 'GET',
+        timeout: 20000,
+      };
+
+      const options2 = {
+        host: 'localhost:8000',
+        port: 8000,
+        path: '/random?motor=2',
+        method: 'GET',
+        timeout: 20000,
+      };
+
+    http.request(options, res => {
 
         let data = [];
         res.on("data", dataChunk => {
@@ -31,7 +47,7 @@ if (cluster.isPrimary) {
         console.log(err);
     })
 
-    http.get("http://localhost:8000/random?motor=2", res => {
+    http.request(options2, res => {
 
         let data = [];
         res.on("data", dataChunk => {
