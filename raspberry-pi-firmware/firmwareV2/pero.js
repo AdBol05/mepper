@@ -2,6 +2,7 @@ const cluster = require('cluster');
 const http = require('http');
 const numCPUs = require('os').cpus().length;
 const process = require('process');
+let sleep = require('sleep');
 
 if (cluster.isPrimary) {
 
@@ -25,7 +26,7 @@ if (cluster.isPrimary) {
             data = Buffer.concat(data).toString();
             console.log(data);
         })
-    }).on(error, err => {
+    }).on("error", err => {
         console.log(err);
     })
 
@@ -40,7 +41,7 @@ if (cluster.isPrimary) {
             data = Buffer.concat(data).toString();
             console.log(data);
         })
-    }).on(error, err => {
+    }).on("error", err => {
         console.log(err);
     })
 
@@ -54,7 +55,8 @@ else {
 
         res.writeHead(200);
         console.log(req.url);
-        // res.end('hello world\n');
+        sleep.msleep(1000000);
+        res.end('hello world\n');
 
     }).listen(8000);
 
