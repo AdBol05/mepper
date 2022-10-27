@@ -15,8 +15,8 @@ module.exports = ({num, dur}) => {
     //    value.replyPort.postMessage("AAAA");
     //});
 
-    bc.postMessage('reply from worker');
-    bc.close();
+    //bc.postMessage('reply from worker');
+    //bc.close();
 
     del = (num * oct);
         coun = Math.floor((dur * 5 * tempo) / del);
