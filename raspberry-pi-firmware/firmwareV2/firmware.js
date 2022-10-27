@@ -102,12 +102,12 @@ async function pa(durp){
 
 //print basic info (mostly for debugging)
 console.log("\n");
-console.log("==================");
+console.log("==============================");
 console.log("Playing: " + input.name);
 console.log("Direction: " + direction);
-console.log("==================");
+console.log("==============================");
 console.log(notemap);
-console.log("==================");
+console.log("==============================");
 console.log("output -> \n");
 
 let dir = new Gpio(26, 'out');//set direction output pin
