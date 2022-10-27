@@ -16,18 +16,12 @@ if (cluster.isPrimary) {
         console.log(`worker ${worker.process.pid} died`);
     });
 
-    /* const options = {
+    /*
+    
+    const options = {
         host: '127.0.0.1',
         port: 6666,
         path: '/random?motor=1',
-        method: 'GET',
-        timeout: 20000,
-      };
-
-      const options2 = {
-        host: '127.0.0.1',
-        port: 6666,
-        path: '/random?motor=2',
         method: 'GET',
         timeout: 20000,
       };
@@ -47,20 +41,7 @@ if (cluster.isPrimary) {
         console.log(err);
     })
 
-    http.request(options2, res => {
-
-        let data = [];
-        res.on("data", dataChunk => {
-            data.push(dataChunk)
-        })
-
-        res.on("end", () => {
-            data = Buffer.concat(data).toString();
-            console.log(data);
-        })
-    }).on("error", err => {
-        console.log(err);
-    }) */
+    */
 
 
 }

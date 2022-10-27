@@ -125,7 +125,16 @@ if (cluster.isPrimary) {
 
 
 
-
+    /*
+    *   Url: http://localhost:<portMotoru>/?ntm=<ntmCislo>&dur=<durNoty>
+    *
+    *   Pozn.:
+    *       num (server) - ntm (caller) 
+    * 
+    *   Jak ziskat port motoru:
+    *       motors.get(notemap.get(NOTA))
+    * 
+    */
 
 
     let motors = new Map();
@@ -188,6 +197,8 @@ if (cluster.isPrimary) {
                 console.log("note: " + sequence[i]/* + " ntm: " + notemap.get(sequence[i]).ntm + " motor: " + notemap.get(sequence[i]).m + " timing: " + timing[i]*/);//debug
                 //console.log(M[notemap.get(sequence[i]).m]({num: notemap.get(sequence[i]).ntm, dur: timing[i]}));
                 //pa(timing[i]);
+                let arg = '/?ntm=' + notemap.get(sequence[i]).ntm + '&dur=' + timing[i];
+                http.request({host: '127.0.0.1', port: motors.get(notemap.get(sequence[i]).m), path: arg, method: 'GET', timeout: 20000}, res => console.log(res));
                 if (pause[i] !== 0 && pause[i] !== undefined) { pa(pause[i]); }
             }
             console.log("==============================");
@@ -208,7 +219,7 @@ else {
     let del;
     let tempo = 120;
 
-    console.log(`Worker ${process.pid} (${cluster.worker.id}) for motor #${pin} started on port ${2500 + cluster.worker.id}`);
+    console.log(`Worker ${process.pid} (${cluster.worker.id}) for motor #${pin} started on port ${2500 + cluster.worker.id - 1}`);
 
     http.createServer((req, res) => {
         res.writeHead(200);
