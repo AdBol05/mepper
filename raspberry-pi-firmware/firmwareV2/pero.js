@@ -17,16 +17,16 @@ if (cluster.isPrimary) {
     });
 
     const options = {
-        host: 'localhost',
-        port: 8000,
+        host: '127.0.0.1',
+        port: 6666,
         path: '/random?motor=1',
         method: 'GET',
         timeout: 20000,
       };
 
       const options2 = {
-        host: 'localhost',
-        port: 8000,
+        host: '127.0.0.1',
+        port: 6666,
         path: '/random?motor=2',
         method: 'GET',
         timeout: 20000,
@@ -75,7 +75,7 @@ else {
         sleep.msleep(10000);
         res.end('hello world\n');
 
-    }).listen(8000);
+    }).listen(6666);
 
     server.timeout = 20000;
 
