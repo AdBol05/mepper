@@ -52,7 +52,7 @@ else {
 
     console.log(`Worker ${process.pid} started`);
 
-    http.createServer((req, res) => {
+    let server = http.createServer((req, res) => {
 
         res.writeHead(200);
         console.log(req.url);
@@ -60,5 +60,7 @@ else {
         res.end('hello world\n');
 
     }).listen(8000);
+
+    server.timeout = 20000;
 
 }
