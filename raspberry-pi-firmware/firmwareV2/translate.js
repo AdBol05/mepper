@@ -55,7 +55,7 @@ module.exports = (input_) => {
     
     notemap.set("af0", {ntm: 2144, m: 5});
 
-    console.log(input);
+    console.log("Processing input...");
 
     let data = {
         "pin": [],
