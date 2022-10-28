@@ -1,5 +1,7 @@
 module.exports = (input_) => {
 
+    const AsciiBar = require('ascii-bar').default;
+
     global.input = input_;
 
     let tempo = 120;
@@ -61,17 +63,19 @@ module.exports = (input_) => {
         "delay": []
     };
 
-    let sequence = [];
-    let timing = [];
-    let pause = [];
-    for(let i in input.sequence){sequence.push(input.sequence[i]);}
-    for(let i in input.timing){timing.push(input.timing[i]);}
-    for(let i in input.pause){pause.push(input.pause[i]);}
 
-
+    let bar = new AsciiBar({
+        undoneSymbol: "-",
+        doneSymbol: "#",
+        width: 70,
+        formatString: '#bar #count',
+        autoStop : false,
+        stream: process.stdout,
+        total: input.sequence.length - 1,
+    });
 
     for(let i in input.sequence){
-        let sample = sequence[i]
+        //let sample = sequence[i]
         //console.log(input);
         //console.log(sequence);
         //console.log(timing);
@@ -80,18 +84,21 @@ module.exports = (input_) => {
         //console.log(sample);
         //console.log(notemap.get(sample));
 
-        let delay = notemap.get(sequence[i]).ntm;// * oct;
-        let count = Math.floor((timing[i] * 5 * tempo) / delay);
-        let pin = pinout[notemap.get(sequence[i]).m - 1];
+        let count = Math.floor((input.timing[i] * 5 * tempo) / notemap.get(input.sequence[i]).ntm);
+        let delay = (notemap.get(input.sequence[i]).ntm/count/2).toFixed();// * oct;
+        let pin = pinout[notemap.get(input.sequence[i]).m - 1];
 
-        for(i = 0; i < count; i++){
+        for(let j = 0; j < count; j++){
             data.pin.push(pin);
             data.action.push(1);
-            data.delay.push((delay/count/2).toFixed());
+            data.delay.push(delay);
             data.action.push(0);
-            data.delay.push((delay/count/2).toFixed());
-        } 
+            if(j === (count - 1)){delay = delay + input.pause[i]}
+            data.delay.push(delay);
+        }
+        bar.update(i);
     }
+    console.log();
 
     return data;
 };
