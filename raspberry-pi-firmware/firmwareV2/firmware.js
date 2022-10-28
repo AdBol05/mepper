@@ -17,7 +17,7 @@ console.log('\x1b[32m%s\x1b[0m'," / / / / / /  __/ /_/ / /_/ /  __/ /  /_____/ _
 console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/        /_/ /_/_/  /_/ /_/ /_/|__/|__/\\__,_/_/   \\___/    ");
 console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                                                                        \n");
 
-let data = JSON.parse(fs.readFileSync(file));
+let input = JSON.parse(fs.readFileSync(file));
 
 //console.log(data);
 /*
@@ -27,4 +27,5 @@ let actions = [];
 for(i in data){pins.push(data.pin[i])}
 for(i in data){actions.push(data.action[i])}
 */
-console.log(translate(data));
+let data = translate(input);
+console.log(data);
