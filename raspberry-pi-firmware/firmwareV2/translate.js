@@ -70,27 +70,27 @@ module.exports = (input_) => {
 
 
 
-    for(let i in input){
+    for(let i in input.sequence){
         let sample = sequence[i]
         //console.log(input);
-        console.log(sequence);
-        console.log(timing);
-        console.log(pause);
-        console.log(i);
+        //console.log(sequence);
+        //console.log(timing);
+        //console.log(pause);
+        //console.log(i);
         console.log(sample);
-        console.log(notemap.get(sample));
+        //console.log(notemap.get(sample));
 
-        /*let delay = notemap.get(sequence[i]).ntm * oct;
+        let delay = notemap.get(sequence[i]).ntm * oct;
         let count = Math.floor((timing[i] * 5 * tempo) / delay);
         let pin = pinout[notemap.get(sequence[i]).m - 1];
 
         for(i = 0; i < count; i++){
             data.pin.push(pin);
             data.action.push(1);
-            data.delay.push(delay);
+            data.delay.push((delay/count).toFixed());
             data.action.push(0);
-            data.delay.push(delay);
-        }*/ 
+            data.delay.push((delay/count).toFixed());
+        } 
     }
 
     return data;
