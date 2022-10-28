@@ -53,7 +53,7 @@ module.exports = (input_) => {
     
     notemap.set("af0", {ntm: 2144, m: 5});
 
-    //console.log(input);
+    console.log(input);
 
     let data = {
         "pin": [],
@@ -77,19 +77,19 @@ module.exports = (input_) => {
         //console.log(timing);
         //console.log(pause);
         //console.log(i);
-        console.log(sample);
+        //console.log(sample);
         //console.log(notemap.get(sample));
 
-        let delay = notemap.get(sequence[i]).ntm * oct;
+        let delay = notemap.get(sequence[i]).ntm;// * oct;
         let count = Math.floor((timing[i] * 5 * tempo) / delay);
         let pin = pinout[notemap.get(sequence[i]).m - 1];
 
         for(i = 0; i < count; i++){
             data.pin.push(pin);
             data.action.push(1);
-            data.delay.push((delay/count).toFixed());
+            data.delay.push((delay/count/2).toFixed());
             data.action.push(0);
-            data.delay.push((delay/count).toFixed());
+            data.delay.push((delay/count/2).toFixed());
         } 
     }
 
