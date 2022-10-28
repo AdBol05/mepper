@@ -1,4 +1,6 @@
-module.exports = (input) => {
+module.exports = (input_) => {
+
+    global.input = input_;
 
     let tempo = 120;
     let oct = 5;
@@ -51,16 +53,36 @@ module.exports = (input) => {
     
     notemap.set("af0", {ntm: 2144, m: 5});
 
+    //console.log(input);
+
     let data = {
         "pin": [],
         "action": [],
         "delay": []
     };
 
-    for(i in input){
-        let delay = notemap.get(input.sequence[i] * oct);
-        let count = Math.floor((duration * 5 * tempo) / delay);
-        let pin = pinout[notemap.get(input.sequence[i]).m - 1];
+    let sequence = [];
+    let timing = [];
+    let pause = [];
+    for(let i in input.sequence){sequence.push(input.sequence[i]);}
+    for(let i in input.timing){timing.push(input.timing[i]);}
+    for(let i in input.pause){pause.push(input.pause[i]);}
+
+
+
+    for(let i in input){
+        let sample = sequence[i]
+        //console.log(input);
+        console.log(sequence);
+        console.log(timing);
+        console.log(pause);
+        console.log(i);
+        console.log(sample);
+        console.log(notemap.get(sample));
+
+        /*let delay = notemap.get(sequence[i]).ntm * oct;
+        let count = Math.floor((timing[i] * 5 * tempo) / delay);
+        let pin = pinout[notemap.get(sequence[i]).m - 1];
 
         for(i = 0; i < count; i++){
             data.pin.push(pin);
@@ -68,7 +90,7 @@ module.exports = (input) => {
             data.delay.push(delay);
             data.action.push(0);
             data.delay.push(delay);
-        } 
+        }*/ 
     }
 
     return data;

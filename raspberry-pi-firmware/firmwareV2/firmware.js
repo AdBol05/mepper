@@ -1,6 +1,7 @@
 const fs = require('fs');
-const Gpio = require('onoff').Gpio;
-let sleep = require('sleep');
+//const Gpio = require('onoff').Gpio;
+//let sleep = require('sleep');
+const translate = require('./translate.js');
 
 const args = process.argv.slice(2);//get process arguments
 let file;
@@ -19,9 +20,11 @@ console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                        
 let data = JSON.parse(fs.readFileSync(file));
 
 //console.log(data);
-
+/*
 let pins = [];
 let actions = [];
 
 for(i in data){pins.push(data.pin[i])}
 for(i in data){actions.push(data.action[i])}
+*/
+console.log(translate(data));
