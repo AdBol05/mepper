@@ -1,6 +1,6 @@
 const fs = require('fs');
 const AsciiBar = require('ascii-bar').default;
-//const Gpio = require('onoff').Gpio;
+const Gpio = require('onoff').Gpio;
 let sleep = require('sleep');
 const translate = require('./translate.js');
 let util = require('util');
@@ -21,6 +21,14 @@ console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                        
 
 let input = JSON.parse(fs.readFileSync(file));
 
+console.log("Setting up motors...");
+global.M = {};
+let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
+for(let i = 0; i < 12; i++){
+    M[i] = new Gpio(pinout[i], 'out');
+    bar_.update(i);
+}
+
 let data = translate(input);
 
 let bar = new AsciiBar({
@@ -31,6 +39,16 @@ let bar = new AsciiBar({
     autoStop : false,
     stream: process.stdout,
     total: data.action.length - 1,
+});
+
+let bar_ = new AsciiBar({
+    undoneSymbol: "-",
+    doneSymbol: "#",
+    width: 12,
+    formatString: '#bar #count',
+    autoStop : false,
+    stream: process.stdout,
+    total: 12,
 });
 
 //console.log("\n" + util.inspect(data, showHidden=false, depth=3, colors=true));

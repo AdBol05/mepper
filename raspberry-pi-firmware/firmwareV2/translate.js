@@ -5,7 +5,7 @@ module.exports = (input) => {
     let tempo = 120;
     let oct = 5;
 
-    let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
+    //let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
     const notemap = new Map();
     notemap.set("cf", {ntm: 1805, m: 1});
     notemap.set("df", {ntm: 1607, m: 2});
@@ -56,7 +56,7 @@ module.exports = (input) => {
     console.log("Processing input...");
 
     let data = {
-        "pin": [],
+        "motor": [],
         "action": [],
         "delay": []
     };
@@ -74,10 +74,10 @@ module.exports = (input) => {
     for(let i in input.sequence){
         let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);
         let count = Math.floor((input.timing[i] * 5 * tempo) / delay);
-        let pin = pinout[notemap.get(input.sequence[i]).m - 1];
+        let motor = notemap.get(input.sequence[i]).m;
 
         for(let j = 0; j < count; j++){
-            data.pin.push(pin);
+            data.motor.push(motor);
             data.action.push(1);
             data.delay.push(delay);
             data.action.push(0);
