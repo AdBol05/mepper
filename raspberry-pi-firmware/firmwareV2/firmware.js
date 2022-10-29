@@ -55,6 +55,7 @@ let bar_ = new AsciiBar({
 
 console.log("\nPLaying: " + input.name);
 for(let i in data.action){
+    M[data.motor[i]].writeSync(data.action[i]);
     bar.update(i);
     sleep.usleep(data.delay[i]);
 }
