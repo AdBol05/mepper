@@ -3,6 +3,7 @@ const AsciiBar = require('ascii-bar').default;
 //const Gpio = require('onoff').Gpio;
 let sleep = require('sleep');
 const translate = require('./translate.js');
+let util = require('util');
 
 const args = process.argv.slice(2);//get process arguments
 let file;
@@ -41,10 +42,12 @@ let bar = new AsciiBar({
     total: data.action.length - 1,
 });
 
+console.log("\n" + util.inspect(data, showHidden=false, depth=3, colors=true));
+
 console.log("\nPLaying: " + input.name);
 for(let i in data.action){
     bar.update(i);
-    sleep.usleep(10);
+    sleep.usleep(data.delay[i] * 2);
 }
 
 console.log('\x1b[32m%s\x1b[0m',"\n \n Done in "+ process.uptime().toFixed(2) + "s \n");
