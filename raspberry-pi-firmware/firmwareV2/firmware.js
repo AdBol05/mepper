@@ -44,5 +44,7 @@ let bar = new AsciiBar({
 console.log("\nPLaying: " + input.name);
 for(let i in data.action){
     bar.update(i);
-    //sleep.usleep(100);
+    sleep.usleep(10);
 }
+
+console.log('\x1b[32m%s\x1b[0m',"\n \n Done in "+ process.uptime().toFixed(2) + "s \n");
