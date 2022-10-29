@@ -1,7 +1,7 @@
 //Work in progress -> might be a piece of junk
 const fs = require('fs');
 const util = require('util');
-var midiTiming = require('./midi');
+var midiTiming = require('./midi.js');
 const { Note } = require("@tonaljs/tonal");
 
 const args = process.argv.slice(2);//process arguments
