@@ -81,7 +81,7 @@ module.exports = (input) => {
         //console.log(sample);
         //console.log(notemap.get(sample));
 
-        let delay = Math.floor((notemap.get(input.sequence[i]).ntm * oct) / 2);// - 5;
+        let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);// - 5;
         let count = Math.floor((input.timing[i] * 5 * tempo) / delay);
         let pin = pinout[notemap.get(input.sequence[i]).m - 1];
 
@@ -90,8 +90,8 @@ module.exports = (input) => {
             data.action.push(1);
             data.delay.push(delay);
             data.action.push(0);
-            if(j === (count - 1)){delay = delay + input.pause[i]}
-            data.delay.push(delay);
+            if(j === (count - 1)){data.delay.push(delay + (input.pause[i]) * 1000);}
+            else{data.delay.push(delay);}
         }
         bar.update(i);
     }
