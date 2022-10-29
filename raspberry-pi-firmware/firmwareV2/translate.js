@@ -1,8 +1,6 @@
-module.exports = (input_) => {
+module.exports = (input) => {
 
     const AsciiBar = require('ascii-bar').default;
-
-    global.input = input_;
 
     let tempo = 120;
     let oct = 5;

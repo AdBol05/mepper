@@ -1,6 +1,7 @@
 const fs = require('fs');
+const AsciiBar = require('ascii-bar').default;
 //const Gpio = require('onoff').Gpio;
-//let sleep = require('sleep');
+let sleep = require('sleep');
 const translate = require('./translate.js');
 
 const args = process.argv.slice(2);//get process arguments
@@ -28,4 +29,20 @@ for(i in data){pins.push(data.pin[i])}
 for(i in data){actions.push(data.action[i])}
 */
 let data = translate(input);
-console.log(data);
+//console.log(data);
+
+let bar = new AsciiBar({
+    undoneSymbol: "-",
+    doneSymbol: "#",
+    width: 70,
+    formatString: '#bar #count',
+    autoStop : false,
+    stream: process.stdout,
+    total: data.action.length - 1,
+});
+
+console.log("\nPLaying: " + input.name);
+for(let i in data.action){
+    bar.update(i);
+    //sleep.usleep(100);
+}
