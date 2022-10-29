@@ -42,7 +42,7 @@ let bar = new AsciiBar({
     total: data.action.length - 1,
 });
 
-console.log("\n" + util.inspect(data, showHidden=false, depth=3, colors=true));
+//console.log("\n" + util.inspect(data, showHidden=false, depth=3, colors=true));
 
 console.log("\nPLaying: " + input.name);
 for(let i in data.action){

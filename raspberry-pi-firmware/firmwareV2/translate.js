@@ -61,7 +61,6 @@ module.exports = (input) => {
         "delay": []
     };
 
-
     let bar = new AsciiBar({
         undoneSymbol: "-",
         doneSymbol: "#",
@@ -82,7 +81,7 @@ module.exports = (input) => {
         //console.log(sample);
         //console.log(notemap.get(sample));
 
-        let delay = ((notemap.get(input.sequence[i]).ntm * oct) / 2).toFixed();
+        let delay = Math.floor((notemap.get(input.sequence[i]).ntm * oct) / 2);
         let count = Math.floor(input.timing[i] * 5 * tempo) / delay;
         let pin = pinout[notemap.get(input.sequence[i]).m - 1];
 
