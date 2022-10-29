@@ -21,16 +21,7 @@ console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                        
 
 let input = JSON.parse(fs.readFileSync(file));
 
-//console.log(data);
-/*
-let pins = [];
-let actions = [];
-
-for(i in data){pins.push(data.pin[i])}
-for(i in data){actions.push(data.action[i])}
-*/
 let data = translate(input);
-//console.log(data);
 
 let bar = new AsciiBar({
     undoneSymbol: "-",

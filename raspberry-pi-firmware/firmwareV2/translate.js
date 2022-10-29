@@ -72,16 +72,7 @@ module.exports = (input) => {
     });
 
     for(let i in input.sequence){
-        //let sample = sequence[i]
-        //console.log(input);
-        //console.log(sequence);
-        //console.log(timing);
-        //console.log(pause);
-        //console.log(i);
-        //console.log(sample);
-        //console.log(notemap.get(sample));
-
-        let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);// - 5;
+        let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);
         let count = Math.floor((input.timing[i] * 5 * tempo) / delay);
         let pin = pinout[notemap.get(input.sequence[i]).m - 1];
 
