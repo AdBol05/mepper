@@ -76,7 +76,7 @@ module.exports = (input) => {
         let count = Math.floor((input.timing[i] * 5 * tempo) / delay);
         let motor = notemap.get(input.sequence[i]).m;
 
-        for(let j = 0; j < count; j++){
+        for(let j = 0; j < count; j++){//TODO: figure how to translate more notes at once
             data.motor.push(motor);
             data.action.push(1);
             data.delay.push(delay);
