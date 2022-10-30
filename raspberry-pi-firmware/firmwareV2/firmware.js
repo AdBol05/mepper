@@ -21,6 +21,9 @@ console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                        
 
 let input = JSON.parse(fs.readFileSync(file));
 
+let dir = new Gpio(26, 'out');//set direction output pin
+dir.writeSync(input.direction);//set direction based on input file
+
 console.log("Setting up motors...");
 global.M = {};
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
@@ -55,9 +58,12 @@ let bar_ = new AsciiBar({
 
 console.log("\nPLaying: " + input.name);
 for(let i in data.action){
-    M[data.motor[i]].writeSync(data.action[i]);
+    M[data.motor[i] - 1].writeSync(data.action[i]);
     bar.update(i);
     sleep.usleep(data.delay[i]);
 }
+
+dir.unexport();
+for(let i = 0; i < 12; i++){M[i].unexport();}
 
 console.log('\x1b[32m%s\x1b[0m',"\n \n Done in "+ process.uptime().toFixed(2) + "s \n");
