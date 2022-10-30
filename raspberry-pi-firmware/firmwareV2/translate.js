@@ -80,6 +80,8 @@ module.exports = (input) => {
             data.motor.push(motor);
             data.action.push(1);
             data.delay.push(delay);
+            
+            data.motor.push(motor);
             data.action.push(0);
             if(j === (count - 1)){data.delay.push(delay + (input.pause[i]) * 1000);}
             else{data.delay.push(delay);}
