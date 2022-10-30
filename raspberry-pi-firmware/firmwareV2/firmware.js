@@ -26,6 +26,8 @@ dir.writeSync(input.direction);//set direction based on input file
 
 let data = translate(input);
 
+console.log();
+
 let bar = new AsciiBar({
     undoneSymbol: "-",
     doneSymbol: "#",
@@ -51,14 +53,16 @@ global.M = {};
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
 for(let i = 0; i < 12; i++){
     M[i] = new Gpio(pinout[i], 'out');
-    bar_.update(i);
+    bar_.update(i + 1);
 }
+
+console.log();
 
 //console.log("\n" + util.inspect(data, showHidden=false, depth=3, colors=true));
 
 console.log("\nPLaying: " + input.name);
 for(let i in data.action){
-    M[data.motor[i] - 1].writeSync(data.action[i]);
+    M[data.motor[i]].writeSync(data.action[i]);
     bar.update(i);
     sleep.usleep(data.delay[i]);
 }
