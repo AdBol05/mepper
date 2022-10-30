@@ -58,7 +58,7 @@ for(let i = 0; i < 12; i++){
     bar_.update(i + 1);
 }
 
-console.log("\n" + util.inspect(M));
+//console.log("\n" + util.inspect(M));
 
 /*console.log("\n" + util.inspect(data, showHidden=false, depth=3, colors=true));
 console.log("motors:");
