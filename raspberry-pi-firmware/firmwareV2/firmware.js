@@ -68,7 +68,7 @@ data.action.forEach(act => {console.log(act)});
 console.log("delays:");
 data.delay.forEach(del => {console.log(del)});*/
 
-console.log("\nPLaying: " + input.name);
+console.log("\n\nPLaying: " + input.name);
 for(let i in data.action){
     //console.log(data.motor[i] + " " + data.action[i] + " " + data.delay[i]);
     M[data.motor[i]].writeSync(data.action[i]);
