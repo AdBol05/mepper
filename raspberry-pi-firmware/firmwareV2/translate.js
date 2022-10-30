@@ -74,7 +74,7 @@ module.exports = (input) => {
     for(let i in input.sequence){
         let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);
         let count = Math.floor((input.timing[i] * 5 * tempo) / delay);
-        let motor = notemap.get(input.sequence[i]).m - 1;
+        let motor = notemap.get(input.sequence[i]).m + 1;
 
         for(let j = 0; j < count; j++){
             data.motor.push(motor);
