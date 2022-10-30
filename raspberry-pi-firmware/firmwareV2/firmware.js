@@ -24,14 +24,6 @@ let input = JSON.parse(fs.readFileSync(file));
 let dir = new Gpio(26, 'out');//set direction output pin
 dir.writeSync(input.direction);//set direction based on input file
 
-console.log("Setting up motors...");
-global.M = {};
-let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
-for(let i = 0; i < 12; i++){
-    M[i] = new Gpio(pinout[i], 'out');
-    bar_.update(i);
-}
-
 let data = translate(input);
 
 let bar = new AsciiBar({
@@ -53,6 +45,14 @@ let bar_ = new AsciiBar({
     stream: process.stdout,
     total: 12,
 });
+
+console.log("Setting up motors...");
+global.M = {};
+let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
+for(let i = 0; i < 12; i++){
+    M[i] = new Gpio(pinout[i], 'out');
+    bar_.update(i);
+}
 
 //console.log("\n" + util.inspect(data, showHidden=false, depth=3, colors=true));
 
