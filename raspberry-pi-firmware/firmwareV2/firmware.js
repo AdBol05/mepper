@@ -60,20 +60,20 @@ for(let i = 0; i < 12; i++){
 
 console.log("\n" + util.inspect(M));
 
-//console.log("\n" + util.inspect(data, showHidden=false, depth=3, colors=true));
+/*console.log("\n" + util.inspect(data, showHidden=false, depth=3, colors=true));
 console.log("motors:");
 data.motor.forEach(mot => console.log(mot));
 console.log("actions:");
 data.action.forEach(act => {console.log(act)});
 console.log("delays:");
-data.delay.forEach(del => {console.log(del)});
+data.delay.forEach(del => {console.log(del)});*/
 
 console.log("\nPLaying: " + input.name);
 for(let i in data.action){
     console.log(data.motor[i] + " " + data.action[i] + " " + data.delay[i]);
-    M[data.motor[i]].writeSync(data.action[i]);
-    bar.update(i);
-    sleep.usleep(data.delay[i]);
+    //M[data.motor[i]].writeSync(data.action[i]);
+    //bar.update(i);
+    //sleep.usleep(data.delay[i]);
 }
 
 dir.unexport();
