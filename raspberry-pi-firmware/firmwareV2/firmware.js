@@ -27,8 +27,8 @@ dir.writeSync(input.direction);//set direction based on input file
 let data = translate(input);
 
 console.log();
-console.log(util.inspect(data, showHidden=false, depth=3, colors=true));
-console.log();
+//console.log(util.inspect(data, showHidden=false, depth=3, colors=true));
+//console.log();
 
 let bar = new AsciiBar({
     undoneSymbol: "-",
@@ -58,7 +58,7 @@ for(let i = 0; i < 12; i++){
     bar_.update(i + 1);
 }
 
-console.log();
+console.log(M + "\n");
 
 //console.log("\n" + util.inspect(data, showHidden=false, depth=3, colors=true));
 
