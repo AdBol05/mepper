@@ -78,6 +78,10 @@ module.exports = (input) => {
 
         if(input.sequence[i].includes("+")){
             //do some stuff
+            let samples = input.sequence[i].split("+");
+            /*
+            translate multinote
+            */
         }
         else{
             for(let j = 0; j < count; j++){//TODO: figure out how to translate more notes to be played at once
