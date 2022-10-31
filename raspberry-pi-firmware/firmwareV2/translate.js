@@ -74,10 +74,10 @@ module.exports = (input) => {
     for(let i in input.sequence){
         if(input.sequence[i].includes("+")){
             //do some stuff
-            let samples = input.sequence[i].split("+");
-            /*
-            translate multinote
-            */
+            let samples = input.sequence[i].split("+"); 
+            /*for(){
+                some super cool solution
+            }*/
         }
         else{
             let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);
