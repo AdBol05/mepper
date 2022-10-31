@@ -97,7 +97,7 @@ module.exports = (input) => {
         }
         bar.update(i);
     }
-    console.log();
 
+    console.log();
     return data;
 };
