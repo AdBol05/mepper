@@ -77,7 +77,7 @@ module.exports = (input) => {
         let motor = notemap.get(input.sequence[i]).m;
 
         if(input.sequence[i].includes("+")){
-            //do seome stuff
+            //do some stuff
         }
         else{
             for(let j = 0; j < count; j++){//TODO: figure out how to translate more notes to be played at once
