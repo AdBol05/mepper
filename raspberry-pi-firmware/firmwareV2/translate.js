@@ -76,15 +76,20 @@ module.exports = (input) => {
         let count = Math.floor((input.timing[i] * 5 * tempo) / delay);
         let motor = notemap.get(input.sequence[i]).m;
 
-        for(let j = 0; j < count; j++){//TODO: figure out how to translate more notes to be played at once
-            data.motor.push(motor);
-            data.action.push(1);
-            data.delay.push(delay);
-            
-            data.motor.push(motor);
-            data.action.push(0);
-            if(j === (count - 1)){data.delay.push(delay + (input.pause[i]) * 1000);}
-            else{data.delay.push(delay);}
+        if(input.sequence[i].includes("+")){
+            //do seome stuff
+        }
+        else{
+            for(let j = 0; j < count; j++){//TODO: figure out how to translate more notes to be played at once
+                data.motor.push(motor);
+                data.action.push(1);
+                data.delay.push(delay);
+
+                data.motor.push(motor);
+                data.action.push(0);
+                if(j === (count - 1)){data.delay.push(delay + (input.pause[i]) * 1000);}
+                else{data.delay.push(delay);}
+            }
         }
         bar.update(i);
     }
