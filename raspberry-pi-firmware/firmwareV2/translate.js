@@ -74,7 +74,7 @@ module.exports = (input) => {
     for(let i in input.sequence){
         if(input.sequence[i].includes("+")){
             //do some stuff
-            let samples = input.sequence[i].split("+"); 
+            let samples = input.sequence[i].split("+");
             /*for(){
                 some super cool solution
             }*/
