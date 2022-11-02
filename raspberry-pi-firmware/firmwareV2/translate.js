@@ -55,12 +55,12 @@ module.exports = (input) => {
 
     console.log("Processing input...");
 
-    function largest(a, b){
+    function larger(a, b){
         if(a > b){return a}
         if(b > a){return b}
     }
 
-    function smallest(a, b){
+    function smaller(a, b){
         if(a < b){return a}
         if(b < a){return b}
     }
@@ -89,7 +89,7 @@ module.exports = (input) => {
             let delay1 = Math.floor(notemap.get(sample[0]).ntm * oct);
             let delay2 = Math.floor(notemap.get(sample[1]).ntm * oct);
 
-            let smallerDelay = smallest(delay1, delay2);
+            let smallerDelay = smaller(delay1, delay2);
             let largerDelay = larger(delay1, delay2);
 
             let count = Math.floor((input.timing[i] * 5 * tempo) / smallerDelay);
