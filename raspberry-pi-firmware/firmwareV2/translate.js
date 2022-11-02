@@ -55,6 +55,16 @@ module.exports = (input) => {
 
     console.log("Processing input...");
 
+    function largest(a, b){
+        if(a > b){return a}
+        if(b > a){return b}
+    }
+
+    function smallest(a, b){
+        if(a < b){return a}
+        if(b < a){return b}
+    }
+
     let data = {
         "motor": [],
         "action": [],
@@ -75,9 +85,26 @@ module.exports = (input) => {
         if(input.sequence[i].includes("+")){
             //do some stuff
             let samples = input.sequence[i].split("+");
-            /*for(){
-                some super cool solution
-            }*/
+            for(let j = 0; j < largest(); j++){
+                //some super cool solution... idk where I am going with this
+                /*data.motor.push(notemap.get(sample[0]).m - 1);
+                data.motor.push(notemap.get(sample[1]).m - 1);
+
+                data.action.push(1);
+                data.action.push(1);
+
+                data.delay.push(smallest());
+                data.delay.push(largest() - smallest());
+
+                data.motor.push(notemap.get(sample[0]).m - 1);
+                data.motor.push(notemap.get(sample[1]).m - 1);
+
+                data.action.push(0);
+                data.action.push(0);
+
+                data.delay.push(smallest());
+                data.delay.push(largest() - smallest());*/
+            }
         }
         else{
             let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);
