@@ -84,17 +84,27 @@ module.exports = (input) => {
     for(let i in input.sequence){
         if(input.sequence[i].includes("+")){
             //do some stuff
-            let samples = input.sequence[i].split("+");
-            for(let j = 0; j < largest(); j++){
-                //some super cool solution... idk where I am going with this
-                /*data.motor.push(notemap.get(sample[0]).m - 1);
+            let sample = input.sequence[i].split("+");
+
+            let delay1 = Math.floor(notemap.get(sample[0]).ntm * oct);
+            let delay2 = Math.floor(notemap.get(sample[1]).ntm * oct);
+
+            let smallerDelay = smallest(delay1, delay2);
+            let largerDelay = larger(delay1, delay2);
+
+            let count = Math.floor((input.timing[i] * 5 * tempo) / smallerDelay);
+
+            for(let j = 0; j < count; j++){
+                //some super cool stuff... idk if this will work
+
+                data.motor.push(notemap.get(sample[0]).m - 1);
                 data.motor.push(notemap.get(sample[1]).m - 1);
 
                 data.action.push(1);
                 data.action.push(1);
 
-                data.delay.push(smallest());
-                data.delay.push(largest() - smallest());
+                data.delay.push(smallerDelay);
+                data.delay.push(largerDelay - smallerDelay);
 
                 data.motor.push(notemap.get(sample[0]).m - 1);
                 data.motor.push(notemap.get(sample[1]).m - 1);
@@ -104,18 +114,17 @@ module.exports = (input) => {
                 data.action.push(0);
                 data.action.push(0);
 
-                data.delay.push(smallest());
-                data.delay.push(largest() - smallest());
+                data.delay.push(smallerDelay);
+                data.delay.push(largerDelay - smallerDelay);
                 
                 data.motor.push(notemap.get(sample[0]).m - 1);
                 data.motor.push(notemap.get(sample[1]).m - 1);
-                */
             }
         }
         else{
             let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);
             let count = Math.floor((input.timing[i] * 5 * tempo) / delay);
-            let motor = notemap.get(input.sequence[i]).m - 1; //TODO: test, shifted
+            let motor = notemap.get(input.sequence[i]).m - 1;
 
             for(let j = 0; j < count; j++){//TODO: figure out how to translate more notes to be played at once
                 data.motor.push(motor);
