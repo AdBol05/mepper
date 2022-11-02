@@ -99,11 +99,17 @@ module.exports = (input) => {
                 data.motor.push(notemap.get(sample[0]).m - 1);
                 data.motor.push(notemap.get(sample[1]).m - 1);
 
+                //--------------------------------------------//
+
                 data.action.push(0);
                 data.action.push(0);
 
                 data.delay.push(smallest());
-                data.delay.push(largest() - smallest());*/
+                data.delay.push(largest() - smallest());
+                
+                data.motor.push(notemap.get(sample[0]).m - 1);
+                data.motor.push(notemap.get(sample[1]).m - 1);
+                */
             }
         }
         else{
