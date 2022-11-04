@@ -139,7 +139,7 @@ module.exports = (input) => {
                 else{data.delay.push(delay);}
             }
         }
-        bar.update(i);
+        bar.update(i + 1);
     }
 
     console.log();
