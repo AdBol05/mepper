@@ -142,6 +142,7 @@ module.exports = (input) => {
             }
         }
         let b = i + 1;
+        console.log(b);
         bar.update(b);
     }
 
