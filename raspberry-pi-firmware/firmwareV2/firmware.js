@@ -28,16 +28,6 @@ let data = translate(input);
 
 console.log();
 
-let bar = new AsciiBar({
-    undoneSymbol: "-",
-    doneSymbol: "#",
-    width: 70,
-    formatString: '#bar #count',
-    autoStop : false,
-    stream: process.stdout,
-    total: data.action.length - 1,
-});
-
 let bar_ = new AsciiBar({
     undoneSymbol: "-",
     doneSymbol: "#",
@@ -64,8 +54,7 @@ for(let i in data.action){
     if(n > 12){n = n - 12;}
     M[m].writeSync(data.action[i]);
     M[n].writeSync(data.action[i]);
-    sleep.usleep(data.delay[i]);
-    bar.update(i);
+    sleep.usleep(data.delay[i]);    
 }
 
 dir.unexport();
