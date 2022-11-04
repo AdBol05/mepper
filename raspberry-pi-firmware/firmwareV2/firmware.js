@@ -3,7 +3,7 @@ const AsciiBar = require('ascii-bar').default;
 const Gpio = require('onoff').Gpio;
 let sleep = require('sleep');
 const translate = require('./translate.js');
-let util = require('util');
+//let util = require('util');
 
 const args = process.argv.slice(2);//get process arguments
 let file;
@@ -54,7 +54,8 @@ for(let i in data.action){
     if(n > 12){n = n - 12;}
     M[m].writeSync(data.action[i]);
     M[n].writeSync(data.action[i]);
-    sleep.usleep(data.delay[i]);    
+    sleep.usleep(data.delay[i]);
+    console.log(data[i]);
 }
 
 dir.unexport();
