@@ -55,7 +55,7 @@ for(let i in data.action){
     M[m].writeSync(data.action[i]);
     M[n].writeSync(data.action[i]);
     sleep.usleep(data.delay[i]);
-    console.log(data[i]);
+    console.log(data.motor[i] + " " + data.action[i] + " " + data.delay[i]);
 }
 
 dir.unexport();
