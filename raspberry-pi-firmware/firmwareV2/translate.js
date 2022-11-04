@@ -78,7 +78,7 @@ module.exports = (input) => {
         formatString: '#bar #count',
         autoStop : false,
         stream: process.stdout,
-        total: input.sequence.length,
+        total: input.sequence.length - 1,
     });
 
     for(let i in input.sequence){
@@ -139,7 +139,7 @@ module.exports = (input) => {
                 else{data.delay.push(delay);}
             }
         }
-        bar.update(i + 1);
+        bar.update(i);
     }
 
     console.log();
