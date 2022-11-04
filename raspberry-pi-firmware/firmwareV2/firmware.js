@@ -28,7 +28,7 @@ let data = translate(input);
 
 console.log();
 
-let bar_ = new AsciiBar({
+let bar = new AsciiBar({
     undoneSymbol: "-",
     doneSymbol: "#",
     width: 12,
@@ -43,7 +43,7 @@ global.M = {};
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
 for(let i = 0; i < 12; i++){
     M[i] = new Gpio(pinout[i], 'out');
-    bar_.update(i + 1);
+    bar.update(i + 1);
 }
 
 console.log("\n\nPLaying: " + input.name);
