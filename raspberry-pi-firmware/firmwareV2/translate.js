@@ -68,7 +68,8 @@ module.exports = (input) => {
     let data = {
         "motor": [],
         "action": [],
-        "delay": []
+        "delay": [],
+        "dual": false
     };
 
     let bar = new AsciiBar({
@@ -83,6 +84,7 @@ module.exports = (input) => {
 
     for(let i in input.sequence){
         if(input.sequence[i].includes("+")){
+            data.dual = true;
             //do some stuff
             let sample = input.sequence[i].split("+");
 

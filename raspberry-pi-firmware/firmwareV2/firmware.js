@@ -53,7 +53,7 @@ for(let i in data.action){
     let n = data.motor[i] + 1;
     if(n > 12){n = n - 12;}
     M[m].writeSync(data.action[i]);
-    //M[n].writeSync(data.action[i]);
+    if(!data.dual)M[n].writeSync(data.action[i]);
     sleep.usleep(data.delay[i]);
 }
 
