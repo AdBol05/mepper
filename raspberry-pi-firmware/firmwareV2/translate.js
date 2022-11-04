@@ -79,7 +79,7 @@ module.exports = (input) => {
         formatString: '#bar #count',
         autoStop : false,
         stream: process.stdout,
-        total: input.sequence.length - 1,
+        total: input.sequence.length,
     });
 
     for(let i in input.sequence){
