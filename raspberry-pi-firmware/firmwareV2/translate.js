@@ -141,7 +141,7 @@ module.exports = (input) => {
                 else{data.delay.push(delay);}
             }
         }
-        let b = i + 1;
+        let b = i;
         console.log(b);
         bar.update(b);
     }
