@@ -56,12 +56,12 @@ module.exports = (input) => {
     console.log("Processing input...");
 
     function larger(a, b){
-        if(a > b){return a}
+        if(a >= b){return a}
         if(b > a){return b}
     }
 
     function smaller(a, b){
-        if(a < b){return a}
+        if(a <= b){return a}
         if(b < a){return b}
     }
 
