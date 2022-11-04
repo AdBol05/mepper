@@ -64,7 +64,7 @@ for(let i in data.action){
     if(n > 12){n = n - 12;}
     M[m].writeSync(data.action[i]);
     M[n].writeSync(data.action[i]);
-    bar.update(i);
+    //bar.update(i);
     sleep.usleep(data.delay[i]);
 }
 
