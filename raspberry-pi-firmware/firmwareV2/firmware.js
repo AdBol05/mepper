@@ -59,6 +59,9 @@ for(let i = 0; i < 12; i++){
 console.log("\n\nPLaying: " + input.name);
 for(let i in data.action){
     M[data.motor[i]].writeSync(data.action[i]);
+    let n = data.motor[i];
+    if(n > 12){n = n - 12}
+    M[n].writeSync(data.action[i]);
     bar.update(i);
     sleep.usleep(data.delay[i]);
 }
