@@ -106,8 +106,8 @@ module.exports = (input) => {
                 data.action.push(1);
                 data.action.push(1);
 
-                data.delay.push(smallerDelay);
-                data.delay.push(deltaDelay);
+                data.delay.push((smallerDelay/2).toFixed());
+                data.delay.push((deltaDelay/2).toFixed());
 
                 data.motor.push(notemap.get(sample[0]).m - 1);
                 data.motor.push(notemap.get(sample[1]).m - 1);
@@ -117,8 +117,8 @@ module.exports = (input) => {
                 data.action.push(0);
                 data.action.push(0);
 
-                data.delay.push(smallerDelay);
-                data.delay.push(deltaDelay);
+                data.delay.push((smallerDelay/2).toFixed());
+                data.delay.push((deltaDelay/2).toFixed());
                 
                 data.motor.push(notemap.get(sample[0]).m - 1);
                 data.motor.push(notemap.get(sample[1]).m - 1);
