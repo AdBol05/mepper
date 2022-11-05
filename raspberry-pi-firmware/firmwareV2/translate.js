@@ -90,8 +90,8 @@ module.exports = (input) => {
 
             let delay1 = Math.floor(notemap.get(sample[0]).ntm * oct);
             let delay2 = Math.floor(notemap.get(sample[1]).ntm * oct);
-
             let smallerDelay = Math.floor(smaller(delay1, delay2));
+
             let largerDelay = Math.floor(larger(delay1, delay2)).toFixed();
             let deltaDelay = Math.floor(largerDelay - smallerDelay);
 
@@ -106,8 +106,8 @@ module.exports = (input) => {
                 data.action.push(1);
                 data.action.push(1);
 
-                data.delay.push(smallerDelay);
-                data.delay.push(deltaDelay);
+                data.delay.push(Math.floor(smallerDelay/2));
+                data.delay.push(Math.floor(deltaDelay/2));
 
                 data.motor.push(notemap.get(sample[0]).m - 1);
                 data.motor.push(notemap.get(sample[1]).m - 1);
@@ -117,8 +117,8 @@ module.exports = (input) => {
                 data.action.push(0);
                 data.action.push(0);
 
-                data.delay.push(smallerDelay);
-                data.delay.push(deltaDelay);
+                data.delay.push(Math.floor(smallerDelay/2));
+                data.delay.push(Math.floor(deltaDelay/2));
                 
                 data.motor.push(notemap.get(sample[0]).m - 1);
                 data.motor.push(notemap.get(sample[1]).m - 1);
