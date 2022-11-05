@@ -92,8 +92,8 @@ module.exports = (input) => {
             let delay2 = Math.floor(notemap.get(sample[1]).ntm * oct);
 
             let smallerDelay = Math.floor(smaller(delay1, delay2));
-            let largerDelay = Math.floor(larger(delay1, delay2) / 2);
-            let deltaDelay = Math.floor((largerDelay - smallerDelay)/2);
+            let largerDelay = Math.floor(larger(delay1, delay2)/2).toFixed();
+            let deltaDelay = Math.floor((largerDelay - smallerDelay)/2).toFixed();
 
             let count = Math.floor((input.timing[i] * 5 * tempo) / smallerDelay);
 
