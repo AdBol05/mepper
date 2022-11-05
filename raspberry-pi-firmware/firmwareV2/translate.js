@@ -93,13 +93,13 @@ module.exports = (input) => {
             
             let smallerDelay = Math.floor(smaller(delay1, delay2));
             let largerDelay = Math.floor(larger(delay1, delay2)).toFixed();
+            
+            let count = Math.floor((input.timing[i] * 5 * tempo) / smallerDelay);
 
             smallerDelay = Math.floor(smallerDelay/2);
             largerDelay = Math.floor(largerDelay/2);
 
             let deltaDelay = Math.floor(largerDelay - smallerDelay);
-
-            let count = Math.floor((input.timing[i] * 5 * tempo) / smallerDelay);
 
             for(let j = 0; j < count; j++){//TODO: test and fix
                 //some super cool stuff... idk if this will work
