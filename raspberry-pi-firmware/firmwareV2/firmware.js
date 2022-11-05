@@ -60,5 +60,5 @@ for(let i in data.action){
 dir.unexport();
 for(let i = 0; i < 12; i++){M[i].unexport();}
 
-consolelog("\n\n-----------------------------------------------------------------------");
+console.log("\n\n-----------------------------------------------------------------------");
 console.log('\x1b[32m%s\x1b[0m'," Done in "+ process.uptime().toFixed(2) + "s \n");
