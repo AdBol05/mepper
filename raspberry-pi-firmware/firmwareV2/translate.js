@@ -102,7 +102,7 @@ module.exports = (input) => {
             let deltaDelay = Math.floor(largerDelay - smallerDelay);
 
             for(let j = 0; j < count; j++){//TODO: test and fix
-                //some super cool stuff... idk if this will work
+                //some super cool stuff... idk if this will work -> timing s fucked up
 
                 data.motor.push(notemap.get(sample[0]).m - 1);
                 data.motor.push(notemap.get(sample[1]).m - 1);
