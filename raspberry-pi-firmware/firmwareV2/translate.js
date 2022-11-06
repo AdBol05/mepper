@@ -104,8 +104,14 @@ module.exports = (input) => {
             for(let j = 0; j < count; j++){//TODO: test and fix
                 //some super cool stuff... idk if this will work -> timing s fucked up
 
-                data.motor.push(notemap.get(sample[0]).m - 1);
-                data.motor.push(notemap.get(sample[1]).m - 1);
+                if(delay1 <= delay2){
+                    data.motor.push(notemap.get(sample[0]).m - 1);
+                    data.motor.push(notemap.get(sample[1]).m - 1);
+                }
+                else{
+                    data.motor.push(notemap.get(sample[1]).m - 1);
+                    data.motor.push(notemap.get(sample[0]).m - 1);                    
+                }
 
                 data.action.push(1);
                 data.action.push(1);
@@ -124,8 +130,14 @@ module.exports = (input) => {
                 data.delay.push(Math.floor(smallerDelay/2));
                 data.delay.push(Math.floor(deltaDelay/2));
                 
-                data.motor.push(notemap.get(sample[0]).m - 1);
-                data.motor.push(notemap.get(sample[1]).m - 1);
+                if(delay1 <= delay2){
+                    data.motor.push(notemap.get(sample[0]).m - 1);
+                    data.motor.push(notemap.get(sample[1]).m - 1);
+                }
+                else{
+                    data.motor.push(notemap.get(sample[1]).m - 1);
+                    data.motor.push(notemap.get(sample[0]).m - 1);                    
+                }
             }
         }
         else{
