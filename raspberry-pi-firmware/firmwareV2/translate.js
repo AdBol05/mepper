@@ -5,7 +5,6 @@ module.exports = (input) => {
     let tempo = 120;
     let oct = 5;
 
-    //let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
     const notemap = new Map();
     notemap.set("cf", {ntm: 1805, m: 1});
     notemap.set("df", {ntm: 1607, m: 2});
@@ -99,7 +98,7 @@ module.exports = (input) => {
             largerDelay = Math.floor(largerDelay/2);
             let deltaDelay = Math.floor(largerDelay - smallerDelay);
 
-            for(let j = 0; j < count; j++){//TODO: test and fix
+            for(let j = 0; j < count; j++){
                 //some super cool stuff... idk if this will work -> timing s fucked up
                 for(let k = 0; k < 2; k++){
                     if(delay1 <= delay2){
