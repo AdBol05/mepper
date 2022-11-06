@@ -85,12 +85,11 @@ module.exports = (input) => {
     for(let i in input.sequence){
         if(input.sequence[i].includes("+")){
             data.dual = true;
-            //do some stuff
+
             let sample = input.sequence[i].split("+");
 
             let delay1 = Math.floor(notemap.get(sample[0]).ntm * oct);
             let delay2 = Math.floor(notemap.get(sample[1]).ntm * oct);
-            
             let smallerDelay = Math.floor(smaller(delay1, delay2));
             let largerDelay = Math.floor(larger(delay1, delay2)).toFixed();
             
@@ -98,7 +97,6 @@ module.exports = (input) => {
 
             smallerDelay = Math.floor(smallerDelay/2);
             largerDelay = Math.floor(largerDelay/2);
-
             let deltaDelay = Math.floor(largerDelay - smallerDelay);
 
             for(let j = 0; j < count; j++){//TODO: test and fix
@@ -116,7 +114,7 @@ module.exports = (input) => {
                     data.action.push(k);
                     data.action.push(k);
 
-                    if(j === (count - 1)){
+                    if(j === (count - 1 && k > 0)){
                         data.delay.push(Math.floor(smallerDelay/2));
                         data.delay.push(Math.floor(deltaDelay/2) + (input.pause[i]) * 1000);
                     }
@@ -136,16 +134,9 @@ module.exports = (input) => {
                 for(let k = 0; k < 2; k++){
                     data.motor.push(motor);
                     data.action.push(k);
-                    if(j === (count - 1)){data.delay.push(delay + (input.pause[i]) * 1000);}
+                    if(j === (count - 1 && k > 0)){data.delay.push(delay + (input.pause[i]) * 1000);}
                     else{data.delay.push(delay);}
                 }
-
-                //-------------------//
-
-                /*data.motor.push(motor);
-                data.action.push(0);
-                if(j === (count - 1)){data.delay.push(delay + (input.pause[i]) * 1000);}
-                else{data.delay.push(delay);}*/
             }
         }
         bar.update(Number(i) + 1);
