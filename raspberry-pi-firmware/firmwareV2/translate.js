@@ -103,28 +103,28 @@ module.exports = (input) => {
 
             for(let j = 0; j < count; j++){//TODO: test and fix
                 //some super cool stuff... idk if this will work -> timing s fucked up
+                for(let k = 0; k < 2; k++){
+                    if(delay1 <= delay2){
+                        data.motor.push(notemap.get(sample[0]).m - 1);
+                        data.motor.push(notemap.get(sample[1]).m - 1);
+                    }
+                    else{
+                        data.motor.push(notemap.get(sample[1]).m - 1);
+                        data.motor.push(notemap.get(sample[0]).m - 1);                    
+                    }
 
-                if(delay1 <= delay2){
+                    data.action.push(k);
+                    data.action.push(k);
+
+                    data.delay.push(Math.floor(smallerDelay/2));
+                    data.delay.push(Math.floor(deltaDelay/2));
+
                     data.motor.push(notemap.get(sample[0]).m - 1);
                     data.motor.push(notemap.get(sample[1]).m - 1);
                 }
-                else{
-                    data.motor.push(notemap.get(sample[1]).m - 1);
-                    data.motor.push(notemap.get(sample[0]).m - 1);                    
-                }
-
-                data.action.push(1);
-                data.action.push(1);
-
-                data.delay.push(Math.floor(smallerDelay/2));
-                data.delay.push(Math.floor(deltaDelay/2));
-
-                data.motor.push(notemap.get(sample[0]).m - 1);
-                data.motor.push(notemap.get(sample[1]).m - 1);
-
                 //--------------------------------------------//
 
-                data.action.push(0);
+                /*data.action.push(0);
                 data.action.push(0);
 
                 data.delay.push(Math.floor(smallerDelay/2));
@@ -136,8 +136,8 @@ module.exports = (input) => {
                 }
                 else{
                     data.motor.push(notemap.get(sample[1]).m - 1);
-                    data.motor.push(notemap.get(sample[0]).m - 1);                    
-                }
+                    data.motor.push(notemap.get(sample[0]).m - 1);                 
+                }*/
             }
         }
         else{
