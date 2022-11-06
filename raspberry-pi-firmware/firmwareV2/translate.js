@@ -116,28 +116,18 @@ module.exports = (input) => {
                     data.action.push(k);
                     data.action.push(k);
 
-                    data.delay.push(Math.floor(smallerDelay/2));
-                    data.delay.push(Math.floor(deltaDelay/2));
-
+                    if(j === (count - 1)){
+                        data.delay.push(Math.floor(smallerDelay/2));
+                        data.delay.push(Math.floor(deltaDelay/2) + (input.pause[i]) * 1000);
+                    }
+                    else{
+                        data.delay.push(Math.floor(smallerDelay/2));
+                        data.delay.push(Math.floor(deltaDelay/2));
+                    }
+                    
                     data.motor.push(notemap.get(sample[0]).m - 1);
                     data.motor.push(notemap.get(sample[1]).m - 1);
                 }
-                //--------------------------------------------//
-
-                /*data.action.push(0);
-                data.action.push(0);
-
-                data.delay.push(Math.floor(smallerDelay/2));
-                data.delay.push(Math.floor(deltaDelay/2));
-                
-                if(delay1 <= delay2){
-                    data.motor.push(notemap.get(sample[0]).m - 1);
-                    data.motor.push(notemap.get(sample[1]).m - 1);
-                }
-                else{
-                    data.motor.push(notemap.get(sample[1]).m - 1);
-                    data.motor.push(notemap.get(sample[0]).m - 1);                 
-                }*/
             }
         }
         else{
