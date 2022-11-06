@@ -124,9 +124,6 @@ module.exports = (input) => {
                         data.delay.push(Math.floor(smallerDelay/2));
                         data.delay.push(Math.floor(deltaDelay/2));
                     }
-                    
-                    /*data.motor.push(notemap.get(sample[0]).m - 1);
-                    data.motor.push(notemap.get(sample[1]).m - 1);*/
                 }
             }
         }
@@ -136,16 +133,19 @@ module.exports = (input) => {
             let motor = notemap.get(input.sequence[i]).m - 1;
 
             for(let j = 0; j < count; j++){
-                data.motor.push(motor);
-                data.action.push(1);
-                data.delay.push(delay);
+                for(let k = 0; k < 2; k++){
+                    data.motor.push(motor);
+                    data.action.push(k);
+                    if(j === (count - 1)){data.delay.push(delay + (input.pause[i]) * 1000);}
+                    else{data.delay.push(delay);}
+                }
 
                 //-------------------//
 
-                data.motor.push(motor);
+                /*data.motor.push(motor);
                 data.action.push(0);
                 if(j === (count - 1)){data.delay.push(delay + (input.pause[i]) * 1000);}
-                else{data.delay.push(delay);}
+                else{data.delay.push(delay);}*/
             }
         }
         bar.update(Number(i) + 1);
