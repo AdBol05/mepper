@@ -125,8 +125,8 @@ module.exports = (input) => {
                         data.delay.push(Math.floor(deltaDelay/2));
                     }
                     
-                    data.motor.push(notemap.get(sample[0]).m - 1);
-                    data.motor.push(notemap.get(sample[1]).m - 1);
+                    /*data.motor.push(notemap.get(sample[0]).m - 1);
+                    data.motor.push(notemap.get(sample[1]).m - 1);*/
                 }
             }
         }
