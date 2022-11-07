@@ -141,6 +141,6 @@ module.exports = (input) => {
         bar.update(Number(i) + 1);
     }
 
-    console.log(data);
+    console.log("\n" + data);
     return data;
 };
