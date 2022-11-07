@@ -111,7 +111,6 @@ module.exports = (input) => {
                     }
 
                     data.action.push(k);
-                    data.action.push(k);
 
                     if(j === (count - 1 && k > 0)){
                         data.delay.push(Math.floor(smallerDelay/2));
