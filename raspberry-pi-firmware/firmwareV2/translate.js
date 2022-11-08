@@ -90,16 +90,24 @@ module.exports = (input) => {
 
             let delay1 = Math.floor(notemap.get(sample[0]).ntm * oct);
             let delay2 = Math.floor(notemap.get(sample[1]).ntm * oct);
+
+            let count1 = Math.floor((input.timing[i] * 5 * tempo) / delay1);
+            let count2 = Math.floor((input.timing[i] * 5 * tempo) / delay2);
+
             let smallerDelay = Math.floor(smaller(delay1, delay2));
             let largerDelay = Math.floor(larger(delay1, delay2)).toFixed();
-
-            let count = Math.floor((input.timing[i] * 5 * tempo) / smallerDelay);
 
             smallerDelay = Math.floor(smallerDelay/2);
             largerDelay = Math.floor(largerDelay/2);
             let deltaDelay = Math.floor(largerDelay - smallerDelay);
 
-            for(let j = 0; j < count; j++){
+            let seq, seq2 = {
+                "motor": [],
+                "action": [],
+                "delay": []
+            }
+
+            /*for(let j = 0; j < count; j++){
                 //some super cool stuff... idk if this will work -> timing s fucked up
                 for(let k = 0; k < 2; k++){
                     if(delay1 <= delay2){
@@ -123,10 +131,10 @@ module.exports = (input) => {
                         data.delay.push(Math.floor(deltaDelay/2));
                     }
                 }
-            }
+            }*/
         }
         else{
-            let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);
+            let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);;
             let count = Math.floor((input.timing[i] * 5 * tempo) / delay);
             let motor = notemap.get(input.sequence[i]).m - 1;
 
