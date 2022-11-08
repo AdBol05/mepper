@@ -1,6 +1,7 @@
 module.exports = (input) => {
 
     const AsciiBar = require('ascii-bar').default;
+    let util = require('util');
 
     let tempo = 120;
     let oct = 5;
@@ -141,6 +142,6 @@ module.exports = (input) => {
         bar.update(Number(i) + 1);
     }
 
-    console.log("\n" + data);
+    console.log("\n" + util.inspect(data));
     return data;
 };
