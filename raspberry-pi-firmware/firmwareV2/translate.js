@@ -142,6 +142,6 @@ module.exports = (input) => {
         bar.update(Number(i) + 1);
     }
 
-    console.log("\n" + util.inspect(data));
+    console.log("\n" + util.inspect(data), {colors: true});
     return data;
 };
