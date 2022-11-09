@@ -97,8 +97,8 @@ module.exports = (input) => {
             let smallerDelay = Math.floor(smaller(delay1, delay2));
             let largerDelay = Math.floor(larger(delay1, delay2)).toFixed();
 
-			let motor1 = notemap.get(sample[0]).m - 1;
-			let motor2 = notemap.get(sample[1]).m - 1;
+		    let motor1 = notemap.get(sample[0]).m - 1;
+            let motor2 = notemap.get(sample[1]).m - 1;
 			
             smallerDelay = Math.floor(smallerDelay/2);
             largerDelay = Math.floor(largerDelay/2);
@@ -108,7 +108,7 @@ module.exports = (input) => {
                 "motor": [],
                 "action": [],
                 "delay": [],
-				"timestamp": []
+                "timestamp": []
             }
             
             for(let j = 0; j < count1; j++){
