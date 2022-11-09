@@ -104,7 +104,7 @@ module.exports = (input) => {
             largerDelay = Math.floor(largerDelay/2);
             let deltaDelay = Math.floor(largerDelay - smallerDelay);
 
-            let seq, seq2 = {
+            let seq1, seq2 = {
                 "motor": [],
                 "action": [],
                 "delay": [],
@@ -118,6 +118,10 @@ module.exports = (input) => {
             for(let j = 0; j < count2; j++){
             
             }
+
+            console.log("seq1: " + seq1);
+            console.log("seq2: " + seq2);
+
             
             /*for(let j = 0; j < count; j++){
                 //some super cool stuff... idk if this will work -> timing s fucked up
