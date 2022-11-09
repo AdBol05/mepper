@@ -112,11 +112,13 @@ module.exports = (input) => {
             }
             
             for(let j = 0; j < count1; j++){
-            
+                if(j == 0){seq1.timestamp.push(0);}
+                else{seq1.timestamp.push(seq1.timestamp[j - 1] + delay1);}
             }
             
             for(let j = 0; j < count2; j++){
-            
+                if(j == 0){seq2.timestamp.push(0);}
+                else{seq2.timestamp.push(seq2.timestamp[j - 1] + delay2);}
             }
 
             console.log("seq1: " + seq1);
