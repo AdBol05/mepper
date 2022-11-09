@@ -97,6 +97,9 @@ module.exports = (input) => {
             let smallerDelay = Math.floor(smaller(delay1, delay2));
             let largerDelay = Math.floor(larger(delay1, delay2)).toFixed();
 
+			let motor1 = notemap.get(sample[0]).m - 1;
+			let motor2 = notemap.get(sample[1]).m - 1;
+			
             smallerDelay = Math.floor(smallerDelay/2);
             largerDelay = Math.floor(largerDelay/2);
             let deltaDelay = Math.floor(largerDelay - smallerDelay);
@@ -104,9 +107,18 @@ module.exports = (input) => {
             let seq, seq2 = {
                 "motor": [],
                 "action": [],
-                "delay": []
+                "delay": [],
+				"timestamp": []
             }
-
+            
+            for(let j = 0; j < count1; j++){
+            
+            }
+            
+            for(let j = 0; j < count2; j++){
+            
+            }
+            
             /*for(let j = 0; j < count; j++){
                 //some super cool stuff... idk if this will work -> timing s fucked up
                 for(let k = 0; k < 2; k++){
