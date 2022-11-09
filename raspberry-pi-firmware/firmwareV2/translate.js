@@ -102,7 +102,7 @@ module.exports = (input) => {
 			
             smallerDelay = Math.floor(smallerDelay/2);
             largerDelay = Math.floor(largerDelay/2);
-            let deltaDelay = Math.floor(largerDelay - smallerDelay);
+            //let deltaDelay = Math.floor(largerDelay - smallerDelay);
 
             let seq1, seq2 = {
                 "motor": [],
