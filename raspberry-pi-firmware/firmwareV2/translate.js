@@ -134,8 +134,7 @@ module.exports = (input) => {
                 }*/                    
             }
 
-            console.log("seq1: " + seq1);
-            console.log("seq2: " + seq2);
+            console.log("output: " + seq);
             
             /*for(let j = 0; j < count; j++){
                 //some super cool stuff... idk if this will work -> timing s fucked up
