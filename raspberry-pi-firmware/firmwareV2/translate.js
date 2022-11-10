@@ -134,7 +134,7 @@ module.exports = (input) => {
                 }*/                    
             }
 
-            
+            console.log("output: " +  util.inspect(seq, {colors: true}));
             /*for(let j = 0; j < count; j++){
                 //some super cool stuff... idk if this will work -> timing s fucked up
                 for(let k = 0; k < 2; k++){
@@ -177,7 +177,7 @@ module.exports = (input) => {
         }
         bar.update(Number(i) + 1);
     }
-    console.log("output: " + seq);
+
     console.log("\n" + util.inspect(data, {colors: true}));
     return data;
 };
