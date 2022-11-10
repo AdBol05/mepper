@@ -123,15 +123,19 @@ module.exports = (input) => {
             ]
             
             for(let h = 0; h < 2; h++){
+
                 for(let j = 0; j < count[h]; j++){
+
                     for(let k = 0; k < 2; k++){
                         seq[h].motor.push(motor[h]);
                         seq[h].action.push(k);
-                        if(j == 0){seq[h].timestamp.push(0);}
+                        if(j === 0){seq[h].timestamp.push(0);}
                         else{seq[h].timestamp.push(seq[h].timestamp[j - 1] + delay[h]);}
-
+                        seg[h].delay.push(delay[h]);
                     }
+
                 }
+
             }
 
             console.log("output: " +  util.inspect(seq, {colors: true}));
