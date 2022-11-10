@@ -55,7 +55,7 @@ module.exports = (input) => {
 
     console.log("Processing input...");
 
-    function larger(a, b){
+    /*function larger(a, b){
         if(a >= b){return a}
         if(b > a){return b}
     }
@@ -63,7 +63,7 @@ module.exports = (input) => {
     function smaller(a, b){
         if(a <= b){return a}
         if(b < a){return b}
-    }
+    }*/
 
     let data = {
         "motor": [],
