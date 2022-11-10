@@ -129,9 +129,10 @@ module.exports = (input) => {
                     for(let k = 0; k < 2; k++){
                         seq[h].motor.push(motor[h]);
                         seq[h].action.push(k);
-                        if(j === 0 && k === 0){seq[h].timestamp.push(0);}
+                        if(j === 0){seq[h].timestamp.push(0);}
                         else{seq[h].timestamp.push(seq[h].timestamp[j - 1] + delay[h]);}
                         seq[h].delay.push(delay[h]);
+                        console.log(seq[h].timestamp[j - 1] + delay[h]);
                     }
 
                 }
