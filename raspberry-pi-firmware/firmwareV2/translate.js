@@ -123,9 +123,9 @@ module.exports = (input) => {
             ]
             
             for(let h = 0; h < 2; h++){
+                let del = 0;
                 
                 for(let j = 0; j < count[h]; j++){
-                    let del = 0;
                     
                     for(let k = 0; k < 2; k++){
                         seq[h].motor.push(motor[h]);
