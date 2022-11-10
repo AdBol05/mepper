@@ -103,8 +103,8 @@ module.exports = (input) => {
             motor[0] = notemap.get(sample[0]).m - 1;
             motor[1] = notemap.get(sample[1]).m - 1;
 			
-            smallerDelay = Math.floor(smallerDelay/2);
-            largerDelay = Math.floor(largerDelay/2);
+            //smallerDelay = Math.floor(smallerDelay/2);
+            //largerDelay = Math.floor(largerDelay/2);
             //let deltaDelay = Math.floor(largerDelay - smallerDelay);
 
             let seq = [
