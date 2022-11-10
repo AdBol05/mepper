@@ -135,7 +135,7 @@ module.exports = (input) => {
                         //else{seq[h].timestamp.push(seq[h].timestamp[j - 1] + delay[h]);}
                         seq[h].delay.push(delay[h]);
                     
-                        if(j !== 0){del = del + delay[h];}
+                        if(j !== 0 && k !== 0){del = del + delay[h];}
                         seq[h].timestamp.push(del);
                         //console.log(del);
                     }
