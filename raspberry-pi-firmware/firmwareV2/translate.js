@@ -127,11 +127,6 @@ module.exports = (input) => {
                     if(j == 0){seq[k].timestamp.push(0);}
                     else{seq[k].timestamp.push(seq[k].timestamp[j - 1] + delay[k]);}
                 }
-                
-                /*for(let j = 0; j < count2; j++){
-                    if(j == 0){seq2.timestamp.push(0);}
-                    else{seq2.timestamp.push(seq2.timestamp[j - 1] + delay2);}
-                }*/                    
             }
 
             console.log("output: " +  util.inspect(seq, {colors: true}));
