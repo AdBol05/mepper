@@ -124,53 +124,17 @@ module.exports = (input) => {
             
             for(let h = 0; h < 2; h++){
                 let del = 0;
-                
                 for(let j = 0; j < count[h]; j++){
-                    
                     for(let k = 0; k < 2; k++){
                         seq[h].motor.push(motor[h]);
                         seq[h].action.push(k);
-                    
-                        //if(j === 0){seq[h].timestamp.push(0);}
-                        //else{seq[h].timestamp.push(seq[h].timestamp[j - 1] + delay[h]);}
                         seq[h].delay.push(delay[h]);
-                    
-                        //if(j !== 0){del = del + delay[h];}
                         seq[h].timestamp.push(del);
-                        del = del + delay[h];
-                        //console.log(del);
+                        del = del + delay[h];                      
                     }
-
                 }
-
             }
-
-            console.log("output: " +  util.inspect(seq, {colors: true}));
-            /*for(let j = 0; j < count; j++){
-                //some super cool stuff... idk if this will work -> timing s fucked up
-                for(let k = 0; k < 2; k++){
-                    if(delay1 <= delay2){
-                        data.motor.push(notemap.get(sample[0]).m - 1);
-                        data.motor.push(notemap.get(sample[1]).m - 1);
-                    }
-                    else{
-                        data.motor.push(notemap.get(sample[1]).m - 1);
-                        data.motor.push(notemap.get(sample[0]).m - 1);
-                    }
-
-                    data.action.push(k);
-                    data.action.push(k);//two motors!!!
-
-                    if(j === (count - 1 && k > 0)){
-                        data.delay.push(Math.floor(smallerDelay/2));
-                        data.delay.push(Math.floor(deltaDelay/2) + (input.pause[i]) * 1000);
-                    }
-                    else{
-                        data.delay.push(Math.floor(smallerDelay/2));
-                        data.delay.push(Math.floor(deltaDelay/2));
-                    }
-                }
-            }*/
+            //console.log("output: " +  util.inspect(seq, {colors: true}));
         }
         else{
             let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);
