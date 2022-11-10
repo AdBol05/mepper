@@ -122,10 +122,10 @@ module.exports = (input) => {
                 },
             ]
             
-            for(let k = 0; k < 2; k++){
-                for(let j = 0; j < count[k]; j++){
-                    if(j == 0){seq[k].timestamp.push(0);}
-                    else{seq[k].timestamp.push(seq[k].timestamp[j - 1] + delay[k]);}
+            for(let h = 0; h < 2; h++){
+                for(let j = 0; j < count[h]; j++){
+                    if(j == 0){seq[h].timestamp.push(0);}
+                    else{seq[h].timestamp.push(seq[h].timestamp[j - 1] + delay[h]);}
                 }
             }
 
