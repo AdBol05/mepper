@@ -49,6 +49,7 @@ for(let i = 0; i < 12; i++){
 console.log("\n\nPLaying: " + input.name);
  
 for(let i in data.action){
+    console.log(data[i]);
     let m = data.motor[i];
     let n = data.motor[i] + 1;
     if(n > 12){n = n - 12;}
