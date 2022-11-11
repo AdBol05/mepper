@@ -134,7 +134,7 @@ module.exports = (input) => {
                         //if(j === (count[h] - 1) && k !== 0){seq[h].timestamp.push(del + (input.pause[i]) * 1000);}
                         //else{seq[h].timestamp.push(del);}
                         
-                        seq[h].push(del);
+                        seq[h].timestamp.push(del);
 
                         seq[h].delay.push(delay[h]);
                         del = del + delay[h];                      
