@@ -83,7 +83,7 @@ module.exports = (input) => {
     });
 
     for(let i in input.sequence){
-        if(input.sequence[i].includes("+")){ //?maybe make this scalable
+        if(input.sequence[i].includes("+")){
             data.dual = true;
 
             let sample = input.sequence[i].split("+");
@@ -105,39 +105,8 @@ module.exports = (input) => {
                     "timestamp": []
                 });
             }
-            /*
-            delay[0] = Math.floor(notemap.get(sample[0]).ntm * oct);
-            delay[1] = Math.floor(notemap.get(sample[1]).ntm * oct);
-
-            count[0] = Math.floor((input.timing[i] * 5 * tempo) / delay[0]);
-            count[1] = Math.floor((input.timing[i] * 5 * tempo) / delay[1]);
-
-            let smallerDelay = Math.floor(smaller(delay[0], delay[1]));
-            let largerDelay = Math.floor(larger(delay[0], delay[1])).toFixed();
-
-            motor[0] = notemap.get(sample[0]).m - 1;
-            motor[1] = notemap.get(sample[1]).m - 1;*/
-			
-            //smallerDelay = Math.floor(smallerDelay/2);
-            //largerDelay = Math.floor(largerDelay/2);
-            //let deltaDelay = Math.floor(largerDelay - smallerDelay);
-
-            /*let seq = [
-                {
-                    "motor": [],
-                    "action": [],
-                    "delay": [],
-                    "timestamp": []
-                },
-                {
-                    "motor": [],
-                    "action": [],
-                    "delay": [],
-                    "timestamp": []
-                },
-            ]*/
-            
-            for(h in sample/*let h = 0; h < 2; h++*/){
+             
+            for(h in sample){
                 let del = 0;
                 for(let j = 0; j < count[h]; j++){
                     for(let k = 0; k < 2; k++){
@@ -145,7 +114,7 @@ module.exports = (input) => {
                         seq[h].action.push(k);          //* actions
                         seq[h].timestamp.push(del);     //* timestamps
                         seq[h].delay.push(delay[h]);    //* delays
-                        del = del + delay[h];           //* delay math (probably useless in the future)     
+                        del = del + delay[h];           //* delay adder (probably useless in the future)     
                     }
                 }
             }
