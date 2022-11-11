@@ -130,8 +130,11 @@ module.exports = (input) => {
                         
                         seq[h].action.push(k);
 
-                        if(j === (count[h] - 1) && k !== 0){seq[h].timestamp.push(del + (input.pause[i]) * 1000);}
-                        else{seq[h].timestamp.push(del);}
+                        //!use at the and of array join to add delay after note
+                        //if(j === (count[h] - 1) && k !== 0){seq[h].timestamp.push(del + (input.pause[i]) * 1000);}
+                        //else{seq[h].timestamp.push(del);}
+                        
+                        seq[h].push(del);
 
                         seq[h].delay.push(delay[h]);
                         del = del + delay[h];                      
@@ -140,6 +143,9 @@ module.exports = (input) => {
             }
             console.log("\n" + util.inspect(seq, {colors: true}));
             //TODO join arrays based on timestamps
+
+
+
         }
         else{
             let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);
