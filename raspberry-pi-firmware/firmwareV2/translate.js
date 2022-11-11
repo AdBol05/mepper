@@ -138,9 +138,8 @@ module.exports = (input) => {
                     }
                 }
             }
-            console.log("\n" + util.inspect(seq));
+            console.log("\n" + util.inspect(seq, {colors: true}));
             //TODO join arrays based on timestamps
-            //console.log("output: " +  util.inspect(seq, {colors: true}));
         }
         else{
             let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);
