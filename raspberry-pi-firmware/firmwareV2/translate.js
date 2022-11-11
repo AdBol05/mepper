@@ -127,9 +127,13 @@ module.exports = (input) => {
                 for(let j = 0; j < count[h]; j++){
                     for(let k = 0; k < 2; k++){
                         seq[h].motor.push(motor[h]);
+                        
                         seq[h].action.push(k);
+
+                        if(j === (count - 1) && k !== 0){seq[h].timestamp.push(del + (input.pause[i]) * 1000);}
+                        else{seq[h].timestamp.push(del);}
+
                         seq[h].delay.push(delay[h]);
-                        seq[h].timestamp.push(del);
                         del = del + delay[h];                      
                     }
                 }
