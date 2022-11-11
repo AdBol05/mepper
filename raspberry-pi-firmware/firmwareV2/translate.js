@@ -84,8 +84,8 @@ module.exports = (input) => {
 
     //*------------------------------------------------------------------------------------*//
     for(let i in input.sequence){
-        sequence[i] = sequence[i].replace("h", "b");
-        sequence[i] = sequence[i].replace("is", "f");
+        input.sequence[i] = input.sequence[i].replace("h", "b");
+        input.sequence[i] = input.sequence[i].replace("is", "f");
 
         if(input.sequence[i].includes("+")){
             data.dual = true;
