@@ -138,7 +138,7 @@ module.exports = (input) => {
                     }
                 }
             }
-            console.log("\n" + seq);
+            console.log("\n" + util.inspect(seq));
             //TODO join arrays based on timestamps
             //console.log("output: " +  util.inspect(seq, {colors: true}));
         }
