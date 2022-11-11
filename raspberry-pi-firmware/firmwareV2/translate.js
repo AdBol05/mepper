@@ -65,10 +65,10 @@ module.exports = (input) => {
         if(b < a){return b}
     }*/
 
-    let data = {
-        "motor": [],
-        "action": [],
-        "delay": [],
+    let data = {//some starting data -> just turn all motors off
+        "motor": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], //look, I know it's stupid and not very efficient but it will probably work in the end
+        "action": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "delay": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         "dual": false
     };
 
