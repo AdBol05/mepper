@@ -126,25 +126,20 @@ module.exports = (input) => {
                 let del = 0;
                 for(let j = 0; j < count[h]; j++){
                     for(let k = 0; k < 2; k++){
-                        seq[h].motor.push(motor[h]);
-                        
-                        seq[h].action.push(k);
-
-                        //!use at the and of array join to add delay after note
-                        //if(j === (count[h] - 1) && k !== 0){seq[h].timestamp.push(del + (input.pause[i]) * 1000);}
-                        //else{seq[h].timestamp.push(del);}
-                        
-                        seq[h].timestamp.push(del);
-
-                        seq[h].delay.push(delay[h]);
-                        del = del + delay[h];                      
+                        seq[h].motor.push(motor[h]);    //* motors
+                        seq[h].action.push(k);          //* actions
+                        seq[h].timestamp.push(del);     //* timestamps
+                        seq[h].delay.push(delay[h]);    //* delays
+                        del = del + delay[h];           //* delay math (probably useless in the future)     
                     }
                 }
             }
             console.log("\n" + util.inspect(seq, {colors: true}));
             //TODO join arrays based on timestamps
 
-
+            //!use at the and of array join to add delay after note
+            //if(j === (count[h] - 1) && k !== 0){seq[h].timestamp.push(del + (input.pause[i]) * 1000);}
+            //else{seq[h].timestamp.push(del);}
 
         }
         else{
