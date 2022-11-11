@@ -156,6 +156,7 @@ module.exports = (input) => {
             }
         }
         bar.update(Number(i) + 1);
+        console.log("\n" + seq);
     }
 
     console.log("\n" + util.inspect(data, {colors: true}));
