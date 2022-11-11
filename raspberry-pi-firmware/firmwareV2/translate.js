@@ -87,27 +87,42 @@ module.exports = (input) => {
             data.dual = true;
 
             let sample = input.sequence[i].split("+");
-
+            
             let delay = [];
+            let count = [];
+            let motor = [];
+            
+            let seq = [];
+
+            for(j in sample){
+                delay[j] = Math.floor(notemap.get(sample[j]).ntm * oct);
+                count[j] = Math.floor((input.timing[i] * 5 * tempo) / delay[j]);
+                motor[j] = notemap.get(sample[j]).m - 1;
+                seq.push({
+                    "motor": [],
+                    "action": [],
+                    "delay": [],
+                    "timestamp": []
+                });
+            }
+            /*
             delay[0] = Math.floor(notemap.get(sample[0]).ntm * oct);
             delay[1] = Math.floor(notemap.get(sample[1]).ntm * oct);
 
-            let count = [];
             count[0] = Math.floor((input.timing[i] * 5 * tempo) / delay[0]);
             count[1] = Math.floor((input.timing[i] * 5 * tempo) / delay[1]);
 
-            /*let smallerDelay = Math.floor(smaller(delay[0], delay[1]));
-            let largerDelay = Math.floor(larger(delay[0], delay[1])).toFixed();*/
+            let smallerDelay = Math.floor(smaller(delay[0], delay[1]));
+            let largerDelay = Math.floor(larger(delay[0], delay[1])).toFixed();
 
-            let motor = [];
             motor[0] = notemap.get(sample[0]).m - 1;
-            motor[1] = notemap.get(sample[1]).m - 1;
+            motor[1] = notemap.get(sample[1]).m - 1;*/
 			
             //smallerDelay = Math.floor(smallerDelay/2);
             //largerDelay = Math.floor(largerDelay/2);
             //let deltaDelay = Math.floor(largerDelay - smallerDelay);
 
-            let seq = [
+            /*let seq = [
                 {
                     "motor": [],
                     "action": [],
@@ -120,9 +135,9 @@ module.exports = (input) => {
                     "delay": [],
                     "timestamp": []
                 },
-            ]
+            ]*/
             
-            for(let h = 0; h < 2; h++){
+            for(h in sample/*let h = 0; h < 2; h++*/){
                 let del = 0;
                 for(let j = 0; j < count[h]; j++){
                     for(let k = 0; k < 2; k++){
