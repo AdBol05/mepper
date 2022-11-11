@@ -83,7 +83,7 @@ module.exports = (input) => {
     });
 
     for(let i in input.sequence){
-        if(input.sequence[i].includes("+")){
+        if(input.sequence[i].includes("+")){ //?maybe make this scalable
             data.dual = true;
 
             let sample = input.sequence[i].split("+");
@@ -134,6 +134,7 @@ module.exports = (input) => {
                     }
                 }
             }
+            //TODO join arrays based on timestamps
             //console.log("output: " +  util.inspect(seq, {colors: true}));
         }
         else{

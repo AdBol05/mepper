@@ -43,7 +43,7 @@ global.M = {};
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
 for(let i = 0; i < 12; i++){
     M[i] = new Gpio(pinout[i], 'out');
-    bar.update(i + 1);
+    bar.update(i + 1); //! has a large delay -> cannot be used for sequence loading screen
 }
 
 console.log("\n\nPLaying: " + input.name);
