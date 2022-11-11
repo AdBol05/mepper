@@ -123,9 +123,9 @@ module.exports = (input) => {
                 }
             }
             console.log("\n" + util.inspect(seq, {colors: true}));
-            //TODO join arrays based on timestamps
+            //TODO combine arrays based on timestamps
 
-            //!use at the and of array join to add delay after note
+            //!add pause at the and of array join
             //if(j === (count[h] - 1) && k !== 0){seq[h].timestamp.push(del + (input.pause[i]) * 1000);}
             //else{seq[h].timestamp.push(del);}
 
