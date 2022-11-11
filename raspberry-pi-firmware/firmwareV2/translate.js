@@ -82,6 +82,7 @@ module.exports = (input) => {
         total: input.sequence.length,
     });
 
+    //*------------------------------------------------------------------------------------*//
     for(let i in input.sequence){
         if(input.sequence[i].includes("+")){
             data.dual = true;
@@ -126,6 +127,9 @@ module.exports = (input) => {
             //else{seq[h].timestamp.push(del);}
 
         }
+
+        //*------------------------------------------------------------------------------------*//
+
         else{
             let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);
             let count = Math.floor((input.timing[i] * 5 * tempo) / delay);
@@ -142,7 +146,8 @@ module.exports = (input) => {
         }
         bar.update(Number(i) + 1);
     }
-
+    
+    //*------------------------------------------------------------------------------------*//
     console.log("\n" + util.inspect(data, {colors: true}));
     return data;
 };
