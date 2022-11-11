@@ -138,6 +138,7 @@ module.exports = (input) => {
                     }
                 }
             }
+            console.log("\n" + seq);
             //TODO join arrays based on timestamps
             //console.log("output: " +  util.inspect(seq, {colors: true}));
         }
@@ -156,7 +157,6 @@ module.exports = (input) => {
             }
         }
         bar.update(Number(i) + 1);
-        console.log("\n" + seq);
     }
 
     console.log("\n" + util.inspect(data, {colors: true}));
