@@ -146,7 +146,7 @@ module.exports = (input) => {
                 for(let k = 0; k < 2; k++){
                     data.motor.push(motor);
                     data.action.push(k);
-                    if(j === (count - 1)){data.delay.push(delay + (input.pause[i]) * 1000);}
+                    if(j === (count - 1) && k !== 0){data.delay.push(delay + (input.pause[i]) * 1000);}
                     else{data.delay.push(delay);}
                 }
             }
