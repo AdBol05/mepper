@@ -148,7 +148,8 @@ module.exports = (input) => {
             for(n in nested[0]){
                 data.motor.push(nested[2][n]);
                 data.action.push(nested[1][n]);
-                data.delay.push(nested[0][n]);
+                if(n > 0){data.delay.push(Math.abs(nested[0][n - 1]) - nested[0][n]);}
+                else{data.delay.push(0);}
             }
 
         }
