@@ -120,7 +120,7 @@ module.exports = (input) => {
                         seq[h].motor.push(motor[h]);    //* motors
                         seq[h].action.push(k);          //* actions
                         seq[h].timestamp.push(del);     //* timestamps
-                        del = del + delay[h];           //* delay adder (probably useless in the future)     
+                        del = del + delay[h];           //* delay adder (probably useless in the future)
                     }
                 }
             }
@@ -152,10 +152,10 @@ module.exports = (input) => {
                 ]);
             })
 
-            console.log("motors:");    
-            console.log(nested[2]);    
-            console.log("actions:");    
-            console.log(nested[1]);        
+            console.log("motors:");
+            console.log(nested[2]);
+            console.log("actions:");
+            console.log(nested[1]);
             console.log("timestamps:");
             console.log(nested[0]);
 
