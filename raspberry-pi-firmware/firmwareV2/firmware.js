@@ -39,6 +39,8 @@ console.log('\x1b[32m%s\x1b[0m'," / / / / / /  __/ /_/ / /_/ /  __/ /  /_____/ _
 console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/        /_/ /_/_/  /_/ /_/ /_/|__/|__/\\__,_/_/   \\___/    ");
 console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                                                                        \n");
 
+console.log('\x1b[31m%s\x1b[0m',"DEBUGGING MODE ENABLED");
+
 let input = JSON.parse(fs.readFileSync(file));//read and parse input file
 
 let dir = new Gpio(26, 'out');//set direction output pin
