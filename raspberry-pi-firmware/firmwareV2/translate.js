@@ -129,17 +129,23 @@ module.exports = (input) => {
             //if(j === (count[h] - 1) && k !== 0){seq[h].timestamp.push(del + (input.pause[i]) * 1000);}
             //else{seq[h].timestamp.push(del);}
 
-            let motors = seq[0].motor.concat(seq[1].motor);
-            let actions = seq[0].action.concat(seq[1].action);
-            let delays = seq[0].delay.concat(seq[1].delay);
-            let timestamps = seq[0].timestamp.concat(seq[1].timestamp);            
-    
+            let motors = [];
+            let actions = [];
+            let delays = [];
+            let timestamps = [];
+
+
+            for(k in sample){
+                motors = motors.concat(seq[k].motor);
+                actions = actions.concat(seq[k].action);
+                delays = delays.concat(seq[k].delay);
+                timestamps = timestamps.concat(seq[k].timestamp);            
+            }
+            
             console.log(motors);    
             console.log(actions);    
             console.log(delays);    
             console.log(timestamps);
-
-            console.log(seq.lenght);
 }
 
         //*------------------------------------------------------------------------------------*//
