@@ -141,7 +141,7 @@ module.exports = (input) => {
                 timestamps = timestamps.concat(seq[k].timestamp);
             }
 
-            let nested = [timestams, delays, actions, motors];
+            let nested = [timestamps, delays, actions, motors];
 
             let srcArr;
             nested = nested.map((arr, s) => {
