@@ -138,7 +138,8 @@ module.exports = (input) => {
             console.log(actions);    
             console.log(delays);    
             console.log(timestamps);
-            
+
+            console.log(seq.lenght);
 }
 
         //*------------------------------------------------------------------------------------*//
