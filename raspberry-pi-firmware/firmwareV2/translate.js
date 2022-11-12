@@ -172,12 +172,12 @@ module.exports = (input) => {
             }
         }
         bar.update(Number(i) + 1);
+        let sum = seq[0].motor.lenght + seq[1].motor.lenght + seq[2].motor.lenght;
+        console.log(sum + " " + data.motor.lenght);
     }
 
     //*------------------------------------------------------------------------------------*//
     console.log("\n-----------------------------------------");
-    let sum = seq[0].motor.lenght + seq[1].motor.lenght + seq[2].motor.lenght;
-    console.log(sum + " " + data.motor.lenght);
     console.log("\n-----------------------------------------");
     console.log("\n" + util.inspect(data, { colors: true }));
     return data;
