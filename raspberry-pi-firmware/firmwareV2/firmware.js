@@ -12,7 +12,7 @@ let debug = false;
 if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
 else{file = args[0];};//set file input to first argument
 
-if(args[0] !== undefined){debug = true;}
+if(args[1] === "debug"){debug = true;}
 
 //welcome screen
 
