@@ -117,6 +117,7 @@ module.exports = (input) => {
                 }
             }
 
+            console.log("------counts:" + count);
             fs.writeFileSync("./temp_data_raw.json", JSON.stringify(seq));
 
             let motors = [];
