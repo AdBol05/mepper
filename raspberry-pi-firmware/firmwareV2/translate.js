@@ -152,12 +152,12 @@ module.exports = (input) => {
                 ]);
             })
 
-            console.log("motors:");
+            /*console.log("motors:");
             console.log(nested[2]);
             console.log("actions:");
             console.log(nested[1]);
             console.log("timestamps:");
-            console.log(nested[0]);
+            console.log(nested[0]);*/
 
             //TODO resolve delays from timestamps and parse nested arrays to output data object
 
