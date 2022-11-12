@@ -52,6 +52,7 @@ module.exports = (input) => {
     notemap.set("b2", { ntm: 253, m: 4 });
 
     notemap.set("af0", { ntm: 2144, m: 5 });
+    //!ntm = 1000000/note_freq/2
 
     console.log("Processing input...");
 
