@@ -134,14 +134,12 @@ module.exports = (input) => {
             let delays = [];
             let timestamps = [];
 
-
             for(k in sample){
                 motors = motors.concat(seq[k].motor);
                 actions = actions.concat(seq[k].action);
                 delays = delays.concat(seq[k].delay);
                 timestamps = timestamps.concat(seq[k].timestamp);            
-            }
-            
+            }            
             
             console.log("motors:");    
             console.log(motors);    

@@ -12,6 +12,23 @@ if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file p
 else{file = args[0];};//set file input to first argument
 
 //welcome screen
+
+console.log('\x1b[32m%s\x1b[0m',"               &(                ");
+console.log('\x1b[32m%s\x1b[0m',"             ((((((              ");
+console.log('\x1b[32m%s\x1b[0m',"           ((((((((((%           ");
+console.log('\x1b[32m%s\x1b[0m',"          ((((((((((((((         ");
+console.log('\x1b[32m%s\x1b[0m',"      (%  ((((                   ");
+console.log('\x1b[32m%s\x1b[0m',"   ((((%  ((        (((((((((    ");
+console.log('\x1b[32m%s\x1b[0m'," ((((((%               ((((((((  ");
+console.log('\x1b[32m%s\x1b[0m',"((((((((                 ((((((((");
+console.log('\x1b[32m%s\x1b[0m',"  ((((((((%          %%  (((((   ");
+console.log('\x1b[32m%s\x1b[0m',"    %((((((((      (((%  (((     ");
+console.log('\x1b[32m%s\x1b[0m',"                 (((((%          ");
+console.log('\x1b[32m%s\x1b[0m',"         (((((((((((((%          ");
+console.log('\x1b[32m%s\x1b[0m',"            ((((((((&            ");
+console.log('\x1b[32m%s\x1b[0m',"              ((((               ");
+
+
 console.log('\x1b[32m%s\x1b[0m',"                                               _____                                             ");
 console.log('\x1b[32m%s\x1b[0m',"   ____ ___  ___  ____  ____  ___  _____      / __(_)________ ___ _      ______ _________        ");
 console.log('\x1b[32m%s\x1b[0m',"  / __ `__ \\/ _ \\/ __ \\/ __ \\/ _ \\/ ___/_____/ /_/ / ___/ __ `__ \\ | /| / / __ `/ ___/ _ \\");
