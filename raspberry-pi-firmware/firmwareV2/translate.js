@@ -175,7 +175,7 @@ module.exports = (input) => {
     }
 
     //*------------------------------------------------------------------------------------*//
-    fs.writeFileSync("./temp_data.josn", JSON.stringify(data));
+    fs.writeFileSync("./temp_data.json", JSON.stringify(data));
     console.log("\n" + util.inspect(data, { colors: true }));
     return data;
 };
