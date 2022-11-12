@@ -1,4 +1,4 @@
-module.exports = (input) => {
+module.exports = (input, debug) => {
 
     const fs = require('fs');
     const AsciiBar = require('ascii-bar').default;
@@ -117,8 +117,10 @@ module.exports = (input) => {
                 }
             }
 
-            //console.log("------counts:" + count);
-            fs.writeFileSync("./temp_data_raw.json", JSON.stringify(seq));
+            if(debug){
+                fs.writeFileSync("./temp_data_raw.json", JSON.stringify(seq));
+                console.log("------counts:" + count);
+            }
 
             let motors = [];
             let actions = [];
@@ -178,7 +180,9 @@ module.exports = (input) => {
     }
 
     //*------------------------------------------------------------------------------------*//
-    fs.writeFileSync("./temp_data.json", JSON.stringify(data));
-    console.log("\n" + util.inspect(data, { colors: true }));
+    if(debug){
+        fs.writeFileSync("./temp_data.json", JSON.stringify(data));
+        console.log("\n" + util.inspect(data, { colors: true }));
+    }
     return data;
 };
