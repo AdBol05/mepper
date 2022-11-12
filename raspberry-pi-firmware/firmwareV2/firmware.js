@@ -69,7 +69,7 @@ for(let i = 0; i < 12; i++){
 console.log("\n\nPLaying: " + input.name);
  
 for(let i in data.action){
-    //console.log(data.motor[i] + " " + data.action[i] + " " + data.delay[i]);
+    if(debug){console.log(data.motor[i] + " " + data.action[i] + " " + data.delay[i]);}
     if(data.motor[i] !== undefined && data.action[i] !== undefined && data.delay[i] !== NaN){
         let m = data.motor[i];
         let n = data.motor[i] + 1;
