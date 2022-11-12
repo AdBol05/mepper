@@ -142,10 +142,15 @@ module.exports = (input) => {
                 timestamps = timestamps.concat(seq[k].timestamp);            
             }
             
-            console.log("motors:\n[" + motors + "]\n");    
-            console.log("actions:\n[" + actions + "]\n");    
-            console.log("delays:\n[" + delays + "]\n");    
-            console.log("timestamps:\n[" + timestamps + "]\n");
+            
+            console.log("motors:");    
+            console.log(motors);    
+            console.log("actions:");    
+            console.log(actions);    
+            console.log("delays:");    
+            console.log(delays);    
+            console.log("timestamps:");
+            console.log(timestamps);
 }
 
         //*------------------------------------------------------------------------------------*//
