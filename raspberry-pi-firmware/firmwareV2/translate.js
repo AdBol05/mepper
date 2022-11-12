@@ -152,7 +152,9 @@ module.exports = (input) => {
                 if(n > 0){data.delay.push(Math.abs(nested[0][n - 1] - nested[0][n]));}
                 else{data.delay.push(0);}
             }
-
+            
+            let sum = seq[0].motor.lenght + seq[1].motor.lenght + seq[2].motor.lenght;
+            console.log(sum + " " + data.motor.lenght);
         }
 
         //*------------------------------------------------------------------------------------*//
@@ -172,8 +174,6 @@ module.exports = (input) => {
             }
         }
         bar.update(Number(i) + 1);
-        let sum = seq[0].motor.lenght + seq[1].motor.lenght + seq[2].motor.lenght;
-        console.log(sum + " " + data.motor.lenght);
     }
 
     //*------------------------------------------------------------------------------------*//
