@@ -170,7 +170,7 @@ module.exports = (input, debug) => {
                     data.motor.push(motor);
                     data.action.push(k);
                     if (j === (count - 1) && k !== 0) { data.delay.push(delay + (input.pause[i]) * 1000); }
-                    else { data.delay.push(delay); }
+                    else { data.delay.push(delay);}
                 }
             }
         }
