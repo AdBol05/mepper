@@ -43,4 +43,4 @@ Firmware is meant for a raspberry pi. Rotates motor according to data from json 
 
 -Adequate power supply (12V for motors + 5V for raspberry pi +3.3V for drivers). In case you use the mepper driver PCB you can hook it up to an ATX power supply, which will power the motors, drivers and the raspberry pi via an ATX 24 pin connector.
 
-# NOTE: This project has not been appropriately tested and is still in development! (Firmware is not able to play more notes simultaneously and midi interpreter is in development) Any feedback or suggestion is welcome.
+# NOTE: This project has not been appropriately tested and is still in development! (MIDI interpreter is still in an early phase of development) Any feedback or suggestion is welcome.
