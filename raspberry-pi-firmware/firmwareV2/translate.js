@@ -145,25 +145,25 @@ module.exports = (input) => {
 
             let srcArr;
             nested = nested.map((arr, s) => {
-                if (s === 0) { // the reference
-                    srcArr = arr.slice(0); // take a copy
-                    arr.sort((a, b) => a - b); // sort the nested one
+                if (s === 0) {
+                    srcArr = arr.slice(0);
+                    arr.sort((a, b) => a - b);
                     return arr;
                 }
                 return arr.map((item, s) => arr[
-                    srcArr.indexOf(nested[0][s]) // return in the order of the reference 
+                    srcArr.indexOf(nested[0][s])
                 ]);
             })
 
-            /*console.log("motors:");    
-            console.log(motors);    
+            console.log("motors:");    
+            console.log(nested[3]);    
             console.log("actions:");    
-            console.log(actions);    
+            console.log(nested[2]);    
             console.log("delays:");    
-            console.log(delays);    
+            console.log(nested[1]);    
             console.log("timestamps:");
-            console.log(timestamps);*/
-            console.log(nested);
+            console.log(nested[0]);
+            //console.log(nested);
         }
 
         //*------------------------------------------------------------------------------------*//
