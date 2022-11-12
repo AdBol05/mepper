@@ -163,7 +163,7 @@ module.exports = (input) => {
 
             let delays = [];
             for(n in nested[0]){
-                delays.push(nested[0][n]);
+                data.delay.push(nested[0][n]);
             }
 
         }
