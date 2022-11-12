@@ -122,7 +122,7 @@ module.exports = (input) => {
                     }
                 }
             }
-            console.log("\n" + util.inspect(seq, {colors: true}));
+            //console.log("\n" + util.inspect(seq, {colors: true}));
             //TODO combine arrays based on timestamps
 
             //!add pause at the and of array join
@@ -142,10 +142,10 @@ module.exports = (input) => {
                 timestamps = timestamps.concat(seq[k].timestamp);            
             }
             
-            console.log(motors);    
-            console.log(actions);    
-            console.log(delays);    
-            console.log(timestamps);
+            console.log("motors:" + motors);    
+            console.log("actions:" + actions);    
+            console.log("delays:" + delays);    
+            console.log("timestamps:" + timestamps);
 }
 
         //*------------------------------------------------------------------------------------*//
