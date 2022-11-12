@@ -122,12 +122,6 @@ module.exports = (input) => {
                     }
                 }
             }
-            //console.log("\n" + util.inspect(seq, {colors: true}));
-            //TODO combine arrays based on timestamps
-
-            //!add pause at the and of array join
-            //if(j === (count[h] - 1) && k !== 0){seq[h].timestamp.push(del + (input.pause[i]) * 1000);}
-            //else{seq[h].timestamp.push(del);}
 
             let motors = [];
             let actions = [];
@@ -137,13 +131,13 @@ module.exports = (input) => {
             for (k in sample) {
                 motors = motors.concat(seq[k].motor);
                 actions = actions.concat(seq[k].action);
-                //delays = delays.concat(seq[k].delay);
                 timestamps = timestamps.concat(seq[k].timestamp);
             }
 
+            //add puase after notes at the end of the sequence
             timestamps[timestamps.length] = timestamps[timestamps.length] + (input.pause[i] * 1000);
 
-            let nested = [timestamps, /*delays,*/ actions, motors];
+            let nested = [timestamps, actions, motors];
 
             let srcArr;
             nested = nested.map((arr, s) => {
@@ -160,12 +154,12 @@ module.exports = (input) => {
             console.log("motors:");    
             console.log(nested[2]);    
             console.log("actions:");    
-            console.log(nested[1]);    
-            //console.log("delays:");    
-            //console.log(nested[1]);    
+            console.log(nested[1]);        
             console.log("timestamps:");
             console.log(nested[0]);
-            //console.log(nested);
+
+            //TODO resolve delays from timestamps and parse nested arrays to output data object
+
         }
 
         //*------------------------------------------------------------------------------------*//
