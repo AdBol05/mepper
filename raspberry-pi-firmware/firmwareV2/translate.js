@@ -146,7 +146,7 @@ module.exports = (input) => {
 
             //resolve delays from timestamps and convert arrays to output object
             for(n in nested[0]){
-                console.log(nested[2] + " " + nested[1] + " " + nested[0]);
+                console.log(nested[2][n] + " " + nested[1][n] + " " + nested[0][n]);
                 data.motor.push(nested[2][n]);
                 data.action.push(nested[1][n]);
                 if(n > 0){data.delay.push(Math.abs(nested[0][n - 1] - nested[0][n]));}
