@@ -141,6 +141,8 @@ module.exports = (input) => {
                 timestamps = timestamps.concat(seq[k].timestamp);
             }
 
+            timestamps[timestamps.length] = timestamps[timestamps.length] + (input.pause[i] * 1000);
+
             let nested = [timestamps, /*delays,*/ actions, motors];
 
             let srcArr;
