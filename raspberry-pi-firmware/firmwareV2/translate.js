@@ -56,16 +56,6 @@ module.exports = (input) => {
 
     console.log("Processing input...");
 
-    /*function larger(a, b){
-        if(a >= b){return a}
-        if(b > a){return b}
-    }
-
-    function smaller(a, b){
-        if(a <= b){return a}
-        if(b < a){return b}
-    }*/
-
     let data = {//some starting data -> just turn all motors off
         "motor": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], //look, I know it's stupid and not very efficient but it will probably work in the end
         "action": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -151,13 +141,6 @@ module.exports = (input) => {
                     srcArr.indexOf(nested[0][s])
                 ]);
             })
-
-            /*console.log("motors:");
-            console.log(nested[2]);
-            console.log("actions:");
-            console.log(nested[1]);
-            console.log("timestamps:");
-            console.log(nested[0]);*/
 
             //TODO resolve delays from timestamps
 
