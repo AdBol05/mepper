@@ -161,8 +161,9 @@ module.exports = (input) => {
 
             //TODO resolve delays from timestamps and parse nested arrays to output data object
 
-            let delays = [];
             for(n in nested[0]){
+                data.motor.push(nested[2][n]);
+                data.action.push(nested[1][n]);
                 data.delay.push(nested[0][n]);
             }
 
