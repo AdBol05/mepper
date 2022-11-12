@@ -1,5 +1,6 @@
 module.exports = (input) => {
 
+    const fs = require('fs');
     const AsciiBar = require('ascii-bar').default;
     let util = require('util');
 
@@ -152,11 +153,6 @@ module.exports = (input) => {
                 if(n > 0){data.delay.push(Math.abs(nested[0][n - 1] - nested[0][n]));}
                 else{data.delay.push(0);}
             }
-            
-            console.log("\n-----------------------------------------");
-            let sum = Number(seq[0].motor.lenght) + Number(seq[1].motor.lenght) + Number(seq[2].motor.lenght);
-            console.log(sum + " " + data.motor);
-            console.log("\n-----------------------------------------");
         }
 
         //*------------------------------------------------------------------------------------*//
@@ -179,6 +175,7 @@ module.exports = (input) => {
     }
 
     //*------------------------------------------------------------------------------------*//
+    fs.writeFileSync("./temp_data.josn", JSON.stringify(data));
     console.log("\n" + util.inspect(data, { colors: true }));
     return data;
 };
