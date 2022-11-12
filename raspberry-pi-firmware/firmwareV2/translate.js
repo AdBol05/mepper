@@ -112,12 +112,12 @@ module.exports = (input) => {
                         seq[h].action.push(k);          //* actions
                         seq[h].timestamp.push(del);     //* timestamps
                         del = del + delay[h];           //* delay adder (probably useless in the future)
-                        console.log(seq[h].motor[j] + " " + seq[h].action[j] + " " + seq[h].timestamp[j]);
+                        //console.log(seq[h].motor[j] + " " + seq[h].action[j] + " " + seq[h].timestamp[j]);
                     }
                 }
             }
 
-            console.log("------counts:" + count);
+            //console.log("------counts:" + count);
             fs.writeFileSync("./temp_data_raw.json", JSON.stringify(seq));
 
             let motors = [];
@@ -155,6 +155,10 @@ module.exports = (input) => {
                 data.action.push(nested[1][n]);
                 if(n > 0){data.delay.push(Math.abs(nested[0][n - 1] - nested[0][n]));}
                 else{data.delay.push(0);}
+            }
+            for(o in nested){
+                nested[o] = nested[o].filter(element => {return element !== undefined;});
+                nested[o] = nested[o].filter(element => {return element !== NaN;});
             }
         }
 
