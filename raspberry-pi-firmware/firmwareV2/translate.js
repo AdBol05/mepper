@@ -6,7 +6,7 @@ module.exports = (input) => {
     let tempo = 120;
     let oct = 5;
 
-    const notemap = new Map();
+    const notemap = new Map();//map nota values and motor numbers
     notemap.set("cf", { ntm: 1805, m: 1 });
     notemap.set("df", { ntm: 1607, m: 2 });
     notemap.set("ff", { ntm: 1351, m: 3 });
@@ -84,6 +84,7 @@ module.exports = (input) => {
 
     //*------------------------------------------------------------------------------------*//
     for (let i in input.sequence) {
+        //convert notes to usable format
         input.sequence[i] = input.sequence[i].replace("h", "b");
         input.sequence[i] = input.sequence[i].replace("is", "f");
 
@@ -97,7 +98,7 @@ module.exports = (input) => {
             let motor = [];
 
             let seq = [];
-
+            //prepare all variables
             for (j in sample) {
                 delay[j] = Math.floor(notemap.get(sample[j]).ntm * oct);
                 count[j] = Math.floor((input.timing[i] * 5 * tempo) / delay[j]);
@@ -110,13 +111,13 @@ module.exports = (input) => {
                 });
             }
 
+            //get motor sequence data
             for (h in sample) {
                 let del = 0;
                 for (let j = 0; j < count[h]; j++) {
                     for (let k = 0; k < 2; k++) {
                         seq[h].motor.push(motor[h]);    //* motors
                         seq[h].action.push(k);          //* actions
-                        //seq[h].delay.push(delay[h]);    //* delays
                         seq[h].timestamp.push(del);     //* timestamps
                         del = del + delay[h];           //* delay adder (probably useless in the future)     
                     }
@@ -125,9 +126,8 @@ module.exports = (input) => {
 
             let motors = [];
             let actions = [];
-            //let delays = [];
             let timestamps = [];
-
+            //combine all arrays
             for (k in sample) {
                 motors = motors.concat(seq[k].motor);
                 actions = actions.concat(seq[k].action);
@@ -137,8 +137,8 @@ module.exports = (input) => {
             //add puase after notes at the end of the sequence
             timestamps[timestamps.length] = timestamps[timestamps.length] + (input.pause[i] * 1000);
 
+            //sort all arrays based on timestamp (the first array)
             let nested = [timestamps, actions, motors];
-
             let srcArr;
             nested = nested.map((arr, s) => {
                 if (s === 0) {
@@ -168,7 +168,7 @@ module.exports = (input) => {
             let delay = Math.floor(notemap.get(input.sequence[i]).ntm * oct);
             let count = Math.floor((input.timing[i] * 5 * tempo) / delay);
             let motor = notemap.get(input.sequence[i]).m - 1;
-
+            //get motor sequence data
             for (let j = 0; j < count; j++) {
                 for (let k = 0; k < 2; k++) {
                     data.motor.push(motor);
