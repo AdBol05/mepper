@@ -74,7 +74,7 @@ console.log("\n\nPLaying: " + input.name);
 
 //controll motors based on sequence recieved from translate.js
 for(let i in data.action){
-    if(debug){"motor:" + console.log(data.motor[i] + " action:" + data.action[i] + " delay:" + data.delay[i]);}
+    if(debug){console.log("motor:" + data.motor[i] + " action:" + data.action[i] + " delay:" + data.delay[i]);}
     if(data.motor[i] !== undefined && data.action[i] !== undefined && data.delay[i] !== NaN){
         let m = data.motor[i];
         let n = data.motor[i] + 1;
