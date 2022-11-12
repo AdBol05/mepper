@@ -116,8 +116,8 @@ module.exports = (input) => {
                     for (let k = 0; k < 2; k++) {
                         seq[h].motor.push(motor[h]);    //* motors
                         seq[h].action.push(k);          //* actions
+                        //seq[h].delay.push(delay[h]);    //* delays
                         seq[h].timestamp.push(del);     //* timestamps
-                        seq[h].delay.push(delay[h]);    //* delays
                         del = del + delay[h];           //* delay adder (probably useless in the future)     
                     }
                 }
@@ -131,17 +131,17 @@ module.exports = (input) => {
 
             let motors = [];
             let actions = [];
-            let delays = [];
+            //let delays = [];
             let timestamps = [];
 
             for (k in sample) {
                 motors = motors.concat(seq[k].motor);
                 actions = actions.concat(seq[k].action);
-                delays = delays.concat(seq[k].delay);
+                //delays = delays.concat(seq[k].delay);
                 timestamps = timestamps.concat(seq[k].timestamp);
             }
 
-            let nested = [timestamps, delays, actions, motors];
+            let nested = [timestamps, /*delays,*/ actions, motors];
 
             let srcArr;
             nested = nested.map((arr, s) => {
@@ -156,11 +156,11 @@ module.exports = (input) => {
             })
 
             console.log("motors:");    
-            console.log(nested[3]);    
-            console.log("actions:");    
             console.log(nested[2]);    
-            console.log("delays:");    
+            console.log("actions:");    
             console.log(nested[1]);    
+            //console.log("delays:");    
+            //console.log(nested[1]);    
             console.log("timestamps:");
             console.log(nested[0]);
             //console.log(nested);
