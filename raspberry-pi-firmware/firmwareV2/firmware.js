@@ -12,7 +12,7 @@ let debug = false;
 if(args[0] === undefined){console.error('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided");process.exit(9);}
 else{file = args[0];};//set file input to first argument
 
-if(args[1] === "debug"){debug = true;}
+if(args[1] === "debug"){debug = true;}//log info when debug option is specified
 
 //welcome screen
 
@@ -39,15 +39,16 @@ console.log('\x1b[32m%s\x1b[0m'," / / / / / /  __/ /_/ / /_/ /  __/ /  /_____/ _
 console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/        /_/ /_/_/  /_/ /_/ /_/|__/|__/\\__,_/_/   \\___/    ");
 console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                                                                        \n");
 
-let input = JSON.parse(fs.readFileSync(file));
+let input = JSON.parse(fs.readFileSync(file));//read and parse input file
 
 let dir = new Gpio(26, 'out');//set direction output pin
 dir.writeSync(input.direction);//set direction based on input file
 
-let data = translate(input, debug);
+let data = translate(input, debug);//translate notes into motor sequence (translate.js)
 
 console.log();
 
+//motor setup progress bar
 let bar = new AsciiBar({
     undoneSymbol: "-",
     doneSymbol: "#",
@@ -58,6 +59,7 @@ let bar = new AsciiBar({
     total: 12,
 });
 
+//set up all mootors
 console.log("Setting up motors...");
 global.M = {};
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
@@ -67,7 +69,8 @@ for(let i = 0; i < 12; i++){
 }
 
 console.log("\n\nPLaying: " + input.name);
- 
+
+//controll motors based on sequence recieved from translate.js
 for(let i in data.action){
     if(debug){console.log(data.motor[i] + " " + data.action[i] + " " + data.delay[i]);}
     if(data.motor[i] !== undefined && data.action[i] !== undefined && data.delay[i] !== NaN){
@@ -80,7 +83,7 @@ for(let i in data.action){
     }
 }
 
-dir.unexport();
+dir.unexport();//disconnect all motors from process
 for(let i = 0; i < 12; i++){M[i].unexport();}
 
 console.log("\n-----------------------------------------------------------------------------------------");

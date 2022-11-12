@@ -7,7 +7,7 @@ module.exports = (input, debug) => {
     let tempo = 120;
     let oct = 5;
 
-    const notemap = new Map();//map nota values and motor numbers
+    const notemap = new Map();//map of note values and motor numbers
     notemap.set("cf", { ntm: 1805, m: 1 });
     notemap.set("df", { ntm: 1607, m: 2 });
     notemap.set("ff", { ntm: 1351, m: 3 });
@@ -64,6 +64,7 @@ module.exports = (input, debug) => {
         "dual": false
     };
 
+    //translation progress bar
     let bar = new AsciiBar({
         undoneSymbol: "-",
         doneSymbol: "#",
@@ -76,7 +77,7 @@ module.exports = (input, debug) => {
 
     //*------------------------------------------------------------------------------------*//
     for (let i in input.sequence) {
-        //convert notes to usable format
+        //convert unsupported notes
         input.sequence[i] = input.sequence[i].replace("h", "b");
         input.sequence[i] = input.sequence[i].replace("is", "f");
 
@@ -112,7 +113,6 @@ module.exports = (input, debug) => {
                         seq[h].action.push(k);          //* actions
                         seq[h].timestamp.push(del);     //* timestamps
                         del = del + delay[h];           //* delay adder (probably useless in the future)
-                        //console.log(seq[h].motor[j] + " " + seq[h].action[j] + " " + seq[h].timestamp[j]);
                     }
                 }
             }
@@ -148,8 +148,6 @@ module.exports = (input, debug) => {
                     srcArr.indexOf(nested[0][s])
                 ]);
             })
-
-            //TODO resolve delays from timestamps
 
             //resolve delays from timestamps and convert arrays to output object
             for(n in nested[0]){
