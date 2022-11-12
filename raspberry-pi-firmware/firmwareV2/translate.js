@@ -138,7 +138,7 @@ module.exports = (input) => {
                 motors = motors.concat(seq[k].motor);
                 actions = actions.concat(seq[k].action);
                 delays = delays.concat(seq[k].delay);
-                timestamps = timestamps.concat(seq[k].timestamp);            
+                timestamps = timestamps.concat(seq[k].timestamp);
             }            
             
             console.log("motors:");    
@@ -149,7 +149,7 @@ module.exports = (input) => {
             console.log(delays);    
             console.log("timestamps:");
             console.log(timestamps);
-}
+        }
 
         //*------------------------------------------------------------------------------------*//
 
