@@ -88,5 +88,5 @@ for(let i in data.action){
 dir.unexport();//disconnect all motors from process
 for(let i = 0; i < 12; i++){M[i].unexport();}
 
-console.log("\n-----------------------------------------------------------------------------------------");
+console.log("\n#-----------------------------------------------------------------------------------------#");
 console.log('\x1b[32m%s\x1b[0m'," Done in "+ process.uptime().toFixed(2) + "s \n");
