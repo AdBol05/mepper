@@ -159,8 +159,9 @@ module.exports = (input) => {
             console.log("timestamps:");
             console.log(nested[0]);*/
 
-            //TODO resolve delays from timestamps and parse nested arrays to output data object
+            //TODO resolve delays from timestamps
 
+            //resolve delays from timestamps and convert arrays to output object
             for(n in nested[0]){
                 data.motor.push(nested[2][n]);
                 data.action.push(nested[1][n]);
