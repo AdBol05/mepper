@@ -154,7 +154,7 @@ module.exports = (input) => {
             }
             
             console.log("\n-----------------------------------------");
-            let sum = Number(seq[0].motor.lenght) + Number(seq[1].motor.lenght) + Nimber(seq[2].motor.lenght);
+            let sum = Number(seq[0].motor.lenght) + Number(seq[1].motor.lenght) + Number(seq[2].motor.lenght);
             console.log(sum + " " + data.motor);
             console.log("\n-----------------------------------------");
         }
