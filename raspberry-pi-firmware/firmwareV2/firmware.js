@@ -67,12 +67,14 @@ console.log("\n\nPLaying: " + input.name);
  
 for(let i in data.action){
     console.log(data.motor[i] + " " + data.action[i] + " " + data.delay[i]);
-    /*let m = data.motor[i];
-    let n = data.motor[i] + 1;
-    if(n > 11){n = n - 11;}
-    M[m].writeSync(data.action[i]);
-    if(!data.dual)M[n].writeSync(data.action[i]);
-    sleep.usleep(data.delay[i]);*/
+    if(data.motor[i] !== undefined && data.action[i] !== undefined && data.delay[i] !== NaN){
+        let m = data.motor[i];
+        let n = data.motor[i] + 1;
+        if(n > 11){n = n - 11;}
+        M[m].writeSync(data.action[i]);
+        if(!data.dual)M[n].writeSync(data.action[i]);
+        sleep.usleep(data.delay[i]);
+    }
 }
 
 dir.unexport();

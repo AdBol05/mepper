@@ -156,10 +156,6 @@ module.exports = (input) => {
                 if(n > 0){data.delay.push(Math.abs(nested[0][n - 1] - nested[0][n]));}
                 else{data.delay.push(0);}
             }
-            for(o in sample){
-                nested[o] = nested[o].filter(element => {return element !== undefined;});
-                nested[o] = nested[o].filter(element => {return element !== NaN;});
-            }
         }
 
         //*------------------------------------------------------------------------------------*//
