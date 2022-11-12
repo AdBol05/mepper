@@ -117,6 +117,8 @@ module.exports = (input) => {
                 }
             }
 
+            fs.writeFileSynch("./temp_data_raw", JSON.stringify(seq));
+
             let motors = [];
             let actions = [];
             let timestamps = [];
