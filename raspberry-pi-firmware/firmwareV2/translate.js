@@ -112,7 +112,7 @@ module.exports = (input, debug) => {
                         seq[h].motor.push(motor[h]);    //* motors
                         seq[h].action.push(k);          //* actions
                         seq[h].timestamp.push(del);     //* timestamps
-                        del = del + delay[h];           //* delay adder (probably useless in the future)
+                        del = del + delay[h];           //* delay adder
                     }
                 }
             }
