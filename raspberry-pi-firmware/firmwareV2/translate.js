@@ -132,6 +132,10 @@ module.exports = (input, debug) => {
                 timestamps = timestamps.concat(seq[k].timestamp);
             }
 
+            motors.filter(function(element){return element !== undefined;});
+            actions.filter(function(element){return element !== undefined;});
+            timestamps.filter(function(element){return element !== NaN;});
+
             //add puase after notes at the end of the sequence
             timestamps[timestamps.length] = timestamps[timestamps.length] + (input.pause[i] * 1000);
 
