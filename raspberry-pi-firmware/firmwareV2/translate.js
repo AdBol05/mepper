@@ -134,7 +134,7 @@ module.exports = (input, debug) => {
 
             
             //add puase after notes at the end of the sequence
-            timestamps[timestamps.length] = timestamps[timestamps.length] + (input.pause[i] * 1000);
+            timestamps[timestamps.length - 1] = timestamps[timestamps.length - 1] + (input.pause[i] * 1000);
             
             //sort all arrays based on timestamp (the first array)
             let nested = [timestamps, actions, motors];
@@ -150,9 +150,9 @@ module.exports = (input, debug) => {
                 ]);
             })
 
-            nested[2].filter(function(element){return element !== undefined;});
+            /*nested[2].filter(function(element){return element !== undefined;});
             nested[1].filter(function(element){return element !== undefined;});
-            nested[0].filter(function(element){return element !== NaN;});
+            neted[0].filter(function(element){return element !== NaN;});*/
             
             //resolve delays from timestamps and convert arrays to output object
             for(n in nested[0]){
