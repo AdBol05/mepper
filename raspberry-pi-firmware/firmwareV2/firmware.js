@@ -16,20 +16,20 @@ if(args[1] === "debug"){debug = true;}//log info when debug option is specified
 
 //welcome screen
 
-console.log('\x1b[32m%s\x1b[0m',"               ((                ");
-console.log('\x1b[32m%s\x1b[0m',"             ((((((              ");
-console.log('\x1b[32m%s\x1b[0m',"           (((((((((((           ");
-console.log('\x1b[32m%s\x1b[0m',"          ((((((((((((((         ");
-console.log('\x1b[32m%s\x1b[0m',"      ((  ((((                   ");
-console.log('\x1b[32m%s\x1b[0m',"   (((((  ((        (((((((((    ");
-console.log('\x1b[32m%s\x1b[0m'," (((((((               ((((((((  ");
+console.log('\x1b[32m%s\x1b[0m',"               ((");
+console.log('\x1b[32m%s\x1b[0m',"             ((((((");
+console.log('\x1b[32m%s\x1b[0m',"           (((((((((((");
+console.log('\x1b[32m%s\x1b[0m',"          ((((((((((((((");
+console.log('\x1b[32m%s\x1b[0m',"      ((  ((((");
+console.log('\x1b[32m%s\x1b[0m',"   (((((  ((        (((((((((");
+console.log('\x1b[32m%s\x1b[0m'," (((((((               ((((((((");
 console.log('\x1b[32m%s\x1b[0m',"((((((((                 ((((((((");
-console.log('\x1b[32m%s\x1b[0m',"  (((((((((          ((  (((((   ");
-console.log('\x1b[32m%s\x1b[0m',"    (((((((((      ((((  (((     ");
-console.log('\x1b[32m%s\x1b[0m',"                 ((((((          ");
-console.log('\x1b[32m%s\x1b[0m',"         ((((((((((((((          ");
-console.log('\x1b[32m%s\x1b[0m',"            (((((((((            ");
-console.log('\x1b[32m%s\x1b[0m',"              ((((               ");
+console.log('\x1b[32m%s\x1b[0m',"  (((((((((          ((  (((((");
+console.log('\x1b[32m%s\x1b[0m',"    (((((((((      ((((  (((");
+console.log('\x1b[32m%s\x1b[0m',"                 ((((((");
+console.log('\x1b[32m%s\x1b[0m',"         ((((((((((((((");
+console.log('\x1b[32m%s\x1b[0m',"            (((((((((");
+console.log('\x1b[32m%s\x1b[0m',"              ((((");
 
 
 console.log('\x1b[32m%s\x1b[0m',"                                               _____");
