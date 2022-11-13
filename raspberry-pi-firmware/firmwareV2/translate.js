@@ -132,13 +132,10 @@ module.exports = (input, debug) => {
                 timestamps = timestamps.concat(seq[k].timestamp);
             }
 
-            motors.filter(function(element){return element !== undefined;});
-            actions.filter(function(element){return element !== undefined;});
-            timestamps.filter(function(element){return element !== NaN;});
-
+            
             //add puase after notes at the end of the sequence
             timestamps[timestamps.length] = timestamps[timestamps.length] + (input.pause[i] * 1000);
-
+            
             //sort all arrays based on timestamp (the first array)
             let nested = [timestamps, actions, motors];
             let srcArr;
@@ -152,7 +149,7 @@ module.exports = (input, debug) => {
                     srcArr.indexOf(nested[0][s])
                 ]);
             })
-
+            
             //resolve delays from timestamps and convert arrays to output object
             for(n in nested[0]){
                 data.motor.push(nested[2][n]);
@@ -160,6 +157,11 @@ module.exports = (input, debug) => {
                 if(n > 0){data.delay.push(Math.abs(nested[0][n - 1] - nested[0][n]));}
                 else{data.delay.push(0);}
             }
+
+            data.motor.filter(function(element){return element !== undefined;});
+            data.action.filter(function(element){return element !== undefined;});
+            data.timestamp.filter(function(element){return element !== NaN;});
+
         }
 
         //*------------------------------------------------------------------------------------*//
