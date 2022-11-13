@@ -149,6 +149,10 @@ module.exports = (input, debug) => {
                     srcArr.indexOf(nested[0][s])
                 ]);
             })
+
+            nested[2].filter(function(element){return element !== undefined;});
+            nested[1].filter(function(element){return element !== undefined;});
+            nested[0].filter(function(element){return element !== NaN;});
             
             //resolve delays from timestamps and convert arrays to output object
             for(n in nested[0]){
@@ -158,9 +162,6 @@ module.exports = (input, debug) => {
                 else{data.delay.push(0);}
             }
 
-            data.motor.filter(function(element){return element !== undefined;});
-            data.action.filter(function(element){return element !== undefined;});
-            data.timestamp.filter(function(element){return element !== NaN;});
 
         }
 
