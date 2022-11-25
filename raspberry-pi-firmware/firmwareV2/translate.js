@@ -149,10 +149,6 @@ module.exports = (input, debug) => {
                     srcArr.indexOf(nested[0][s])
                 ]);
             })
-
-            /*nested[2].filter(function(element){return element !== undefined;});
-            nested[1].filter(function(element){return element !== undefined;});
-            neted[0].filter(function(element){return element !== NaN;});*/
             
             //resolve delays from timestamps and convert arrays to output object
             for(n in nested[0]){
