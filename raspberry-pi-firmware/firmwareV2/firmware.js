@@ -70,7 +70,7 @@ for(let i = 0; i < 12; i++){
     bar.update(i + 1); //! has a large delay -> cannot be used for sequence progress bar
 }
 
-console.log("\n\nPLaying: " + input.name);
+console.log("\n\nPlaying: " + input.name);
 
 //controll motors based on sequence recieved from translate.js
 for(let i in data.action){
