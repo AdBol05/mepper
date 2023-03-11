@@ -10,7 +10,7 @@ You need to install all dependencies
 # Usage
 Paste desired midi file into the script's directory and run index.js with it's path as the first argument. Optionaly you can set a different display name (stored inside the file and then printed by firmware) as the second argument.
 
-    node index.js input.mp3 test
+    node index.js input.mid test
 
 The created file can then be used to drive the stepper motors.
 
