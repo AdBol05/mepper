@@ -131,7 +131,6 @@ module.exports = (input, debug) => {
                 actions = actions.concat(seq[k].action);
                 timestamps = timestamps.concat(seq[k].timestamp);
             }
-
             
             //add puase after notes at the end of the sequence
             timestamps[timestamps.length - 1] = timestamps[timestamps.length - 1] + (input.pause[i] * 1000);
@@ -157,8 +156,6 @@ module.exports = (input, debug) => {
                 if(n > 0){data.delay.push(Math.abs(nested[0][n - 1] - nested[0][n]));}
                 else{data.delay.push(0);}
             }
-
-
         }
 
         //*------------------------------------------------------------------------------------*//
