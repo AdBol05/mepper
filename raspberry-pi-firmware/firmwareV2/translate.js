@@ -8,7 +8,7 @@ module.exports = (input, debug) => {
     let oct = 5;
     
     let notemap = new Map();//map of note values and motor numbers
-    let notes_raw = fs.readFileSync("./notes.csv", "utf-8").split("\n").filter(element => {return element !== undefined;});
+    let notes_raw = fs.readFileSync("./notes.csv", "utf-8").trim().split("\n").filter(element => {return element !== undefined;});
     
     console.log("Processing input...");
 
