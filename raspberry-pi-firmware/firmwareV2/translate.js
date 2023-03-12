@@ -1,14 +1,23 @@
 module.exports = (input, debug) => {
-
+    
     const fs = require('fs');
     const AsciiBar = require('ascii-bar').default;
     let util = require('util');
-
+    
     let tempo = 120;
     let oct = 5;
+    
+    let notemap = new Map();//map of note values and motor numbers
+    let notes_raw = fs.readFileSync("./notes.csv", "utf-8").split("\n").filter(element => {return element !== undefined;});
+    
+    console.log("Processing input...");
+    
+    for(i in notes_raw){
+        let no = notes_raw[i].split(",");
+        notemap.set(no[0].trim(), {ntm: no[1].trim(), m: no[2].trim()});
+    }
 
-    const notemap = new Map();//map of note values and motor numbers
-    notemap.set("cf", { ntm: 1805, m: 1 });
+/*    notemap.set("cf", { ntm: 1805, m: 1 });
     notemap.set("df", { ntm: 1607, m: 2 });
     notemap.set("ff", { ntm: 1351, m: 3 });
     notemap.set("gf", { ntm: 1203, m: 4 });
@@ -53,9 +62,10 @@ module.exports = (input, debug) => {
     notemap.set("b2", { ntm: 253, m: 4 });
 
     notemap.set("af0", { ntm: 2144, m: 5 });
+*/
     //!ntm = 1000000/note_freq/2
-
-    console.log("Processing input...");
+    
+    console.table(notemap);
 
     let data = {//some starting data -> just turn all motors off
         "motor": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], //look, I know it's stupid and not very efficient but it will probably work in the end
