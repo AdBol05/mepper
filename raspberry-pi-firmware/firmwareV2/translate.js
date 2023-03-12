@@ -20,7 +20,8 @@ module.exports = (input, debug) => {
         notemap.set(no[0].trim(), {ntm: Number(no[1].trim()), m: index});
     }
 
-/*    notemap.set("cf", { ntm: 1805, m: 1 });
+/*    
+    notemap.set("cf", { ntm: 1805, m: 1 });
     notemap.set("df", { ntm: 1607, m: 2 });
     notemap.set("ff", { ntm: 1351, m: 3 });
     notemap.set("gf", { ntm: 1203, m: 4 });
