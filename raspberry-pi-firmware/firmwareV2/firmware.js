@@ -15,23 +15,6 @@ else{file = args[0];};//set file input to first argument
 if(args[1] === "debug"){debug = true;}//log info when debug option is specified
 
 //welcome screen
-
-console.log('\x1b[32m%s\x1b[0m',"               ((");
-console.log('\x1b[32m%s\x1b[0m',"             ((((((");
-console.log('\x1b[32m%s\x1b[0m',"           (((((((((((");
-console.log('\x1b[32m%s\x1b[0m',"          ((((((((((((((");
-console.log('\x1b[32m%s\x1b[0m',"      ((  ((((             ");
-console.log('\x1b[32m%s\x1b[0m',"   (((((  ((        (((((((((");
-console.log('\x1b[32m%s\x1b[0m'," (((((((               ((((((((");
-console.log('\x1b[32m%s\x1b[0m',"((((((((                 ((((((((");
-console.log('\x1b[32m%s\x1b[0m',"  (((((((((          ((  (((((");
-console.log('\x1b[32m%s\x1b[0m',"    (((((((((      ((((  (((");
-console.log('\x1b[32m%s\x1b[0m',"                 ((((((   ");
-console.log('\x1b[32m%s\x1b[0m',"         ((((((((((((((");
-console.log('\x1b[32m%s\x1b[0m',"            (((((((((");
-console.log('\x1b[32m%s\x1b[0m',"              ((((");
-
-
 console.log('\x1b[32m%s\x1b[0m',"                                               _____");
 console.log('\x1b[32m%s\x1b[0m',"   ____ ___  ___  ____  ____  ___  _____      / __(_)________ ___ _      ______ _________");
 console.log('\x1b[32m%s\x1b[0m',"  / __ `__ \\/ _ \\/ __ \\/ __ \\/ _ \\/ ___/_____/ /_/ / ___/ __ `__ \\ | /| / / __ `/ ___/ _ \\");
@@ -59,7 +42,7 @@ let bar = new AsciiBar({
     total: 12,
 });
 
-//set up all mootors
+//set up all motors
 console.log("\nSetting up motors...");
 global.M = {};
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
@@ -70,7 +53,7 @@ for(let i = 0; i < 12; i++){
 
 console.log("\n\nPlaying: " + input.name);
 
-//controll motors based on sequence recieved from translate.js
+//control motors based on sequence recieved from translate.js
 for(let i in data.action){
     if(debug){console.log("motor:" + data.motor[i] + " action:" + data.action[i] + " delay:" + data.delay[i]);}
     if(data.motor[i] !== undefined && data.action[i] !== undefined && data.delay[i] !== NaN){

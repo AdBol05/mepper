@@ -12,6 +12,7 @@ module.exports = (input, debug) => {
     
     console.log("Processing input...");
 
+    //create mep of nite values form csv file
     let index = 0;
     for(i in notes_raw){
         let no = notes_raw[i].split(",");
