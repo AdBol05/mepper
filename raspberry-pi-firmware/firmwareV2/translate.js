@@ -17,7 +17,7 @@ module.exports = (input, debug) => {
         let no = notes_raw[i].split(",");
         index++;
         if (index > 12){index = 1;}
-        notemap.set(no[0].trim(), {ntm: no[1].trim(), m: index});
+        notemap.set(no[0].trim(), {ntm: Number(no[1].trim()), m: index});
     }
 
 /*    notemap.set("cf", { ntm: 1805, m: 1 });
