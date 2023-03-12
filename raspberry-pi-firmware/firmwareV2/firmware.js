@@ -48,8 +48,6 @@ dir.writeSync(input.direction);//set direction based on input file
 
 let data = translate(input, debug);//translate notes into motor sequence (translate.js)
 
-console.log();
-
 //motor setup progress bar
 let bar = new AsciiBar({
     undoneSymbol: "-",
@@ -62,7 +60,7 @@ let bar = new AsciiBar({
 });
 
 //set up all mootors
-console.log("Setting up motors...");
+console.log("\nSetting up motors...");
 global.M = {};
 let pinout = [14, 15, 18, 23, 24, 25, 8, 7, 12, 16, 20, 21];
 for(let i = 0; i < 12; i++){

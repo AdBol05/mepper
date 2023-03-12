@@ -11,10 +11,13 @@ module.exports = (input, debug) => {
     let notes_raw = fs.readFileSync("./notes.csv", "utf-8").split("\n").filter(element => {return element !== undefined;});
     
     console.log("Processing input...");
-    
+
+    let index = 0;
     for(i in notes_raw){
         let no = notes_raw[i].split(",");
-        notemap.set(no[0].trim(), {ntm: no[1].trim(), m: no[2].trim()});
+        index++;
+        if (index > 12){index = 1;}
+        notemap.set(no[0].trim(), {ntm: no[1].trim(), m: index});
     }
 
 /*    notemap.set("cf", { ntm: 1805, m: 1 });
