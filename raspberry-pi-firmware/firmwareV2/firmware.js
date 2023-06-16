@@ -2,7 +2,9 @@ const fs = require('fs');
 const AsciiBar = require('ascii-bar').default;
 const Gpio = require('onoff').Gpio;
 let sleep = require('sleep');
-const translate = require('./translate.js');
+
+const execpath = process.cwd();
+const translate = require(execpath + '/translate.js');
 //let util = require('util');
 
 const args = process.argv.slice(2);//get process arguments
