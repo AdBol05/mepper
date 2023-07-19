@@ -5,6 +5,8 @@ var midiTiming = require('./midi.js');
 const { Note } = require("@tonaljs/tonal");
 
 const args = process.argv.slice(2);//process arguments
+if(args[0] === undefined){console.log('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided"); process.exit(9);}
+
 var inFile = args[0] //input filename
 var outFile = inFile.replace(".mid", ".json");//output filename
 var outname = ""; //name to be writteno into output file
@@ -18,7 +20,6 @@ console.log('\x1b[32m%s\x1b[0m'," / / / / / /  __/ /_/ / /_/ /  __/ /          "
 console.log('\x1b[32m%s\x1b[0m',"/_/ /_/ /_/\\___/ .___/ .___/\\___/_/         ");
 console.log('\x1b[32m%s\x1b[0m',"              /_/   /_/                       \n");
 
-if(args[0] === undefined){console.log('\x1b[31m%s\x1b[0m',"ERROR: Input file path not provided"); process.exit(9);}
 
 var midiData = fs.readFileSync(args[0], 'binary');
 var timing = midiTiming(midiData);
